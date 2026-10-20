@@ -4,6 +4,7 @@ import urllib.request
 from datetime import datetime
 
 SEASON_ID = "20262027"
+HISTORY_FILE = "history_cache.json"
 
 PARTICIPANTS = [
 {
@@ -1152,6 +1153,58 @@ def load_previous():
     return previous_ranks, previous_player_pts, previous_team_pts
 
 
+def load_history_cache():
+    if os.path.exists(HISTORY_FILE):
+        try:
+            with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {"chart_dates": [], "cumulative_history": {}}
+
+
+def save_history_cache(cache):
+    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+
+def update_friday_history(leaderboard):
+    now = datetime.now()
+    # 4 correspond à vendredi (lundi = 0, mardi = 1, mercredi = 2, jeudi = 3, vendredi = 4)
+    is_friday = (now.weekday() == 4)
+
+    cache = load_history_cache()
+    chart_dates = cache.get("chart_dates", [])
+    cumulative_history = cache.get("cumulative_history", {})
+
+    friday_label = now.strftime("%d %b")
+
+    # Si c'est vendredi et qu'on n'a pas encore enregistré cette date aujourd'hui
+    if is_friday and (not chart_dates or chart_dates[-1] != friday_label):
+        chart_dates.append(friday_label)
+        for p in leaderboard:
+            name = p.get("name")
+            total = p.get("total_points", 0)
+            if name not in cumulative_history:
+                cumulative_history[name] = []
+            cumulative_history[name].append(total)
+        save_history_cache({"chart_dates": chart_dates, "cumulative_history": cumulative_history})
+
+    # Injecter l'historique dans chaque participant pour data.json
+    for p in leaderboard:
+        name = p.get("name")
+        total = p.get("total_points", 0)
+        user_series = cumulative_history.get(name, [])
+        
+        # S'assurer que le pointage actuel est bien reflété à la fin même si ce n'est pas vendredi
+        if not user_series or user_series[-1] != total:
+            p["history"] = user_series + [total]
+        else:
+            p["history"] = user_series
+
+    return chart_dates
+
+
 def with_pts_last(st, previous_player_pts):
     entry = dict(st)
     name = entry.get("name", "")
@@ -1175,7 +1228,6 @@ def with_team_pts_last(st, previous_team_pts):
 
 
 def parse_player(pid, data):
-    """Extrait les stats de la saison courante (saison régulière NHL uniquement)."""
     first = ""
     last = ""
     if isinstance(data.get("firstName"), dict):
@@ -1198,7 +1250,6 @@ def parse_player(pid, data):
     elif pos_code == "D":
         position = "D"
     else:
-        # C, L, R, W, F, etc. → attaquant
         position = "A"
 
     abbrev = str(
@@ -1211,7 +1262,6 @@ def parse_player(pid, data):
     wins = shutouts = ot_losses = 0
     found = False
 
-    # 1) seasonTotals : saison courante + NHL + saison régulière (gameTypeId 2)
     for st in data.get("seasonTotals") or []:
         if str(st.get("season")) != SEASON_ID:
             continue
@@ -1236,12 +1286,10 @@ def parse_player(pid, data):
         found = True
         break
 
-    # 2) Fallback featuredStats (uniquement si la saison affichée correspond)
     if not found:
         featured = data.get("featuredStats") or {}
         feat_season = str(featured.get("season") or "")
         if feat_season == SEASON_ID:
-            # Structure réelle: featuredStats.regularSeason.subSeason
             reg = featured.get("regularSeason") or {}
             sub = reg.get("subSeason") if isinstance(reg, dict) else None
             if not isinstance(sub, dict) or not sub:
@@ -1259,7 +1307,6 @@ def parse_player(pid, data):
                         points = goals * 3 + assists * 2
                     else:
                         points = goals * 2 + assists * 1
-                found = True
 
     return {
         "id": pid,
@@ -1307,7 +1354,6 @@ def main():
                 "otLosses": 0,
             }
 
-    # Index standings by team abbreviation (API no longer returns teamId reliably)
     teams_by_abbrev = {}
     try:
         standings = fetch_json("https://api-web.nhle.com/v1/standings/now")
@@ -1342,7 +1388,6 @@ def main():
     except Exception as e:
         print(f"Erreur standings: {e}")
 
-    # Map numeric team IDs used in PARTICIPANTS → stats via TEAM_INFO abbrev
     teams_stats = {}
     for tid in all_team_ids:
         info = TEAM_INFO.get(tid, {"name": f"Équipe {tid}", "abbrev": ""})
@@ -1358,8 +1403,6 @@ def main():
                 "ot_wins": 0,
                 "ot_losses": 0,
             }
-            if abbrev:
-                print(f"Attention: pas de standings pour {abbrev} (id {tid})")
 
     leaderboard = []
 
@@ -1450,6 +1493,9 @@ def main():
         else:
             p["trend"] = "down"
 
+    # Mise à jour et enregistrement des points du vendredi pour le graphique
+    chart_dates = update_friday_history(leaderboard)
+
     seen = {}
     for entry in leaderboard:
         for s in entry.get("skaters", []):
@@ -1465,6 +1511,7 @@ def main():
     output = {
         "season": SEASON_ID,
         "updated_at": datetime.now().astimezone().isoformat(),
+        "chart_dates": chart_dates if chart_dates else ["Début"],
         "leaderboard": leaderboard,
         "players": players_unique,
     }
