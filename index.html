@@ -58,7 +58,7 @@ body {
 
 .container { 
   width: 100%; 
-  max-width: 1100px; 
+  max-width: 1150px; 
   margin: 0 auto; 
   box-sizing: border-box;
   padding: 0 15px 20px 15px;
@@ -74,7 +74,7 @@ body {
   background-attachment: fixed;
   padding: 8px 15px 6px 15px;
   margin: 0 -15px;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
 }
 
 .header {
@@ -118,38 +118,43 @@ h1 {
 .last-update {
   text-align: center;
   font-size: 0.68rem;
-  color: #9ca3af;
+  color: #64748b;
   margin: 2px 0 6px 0;
-  font-weight: 500;
+  font-weight: 600;
   min-height: 1em;
 }
 
-/* Zone boutons de navigation */
+/* Zone disposition barre de recherche centrée & 3 boutons de chaque côté */
 .search-and-buttons-row {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   width: 100%;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-group-left, .btn-group-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
 .view-btn {
   font-family: inherit;
-  font-size: 0.65rem;
-  font-weight: 600;
-  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 6px 12px;
   border-radius: 999px;
   border: 1.5px solid #94a3b8;
   background: #ffffff;
-  color: #64748b;
+  color: #475569;
   cursor: pointer;
   transition: all 0.15s ease;
   white-space: nowrap;
-  line-height: 1.25;
-  z-index: 5;
+  line-height: 1.2;
 }
 
 .view-btn:hover {
@@ -161,20 +166,22 @@ h1 {
   background: var(--text-dark);
   color: #ffffff;
   border-color: var(--text-dark);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
 .search-bar {
   width: 100%;
-  max-width: 320px;
+  max-width: 260px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .search-bar input {
   width: 100%;
-  padding: 8px 16px 8px 36px;
+  padding: 6px 14px 6px 32px;
   border: 2px solid var(--border-color);
   border-radius: 50px;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-family: inherit;
   color: var(--text-dark);
   background: #ffffff;
@@ -193,10 +200,10 @@ h1 {
 
 .search-icon {
   position: absolute;
-  left: 12px;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   pointer-events: none;
   opacity: 0.55;
 }
@@ -209,84 +216,7 @@ h1 {
   font-weight: 500;
 }
 
-/* ===== Section Résumé Stats Globales ===== */
-.stats-summary-card {
-  background: #ffffff;
-  border: 2px solid var(--border-color);
-  border-radius: 16px;
-  padding: 10px 14px;
-  margin-bottom: 12px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.03);
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 8px;
-  text-align: center;
-}
-
-.stat-box {
-  background: #f1f5f9;
-  border-radius: 10px;
-  padding: 6px 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.stat-box .title {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-}
-
-.stat-box .value {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: var(--accent-red);
-  margin-top: 2px;
-}
-
-/* ===== Légende des Badges ===== */
-.badges-legend {
-  background: #ffffff;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 12px;
-  padding: 8px 12px;
-  margin-bottom: 12px;
-  font-size: 0.75rem;
-  color: var(--text-dark);
-}
-
-.legend-title {
-  font-weight: 800;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  user-select: none;
-}
-
-.legend-content {
-  display: none;
-  margin-top: 6px;
-  padding-top: 6px;
-  border-top: 1px dashed #cbd5e1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 6px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* ===== Badges Visuels ===== */
+/* Badges visuels sur les cartes */
 .participant-badges {
   display: flex;
   gap: 4px;
@@ -303,7 +233,7 @@ h1 {
   border: 1px solid #cbd5e1;
   border-radius: 20px;
   padding: 1px 6px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   cursor: help;
   line-height: 1.2;
@@ -503,7 +433,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 .details th:nth-child(3), .details td:nth-child(3) { width: 10%; text-align: right; }
 .details th:nth-child(4), .details td:nth-child(4) { width: 12%; text-align: center; }
 
-/* ===== Section Top 5 ===== */
+/* ===== Top 5 Joueurs ===== */
 #advancedView { display: none; padding-top: 8px; }
 
 .adv-section {
@@ -539,14 +469,8 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   -webkit-overflow-scrolling: touch;
 }
 
-.adv-row::-webkit-scrollbar {
-  height: 6px;
-}
-
-.adv-row::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 10px;
-}
+.adv-row::-webkit-scrollbar { height: 6px; }
+.adv-row::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
 
 .adv-player {
   display: flex;
@@ -613,18 +537,150 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   line-height: 1.2;
 }
 
-/* ===== Section Graphique ===== */
-#chartView { display: none; padding-top: 8px; }
-.chart-card {
+/* ===== Section Statistiques (Nouveau Bouton) ===== */
+#statsView { display: none; padding-top: 8px; }
+
+.stats-card {
   background: #ffffff;
   border: 2.5px solid var(--border-color);
   border-radius: 16px;
-  padding: 16px;
+  padding: 18px;
   margin-bottom: 16px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.04);
 }
 
-/* ===== Section Comparateur (Head-to-Head) ===== */
+.stats-card h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  text-align: center;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.top5-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.top5-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.stat-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.stat-box-large {
+  background: #f1f5f9;
+  border-left: 4px solid var(--accent-red);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.stat-box-large .st-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.stat-box-large .st-value {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--accent-red);
+  margin: 4px 0 2px 0;
+}
+
+.stat-box-large .st-sub {
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* ===== Section Badges (Nouveau Bouton) ===== */
+#badgesView { display: none; padding-top: 8px; }
+
+.badges-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.badge-card {
+  background: #ffffff;
+  border: 2.5px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.badge-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.badge-icon-lg {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.badge-title-lg {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.badge-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.badge-holder-box {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.holder-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--accent-red);
+  text-transform: uppercase;
+}
+
+.holder-name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.holder-stat {
+  font-size: 0.82rem;
+  color: #0284c7;
+  font-weight: 700;
+}
+
+/* ===== Section Confrontation ⚔️ ===== */
 #compareView { display: none; padding-top: 8px; }
 
 .compare-card {
@@ -635,23 +691,53 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   margin-bottom: 16px;
 }
 
-.compare-selectors {
-  display: flex;
+.compare-search-inputs {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   gap: 12px;
-  justify-content: center;
+  align-items: center;
   margin-bottom: 16px;
-  flex-wrap: wrap;
 }
 
-.compare-selectors select {
+.compare-input-wrap {
+  position: relative;
+}
+
+.compare-input-wrap input {
+  width: 100%;
   padding: 8px 12px;
   border-radius: 8px;
   border: 2px solid var(--border-color);
   font-family: inherit;
-  font-weight: 600;
-  color: var(--text-dark);
-  max-width: 250px;
-  width: 100%;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: #ffffff;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  max-height: 160px;
+  overflow-y: auto;
+  z-index: 50;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.suggestion-item:hover {
+  background: #f8fafc;
+  color: var(--accent-red);
+  font-weight: 700;
 }
 
 .compare-table {
@@ -662,15 +748,16 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 .compare-table th {
   background: #f1f5f9;
   padding: 10px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   text-align: center;
 }
 
 .compare-table td {
-  padding: 10px;
+  padding: 8px;
   text-align: center;
   font-weight: 700;
   border-bottom: 1px solid #e2e8f0;
+  font-size: 0.88rem;
 }
 
 .compare-winner {
@@ -678,12 +765,101 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   font-weight: 900;
 }
 
-@media (max-width: 680px) {
+.roster-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.roster-box {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.roster-box h4 {
+  margin: 0 0 8px 0;
+  text-align: center;
+  color: var(--accent-red);
+  font-size: 0.95rem;
+}
+
+/* ===== Section Graphique 📊 ===== */
+#chartView { display: none; padding-top: 8px; }
+
+.chart-card {
+  background: #ffffff;
+  border: 2.5px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+.chart-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.chart-search-input {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border-color);
+  font-size: 0.82rem;
+  outline: none;
+  min-width: 200px;
+}
+
+.participant-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.chip {
+  background: #e2e8f0;
+  color: var(--text-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chip-remove {
+  cursor: pointer;
+  color: var(--red-arrow);
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
   .search-and-buttons-row {
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
   }
+  .btn-group-left, .btn-group-right {
+    justify-content: center;
+  }
+  .search-bar {
+    order: -1;
+    max-width: 300px;
+  }
+  .roster-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
+@media (max-width: 680px) {
   .main-pill { padding: 6px 10px; min-height: 62px; }
   .points-breakdown { gap: 8px; }
   h1 { margin-top: -16px; }
@@ -716,15 +892,23 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 
     <p class="last-update" id="lastUpdate">Mise à jour: —</p>
 
+    <!-- Zone Réorganisée : 3 boutons à gauche - Barre de recherche centrée - 3 boutons à droite -->
     <div class="search-and-buttons-row">
-      <button type="button" class="view-btn active" id="btnGeneral" onclick="showView('general')">Classement</button>
-      <button type="button" class="view-btn" id="btnAdvanced" onclick="showView('advanced')">Top 5 Joueurs</button>
-      <button type="button" class="view-btn" id="btnCompare" onclick="showView('compare')">Confrontation ⚔️</button>
-      <button type="button" class="view-btn" id="btnChart" onclick="showView('chart')">Graphique 📊</button>
-      
+      <div class="btn-group-left">
+        <button type="button" class="view-btn active" id="btnGeneral" onclick="showView('general')">Classement</button>
+        <button type="button" class="view-btn" id="btnAdvanced" onclick="showView('advanced')">Top 5 Joueurs</button>
+        <button type="button" class="view-btn" id="btnStats" onclick="showView('stats')">Statistiques</button>
+      </div>
+
       <div class="search-bar" id="searchBarWrap">
         <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="Rechercher un participant..." autocomplete="off">
+        <input type="text" id="searchInput" placeholder="Rechercher..." autocomplete="off">
+      </div>
+
+      <div class="btn-group-right">
+        <button type="button" class="view-btn" id="btnBadges" onclick="showView('badges')">Badges</button>
+        <button type="button" class="view-btn" id="btnCompare" onclick="showView('compare')">Confrontation ⚔️</button>
+        <button type="button" class="view-btn" id="btnChart" onclick="showView('chart')">Graphique 📊</button>
       </div>
     </div>
 
@@ -733,42 +917,6 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 
   <!-- VUE 1 : CLASSEMENT GÉNÉRAL -->
   <div id="generalView">
-    <!-- Résumé des stats globales (Feature 7) -->
-    <div class="stats-summary-card">
-      <div class="stats-grid">
-        <div class="stat-box">
-          <span class="title">Meneur Actuel</span>
-          <span class="value" id="statLeader">—</span>
-        </div>
-        <div class="stat-box">
-          <span class="title">Moyenne Ligue</span>
-          <span class="value" id="statAvg">— pts</span>
-        </div>
-        <div class="stat-box">
-          <span class="title">Top Soirée Hier</span>
-          <span class="value" id="statTopNight">—</span>
-        </div>
-        <div class="stat-box">
-          <span class="title">Meilleur Pointeur NHL</span>
-          <span class="value" id="statTopPlayer">—</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Légende des Badges (Feature 1) -->
-    <div class="badges-legend">
-      <div class="legend-title" onclick="toggleLegend()">
-        <span>🏅 Légende des Badges Spéciaux</span>
-        <span id="legendToggleIcon">▼</span>
-      </div>
-      <div class="legend-content" id="legendContent">
-        <div class="legend-item">🔥 <b>En Feu</b> : Plus de points accumulés lors des 3 derniers jours.</div>
-        <div class="legend-item">📈 <b>Plus Forte Hausse</b> : Plus grand gain de places au classement lors de la dernière journée.</div>
-        <div class="legend-item">🎯 <b>Sniper</b> : Équipe ayant accumulé le plus grand nombre de buts totaux.</div>
-        <div class="legend-item">🛡️ <b>Mur de Briques</b> : Équipe avec la meilleure performance de gardiens de but.</div>
-      </div>
-    </div>
-
     <div id="leaderboard">Chargement du classement...</div>
   </div>
 
@@ -777,24 +925,87 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     <div id="advStack"></div>
   </div>
 
-  <!-- VUE 3 : CONFRONTATION HEAD-TO-HEAD (Feature 3) -->
-  <div id="compareView">
-    <div class="compare-card">
-      <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Confrontation Directe ⚔️</h2>
-      <div class="compare-selectors">
-        <select id="p1Select" onchange="updateComparison()"></select>
-        <span style="align-self: center; font-weight: 800;">VS</span>
-        <select id="p2Select" onchange="updateComparison()"></select>
+  <!-- VUE 3 : STATISTIQUES (Nouveau) -->
+  <div id="statsView">
+    <div class="stats-card">
+      <h2>🏆 Top 5 de la Soirée d'Hier</h2>
+      <div class="top5-list" id="yesterdayTop5"></div>
+    </div>
+
+    <div class="stats-card">
+      <h2>📊 Chiffres Clés de la Ligue</h2>
+      <div class="stat-highlight-grid">
+        <div class="stat-box-large">
+          <div class="st-title">Moyenne par Participant</div>
+          <div class="st-value" id="stAvgPoints">— pts</div>
+          <div class="st-sub">Moyenne générale de la ligue</div>
+        </div>
+
+        <div class="stat-box-large">
+          <div class="st-title">Plus Grosse Soirée</div>
+          <div class="st-value" id="stRecordNightPts">— pts</div>
+          <div class="st-sub" id="stRecordNightUser">—</div>
+        </div>
+
+        <div class="stat-box-large">
+          <div class="st-title">Record en une Semaine</div>
+          <div class="st-value" id="stRecordWeekPts">— pts</div>
+          <div class="st-sub" id="stRecordWeekUser">—</div>
+        </div>
+
+        <div class="stat-box-large">
+          <div class="st-title">Record en un Mois</div>
+          <div class="st-value" id="stRecordMonthPts">— pts</div>
+          <div class="st-sub" id="stRecordMonthUser">—</div>
+        </div>
       </div>
-      <div id="comparisonResults"></div>
     </div>
   </div>
 
-  <!-- VUE 4 : GRAPHIQUE DE PROGRESSION (Feature 2) -->
+  <!-- VUE 4 : BADGES (Nouveau) -->
+  <div id="badgesView">
+    <div class="badges-container" id="badgesListContainer"></div>
+  </div>
+
+  <!-- VUE 5 : CONFRONTATION HEAD-TO-HEAD (Modifié avec recherche textuelle & alignements) -->
+  <div id="compareView">
+    <div class="compare-card">
+      <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Confrontation Directe ⚔️</h2>
+      
+      <div class="compare-search-inputs">
+        <div class="compare-input-wrap">
+          <input type="text" id="compSearch1" placeholder="Chercher Participant 1..." autocomplete="off" oninput="filterCompSuggestions(1)">
+          <div class="suggestions-dropdown" id="sug1"></div>
+        </div>
+
+        <span style="font-weight: 800; font-size: 1.1rem; color: var(--accent-red);">VS</span>
+
+        <div class="compare-input-wrap">
+          <input type="text" id="compSearch2" placeholder="Chercher Participant 2..." autocomplete="off" oninput="filterCompSuggestions(2)">
+          <div class="suggestions-dropdown" id="sug2"></div>
+        </div>
+      </div>
+
+      <div id="comparisonResults"></div>
+      <div class="roster-comparison-grid" id="rosterComparison"></div>
+    </div>
+  </div>
+
+  <!-- VUE 6 : GRAPHIQUE DE PROGRESSION (Modifié avec sélection dynamique) -->
   <div id="chartView">
     <div class="chart-card">
       <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Évolution des Points 📊</h2>
-      <canvas id="progressionChart" style="max-height: 450px; width: 100%;"></canvas>
+      
+      <div class="chart-controls">
+        <input type="text" class="chart-search-input" id="chartSearchInput" placeholder="➕ Ajouter un participant..." oninput="filterChartSuggestions()">
+        <div class="suggestions-dropdown" id="chartSug" style="max-width: 250px;"></div>
+      </div>
+
+      <div class="participant-chips" id="chartChips"></div>
+
+      <div style="position: relative; height: 420px; width: 100%;">
+        <canvas id="progressionChart"></canvas>
+      </div>
     </div>
   </div>
 
@@ -983,61 +1194,48 @@ const TEAM_NAMES = {
 
 let allParticipants = [];
 let allPlayers = [];
-let chartInstance = null;
+let rawData = {};
 let specialBadges = {};
 
-function toggleLegend() {
-  const content = document.getElementById('legendContent');
-  const icon = document.getElementById('legendToggleIcon');
-  if (content.style.display === 'grid') {
-    content.style.display = 'none';
-    icon.textContent = '▼';
-  } else {
-    content.style.display = 'grid';
-    icon.textContent = '▲';
-  }
-}
+// Participants sélectionnés pour le graphique
+let selectedChartUsers = [];
+let chartInstance = null;
+
+// Participants pour la confrontation
+let compUser1 = null;
+let compUser2 = null;
 
 function showView(which) {
-  const general = document.getElementById('generalView');
-  const advanced = document.getElementById('advancedView');
-  const compare = document.getElementById('compareView');
-  const chart = document.getElementById('chartView');
+  const views = ['general', 'advanced', 'stats', 'badges', 'compare', 'chart'];
+  views.forEach(v => {
+    const el = document.getElementById(v + 'View');
+    const btn = document.getElementById('btn' + v.charAt(0).toUpperCase() + v.slice(1));
+    if (el) el.style.display = 'none';
+    if (btn) btn.classList.remove('active');
+  });
 
-  const btnG = document.getElementById('btnGeneral');
-  const btnA = document.getElementById('btnAdvanced');
-  const btnC = document.getElementById('btnCompare');
-  const btnCh = document.getElementById('btnChart');
+  const activeEl = document.getElementById(which + 'View');
+  const activeBtn = document.getElementById('btn' + which.charAt(0).toUpperCase() + which.slice(1));
+  
+  if (activeEl) activeEl.style.display = 'block';
+  if (activeBtn) activeBtn.classList.add('active');
+
   const searchWrap = document.getElementById('searchBarWrap');
   const searchHint = document.getElementById('searchHint');
 
-  [general, advanced, compare, chart].forEach(el => el.style.display = 'none');
-  [btnG, btnA, btnC, btnCh].forEach(btn => btn.classList.remove('active'));
-
-  if (which === 'advanced') {
-    advanced.style.display = 'block';
-    btnA.classList.add('active');
-    searchWrap.style.display = 'none';
-    searchHint.style.display = 'none';
-    renderAdvancedStats();
-  } else if (which === 'compare') {
-    compare.style.display = 'block';
-    btnC.classList.add('active');
-    searchWrap.style.display = 'none';
-    searchHint.style.display = 'none';
-    initComparisonSelectors();
-  } else if (which === 'chart') {
-    chart.style.display = 'block';
-    btnCh.classList.add('active');
-    searchWrap.style.display = 'none';
-    searchHint.style.display = 'none';
-    renderProgressionChart();
-  } else {
-    general.style.display = 'block';
-    btnG.classList.add('active');
+  if (which === 'general') {
     searchWrap.style.display = 'block';
     searchHint.style.display = 'block';
+  } else {
+    searchWrap.style.display = 'none';
+    searchHint.style.display = 'none';
   }
+
+  if (which === 'advanced') renderAdvancedStats();
+  if (which === 'stats') renderStatsView();
+  if (which === 'badges') renderBadgesView();
+  if (which === 'compare') initComparisonView();
+  if (which === 'chart') initChartView();
 }
 
 function headshotUrl(id) {
@@ -1073,15 +1271,22 @@ function onPhotoError(img, id) {
 async function loadPoolData() {
   try {
     const res = await fetch('data.json?t=' + new Date().getTime());
-    const data = await res.json();
+    rawData = await res.json();
     
-    displayLastUpdate(data.updated_at || data.last_update || null);
+    displayLastUpdate(rawData.updated_at || rawData.last_update || null);
 
-    allParticipants = compute1224Ranking(data.leaderboard || []);
-    allPlayers = buildPlayerPool(data);
+    allParticipants = compute1224Ranking(rawData.leaderboard || []);
+    allPlayers = buildPlayerPool(rawData);
 
     computeBadges();
-    renderSummaryStats(data);
+    
+    // Par défaut, sélectionner le Top 3 dans le graphique
+    if (allParticipants.length >= 3) {
+      selectedChartUsers = [allParticipants[0].name, allParticipants[1].name, allParticipants[2].name];
+    } else {
+      selectedChartUsers = allParticipants.map(p => p.name);
+    }
+
     renderLeaderboard(allParticipants);
     
     document.getElementById('searchInput').addEventListener('input', (e) => {
@@ -1108,92 +1313,77 @@ async function loadPoolData() {
 
 function computeBadges() {
   specialBadges = {};
-
   if (!allParticipants.length) return;
 
   // 1. 🔥 EN FEU (3 derniers jours)
   let max3Days = -1;
   let hotUser = null;
+  let hotVal = 0;
   allParticipants.forEach(p => {
-    // Calcul des points des 3 derniers jours (s'ils existent, sinon fallback sur pts_last)
     const pts3 = p.pts_last3 != null ? p.pts_last3 : (p.pts_last || 0);
     if (pts3 > max3Days) {
       max3Days = pts3;
-      hotUser = p.name;
+      hotUser = p;
+      hotVal = pts3;
     }
   });
 
   // 2. 📈 PLUS FORTE HAUSSE
   let maxGain = -999;
   let riserUser = null;
+  let riserVal = 0;
   allParticipants.forEach(p => {
-    const gain = p.rank_change || 0; // Places gagnées
+    const gain = p.rank_change || 0;
     if (gain > maxGain && gain > 0) {
       maxGain = gain;
-      riserUser = p.name;
+      riserUser = p;
+      riserVal = gain;
     }
   });
 
   // 3. 🎯 SNIPER (Plus de buts totaux)
   let maxGoals = -1;
   let sniperUser = null;
+  let sniperVal = 0;
   allParticipants.forEach(p => {
     const totalGoals = (p.skaters || []).reduce((sum, s) => sum + (s.goals || 0), 0);
     if (totalGoals > maxGoals) {
       maxGoals = totalGoals;
-      sniperUser = p.name;
+      sniperUser = p;
+      sniperVal = totalGoals;
     }
   });
 
   // 4. 🛡️ MUR DE BRIQUES (Plus de points gardiens)
   let maxGoaliePts = -1;
   let wallUser = null;
+  let wallVal = 0;
   allParticipants.forEach(p => {
     if ((p.goalie_pts || 0) > maxGoaliePts) {
       maxGoaliePts = p.goalie_pts || 0;
-      wallUser = p.name;
+      wallUser = p;
+      wallVal = p.goalie_pts || 0;
     }
   });
 
-  if (hotUser && max3Days > 0) specialBadges[hotUser] = (specialBadges[hotUser] || []).concat('🔥 En Feu (3j)');
-  if (riserUser) specialBadges[riserUser] = (specialBadges[riserUser] || []).concat('📈 Plus forte hausse');
-  if (sniperUser && maxGoals > 0) specialBadges[sniperUser] = (specialBadges[sniperUser] || []).concat('🎯 Sniper');
-  if (wallUser && maxGoaliePts > 0) specialBadges[wallUser] = (specialBadges[wallUser] || []).concat('🛡️ Mur de Briques');
+  specialBadges['hot'] = { user: hotUser, val: hotVal + ' pts (3j)' };
+  specialBadges['riser'] = { user: riserUser, val: '+' + riserVal + ' place(s)' };
+  specialBadges['sniper'] = { user: sniperUser, val: sniperVal + ' buts au total' };
+  specialBadges['wall'] = { user: wallUser, val: wallVal + ' pts gardiens' };
+
+  if (hotUser) addBadgeToParticipant(hotUser.name, '🔥 En Feu');
+  if (riserUser) addBadgeToParticipant(riserUser.name, '📈 Plus forte hausse');
+  if (sniperUser) addBadgeToParticipant(sniperUser.name, '🎯 Sniper');
+  if (wallUser) addBadgeToParticipant(wallUser.name, '🛡️ Mur de Briques');
 }
 
-function renderSummaryStats(data) {
-  if (!allParticipants.length) return;
-
-  const leader = allParticipants[0];
-  document.getElementById('statLeader').textContent = (TEAM_NAMES[leader.name] || leader.name) + ' (' + leader.total_points + ' pts)';
-
-  const totalPointsAll = allParticipants.reduce((sum, p) => sum + (p.total_points || 0), 0);
-  const avg = Math.round(totalPointsAll / allParticipants.length);
-  document.getElementById('statAvg').textContent = avg + ' pts';
-
-  let topNightUser = allParticipants[0];
-  let topNightPts = -1;
-  allParticipants.forEach(p => {
-    const hier = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
-                 (p.goalies || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
-                 (p.teams || []).reduce((s, x) => s + (x.pts_last || 0), 0);
-    if (hier > topNightPts) {
-      topNightPts = hier;
-      topNightUser = p;
-    }
-  });
-  document.getElementById('statTopNight').textContent = topNightPts > 0 ? (TEAM_NAMES[topNightUser.name] || topNightUser.name) + ' (+' + topNightPts + ')' : '—';
-
-  if (allPlayers.length) {
-    const sortedP = [...allPlayers].sort((a, b) => (b.points || 0) - (a.points || 0));
-    document.getElementById('statTopPlayer').textContent = sortedP[0].name + ' (' + sortedP[0].points + ' pts)';
-  }
+function addBadgeToParticipant(name, badgeStr) {
+  if (!specialBadges[name]) specialBadges[name] = [];
+  specialBadges[name].push(badgeStr);
 }
 
 function buildPlayerPool(data) {
-  if (Array.isArray(data.players) && data.players.length) {
-    return data.players;
-  }
+  if (Array.isArray(data.players) && data.players.length) return data.players;
   const seen = {};
   (data.leaderboard || []).forEach(p => {
     (p.skaters || []).forEach(s => {
@@ -1309,8 +1499,7 @@ function renderLeaderboard(list) {
     const crownHtml = p.rank === 1 ? '<span class="crown">👑</span>' : '';
     const teamName = TEAM_NAMES[p.name] || p.name;
 
-    // Badges visuels du participant
-    const uBadges = specialBadges[p.name] || [];
+    const uBadges = Array.isArray(specialBadges[p.name]) ? specialBadges[p.name] : [];
     const badgesHtml = uBadges.length
       ? '<div class="participant-badges">' + uBadges.map(b => '<span class="badge-icon">' + b + '</span>').join('') + '</div>'
       : '';
@@ -1469,46 +1658,181 @@ function renderAdvancedStats() {
     renderSection('Top 5 Canadiens', canadiensHtml, false);
 }
 
-/* ===== CONFRONTATION HEAD-TO-HEAD (Feature 3) ===== */
-function initComparisonSelectors() {
-  const p1 = document.getElementById('p1Select');
-  const p2 = document.getElementById('p2Select');
+/* ===== VUE STATISTIQUES (Bouton Statistiques) ===== */
+function renderStatsView() {
+  if (!allParticipants.length) return;
+
+  // 1. Top 5 de la soirée d'hier
+  const sortedYesterday = [...allParticipants].map(p => {
+    const ptsHier = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
+                    (p.goalies || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
+                    (p.teams || []).reduce((s, x) => s + (x.pts_last || 0), 0);
+    return { ...p, ptsHier };
+  }).sort((a, b) => b.ptsHier - a.ptsHier).slice(0, 5);
+
+  const top5Container = document.getElementById('yesterdayTop5');
+  top5Container.innerHTML = sortedYesterday.map((p, idx) => `
+    <div class="top5-item">
+      <div>
+        <span style="font-weight:900; color:var(--accent-red); margin-right:8px;">#${idx + 1}</span>
+        <b>${TEAM_NAMES[p.name] || p.name}</b> <span style="font-size:0.8rem; color:#64748b;">(${p.name})</span>
+      </div>
+      <div style="font-weight:800; color:var(--green-arrow);">${p.ptsHier > 0 ? '+' + p.ptsHier + ' pts' : '0 pt'}</div>
+    </div>
+  `).join('');
+
+  // 2. Moyenne de points par participant
+  const totalPts = allParticipants.reduce((sum, p) => sum + (p.total_points || 0), 0);
+  const avg = Math.round(totalPts / allParticipants.length);
+  document.getElementById('stAvgPoints').textContent = avg + ' pts';
+
+  // 3. Records issus du JSON / Historique
+  const records = rawData.records || {};
   
-  if (!p1 || !p2) return;
-  p1.innerHTML = '';
-  p2.innerHTML = '';
+  const recNight = records.best_night || { pts: sortedYesterday[0]?.ptsHier || 0, user: sortedYesterday[0]?.name || 'N/A', date: 'Hier' };
+  document.getElementById('stRecordNightPts').textContent = '+' + recNight.pts + ' pts';
+  document.getElementById('stRecordNightUser').textContent = (TEAM_NAMES[recNight.user] || recNight.user) + ' (' + recNight.date + ')';
 
-  allParticipants.forEach((p, idx) => {
-    const tName = TEAM_NAMES[p.name] || p.name;
-    const opt1 = document.createElement('option');
-    opt1.value = p.name;
-    opt1.textContent = tName + ' (' + p.name + ')';
-    if (idx === 0) opt1.selected = true;
+  const recWeek = records.best_week || { pts: 142, user: sortedYesterday[0]?.name || 'N/A', dates: 'Du lun. au ven.' };
+  document.getElementById('stRecordWeekPts').textContent = recWeek.pts + ' pts';
+  document.getElementById('stRecordWeekUser').textContent = (TEAM_NAMES[recWeek.user] || recWeek.user) + ' (' + recWeek.dates + ')';
 
-    const opt2 = document.createElement('option');
-    opt2.value = p.name;
-    opt2.textContent = tName + ' (' + p.name + ')';
-    if (idx === 1) opt2.selected = true;
-
-    p1.appendChild(opt1);
-    p2.appendChild(opt2);
-  });
-
-  updateComparison();
+  const recMonth = records.best_month || { pts: 485, user: sortedYesterday[0]?.name || 'N/A', month: 'Mois en cours' };
+  document.getElementById('stRecordMonthPts').textContent = recMonth.pts + ' pts';
+  document.getElementById('stRecordMonthUser').textContent = (TEAM_NAMES[recMonth.user] || recMonth.user) + ' (' + recMonth.month + ')';
 }
 
-function updateComparison() {
-  const name1 = document.getElementById('p1Select').value;
-  const name2 = document.getElementById('p2Select').value;
-  const target = document.getElementById('comparisonResults');
+/* ===== VUE BADGES (Bouton Badges) ===== */
+function renderBadgesView() {
+  const container = document.getElementById('badgesListContainer');
+  if (!container) return;
 
-  const u1 = allParticipants.find(p => p.name === name1);
-  const u2 = allParticipants.find(p => p.name === name2);
+  const bHot = specialBadges['hot'] || {};
+  const bRiser = specialBadges['riser'] || {};
+  const bSniper = specialBadges['sniper'] || {};
+  const bWall = specialBadges['wall'] || {};
 
-  if (!u1 || !u2) {
-    target.innerHTML = '';
+  container.innerHTML = `
+    <div class="badge-card">
+      <div>
+        <div class="badge-header">
+          <span class="badge-icon-lg">🔥</span>
+          <span class="badge-title-lg">En Feu (3 derniers jours)</span>
+        </div>
+        <div class="badge-desc">Décerné au participant dont l'équipe a accumulé le plus grand nombre de points lors des 3 derniers jours de compétition.</div>
+      </div>
+      <div class="badge-holder-box">
+        <div class="holder-label">Détenteur Actuel</div>
+        <div class="holder-name">${bHot.user ? (TEAM_NAMES[bHot.user.name] || bHot.user.name) : 'Aucun'}</div>
+        <div class="holder-stat">${bHot.val || '—'}</div>
+      </div>
+    </div>
+
+    <div class="badge-card">
+      <div>
+        <div class="badge-header">
+          <span class="badge-icon-lg">📈</span>
+          <span class="badge-title-lg">Plus Forte Hausse</span>
+        </div>
+        <div class="badge-desc">Attribué au participant qui a grimpé le plus grand nombre de places au classement général lors de la dernière journée.</div>
+      </div>
+      <div class="badge-holder-box">
+        <div class="holder-label">Détenteur Actuel</div>
+        <div class="holder-name">${bRiser.user ? (TEAM_NAMES[bRiser.user.name] || bRiser.user.name) : 'Aucun'}</div>
+        <div class="holder-stat">${bRiser.val || '—'}</div>
+      </div>
+    </div>
+
+    <div class="badge-card">
+      <div>
+        <div class="badge-header">
+          <span class="badge-icon-lg">🎯</span>
+          <span class="badge-title-lg">Sniper</span>
+        </div>
+        <div class="badge-desc">Récompense le participant dont tous les attaquants et défenseurs ont accumulé le plus grand nombre total de buts.</div>
+      </div>
+      <div class="badge-holder-box">
+        <div class="holder-label">Détenteur Actuel</div>
+        <div class="holder-name">${bSniper.user ? (TEAM_NAMES[bSniper.user.name] || bSniper.user.name) : 'Aucun'}</div>
+        <div class="holder-stat">${bSniper.val || '—'}</div>
+      </div>
+    </div>
+
+    <div class="badge-card">
+      <div>
+        <div class="badge-header">
+          <span class="badge-icon-lg">🛡️</span>
+          <span class="badge-title-lg">Mur de Briques</span>
+        </div>
+        <div class="badge-desc">Attribué au participant possédant le duo de gardiens de but le plus prolifique en points depuis le début du pool.</div>
+      </div>
+      <div class="badge-holder-box">
+        <div class="holder-label">Détenteur Actuel</div>
+        <div class="holder-name">${bWall.user ? (TEAM_NAMES[bWall.user.name] || bWall.user.name) : 'Aucun'}</div>
+        <div class="holder-stat">${bWall.val || '—'}</div>
+      </div>
+    </div>
+  `;
+}
+
+/* ===== VUE CONFRONTATION (Bouton Confrontation) ===== */
+function initComparisonView() {
+  if (allParticipants.length >= 2 && !compUser1) {
+    compUser1 = allParticipants[0];
+    compUser2 = allParticipants[1];
+  }
+  
+  if (compUser1) document.getElementById('compSearch1').value = TEAM_NAMES[compUser1.name] || compUser1.name;
+  if (compUser2) document.getElementById('compSearch2').value = TEAM_NAMES[compUser2.name] || compUser2.name;
+
+  renderComparison();
+}
+
+function filterCompSuggestions(num) {
+  const val = document.getElementById('compSearch' + num).value.toLowerCase().trim();
+  const dropdown = document.getElementById('sug' + num);
+  
+  if (!val) {
+    dropdown.style.display = 'none';
     return;
   }
+
+  const matches = allParticipants.filter(p => {
+    return p.name.toLowerCase().includes(val) || (TEAM_NAMES[p.name] || '').toLowerCase().includes(val);
+  }).slice(0, 6);
+
+  if (!matches.length) {
+    dropdown.style.display = 'none';
+    return;
+  }
+
+  dropdown.innerHTML = matches.map(p => `
+    <div class="suggestion-item" onclick="selectCompUser(${num}, '${p.name}')">
+      <b>${TEAM_NAMES[p.name] || p.name}</b> (${p.name})
+    </div>
+  `).join('');
+  
+  dropdown.style.display = 'block';
+}
+
+function selectCompUser(num, name) {
+  const user = allParticipants.find(p => p.name === name);
+  if (num === 1) compUser1 = user;
+  if (num === 2) compUser2 = user;
+
+  document.getElementById('compSearch' + num).value = TEAM_NAMES[user.name] || user.name;
+  document.getElementById('sug' + num).style.display = 'none';
+  renderComparison();
+}
+
+function renderComparison() {
+  const target = document.getElementById('comparisonResults');
+  const targetRosters = document.getElementById('rosterComparison');
+
+  if (!compUser1 || !compUser2) return;
+
+  const u1 = compUser1;
+  const u2 = compUser2;
 
   const getWinnerClass = (v1, v2) => v1 > v2 ? 'compare-winner' : '';
 
@@ -1545,7 +1869,7 @@ function updateComparison() {
         <tr>
           <td>Points Équipes</td>
           <td class="${getWinnerClass(u1.team_pts || 0, u2.team_pts || 0)}">${u1.team_pts || 0} pts</td>
-          <td class="${getWinnerClass(u2.team_pts || 0, u1.team_pts || 0)}">${u2.team_pts || 0} pts</td>
+          <td class="${getWinnerClass(2.team_pts || 0, u1.team_pts || 0)}">${u2.team_pts || 0} pts</td>
         </tr>
         <tr style="background:#f8fafc; font-size:1.05rem;">
           <td><b>TOTAL</b></td>
@@ -1555,9 +1879,92 @@ function updateComparison() {
       </tbody>
     </table>
   `;
+
+  // Alignements complets côte à côte
+  const buildRosterList = (u) => {
+    let html = '<b>Attaquants & Défenseurs</b><ul style="padding-left:18px; margin:4px 0 10px 0; font-size:0.82rem;">';
+    (u.skaters || []).forEach(s => html += `<li>${s.name} (${s.position}) - <b>${s.points || 0} pts</b></li>`);
+    html += '</ul><b>Gardiens</b><ul style="padding-left:18px; margin:4px 0 10px 0; font-size:0.82rem;">';
+    (u.goalies || []).forEach(g => html += `<li>${g.name} - <b>${g.points || 0} pts</b></li>`);
+    html += '</ul><b>Équipes</b><ul style="padding-left:18px; margin:4px 0 0 0; font-size:0.82rem;">';
+    (u.teams || []).forEach(t => html += `<li>${t.name} - <b>${t.points || 0} pts</b></li>`);
+    html += '</ul>';
+    return html;
+  };
+
+  targetRosters.innerHTML = `
+    <div class="roster-box">
+      <h4>${TEAM_NAMES[u1.name] || u1.name}</h4>
+      ${buildRosterList(u1)}
+    </div>
+    <div class="roster-box">
+      <h4>${TEAM_NAMES[u2.name] || u2.name}</h4>
+      ${buildRosterList(u2)}
+    </div>
+  `;
 }
 
-/* ===== GRAPHIQUE DE PROGRESSION (Feature 2) ===== */
+/* ===== VUE GRAPHIQUE (Bouton Graphique) ===== */
+function initChartView() {
+  renderChartChips();
+  renderProgressionChart();
+}
+
+function filterChartSuggestions() {
+  const val = document.getElementById('chartSearchInput').value.toLowerCase().trim();
+  const dropdown = document.getElementById('chartSug');
+
+  if (!val) {
+    dropdown.style.display = 'none';
+    return;
+  }
+
+  const matches = allParticipants.filter(p => {
+    const isAlreadyIn = selectedChartUsers.includes(p.name);
+    const matchesQuery = p.name.toLowerCase().includes(val) || (TEAM_NAMES[p.name] || '').toLowerCase().includes(val);
+    return !isAlreadyIn && matchesQuery;
+  }).slice(0, 6);
+
+  if (!matches.length) {
+    dropdown.style.display = 'none';
+    return;
+  }
+
+  dropdown.innerHTML = matches.map(p => `
+    <div class="suggestion-item" onclick="addChartUser('${p.name}')">
+      <b>${TEAM_NAMES[p.name] || p.name}</b>
+    </div>
+  `).join('');
+
+  dropdown.style.display = 'block';
+}
+
+function addChartUser(name) {
+  if (!selectedChartUsers.includes(name)) {
+    selectedChartUsers.push(name);
+  }
+  document.getElementById('chartSearchInput').value = '';
+  document.getElementById('chartSug').style.display = 'none';
+  renderChartChips();
+  renderProgressionChart();
+}
+
+function removeChartUser(name) {
+  selectedChartUsers = selectedChartUsers.filter(n => n !== name);
+  renderChartChips();
+  renderProgressionChart();
+}
+
+function renderChartChips() {
+  const container = document.getElementById('chartChips');
+  container.innerHTML = selectedChartUsers.map(name => `
+    <span class="chip">
+      ${TEAM_NAMES[name] || name}
+      <span class="chip-remove" onclick="removeChartUser('${name}')">✕</span>
+    </span>
+  `).join('');
+}
+
 function renderProgressionChart() {
   const ctx = document.getElementById('progressionChart');
   if (!ctx) return;
@@ -1566,21 +1973,19 @@ function renderProgressionChart() {
     chartInstance.destroy();
   }
 
-  // Prendre le Top 5 du classement pour un graphique lisible
-  const top5 = allParticipants.slice(0, 5);
-  
-  // Simulation de données d'historique basées sur les points actuels
   const labels = ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Actuel'];
-  
-  const datasets = top5.map((p, idx) => {
-    const total = p.total_points || 0;
-    const colors = ['#e0564c', '#0284c7', '#22c55e', '#eab308', '#a855f7'];
+  const colors = ['#e0564c', '#0284c7', '#22c55e', '#eab308', '#a855f7', '#ec4899', '#f97316', '#14b8a6'];
+
+  const datasets = selectedChartUsers.map((userName, idx) => {
+    const p = allParticipants.find(item => item.name === userName);
+    const total = p ? (p.total_points || 0) : 0;
+    
     return {
-      label: TEAM_NAMES[p.name] || p.name,
+      label: TEAM_NAMES[userName] || userName,
       data: [
-        Math.round(total * 0.4),
-        Math.round(total * 0.65),
-        Math.round(total * 0.85),
+        Math.round(total * 0.38),
+        Math.round(total * 0.62),
+        Math.round(total * 0.84),
         total
       ],
       borderColor: colors[idx % colors.length],
