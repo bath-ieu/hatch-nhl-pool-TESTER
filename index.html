@@ -9,7 +9,6 @@
 :root {
   --border-color: #34495e;
   --accent-red: #e0564c;
-  --accent-orange: #e0564c; /* Remplacé par accent rouge */
   --text-dark: #2c3e50;
   --text-gray: #64748b;
   --bg-details: #f8fafc;
@@ -197,8 +196,6 @@ h1 {
   box-shadow: 0 0 0 3px rgba(224, 86, 76, 0.15);
 }
 
-.search-bar input::placeholder { color: #94a3b8; }
-
 .search-icon {
   position: absolute;
   left: 12px;
@@ -217,7 +214,6 @@ h1 {
   font-weight: 500;
 }
 
-/* Badges Visuels */
 .participant-badges {
   display: flex;
   gap: 4px;
@@ -315,9 +311,6 @@ h1 {
   align-items: center;
   gap: clamp(16px, 2.8vw, 32px);
 }
-
-.participant-info.wide .name-block { flex-shrink: 0; }
-.participant-info.wide .points-breakdown { flex-grow: 1; justify-content: flex-start; }
 
 .name-block { min-width: 0; }
 
@@ -434,11 +427,9 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 .details th:nth-child(3), .details td:nth-child(3) { width: 10%; text-align: right; }
 .details th:nth-child(4), .details td:nth-child(4) { width: 12%; text-align: center; }
 
-/* ===== Top 5 Joueurs ===== */
-#advancedView { display: none; padding-top: 8px; }
+#advancedView, #statsView, #badgesView, #compareView, #chartView { display: none; padding-top: 8px; }
 
-.adv-section {
-  width: 100%;
+.adv-section, .stats-card, .badges-card, .compare-card, .chart-card {
   background: #ffffff;
   border: 2.5px solid var(--border-color);
   border-radius: 16px;
@@ -446,15 +437,6 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   margin-bottom: 16px;
   box-sizing: border-box;
   box-shadow: 0 3px 10px rgba(0,0,0,0.04);
-}
-
-.adv-section-title {
-  text-align: left;
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: var(--text-dark);
-  margin: 0 0 12px 2px;
-  letter-spacing: 0.02em;
 }
 
 .adv-row {
@@ -467,11 +449,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   width: 100%;
   overflow-x: auto;
   padding-bottom: 6px;
-  -webkit-overflow-scrolling: touch;
 }
-
-.adv-row::-webkit-scrollbar { height: 6px; }
-.adv-row::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
 
 .adv-player {
   display: flex;
@@ -480,479 +458,38 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   text-align: center;
   flex: 1 0 115px;
   min-width: 115px;
-  padding: 0;
-  background: transparent;
 }
 
-.adv-rank {
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: var(--accent-red);
-  margin-bottom: 2px;
-}
+.adv-rank { font-size: 0.68rem; font-weight: 800; color: var(--accent-red); margin-bottom: 2px; }
+.adv-name { font-size: 0.8rem; font-weight: 600; color: var(--text-dark); white-space: nowrap; }
+.adv-photo { width: 100%; max-width: 100px; aspect-ratio: 4 / 5; object-fit: cover; object-position: top center; display: block; }
+.adv-stat { margin-top: 6px; font-size: 0.95rem; font-weight: 800; color: var(--border-color); }
 
-.adv-name-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 6px;
-  width: 100%;
-  flex-wrap: nowrap;
-}
+.orange-team-name { color: var(--accent-red); font-weight: 800; font-size: 1.05rem; }
+.gray-user-name { color: var(--text-gray); font-weight: 600; font-size: 0.82rem; }
 
-.adv-name {
-  font-size: clamp(0.7rem, 1.4vw, 0.82rem);
-  font-weight: 600;
-  color: var(--text-dark);
-  line-height: 1.2;
-  white-space: nowrap;
-}
+.search-select-wrap { position: relative; width: 100%; max-width: 270px; }
+.search-select-wrap input { width: 100%; padding: 9px 12px; border-radius: 8px; border: 2px solid var(--border-color); font-family: inherit; font-weight: 600; box-sizing: border-box; }
+.dropdown-list { position: absolute; top: 100%; left: 0; right: 0; background: #ffffff; border: 2px solid var(--border-color); border-radius: 8px; max-height: 200px; overflow-y: auto; z-index: 50; display: none; box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+.dropdown-item { padding: 8px 12px; cursor: pointer; display: flex; flex-direction: column; border-bottom: 1px solid #f1f5f9; }
+.dropdown-item:hover { background: #f8fafc; }
 
-.adv-team-logo {
-  width: clamp(28px, 4vw, 36px);
-  height: clamp(28px, 4vw, 36px);
-  object-fit: contain;
-  flex-shrink: 0;
-  display: block;
-}
-
-.adv-photo {
-  width: 100%;
-  max-width: 100px;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: top center;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  display: block;
-}
-
-.adv-stat {
-  margin-top: 6px;
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: var(--border-color);
-  line-height: 1.2;
-}
-
-/* ===== VUE STATISTIQUES REFORMATÉE ===== */
-#statsView { display: none; padding-top: 8px; }
-
-.stats-card {
-  background: #ffffff;
-  border: 2.5px solid var(--border-color);
-  border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-}
-
-.stats-card h2 {
-  margin-top: 0;
-  color: var(--text-dark);
-  font-size: 1.25rem;
-  font-weight: 800;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 10px;
-  margin-bottom: 18px;
-  text-align: center;
-}
-
-.stats-grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 14px;
-}
-
-.stats-box-item {
-  background: #f8fafc;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 12px;
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.stats-item-title {
-  font-weight: 800;
-  font-size: 0.78rem;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-
-.stats-item-value-block {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.orange-team-name {
-  color: var(--accent-red);
-  font-weight: 800;
-  font-size: 1.05rem;
-  line-height: 1.2;
-}
-
-.gray-user-name {
-  color: var(--text-gray);
-  font-weight: 600;
-  font-size: 0.82rem;
-}
-
-.stat-extra-info {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--accent-red);
-  margin-top: 4px;
-}
-
-/* Style affiné pour le Top 5 Soirée d'hier */
-.top5-night-card {
-  background: #f8fafc;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 16px;
-}
-
-.top5-night-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.top5-night-list li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
-  background: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-}
-
-.top5-rank-badge {
-  font-weight: 900;
-  font-size: 0.85rem;
-  color: var(--accent-red);
-  width: 28px;
-}
-
-.top5-names-wrap {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  min-width: 0;
-  margin-right: 10px;
-}
-
-.top5-names-wrap .orange-team-name {
-  font-size: 0.95rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.top5-names-wrap .gray-user-name {
-  font-size: 0.78rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.top5-score {
-  color: var(--green-arrow);
-  font-weight: 800;
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
-
-/* ===== VUE BADGES ===== */
-#badgesView { display: none; padding-top: 8px; }
-
-.badges-card {
-  background: #ffffff;
-  border: 2.5px solid var(--border-color);
-  border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-}
-
-.badge-desc-item {
-  display: flex;
-  flex-direction: column;
-  padding: 14px;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  background: #f8fafc;
-}
-
-.badge-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.badge-title {
-  font-weight: 800;
-  font-size: 1rem;
-  color: var(--text-dark);
-}
-
-.badge-holder-block {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-end;
-  background: #ffffff;
-  padding: 4px 10px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
-  margin-bottom: 4px;
-}
-
-.badge-holders-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-}
-
-.badge-desc {
-  font-size: 0.85rem;
-  color: #64748b;
-  line-height: 1.35;
-}
-
-/* ===== VUE CONFRONTATION ===== */
-#compareView { display: none; padding-top: 8px; }
-
-.compare-card {
-  background: #ffffff;
-  border: 2.5px solid var(--border-color);
-  border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 16px;
-}
-
-.compare-search-inputs {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 18px;
-  flex-wrap: wrap;
-}
-
-.search-select-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 270px;
-}
-
-.search-select-wrap input {
-  width: 100%;
-  padding: 9px 12px;
-  border-radius: 8px;
-  border: 2px solid var(--border-color);
-  font-family: inherit;
-  font-weight: 600;
-  color: var(--text-dark);
-  box-sizing: border-box;
-}
-
-.dropdown-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 50;
-  display: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
-.dropdown-item {
-  padding: 8px 12px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.dropdown-item:hover {
-  background: #f8fafc;
-}
-
-.compare-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-.compare-table th {
-  background: #f1f5f9;
-  padding: 10px;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
-.compare-table td {
-  padding: 10px;
-  text-align: center;
-  font-weight: 700;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.compare-winner {
-  color: var(--green-arrow);
-  font-weight: 900;
-}
-
-.roster-comparison-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.roster-column {
-  background: #f8fafc;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 12px;
-  padding: 12px;
-}
-
-.roster-column-header {
-  text-align: center;
-  margin-bottom: 10px;
-  padding-bottom: 6px;
-  border-bottom: 1px dashed #cbd5e1;
-}
-
-/* ===== VUE GRAPHIQUE ===== */
-#chartView { display: none; padding-top: 8px; }
-
-.chart-card {
-  background: #ffffff;
-  border: 2.5px solid var(--border-color);
-  border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-}
-
-.chart-search-bar {
-  width: 100%;
-  max-width: 380px;
-  margin: 0 auto 16px auto;
-  position: relative;
-}
-
-.chart-search-bar input {
-  width: 100%;
-  padding: 9px 12px;
-  border-radius: 8px;
-  border: 2px solid var(--border-color);
-  font-family: inherit;
-  font-weight: 600;
-  box-sizing: border-box;
-}
-
-.selected-chart-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.chart-tag {
-  background: #e2e8f0;
-  padding: 4px 10px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.chart-tag span.close-btn {
-  cursor: pointer;
-  color: var(--red-arrow);
-  font-weight: 800;
-  margin-left: 4px;
-}
-
-@media (max-width: 820px) {
-  .search-and-buttons-row {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .btn-group-left, .btn-group-right {
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
-  .search-bar {
-    max-width: 100%;
-    order: -1;
-  }
-
-  .roster-comparison-grid {
-    grid-template-columns: 1fr;
-  }
-}
+.selected-chart-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 12px; }
+.chart-tag { background: #e2e8f0; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+.chart-tag span.close-btn { cursor: pointer; color: var(--red-arrow); font-weight: 800; margin-left: 4px; }
 </style>
 </head>
 <body>
 
-<div class="bg-shapes">
-  <div class="bg-shape s1"></div>
-  <div class="bg-shape s2"></div>
-  <div class="bg-shape s3"></div>
-  <div class="bg-shape s4"></div>
-  <div class="bg-shape s5"></div>
-  <div class="bg-shape s6"></div>
-  <div class="bg-shape s7"></div>
-  <div class="bg-shape s8"></div>
-</div>
-
 <div class="container">
-
   <div class="sticky-top">
     <header class="header">
       <div class="brand-block">
-        <img src="./images/hatch-logo.png" alt="Hatch Logo" class="hatch-logo" onerror="this.style.display='none'">
         <h1>🏒 NHL Super Pool 🥅</h1>
       </div>
     </header>
-
     <p class="last-update" id="lastUpdate">Mise à jour: —</p>
 
-    <!-- Navigation à 6 boutons + Barre de recherche centrée -->
     <div class="search-and-buttons-row">
       <div class="btn-group-left">
         <button type="button" class="view-btn active" id="btnGeneral" onclick="showView('general')">Classement</button>
@@ -971,923 +508,65 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
         <button type="button" class="view-btn" id="btnChart" onclick="showView('chart')">Graphique 📊</button>
       </div>
     </div>
-
     <p class="search-hint" id="searchHint">Cliquer sur une carte pour voir l'alignement complet</p>
   </div>
 
-  <!-- VUE 1 : CLASSEMENT GÉNÉRAL -->
-  <div id="generalView">
-    <div id="leaderboard">Chargement du classement...</div>
-  </div>
+  <div id="generalView"><div id="leaderboard">Chargement du classement...</div></div>
+  <div id="advancedView"><div id="advStack"></div></div>
+  <div id="statsView"><div class="stats-card"><h2>Statistiques Globales</h2><div id="top5NightList"></div></div></div>
+  <div id="badgesView"><div class="badges-card"><h2>Badges</h2><div id="badgesList"></div></div></div>
+  <div id="compareView"><div class="compare-card"><h2>Confrontation</h2><div id="comparisonResults"></div></div></div>
 
-  <!-- VUE 2 : TOP 5 JOUEURS -->
-  <div id="advancedView">
-    <div id="advStack"></div>
-  </div>
-
-  <!-- VUE 3 : STATISTIQUES GLOBALES -->
-  <div id="statsView">
-    <div class="stats-card">
-      <h2>Statistiques Globales du Pool 📊</h2>
-      
-      <!-- Top 5 Soirée d'hier affiné -->
-      <div class="top5-night-card">
-        <div class="stats-item-title">🏆 Top 5 de la Soirée d'Hier</div>
-        <ul class="top5-night-list" id="top5NightList"></ul>
-      </div>
-
-      <div class="stats-grid-container">
-        <div class="stats-box-item">
-          <div class="stats-item-title">🔥 Meilleure Soirée Unique</div>
-          <div id="statBestNightRecord"></div>
-        </div>
-
-        <div class="stats-box-item">
-          <div class="stats-item-title">📅 Sommet Hebdomadaire (Lun - Ven)</div>
-          <div id="statBestWeekRecord"></div>
-        </div>
-
-        <div class="stats-box-item">
-          <div class="stats-item-title">🗓️ Performance Mensuelle Record</div>
-          <div id="statBestMonthRecord"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- VUE 4 : BADGES -->
-  <div id="badgesView">
-    <div class="badges-card">
-      <h2 style="margin-top: 0; color: var(--text-dark); border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; text-align: center;">
-        Badges & Distinctions 🏅
-      </h2>
-      <div id="badgesList"></div>
-    </div>
-  </div>
-
-  <!-- VUE 5 : CONFRONTATION HEAD-TO-HEAD -->
-  <div id="compareView">
-    <div class="compare-card">
-      <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Confrontation Directe ⚔️</h2>
-      
-      <div class="compare-search-inputs">
-        <div class="search-select-wrap">
-          <input type="text" id="compSearch1" placeholder="Chercher Participant 1..." onfocus="showDropdown('list1')" oninput="filterDropdown('compSearch1', 'list1')">
-          <div class="dropdown-list" id="list1"></div>
-        </div>
-
-        <span style="align-self: center; font-weight: 800;">VS</span>
-
-        <div class="search-select-wrap">
-          <input type="text" id="compSearch2" placeholder="Chercher Participant 2..." onfocus="showDropdown('list2')" oninput="filterDropdown('compSearch2', 'list2')">
-          <div class="dropdown-list" id="list2"></div>
-        </div>
-      </div>
-
-      <div id="comparisonResults"></div>
-    </div>
-  </div>
-
-  <!-- VUE 6 : GRAPHIQUE DE PROGRESSION -->
+  <!-- VUE GRAPHIQUE -->
   <div id="chartView">
     <div class="chart-card">
       <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Évolution des Points 📊</h2>
-      
       <div class="chart-search-bar search-select-wrap">
         <input type="text" id="chartUserSearch" placeholder="Ajouter/Chercher un participant..." onfocus="showDropdown('chartList')" oninput="filterDropdown('chartUserSearch', 'chartList')">
         <div class="dropdown-list" id="chartList"></div>
       </div>
-
       <div class="selected-chart-tags" id="chartTags"></div>
-
       <div style="height: 400px; position: relative;">
         <canvas id="progressionChart"></canvas>
       </div>
     </div>
   </div>
-
 </div>
 
 <script>
-const TEAM_NAMES = {
-  "Cédrick Charest": "F* Kreider - Charest",
-  "Hakjun Oh": "Junnie B Johns",
-  "Alexandru Rogai": "Les Rapides de Ville Marie",
-  "Thomas Gueville": "PositiveChange",
-  "Michael Lee": "GOGO HYDRO",
-  "Robert Dellazizzo": "Canadiens de Montréal",
-  "Isabelle Lemay": "ISA",
-  "Regina Nair": "Habsapalooza",
-  "François Lacerte": "Les chars d'assault",
-  "Pamela Pachal": "Freddy26",
-  "Léonore Jean-François": "Je ne connais rien au Hockey",
-  "Francois Létourneau": "Starling",
-  "Mathieu Mei": "Les Chèvres",
-  "Jean-Philip Tremblay": "GO RAPTORS",
-  "Mathieu Labranche": "The underdogs",
-  "Olivier Tom": "Les pesants",
-  "Gabrielle Lamirande-Gauvin": "Le Power Play",
-  "Charles-Antoine Dubeau": "Sauce Brune Mafia",
-  "Quentin Tuphile": "Tempêtes de Laval",
-  "Nousk Ghailane": "Les Canhatchiens",
-  "Leandro Pereira": "Lord of the Rinks",
-  "Louis-Philippe Dufresne Viau": "AST (Analyse Statistique Toute-croche)",
-  "Alexis Lemire": "50Tablette",
-  "Marc-Antoine Dery": "Hatch Orangutans",
-  "Sabrina Ficara": "Ice Ice Baby",
-  "Logan Bélanger": "J'aime trop Josh Anderson",
-  "Normand Yelle": "Team Yelle",
-  "Arnaud Fournier": "Lamar Jackson",
-  "Ariel Beauregard Breton": "Heureux hasards",
-  "Nicolas Besner": "The Risk Was Everyone Else",
-  "Jean-Sebastien Bisaillon": "Gagnante",
-  "Alexandre Bergeron": "Bergy",
-  "Pierre-Luc Pigeon": "Ramenez_Scott_Gomez",
-  "Serge Masse": "Mass2236",
-  "Charles Gauthier": "Demidov Dynasty 😄",
-  "Samia Merazga": "Les Amateurs",
-  "Lucas Parkinson": "The fast Lane",
-  "Jessica Forest": "Run Forest Run!",
-  "Marc Cousineau": "Les Puckés",
-  "Michael Bino": "Mother Puckers",
-  "Nicolas St-Pierre": "Lane train",
-  "Alexy Fafard": "Bastions de Blainville",
-  "Marie-Laurence Boutin": "Team Boutin",
-  "Martin Brunet": "Les Clandestins",
-  "Rebecca Owen": "Habs",
-  "Gabriel De Muy Larose": "Infra",
-  "Josianne Lafontaine": "PDSG RAIL",
-  "Soulaiman Benaamer": "SB89",
-  "Xavier Rousseau-Laliberte": "Xavouine la fouine",
-  "Andreanne Blais": "Pvm",
-  "Alexandre Neal": "Neal Knows Nothing",
-  "Matthew Totarella": "Le Canadiens Express",
-  "Dina Lagonskaya": "Tailings Titans",
-  "Martin Bélanger": "Boom Boom 99",
-  "Julie Arseneault": "Arseneault",
-  "Eduardo": "Trio of four",
-  "Rami El Mays": "The dream team",
-  "Nick Totarella": "GymJunkieNick",
-  "Marlyn Tchoukuegno": "Holy Team",
-  "Lenna Gatouillat": "PinkStiletto💅",
-  "Simon-Pierre Lefebvre": "Les Roams de PVM",
-  "Mélanie Ouellette": "Puck Fiction",
-  "Alondra Rima": "Normand Marineau!",
-  "Laurence Gamache": "Les Timbits",
-  "Cristina Murillo": "Les belugas",
-  "Julie Harvey": "Les Dynamos Défenseurs",
-  "Vincent Joyal": "Team Joyal Power",
-  "Benjamin Arcand": "L'équipe en forme",
-  "Bruno Cournoyer": "Babcock downfall",
-  "Mathieu St-Pierre": "Sags",
-  "Francis Emond": "Crème Boston",
-  "Maxime Beaudry-Lemay": "The Rectified Team",
-  "Marc-Antoine Laforest": "Canadiens1",
-  "Carine Adam": "Hatch Trick1",
-  "Samantha Levac": "Les Québécois de Montréal",
-  "Xavier Lafortune": "Thermique",
-  "Jean-Sebastien Langlois": "Team JS",
-  "Chloe Sallé": "Maple Syrup",
-  "Sophie Couture": "Queens de Montreal",
-  "Richard Verbanac": "Contrôle, Automatisation & Mise en Échec",
-  "Steeve Simard": "L'œil du tigre",
-  "Vincent Coulombe": "Vincent's team",
-  "Elisabeth Danis": "Nostradanis",
-  "Pier-Olivier Hotte-Rene": "Les Doys",
-  "Karl St-André": "Team KSA",
-  "Benoit Gaudet": "Goal Caufield",
-  "Colin Barbeau": "Les Colinours",
-  "Jean-Marc Gauthier": "The Team 2026-27",
-  "Charles Simard": "Charley Bettman's League",
-  "Daniel Marcoux": "Lac St-Jean Power play",
-  "Nathalie Bourgeois": "Queen",
-  "Daniel Reichelson": "Kirill or be Killed",
-  "Yanick Tremblay": "The team",
-  "Aya el Khazen": "B1",
-  "Gerald Tugas": "Puck Around and Find Out",
-  "Eva Marre": "Montreal's Team",
-  "Serge Arguin": "Go-Habs-Go",
-  "Veronique Therrien": "Go! Hatch Go!",
-  "Jacob Bissonnette": "Les Benchwarmers",
-  "Kalvin Southern": "Team Copilot",
-  "Ashley Nguyen": "Connor McChanical-Engineer",
-  "Yves Couture": "Les démons",
-  "Axelle Monnot": "Gigote",
-  "Andrew Middleton": "Bigmountains",
-  "Alain Roy": "Alain Roy",
-  "Olivier Lemoine": "Hatch Trick2",
-  "Michel Bolduc": "Le statisticien avancé",
-  "Martin Beaulieu": "Up the Irons!",
-  "Caroline Bergeron": "Random chaos",
-  "Florence Gagnon": "Panthers de la Floride",
-  "Alexia Fiorilli": "Tkachuk Yourself",
-  "John Greene": "WOW",
-  "Jules Saint-Jean": "UdeS fan club",
-  "Jean Lamoureux": "Trump Derangement Syndrome",
-  "Bakar Amara": "Galacticos",
-  "Steven Parent": "Stevie Wonder's Team",
-  "Jean-Benoit Boucher": "Vendée Team",
-  "Mathieu Huot": "The Pool North",
-  "Jean Gohin": "Étoile Noire de Strasbourg",
-  "Philippe Khalil": "Les Chanadiens",
-  "Xavier Leblanc": "Xavouine la pas fine",
-  "Emmanuelle Lajoie": "Les licornes",
-  "Antoine Duguay": "Les boulettes",
-  "Anne-Laurence Trudeau": "Les baleines",
-  "Xavier Monette": "Bestguess",
-  "Dominic Neveu": "Canadiens2",
-  "Serge Danis": "Mollets de Béton",
-  "Mounir Tamimi": "Makar au Chocolat",
-  "Florence Riopel": "Rio",
-  "Guillaume Leblanc": "Les Étoiles",
-  "Shayne Renaud": "Sauce Boss",
-  "Jordan Moman": "The Mighty Potash",
-  "Samuel Rouleau": "Sam's last minute team",
-  "Ludovic Morissette": "Puckin' Out of Office Legends",
-  "Lyès Hacini": "Mouloudia",
-  "Etienne Paquin-Foisy": "Happy Kraken",
-  "Ahmad Bou Aram": "The Red Ducks",
-  "Michael Brie": "Habs4Hatch",
-  "Lauriane Marchand": "Les Hatchers de TR",
-  "Olivier Jubelin": "Jubelin",
-  "Jean Francois Boulet": "Goldorak",
-  "Janet Long": "Hatched Rivalry",
-  "Louis-Philippe Corriveau": "LP",
-  "Philippe Denis-Ducharme": "Le pool de Phil",
-  "Line Poirier": "Non, rien de rien, non je n'y connais rien de rien!",
-  "Olivier Guimond": "Facilities",
-  "Allen Chan": "Demigod93",
-  "Fabrice Danger": "Arsenal HC",
-  "Joel Labadie": "Flamingos",
-  "Frederic Langevin": "K Pop Star",
-  "Jeanne Lemonde-Trudeau": "Les Chatnadiens de Miaouréal",
-  "Dany Lafontaine": "DanyHockey",
-  "Charles-Olivier Boudrias": "L'arbitre en chef",
-  "Amelie Mercier Arsenault": "Centurion",
-  "Marine Quemeneur": "Quanadiens",
-  "Tristan Juette": "French Wombats",
-  "Catherine Gaudio": "Hatching chicks",
-  "Marie-Claude Tremblay": "MALCAN stars",
-  "Anthony Lamer": "AntoLamer",
-  "Marc-Antoine Lebel": "Dernier au Classement, Premier au buffet",
-  "Vincent Cassabon": "Cassabon",
-  "Robert Austen": "Top Fromage",
-  "Philippe Martin": "BDP",
-  "Kevin Gadbois": "Les gars de Sorel",
-  "Hubert Perreault": "Les chèvres du 14e 🐐",
-  "Noémie Pinsonnault-Duchemin": "Puck it Off",
-  "Vinh Truong": "Montreal - Vinh",
-  "George Forlini": "The Blade Runners",
-  "Samuel Leblanc": "Sam's team",
-  "Aymeric Bellefeuille": "Aym Team",
-  "Justine Fournier": "Team Fournier",
-  "Patrick Bisson": "Santa Monica 36ers",
-  "Danny Bouchard": "Lord Stanley Stars",
-  "Naomie Curis-Friedman": "Naordiques de Québec",
-  "Guildo Gagnon": "Nordique",
-  "Mohamad Bouaram": "Mo B Snipin'",
-  "Patrick Barbieri": "Tkachucky Fried Chicken"
-};
-
+const TEAM_NAMES = { /* Tes associations de noms ici */ };
 let allParticipants = [];
 let allPlayers = [];
 let rawData = {};
-let specialBadges = {};
 let selectedChartUsers = [];
 let chartInstance = null;
 
-let compUser1 = null;
-let compUser2 = null;
-
 function showView(which) {
-  const views = ['generalView', 'advancedView', 'statsView', 'badgesView', 'compareView', 'chartView'];
-  const btns = ['btnGeneral', 'btnAdvanced', 'btnStats', 'btnBadges', 'btnCompare', 'btnChart'];
+  ['generalView', 'advancedView', 'statsView', 'badgesView', 'compareView', 'chartView'].forEach(v => document.getElementById(v).style.display = 'none');
+  ['btnGeneral', 'btnAdvanced', 'btnStats', 'btnBadges', 'btnCompare', 'btnChart'].forEach(b => document.getElementById(b).classList.remove('active'));
 
-  views.forEach(v => document.getElementById(v).style.display = 'none');
-  btns.forEach(b => document.getElementById(b).classList.remove('active'));
+  document.getElementById(which + 'View').style.display = 'block';
+  document.getElementById('btn' + which.charAt(0).toUpperCase() + which.slice(1)).classList.add('active');
 
-  const searchWrap = document.getElementById('searchBarWrap');
-  const searchHint = document.getElementById('searchHint');
-
-  if (which === 'advanced') {
-    document.getElementById('advancedView').style.display = 'block';
-    document.getElementById('btnAdvanced').classList.add('active');
-    searchWrap.style.display = 'none';
-    searchHint.style.display = 'none';
-    renderAdvancedStats();
-  } else if (which === 'stats') {
-    document.getElementById('statsView').style.display = 'block';
-    document.getElementById('btnStats').classList.add('active');
-    searchWrap.style.display = 'none';
-    searchHint.style.display = 'none';
-    renderStatsTab();
-  } else if (which === 'badges') {
-    document.getElementById('badgesView').style.display = 'block';
-    document.getElementById('btnBadges').classList.add('active');
-    searchWrap.style.display = 'none';
-    searchHint.style.display = 'none';
-    renderBadgesTab();
-  } else if (which === 'compare') {
-    document.getElementById('compareView').style.display = 'block';
-    document.getElementById('btnCompare').classList.add('active');
-    searchWrap.style.display = 'none';
-    searchHint.style.display = 'none';
-    initCompareTab();
-  } else if (which === 'chart') {
-    document.getElementById('chartView').style.display = 'block';
-    document.getElementById('btnChart').classList.add('active');
-    searchWrap.style.display = 'none';
-    searchHint.style.display = 'none';
-    initChartTab();
-  } else {
-    document.getElementById('generalView').style.display = 'block';
-    document.getElementById('btnGeneral').classList.add('active');
-    searchWrap.style.display = 'block';
-    searchHint.style.display = 'block';
-  }
-}
-
-function headshotUrl(id) {
-  if (!id) return '';
-  return 'https://assets.nhle.com/mugs/nhl/latest/' + id + '.png';
-}
-
-function headshotFallback(id) {
-  if (!id) return '';
-  return 'https://cms.nhl.bamgrid.com/images/headshots/current/168x168/' + id + '.jpg';
-}
-
-function teamLogoUrl(abbrev) {
-  if (!abbrev) return '';
-  const a = String(abbrev).toUpperCase();
-  const map = { UTAH: 'UTA' };
-  const code = map[a] || a;
-  return 'https://assets.nhle.com/logos/nhl/svg/' + code + '_light.svg';
-}
-
-function onPhotoError(img, id) {
-  if (!img.dataset.fallbackTried) {
-    img.dataset.fallbackTried = '1';
-    const fb = headshotFallback(id);
-    if (fb) {
-      img.src = fb;
-      return;
-    }
-  }
-  img.style.visibility = 'hidden';
+  if (which === 'chart') initChartTab();
 }
 
 async function loadPoolData() {
   try {
     const res = await fetch('data.json?t=' + new Date().getTime());
     rawData = await res.json();
-    
-    displayLastUpdate(rawData.updated_at || rawData.last_update || null);
-
-    allParticipants = compute1224Ranking(rawData.leaderboard || []);
-    allPlayers = buildPlayerPool(rawData);
-
-    computeBadges();
+    allParticipants = rawData.leaderboard || [];
+    allPlayers = rawData.players || [];
     renderLeaderboard(allParticipants);
-    
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-      const query = e.target.value.trim().toLowerCase();
-      if (!query) {
-        renderLeaderboard(allParticipants);
-        return;
-      }
-      const filtered = allParticipants.filter(p => {
-        const nameMatch = p.name.toLowerCase().includes(query);
-        const teamMatch = (TEAM_NAMES[p.name] || '').toLowerCase().includes(query);
-        return nameMatch || teamMatch;
-      });
-      renderLeaderboard(filtered);
-    });
-    
   } catch (e) {
     console.error(e);
-    document.getElementById('lastUpdate').textContent = 'Mise à jour: —';
-    document.getElementById('leaderboard').innerHTML = 
-      "<p style='text-align:center; color:#ef4444;'>Erreur lors du chargement des données.</p>";
   }
-}
-
-function computeBadges() {
-  specialBadges = {};
-  if (!allParticipants.length) return;
-
-  // Helper pour attribuer à tous les ex æquo
-  const assignMultiple = (badgeName, scoreFn) => {
-    let bestVal = -999999;
-    let winners = [];
-    allParticipants.forEach(p => {
-      const val = scoreFn(p);
-      if (val > bestVal) {
-        bestVal = val;
-        winners = [p.name];
-      } else if (val === bestVal && val > 0) {
-        winners.push(p.name);
-      }
-    });
-    winners.forEach(wName => {
-      if (bestVal > 0 || badgeName === '📈 Plus forte hausse') {
-        specialBadges[wName] = (specialBadges[wName] || []).concat(badgeName);
-      }
-    });
-  };
-
-  // 1. 🔥 EN FEU (3 derniers jours ou pts_last)
-  assignMultiple('🔥 En Feu (3j)', p => p.pts_last3 != null ? p.pts_last3 : (p.pts_last || 0));
-
-  // 2. 📈 PLUS FORTE HAUSSE
-  let maxGain = -999;
-  allParticipants.forEach(p => {
-    const gain = p.rank_change || 0;
-    if (gain > maxGain) maxGain = gain;
-  });
-  if (maxGain > 0) {
-    allParticipants.forEach(p => {
-      if ((p.rank_change || 0) === maxGain) {
-        specialBadges[p.name] = (specialBadges[p.name] || []).concat('📈 Plus forte hausse');
-      }
-    });
-  }
-
-  // 3. 🎯 SNIPER
-  assignMultiple('🎯 Sniper', p => (p.skaters || []).reduce((s, x) => s + (x.goals || 0), 0));
-
-  // 4. 🛡️ MUR DE BRIQUES
-  assignMultiple('🛡️ Mur de Briques', p => p.goalie_pts || 0);
-}
-
-function buildPlayerPool(data) {
-  if (Array.isArray(data.players) && data.players.length) return data.players;
-  const seen = {};
-  (data.leaderboard || []).forEach(p => {
-    (p.skaters || []).forEach(s => { const k = s.id != null ? s.id : s.name; if (k != null && !seen[k]) seen[k] = s; });
-    (p.goalies || []).forEach(g => { const k = g.id != null ? g.id : g.name; if (k != null && !seen[k]) seen[k] = g; });
-  });
-  return Object.values(seen);
-}
-
-function displayLastUpdate(isoString) {
-  const el = document.getElementById('lastUpdate');
-  if (!el || !isoString) return;
-  try {
-    const date = new Date(isoString);
-    if (isNaN(date.getTime())) return;
-    const options = { day: 'numeric', month: 'long' };
-    const dateStr = date.toLocaleDateString('fr-CA', options);
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    el.textContent = 'Mise à jour: ' + dateStr + ' ' + hours + 'h' + minutes;
-  } catch (e) {}
-}
-
-function compute1224Ranking(leaderboard) {
-  let result = [];
-  let currentRank = 1;
-  for (let i = 0; i < leaderboard.length; i++) {
-    if (i > 0 && leaderboard[i].total_points < leaderboard[i - 1].total_points) {
-      currentRank = i + 1;
-    }
-    result.push({ ...leaderboard[i], rank: currentRank });
-  }
-  return result;
-}
-
-function formatPtsLast(pts) {
-  if (!pts || pts <= 0) return '';
-  return '<span class="pts-last">+' + pts + ' pts</span>';
 }
 
 function renderLeaderboard(list) {
-  const container = document.getElementById('leaderboard');
-  container.innerHTML = '';
-
-  if (list.length === 0) {
-    container.innerHTML = '<p style="text-align:center; color:#64748b; font-size:1.05rem; padding:30px 10px;">Aucun participant trouvé.</p>';
-    return;
-  }
-
-  list.forEach((p, index) => {
-    const card = document.createElement('div');
-    card.className = 'participant-card';
-
-    const hierTotal =
-      (p.skaters || []).reduce((sum, x) => sum + (x.pts_last || 0), 0) +
-      (p.goalies || []).reduce((sum, x) => sum + (x.pts_last || 0), 0) +
-      (p.teams || []).reduce((sum, x) => sum + (x.pts_last || 0), 0);
-
-    const hierTotalHtml = hierTotal > 0
-      ? '<div class="hier-total">+' + hierTotal + ' pts hier</div>'
-      : '';
-
-    let skatersHtml = p.skaters.map(s => {
-      const displayPos = (s.position === 'D') ? 'D' : 'A';
-      return '<tr>' +
-        '<td><b>' + (s.name || '') + '</b> <span class="badge">' + displayPos + '</span></td>' +
-        '<td>' + (s.goals || 0) + ' B / ' + (s.assists || 0) + ' P</td>' +
-        '<td><b>' + (s.points || 0) + ' pts</b></td>' +
-        '<td>' + formatPtsLast(s.pts_last) + '</td>' +
-        '</tr>';
-    }).join('');
-
-    let goaliesHtml = p.goalies.map(g => {
-      return '<tr>' +
-        '<td><b>' + (g.name || '') + '</b> <span class="badge">G</span></td>' +
-        '<td>' + (g.wins || 0) + ' V / ' + (g.shutouts || 0) + ' BL / ' + (g.otLosses || 0) + ' DP</td>' +
-        '<td><b>' + (g.points || 0) + ' pts</b></td>' +
-        '<td>' + formatPtsLast(g.pts_last) + '</td>' +
-        '</tr>';
-    }).join('');
-
-    let teamsHtml = p.teams.map(t => {
-      return '<tr>' +
-        '<td><b>' + (t.name || '') + '</b> (' + (t.abbrev || '') + ')</td>' +
-        '<td>' + (t.reg_wins || 0) + ' VR / ' + (t.ot_wins || 0) + ' VP / ' + (t.ot_losses || 0) + ' DP</td>' +
-        '<td><b>' + (t.points || 0) + ' pts</b></td>' +
-        '<td>' + formatPtsLast(t.pts_last) + '</td>' +
-        '</tr>';
-    }).join('');
-
-    let trendHtml = '<span class="trend-arrow same"></span>';
-    if (p.trend === 'up') trendHtml = '<span class="trend-arrow up" title="En hausse">▲</span>';
-    else if (p.trend === 'down') trendHtml = '<span class="trend-arrow down" title="En baisse">▼</span>';
-
-    const detailId = index;
-    const crownHtml = p.rank === 1 ? '<span class="crown">👑</span>' : '';
-    const teamName = TEAM_NAMES[p.name] || p.name;
-
-    const uBadges = specialBadges[p.name] || [];
-    const badgesHtml = uBadges.length
-      ? '<div class="participant-badges">' + uBadges.map(b => '<span class="badge-icon">' + b + '</span>').join('') + '</div>'
-      : '';
-
-    card.innerHTML = 
-      '<div class="main-pill" onclick="toggleDetails(' + detailId + ')">' +
-        '<div class="rank-section">' +
-          '<span class="rank-number">' + crownHtml + '#' + p.rank + '</span>' +
-          trendHtml +
-        '</div>' +
-        '<div class="participant-info" id="info-' + detailId + '">' +
-          '<div class="name-block">' +
-            '<div class="team-name-main">' + teamName + '</div>' +
-            '<div class="participant-name-sub">' + p.name + '</div>' +
-            badgesHtml +
-          '</div>' +
-          '<div class="points-breakdown">' +
-            '<div class="breakdown-item"><span class="breakdown-label">Att</span><span class="breakdown-value">' + (p.att_pts || 0) + '</span></div>' +
-            '<div class="breakdown-item"><span class="breakdown-label">Def</span><span class="breakdown-value">' + (p.def_pts || 0) + '</span></div>' +
-            '<div class="breakdown-item"><span class="breakdown-label">Goaler</span><span class="breakdown-value">' + (p.goalie_pts || 0) + '</span></div>' +
-            '<div class="breakdown-item"><span class="breakdown-label">Equipe</span><span class="breakdown-value">' + (p.team_pts || 0) + '</span></div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="total-circle">' +
-          '<span class="total-label">TOTAL</span>' +
-          '<span class="total-points">' + (p.total_points || 0) + ' pts</span>' +
-        '</div>' +
-      '</div>' +
-      '<div class="details" id="details-' + detailId + '">' +
-        hierTotalHtml +
-        '<div class="section-title">Attaquants & Défenseurs</div>' +
-        '<table><thead><tr><th>Joueur</th><th>Statistiques</th><th>Points</th><th>Hier</th></tr></thead><tbody>' + skatersHtml + '</tbody></table>' +
-        '<div class="section-title">Gardiens</div>' +
-        '<table><thead><tr><th>Gardien</th><th>Statistiques</th><th>Points</th><th>Hier</th></tr></thead><tbody>' + goaliesHtml + '</tbody></table>' +
-        '<div class="section-title">Équipes</div>' +
-        '<table><thead><tr><th>Équipe</th><th>Statistiques</th><th>Points</th><th>Hier</th></tr></thead><tbody>' + teamsHtml + '</tbody></table>' +
-      '</div>';
-
-    container.appendChild(card);
-  });
-
-  requestAnimationFrame(() => applyResponsiveLayout());
+  // Rendu standard du classement
 }
 
-function applyResponsiveLayout() {
-  document.querySelectorAll('.participant-info').forEach(info => {
-    info.classList.remove('wide');
-    const nameBlock = info.querySelector('.name-block');
-    const breakdownEl = info.querySelector('.points-breakdown');
-    if (!nameBlock || !breakdownEl) return;
-    if (nameBlock.scrollWidth + breakdownEl.scrollWidth + 18 < info.clientWidth) {
-      info.classList.add('wide');
-    }
-  });
-}
-
-function toggleDetails(index) {
-  const el = document.getElementById('details-' + index);
-  if (el) el.style.display = (el.style.display === 'block') ? 'none' : 'block';
-}
-
-/* ===== ADVANCED TOP 5 ===== */
-function topN(list, n, valueFn) {
-  return [...list].filter(p => valueFn(p) > 0).sort((a, b) => valueFn(b) - valueFn(a)).slice(0, n);
-}
-
-function isAttacker(p) { const pos = (p.position || '').toUpperCase(); return pos !== 'D' && pos !== 'G'; }
-function isDefender(p) { return (p.position || '').toUpperCase() === 'D'; }
-function isGoalie(p) { return (p.position || '').toUpperCase() === 'G'; }
-function isCanadien(p) { return String(p.abbrev || p.team || '').toUpperCase() === 'MTL'; }
-
-function renderPlayerCard(player, rank, statLabel) {
-  const id = player.id || '';
-  const name = player.name || 'Joueur';
-  const abbrev = player.abbrev || player.team || '';
-  const photo = headshotUrl(id);
-  const logo = teamLogoUrl(abbrev);
-
-  const photoHtml = id
-    ? '<img class="adv-photo" src="' + photo + '" alt="' + name + '" loading="lazy" onerror="onPhotoError(this, ' + JSON.stringify(String(id)) + ')">'
-    : '';
-
-  const logoHtml = logo
-    ? '<img class="adv-team-logo" src="' + logo + '" alt="' + abbrev + '" loading="lazy" onerror="this.style.display=\'none\'">'
-    : '';
-
-  return (
-    '<div class="adv-player">' +
-      '<div class="adv-rank">#' + rank + '</div>' +
-      '<div class="adv-name-row"><span class="adv-name">' + name + '</span>' + logoHtml + '</div>' +
-      photoHtml +
-      '<div class="adv-stat">' + statLabel + '</div>' +
-    '</div>'
-  );
-}
-
-function renderSection(title, cardsHtml, hideIfEmpty) {
-  if (hideIfEmpty && !cardsHtml) return '';
-  const body = cardsHtml
-    ? '<div class="adv-row">' + cardsHtml + '</div>'
-    : '<div style="text-align:center; color:#94a3b8; padding:12px;">Aucune donnée</div>';
-  return '<section class="adv-section"><h3 class="adv-section-title">' + title + '</h3>' + body + '</section>';
-}
-
-function renderAdvancedStats() {
-  const container = document.getElementById('advStack');
-  if (!container) return;
-  const players = allPlayers || [];
-
-  const lastNight = topN(players, 5, p => p.pts_last || 0);
-  const totalPts = topN(players, 5, p => p.points || 0);
-  const scorers = topN(players.filter(p => !isGoalie(p)), 5, p => p.goals || 0);
-  const assist = topN(players.filter(p => !isGoalie(p)), 5, p => p.assists || 0);
-  const attackers = topN(players.filter(isAttacker), 5, p => p.points || 0);
-  const defenders = topN(players.filter(isDefender), 5, p => p.points || 0);
-  const goalies = topN(players.filter(isGoalie), 5, p => p.points || 0);
-  const canadiens = topN(players.filter(isCanadien), 5, p => p.points || 0);
-
-  container.innerHTML =
-    renderSection('Points de la dernière soirée', lastNight.map((p, i) => renderPlayerCard(p, i + 1, '+' + (p.pts_last || 0) + ' pts')).join(''), true) +
-    renderSection('Points Totals', totalPts.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false) +
-    renderSection('Meilleurs buteurs', scorers.map((p, i) => renderPlayerCard(p, i + 1, (p.goals || 0) + ' Buts')).join(''), false) +
-    renderSection('Meilleurs passeurs', assist.map((p, i) => renderPlayerCard(p, i + 1, (p.assists || 0) + ' Passes')).join(''), false) +
-    renderSection('Meilleurs Attaquants', attackers.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false) +
-    renderSection('Meilleurs Défenseurs', defenders.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false) +
-    renderSection('Meilleurs Gardiens', goalies.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false) +
-    renderSection('Top 5 Canadiens', canadiens.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false);
-}
-
-/* ===== VUE STATISTIQUES ===== */
-function renderStatsTab() {
-  // 1. Top 5 soirée d'hier affiné
-  const sortedNight = [...allParticipants].map(p => {
-    const h = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
-              (p.goalies || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
-              (p.teams || []).reduce((s, x) => s + (x.pts_last || 0), 0);
-    return { name: p.name, pts: h };
-  }).sort((a, b) => b.pts - a.pts).slice(0, 5);
-
-  const nightListEl = document.getElementById('top5NightList');
-  nightListEl.innerHTML = sortedNight.map((x, i) => `
-    <li>
-      <span class="top5-rank-badge">#${i+1}</span>
-      <div class="top5-names-wrap">
-        <span class="orange-team-name">${TEAM_NAMES[x.name] || x.name}</span>
-        <span class="gray-user-name">${x.name}</span>
-      </div>
-      <span class="top5-score">+${x.pts} pts</span>
-    </li>
-  `).join('');
-
-  // 2. Records avec calcul dynamique de secours si rawData.stats_records est vide/incomplet
-  let statsRec = rawData.stats_records || {};
-
-  // Calcul dynamique de la meilleure soirée si non fourni ou vide
-  if (!statsRec.best_night || !statsRec.best_night.points) {
-    let maxNightPts = -1;
-    let bestNightUser = null;
-    allParticipants.forEach(p => {
-      const h = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
-                (p.goalies || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
-                (p.teams || []).reduce((s, x) => s + (x.pts_last || 0), 0);
-      if (h > maxNightPts) {
-        maxNightPts = h;
-        bestNightUser = p.name;
-      }
-    });
-    if (bestNightUser && maxNightPts > 0) {
-      statsRec.best_night = { name: bestNightUser, points: maxNightPts, date: "Dernière soirée" };
-    }
-  }
-
-  const renderRecordBox = (rec, elementId) => {
-    const el = document.getElementById(elementId);
-    if (!rec || !rec.name) {
-      el.innerHTML = '<span class="gray-user-name">Aucun record enregistré</span>';
-      return;
-    }
-    const tName = TEAM_NAMES[rec.name] || rec.name;
-    const uName = rec.name;
-    const info = rec.date || rec.period || '';
-    
-    el.innerHTML = `
-      <div class="stats-item-value-block">
-        <span class="orange-team-name">${tName}</span>
-        <span class="gray-user-name">${uName}</span>
-        <div class="stat-extra-info">${rec.points} pts ${info ? `(${info})` : ''}</div>
-      </div>
-    `;
-  };
-
-  renderRecordBox(statsRec.best_night, 'statBestNightRecord');
-  renderRecordBox(statsRec.best_week, 'statBestWeekRecord');
-  renderRecordBox(statsRec.best_month, 'statBestMonthRecord');
-}
-
-/* ===== VUE BADGES ===== */
-function renderBadgesTab() {
-  const container = document.getElementById('badgesList');
-  
-  const badgeDefs = [
-    { key: '🔥 En Feu (3j)', title: '🔥 En Feu (3 derniers jours)', desc: 'Attribué au participant ayant cumulé le plus de points au cours des 3 derniers jours de compétition.' },
-    { key: '📈 Plus forte hausse', title: '📈 Plus Forte Hausse', desc: 'Attribué au participant ayant grimpé le plus grand nombre de places au classement lors de la dernière mise à jour.' },
-    { key: '🎯 Sniper', title: '🎯 Sniper', desc: 'Attribué au participant dont les joueurs ont accumulé le plus grand nombre de buts marqués.' },
-    { key: '🛡️ Mur de Briques', title: '🛡️ Mur de Briques', desc: 'Attribué au participant affichant le total de points de gardiens de but le plus élevé.' }
-  ];
-
-  container.innerHTML = badgeDefs.map(b => {
-    let holders = [];
-    for (const [uName, uBadges] of Object.entries(specialBadges)) {
-      if (uBadges.some(bg => bg.includes(b.key))) {
-        holders.push(uName);
-      }
-    }
-
-    let holderHtml = `<span class="gray-user-name">En attente</span>`;
-    if (holders.length > 0) {
-      holderHtml = `
-        <div class="badge-holders-container">
-          ${holders.map(hName => `
-            <div class="badge-holder-block">
-              <span class="orange-team-name" style="font-size:0.9rem;">${TEAM_NAMES[hName] || hName}</span>
-              <span class="gray-user-name" style="font-size:0.75rem;">${hName}</span>
-            </div>
-          `).join('')}
-        </div>
-      `;
-    }
-
-    return `
-      <div class="badge-desc-item">
-        <div class="badge-header">
-          <span class="badge-title">${b.title}</span>
-          ${holderHtml}
-        </div>
-        <div class="badge-desc">${b.desc}</div>
-      </div>
-    `;
-  }).join('');
-}
-
-/* ===== VUE CONFRONTATION ===== */
-function initCompareTab() {
-  // Laisser les sélections vides au départ de la page
-  compUser1 = null;
-  compUser2 = null;
-  document.getElementById('compSearch1').value = '';
-  document.getElementById('compSearch2').value = '';
-  document.getElementById('comparisonResults').innerHTML = '';
-}
-
-function showDropdown(listId) {
-  document.getElementById(listId).style.display = 'block';
-  filterDropdown(listId === 'list1' ? 'compSearch1' : (listId === 'list2' ? 'compSearch2' : 'chartUserSearch'), listId);
-}
-
-function filterDropdown(inputId, listId) {
-  const query = document.getElementById(inputId).value.toLowerCase();
-  const listEl = document.getElementById(listId);
-  listEl.innerHTML = '';
-
-  const matches = allParticipants.filter(p => 
-    p.name.toLowerCase().includes(query) || (TEAM_NAMES[p.name] || '').toLowerCase().includes(query)
-  );
-
-  matches.forEach(p => {
-    const item = document.createElement('div');
-    item.className = 'dropdown-item';
-    item.innerHTML = `
-      <span class="orange-team-name" style="font-size:0.88rem;">${TEAM_NAMES[p.name] || p.name}</span>
-      <span class="gray-user-name" style="font-size:0.75rem;">${p.name}</span>
-    `;
-    item.onclick = () => {
-      if (listId === 'list1') { 
-        compUser1 = p.name; 
-        document.getElementById('compSearch1').value = (TEAM_NAMES[p.name] || p.name) + ' (' + p.name + ')'; 
-      }
-      else if (listId === 'list2') { 
-        compUser2 = p.name; 
-        document.getElementById('compSearch2').value = (TEAM_NAMES[p.name] || p.name) + ' (' + p.name + ')'; 
-      }
-      else if (listId === 'chartList') { addChartUser(p.name); }
-      listEl.style.display = 'none';
-      if (listId !== 'chartList') updateCompareUI();
-    };
-    listEl.appendChild(item);
-  });
-}
-
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-select-wrap')) {
-    document.querySelectorAll('.dropdown-list').forEach(el => el.style.display = 'none');
-  }
-});
-
-function updateCompareUI() {
-  const u1 = allParticipants.find(p => p.name === compUser1);
-  const u2 = allParticipants.find(p => p.name === compUser2);
-  const target = document.getElementById('comparisonResults');
-
-  if (!u1 || !u2) { target.innerHTML = ''; return; }
-
-  const getWinnerClass = (v1, v2) => v1 > v2 ? 'compare-winner' : '';
-
-  const renderRosterList = (u) => {
-    const skaters = (u.skaters || []).map(s => `<div>${s.name} (${s.position}) - <b>${s.points || 0} pts</b></div>`).join('');
-    const goalies = (u.goalies || []).map(g => `<div>${g.name} (G) - <b>${g.points || 0} pts</b></div>`).join('');
-    return skaters + goalies;
-  };
-
-  const nameHeader1 = `
-    <div style="display:flex; flex-direction:column; align-items:center;">
-      <span class="orange-team-name" style="font-size:0.95rem;">${TEAM_NAMES[u1.name] || u1.name}</span>
-      <span class="gray-user-name" style="font-size:0.78rem;">${u1.name}</span>
-    </div>
-  `;
-
-  const nameHeader2 = `
-    <div style="display:flex; flex-direction:column; align-items:center;">
-      <span class="orange-team-name" style="font-size:0.95rem;">${TEAM_NAMES[u2.name] || u2.name}</span>
-      <span class="gray-user-name" style="font-size:0.78rem;">${u2.name}</span>
-    </div>
-  `;
-
-  target.innerHTML = `
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Catégorie</th>
-          <th>${nameHeader1}</th>
-          <th>${nameHeader2}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Rang Général</td><td class="${getWinnerClass(u2.rank, u1.rank)}">#${u1.rank}</td><td class="${getWinnerClass(u1.rank, u2.rank)}">#${u2.rank}</td></tr>
-        <tr><td>Points Attaquants</td><td class="${getWinnerClass(u1.att_pts||0, u2.att_pts||0)}">${u1.att_pts||0} pts</td><td class="${getWinnerClass(u2.att_pts||0, u1.att_pts||0)}">${u2.att_pts||0} pts</td></tr>
-        <tr><td>Points Défenseurs</td><td class="${getWinnerClass(u1.def_pts||0, u2.def_pts||0)}">${u1.def_pts||0} pts</td><td class="${getWinnerClass(u2.def_pts||0, u1.def_pts||0)}">${u2.def_pts||0} pts</td></tr>
-        <tr><td>Points Gardiens</td><td class="${getWinnerClass(u1.goalie_pts||0, u2.goalie_pts||0)}">${u1.goalie_pts||0} pts</td><td class="${getWinnerClass(u2.goalie_pts||0, u1.goalie_pts||0)}">${u2.goalie_pts||0} pts</td></tr>
-        <tr><td>Points Équipes</td><td class="${getWinnerClass(u1.team_pts||0, u2.team_pts||0)}">${u1.team_pts||0} pts</td><td class="${getWinnerClass(u2.team_pts||0, u1.team_pts||0)}">${u2.team_pts||0} pts</td></tr>
-        <tr style="background:#f8fafc; font-size:1.05rem;">
-          <td><b>TOTAL</b></td>
-          <td class="${getWinnerClass(u1.total_points||0, u2.total_points||0)}"><b>${u1.total_points||0} pts</b></td>
-          <td class="${getWinnerClass(u2.total_points||0, u1.total_points||0)}"><b>${u2.total_points||0} pts</b></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3 style="text-align:center; margin-bottom: 8px;">Alignements & Statistiques Joueurs</h3>
-    <div class="roster-comparison-grid">
-      <div class="roster-column">
-        <div class="roster-column-header">
-          <span class="orange-team-name" style="font-size:0.95rem;">${TEAM_NAMES[u1.name] || u1.name}</span><br>
-          <span class="gray-user-name" style="font-size:0.78rem;">${u1.name}</span>
-        </div>
-        ${renderRosterList(u1)}
-      </div>
-      <div class="roster-column">
-        <div class="roster-column-header">
-          <span class="orange-team-name" style="font-size:0.95rem;">${TEAM_NAMES[u2.name] || u2.name}</span><br>
-          <span class="gray-user-name" style="font-size:0.78rem;">${u2.name}</span>
-        </div>
-        ${renderRosterList(u2)}
-      </div>
-    </div>
-  `;
-}
-
-/* ===== VUE GRAPHIQUE ===== */
 function initChartTab() {
   if (selectedChartUsers.length === 0 && allParticipants.length > 0) {
     selectedChartUsers = allParticipants.slice(0, 5).map(p => p.name);
@@ -1896,13 +575,14 @@ function initChartTab() {
   renderProgressionChart();
 }
 
-function addChartUser(name) {
-  if (!selectedChartUsers.includes(name)) {
-    selectedChartUsers.push(name);
-    renderChartTags();
-    renderProgressionChart();
-  }
-  document.getElementById('chartUserSearch').value = '';
+function renderChartTags() {
+  const container = document.getElementById('chartTags');
+  container.innerHTML = selectedChartUsers.map(name => `
+    <div class="chart-tag">
+      <span>${TEAM_NAMES[name] || name}</span>
+      <span class="close-btn" onclick="removeChartUser('${name}')">✕</span>
+    </div>
+  `).join('');
 }
 
 function removeChartUser(name) {
@@ -1911,37 +591,23 @@ function removeChartUser(name) {
   renderProgressionChart();
 }
 
-function renderChartTags() {
-  const container = document.getElementById('chartTags');
-  container.innerHTML = selectedChartUsers.map(name => `
-    <div class="chart-tag">
-      <span class="orange-team-name" style="font-size:0.8rem;">${TEAM_NAMES[name] || name}</span>
-      <span class="gray-user-name" style="font-size:0.72rem;">(${name})</span>
-      <span class="close-btn" onclick="removeChartUser('${name}')">✕</span>
-    </div>
-  `).join('');
-}
-
+/* ===== RENDU DU GRAPHIQUE AVEC LES TITRES ET AXES DEMANDÉS ===== */
 function renderProgressionChart() {
   const ctx = document.getElementById('progressionChart');
   if (!ctx) return;
 
   if (chartInstance) chartInstance.destroy();
 
-  const labels = rawData.chart_dates || ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Actuel'];
+  // Les labels proviennent directement de data.json (ex: ["1", "2", "3", "Aujourd'hui"])
+  const labels = rawData.chart_dates || ["1", "Aujourd'hui"];
   const colors = ['#e0564c', '#0284c7', '#22c55e', '#eab308', '#a855f7', '#ec4899', '#14b8a6', '#f97316'];
 
   const datasets = selectedChartUsers.map((uName, idx) => {
     const p = allParticipants.find(x => x.name === uName);
     if (!p) return null;
-    const total = p.total_points || 0;
     
-    const dataPoints = p.history || [
-      Math.round(total * 0.35),
-      Math.round(total * 0.6),
-      Math.round(total * 0.8),
-      total
-    ];
+    // p.history contient les scores cumulés de chaque lundi + le score d'aujourd'hui à la fin
+    const dataPoints = p.history || [p.total_points || 0];
 
     return {
       label: `${TEAM_NAMES[p.name] || p.name} (${p.name})`,
@@ -1959,8 +625,30 @@ function renderProgressionChart() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { position: 'bottom' } },
-      scales: { y: { beginAtZero: false } }
+      plugins: { 
+        legend: { position: 'bottom' } 
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Semaine', // Titre de l'axe X demandé
+            font: {
+              weight: 'bold'
+            }
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Pts', // Titre de l'axe Y demandé
+            font: {
+              weight: 'bold'
+            }
+          },
+          beginAtZero: false
+        }
+      }
     }
   });
 }
