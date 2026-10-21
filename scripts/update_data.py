@@ -1122,15 +1122,17 @@ def load_previous():
     previous_ranks = {}
     previous_player_pts = {}
     previous_team_pts = {}
+    existing_records = {}
 
     if not os.path.exists("data.json"):
-        return previous_ranks, previous_player_pts, previous_team_pts
+        return previous_ranks, previous_player_pts, previous_team_pts, existing_records
 
     try:
         with open("data.json", "r", encoding="utf-8") as f:
             old = json.load(f)
+            existing_records = old.get("stats_records", {})
     except Exception:
-        return previous_ranks, previous_player_pts, previous_team_pts
+        pass
 
     for i, p in enumerate(old.get("leaderboard", []), start=1):
         previous_ranks[p.get("name")] = i
@@ -1150,7 +1152,7 @@ def load_previous():
         if name and name not in previous_player_pts:
             previous_player_pts[name] = pl.get("points", 0)
 
-    return previous_ranks, previous_player_pts, previous_team_pts
+    return previous_ranks, previous_player_pts, previous_team_pts, existing_records
 
 
 def load_history_cache():
@@ -1170,7 +1172,6 @@ def save_history_cache(cache):
 
 def update_friday_history(leaderboard):
     now = datetime.now()
-    # 4 correspond à vendredi (lundi = 0, mardi = 1, mercredi = 2, jeudi = 3, vendredi = 4)
     is_friday = (now.weekday() == 4)
 
     cache = load_history_cache()
@@ -1179,7 +1180,6 @@ def update_friday_history(leaderboard):
 
     friday_label = now.strftime("%d %b")
 
-    # Si c'est vendredi et qu'on n'a pas encore enregistré cette date aujourd'hui
     if is_friday and (not chart_dates or chart_dates[-1] != friday_label):
         chart_dates.append(friday_label)
         for p in leaderboard:
@@ -1190,13 +1190,11 @@ def update_friday_history(leaderboard):
             cumulative_history[name].append(total)
         save_history_cache({"chart_dates": chart_dates, "cumulative_history": cumulative_history})
 
-    # Injecter l'historique dans chaque participant pour data.json
     for p in leaderboard:
         name = p.get("name")
         total = p.get("total_points", 0)
         user_series = cumulative_history.get(name, [])
         
-        # S'assurer que le pointage actuel est bien reflété à la fin même si ce n'est pas vendredi
         if not user_series or user_series[-1] != total:
             p["history"] = user_series + [total]
         else:
@@ -1323,7 +1321,7 @@ def parse_player(pid, data):
 
 
 def main():
-    previous_ranks, previous_player_pts, previous_team_pts = load_previous()
+    previous_ranks, previous_player_pts, previous_team_pts, existing_records = load_previous()
 
     all_skater_ids = set()
     all_goalie_ids = set()
@@ -1493,8 +1491,34 @@ def main():
         else:
             p["trend"] = "down"
 
-    # Mise à jour et enregistrement des points du vendredi pour le graphique
     chart_dates = update_friday_history(leaderboard)
+
+    # Calcul dynamique de la meilleure soirée (best_night)
+    max_night_pts = -1
+    best_night_user = None
+    for p in leaderboard:
+        night_pts = (
+            sum(x.get("pts_last", 0) for x in p.get("skaters", [])) +
+            sum(x.get("pts_last", 0) for x in p.get("goalies", [])) +
+            sum(x.get("pts_last", 0) for x in p.get("teams", []))
+        )
+        if night_pts > max_night_pts:
+            max_night_pts = night_pts
+            best_night_user = p.get("name")
+
+    current_best_night = existing_records.get("best_night", {})
+    if max_night_pts > current_best_night.get("points", 0):
+        current_best_night = {
+            "name": best_night_user,
+            "points": max_night_pts,
+            "date": datetime.now().strftime("%d %b %Y")
+        }
+
+    stats_records = {
+        "best_night": current_best_night,
+        "best_week": existing_records.get("best_week", {"name": "—", "points": 0, "date": ""}),
+        "best_month": existing_records.get("best_month", {"name": "—", "points": 0, "date": ""})
+    }
 
     seen = {}
     for entry in leaderboard:
@@ -1512,6 +1536,7 @@ def main():
         "season": SEASON_ID,
         "updated_at": datetime.now().astimezone().isoformat(),
         "chart_dates": chart_dates if chart_dates else ["Début"],
+        "stats_records": stats_records,
         "leaderboard": leaderboard,
         "players": players_unique,
     }
