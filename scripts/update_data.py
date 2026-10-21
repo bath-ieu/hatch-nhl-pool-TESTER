@@ -1162,7 +1162,7 @@ def load_history_cache():
                 return json.load(f)
         except Exception:
             pass
-    return {"weeks_list": [], "cumulative_history": {}}
+    return {"chart_dates": [], "cumulative_history": {}}
 
 
 def save_history_cache(cache):
@@ -1170,39 +1170,37 @@ def save_history_cache(cache):
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
 
-def update_weekly_history(leaderboard):
+def update_friday_history(leaderboard):
     now = datetime.now()
-    is_monday = (now.weekday() == 0)  # 0 = Lundi
+    is_friday = (now.weekday() == 4)
 
     cache = load_history_cache()
-    weeks_list = cache.get("weeks_list", [])
+    chart_dates = cache.get("chart_dates", [])
     cumulative_history = cache.get("cumulative_history", {})
 
-    monday_key = now.strftime("%Y-%W")
+    friday_label = now.strftime("%d %b")
 
-    # Si c'est lundi et qu'on n'a pas encore enregistré cette semaine
-    if is_monday and (not weeks_list or weeks_list[-1] != monday_key):
-        weeks_list.append(monday_key)
+    if is_friday and (not chart_dates or chart_dates[-1] != friday_label):
+        chart_dates.append(friday_label)
         for p in leaderboard:
             name = p.get("name")
             total = p.get("total_points", 0)
             if name not in cumulative_history:
                 cumulative_history[name] = []
             cumulative_history[name].append(total)
-        save_history_cache({"weeks_list": weeks_list, "cumulative_history": cumulative_history})
+        save_history_cache({"chart_dates": chart_dates, "cumulative_history": cumulative_history})
 
-    # Génération des libellés de l'axe X : numéros de semaine (1, 2, 3...) + "Aujourd'hui"
-    num_weeks = len(weeks_list)
-    chart_dates = [str(i + 1) for i in range(num_weeks)] + ["Aujourd'hui"]
-
-    # Attribution de l'historique + score actuel (dernière position) pour chaque participant
     for p in leaderboard:
         name = p.get("name")
         total = p.get("total_points", 0)
-        past_scores = cumulative_history.get(name, [])
-        p["history"] = past_scores + [total]
+        user_series = cumulative_history.get(name, [])
+        
+        if not user_series or user_series[-1] != total:
+            p["history"] = user_series + [total]
+        else:
+            p["history"] = user_series
 
-    return chart_dates if chart_dates else ["Aujourd'hui"]
+    return chart_dates
 
 
 def with_pts_last(st, previous_player_pts):
@@ -1493,7 +1491,7 @@ def main():
         else:
             p["trend"] = "down"
 
-    chart_dates = update_weekly_history(leaderboard)
+    chart_dates = update_friday_history(leaderboard)
 
     # Calcul dynamique de la meilleure soirée (best_night)
     max_night_pts = -1
@@ -1537,7 +1535,7 @@ def main():
     output = {
         "season": SEASON_ID,
         "updated_at": datetime.now().astimezone().isoformat(),
-        "chart_dates": chart_dates if chart_dates else ["Aujourd'hui"],
+        "chart_dates": chart_dates if chart_dates else ["Début"],
         "stats_records": stats_records,
         "leaderboard": leaderboard,
         "players": players_unique,
