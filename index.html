@@ -220,10 +220,16 @@ h1 {
 /* Badges Visuels */
 .participant-badges {
   display: flex;
-  gap: 4px;
-  align-items: center;
+  gap: 6px;
+  align-items: flex-start;
   margin-top: 3px;
   flex-wrap: wrap;
+}
+
+.badge-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .badge-icon {
@@ -238,6 +244,14 @@ h1 {
   font-weight: 700;
   cursor: help;
   line-height: 1.2;
+}
+
+.badge-sub-value {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  line-height: 1.1;
+  margin-top: 1px;
 }
 
 .participant-card {
@@ -1253,6 +1267,7 @@ let allParticipants = [];
 let allPlayers = [];
 let rawData = {};
 let specialBadges = {};
+let badgeLastHolders = {};
 let selectedChartUsers = [];
 let chartInstance = null;
 
@@ -1374,6 +1389,7 @@ async function loadPoolData() {
 
 function computeBadges() {
   specialBadges = {};
+  badgeLastHolders = {};
   if (!allParticipants.length) return;
 
   const assignMultiple = (badgeKey, scoreFn) => {
@@ -1388,6 +1404,9 @@ function computeBadges() {
         winners.push(p.name);
       }
     });
+    if (winners.length > 0) {
+      badgeLastHolders[badgeKey] = winners[winners.length - 1];
+    }
     winners.forEach(wName => {
       if (bestVal > 0 || badgeKey === '📈 Plus forte hausse') {
         if (!specialBadges[wName]) specialBadges[wName] = {};
@@ -1401,16 +1420,21 @@ function computeBadges() {
 
   // 2. 📈 PLUS FORTE HAUSSE
   let maxGain = -999;
+  let gainWinners = [];
   allParticipants.forEach(p => {
     const gain = p.rank_change || 0;
-    if (gain > maxGain) maxGain = gain;
+    if (gain > maxGain) {
+      maxGain = gain;
+      gainWinners = [p.name];
+    } else if (gain === maxGain && gain > 0) {
+      gainWinners.push(p.name);
+    }
   });
   if (maxGain > 0) {
-    allParticipants.forEach(p => {
-      if ((p.rank_change || 0) === maxGain) {
-        if (!specialBadges[p.name]) specialBadges[p.name] = {};
-        specialBadges[p.name]['📈 Plus forte hausse'] = maxGain;
-      }
+    badgeLastHolders['📈 Plus forte hausse'] = gainWinners[gainWinners.length - 1];
+    gainWinners.forEach(wName => {
+      if (!specialBadges[wName]) specialBadges[wName] = {};
+      specialBadges[wName]['📈 Plus forte hausse'] = maxGain;
     });
   }
 
@@ -1524,9 +1548,13 @@ function renderLeaderboard(list) {
     const teamName = TEAM_NAMES[p.name] || p.name;
 
     const uBadgesMap = specialBadges[p.name] || {};
-    const uBadgesKeys = Object.keys(uBadgesMap);
-    const badgesHtml = uBadgesKeys.length
-      ? '<div class="participant-badges">' + uBadgesKeys.map(bKey => '<span class="badge-icon">' + bKey + '</span>').join('') + '</div>'
+    const uBadgesEntries = Object.entries(uBadgesMap);
+    const badgesHtml = uBadgesEntries.length
+      ? '<div class="participant-badges">' + uBadgesEntries.map(([bKey, val]) => {
+          const isLast = (badgeLastHolders[bKey] === p.name);
+          const valHtml = isLast ? '<span class="badge-sub-value">' + val + '</span>' : '';
+          return '<div class="badge-wrapper"><span class="badge-icon">' + bKey + '</span>' + valHtml + '</div>';
+        }).join('') + '</div>'
       : '';
 
     card.innerHTML = 
