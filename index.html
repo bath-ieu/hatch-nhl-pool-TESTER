@@ -9,7 +9,7 @@
 :root {
   --border-color: #34495e;
   --accent-red: #e0564c;
-  --accent-orange: #e0564c; /* Remplacé par accent rouge */
+  --accent-orange: #e0564c;
   --text-dark: #2c3e50;
   --text-gray: #64748b;
   --bg-details: #f8fafc;
@@ -884,7 +884,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   border-bottom: 1px dashed #cbd5e1;
 }
 
-/* ===== VUE GRAPHIQUE ===== */
+/* ===== VUE GRAPHIQUE & BANNIÈRE "À VENIR" ===== */
 #chartView { display: none; padding-top: 8px; }
 
 .chart-card {
@@ -894,6 +894,34 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   padding: 20px;
   margin-bottom: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.coming-soon-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  text-align: center;
+  padding: 40px;
+  margin-top: 10px;
+}
+
+.coming-soon-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent-red);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.coming-soon-subtitle {
+  font-size: 1rem;
+  color: var(--text-gray);
+  font-weight: 600;
 }
 
 .chart-search-bar {
@@ -1001,6 +1029,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
       <div class="btn-group-right">
         <button type="button" class="view-btn" id="btnBadges" onclick="showView('badges')">Badges</button>
         <button type="button" class="view-btn" id="btnCompare" onclick="showView('compare')">Confrontation ⚔️</button>
+        <!-- Le bouton garde son nom d'origine -->
         <button type="button" class="view-btn" id="btnChart" onclick="showView('chart')">Graphique 📊</button>
       </div>
     </div>
@@ -1086,16 +1115,26 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     <div class="chart-card">
       <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Évolution des Points 📊</h2>
       
-      <div class="chart-search-bar search-select-wrap">
-        <input type="text" id="chartUserSearch" placeholder="Ajouter/Chercher un participant..." onfocus="showDropdown('chartList')" oninput="filterDropdown('chartUserSearch', 'chartList')">
-        <div class="dropdown-list" id="chartList"></div>
+      <!-- BANNIÈRE "À VENIR" (Affichée actuellement) -->
+      <div id="chartComingSoon" class="coming-soon-banner">
+        <div class="coming-soon-title">🚀 À VENIR !</div>
+        <div class="coming-soon-subtitle">Le graphique de progression se remplit en arrière-plan et sera bientôt disponible.</div>
       </div>
 
-      <div class="selected-chart-tags" id="chartTags"></div>
+      <!-- CONTENEUR DU GRAPHIQUE (Actuellement caché, accumule les données en arrière-plan) -->
+      <div id="chartActualContent" style="display: none;">
+        <div class="chart-search-bar search-select-wrap">
+          <input type="text" id="chartUserSearch" placeholder="Ajouter/Chercher un participant..." onfocus="showDropdown('chartList')" oninput="filterDropdown('chartUserSearch', 'chartList')">
+          <div class="dropdown-list" id="chartList"></div>
+        </div>
 
-      <div style="height: 400px; position: relative;">
-        <canvas id="progressionChart"></canvas>
+        <div class="selected-chart-tags" id="chartTags"></div>
+
+        <div style="height: 400px; position: relative;">
+          <canvas id="progressionChart"></canvas>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -1434,10 +1473,8 @@ function computeBadges() {
     });
   };
 
-  // 1. 🔥 EN FEU
   assignMultiple('🔥 En Feu (3j)', p => p.pts_last3 != null ? p.pts_last3 : (p.pts_last || 0));
 
-  // 2. 📈 PLUS FORTE HAUSSE
   let maxGain = -999;
   let gainWinners = [];
   allParticipants.forEach(p => {
@@ -1457,13 +1494,8 @@ function computeBadges() {
     });
   }
 
-  // 3. 🎯 SNIPER
   assignMultiple('🎯 Sniper', p => (p.skaters || []).reduce((s, x) => s + (x.goals || 0), 0));
-
-  // 4. 🪄 PLAYMAKER
   assignMultiple('🪄 Playmaker', p => (p.skaters || []).reduce((s, x) => s + (x.assists || 0), 0));
-
-  // 5. 🛡️ MUR DE BRIQUES
   assignMultiple('🛡️ Mur de Briques', p => p.goalie_pts || 0);
 }
 
@@ -1633,7 +1665,6 @@ function toggleDetails(index) {
   if (el) el.style.display = (el.style.display === 'block') ? 'none' : 'block';
 }
 
-/* ===== ADVANCED TOP 5 ===== */
 function topN(list, n, valueFn) {
   return [...list].filter(p => valueFn(p) > 0).sort((a, b) => valueFn(b) - valueFn(a)).slice(0, n);
 }
@@ -1701,7 +1732,6 @@ function renderAdvancedStats() {
     renderSection('Top 5 Canadiens', canadiens.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false);
 }
 
-/* ===== VUE STATISTIQUES ===== */
 function renderStatsTab() {
   const sortedNight = [...allParticipants].map(p => {
     const h = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
@@ -1765,7 +1795,6 @@ function renderStatsTab() {
   renderRecordBox(statsRec.best_month, 'statBestMonthRecord');
 }
 
-/* ===== VUE BADGES ===== */
 function renderBadgesTab() {
   const container = document.getElementById('badgesList');
   
@@ -1821,7 +1850,6 @@ function renderBadgesTab() {
   }).join('');
 }
 
-/* ===== VUE CONFRONTATION ===== */
 function initCompareTab() {
   compUser1 = null;
   compUser2 = null;
@@ -1946,7 +1974,6 @@ function updateCompareUI() {
   `;
 }
 
-/* ===== VUE GRAPHIQUE ===== */
 function initChartTab() {
   if (selectedChartUsers.length === 0 && allParticipants.length > 0) {
     selectedChartUsers = allParticipants.slice(0, 5).map(p => p.name);
@@ -1972,6 +1999,7 @@ function removeChartUser(name) {
 
 function renderChartTags() {
   const container = document.getElementById('chartTags');
+  if(!container) return;
   container.innerHTML = selectedChartUsers.map(name => `
     <div class="chart-tag">
       <span class="orange-team-name" style="font-size:0.8rem;">${TEAM_NAMES[name] || name}</span>
