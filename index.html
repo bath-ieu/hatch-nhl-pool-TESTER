@@ -715,15 +715,16 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   border-radius: 12px;
   margin-bottom: 12px;
   background: #f8fafc;
+  position: relative;
 }
 
 .badge-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 10px;
 }
 
 .badge-title {
@@ -740,17 +741,17 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   padding: 6px 12px;
   border-radius: 10px;
   border: 1px solid #cbd5e1;
-  margin-bottom: 4px;
   width: 100%;
   max-width: 220px;
   box-sizing: border-box;
 }
 
-.badge-val-bottom-right {
-  font-size: 0.82rem;
+.badge-val-card-bottom-right {
+  font-size: 0.88rem;
   font-weight: 700;
   color: #475569;
-  margin-top: 6px;
+  text-align: right;
+  margin-top: 8px;
   align-self: flex-end;
 }
 
@@ -765,6 +766,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   font-size: 0.85rem;
   color: #64748b;
   line-height: 1.35;
+  margin-bottom: 6px;
 }
 
 /* ===== VUE CONFRONTATION ===== */
@@ -1771,9 +1773,14 @@ function renderBadgesTab() {
 
   container.innerHTML = badgeDefs.map(b => {
     let holders = [];
+    let statValue = null;
+
     for (const [uName, uBadgesMap] of Object.entries(specialBadges)) {
       if (uBadgesMap[b.key] !== undefined) {
         holders.push({ name: uName, val: uBadgesMap[b.key] });
+        if (statValue === null) {
+          statValue = uBadgesMap[b.key];
+        }
       }
     }
 
@@ -1785,12 +1792,13 @@ function renderBadgesTab() {
             <div class="badge-holder-block">
               <span class="orange-team-name" style="font-size:0.9rem;">${TEAM_NAMES[h.name] || h.name}</span>
               <span class="gray-user-name" style="font-size:0.75rem;">${h.name}</span>
-              <span class="badge-val-bottom-right">${h.val} ${b.unit}</span>
             </div>
           `).join('')}
         </div>
       `;
     }
+
+    const valHtml = statValue !== null ? `<div class="badge-val-card-bottom-right">${statValue} ${b.unit}</div>` : '';
 
     return `
       <div class="badge-desc-item">
@@ -1799,6 +1807,7 @@ function renderBadgesTab() {
           ${holderHtml}
         </div>
         <div class="badge-desc">${b.desc}</div>
+        ${valHtml}
       </div>
     `;
   }).join('');
