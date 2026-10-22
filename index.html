@@ -733,21 +733,32 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 }
 
 .badge-holder-block {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
   background: #ffffff;
-  padding: 4px 10px;
-  border-radius: 8px;
+  padding: 6px 12px;
+  border-radius: 10px;
   border: 1px solid #cbd5e1;
   margin-bottom: 4px;
+  width: 100%;
+  max-width: 220px;
+  box-sizing: border-box;
+}
+
+.badge-val-bottom-right {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
+  margin-top: 6px;
+  align-self: flex-end;
 }
 
 .badge-holders-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 4px;
+  gap: 6px;
 }
 
 .badge-desc {
@@ -1773,7 +1784,8 @@ function renderBadgesTab() {
           ${holders.map(h => `
             <div class="badge-holder-block">
               <span class="orange-team-name" style="font-size:0.9rem;">${TEAM_NAMES[h.name] || h.name}</span>
-              <span class="gray-user-name" style="font-size:0.75rem;">${h.name} (${h.val} ${b.unit})</span>
+              <span class="gray-user-name" style="font-size:0.75rem;">${h.name}</span>
+              <span class="badge-val-bottom-right">${h.val} ${b.unit}</span>
             </div>
           `).join('')}
         </div>
