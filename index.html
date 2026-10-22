@@ -722,15 +722,28 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.badge-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 200px;
 }
 
 .badge-title {
   font-weight: 800;
   font-size: 1rem;
   color: var(--text-dark);
+}
+
+.badge-desc {
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.35;
 }
 
 .badge-holder-block {
@@ -751,7 +764,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   font-weight: 700;
   color: #475569;
   text-align: right;
-  margin-top: 8px;
+  margin-top: 6px;
   align-self: flex-end;
 }
 
@@ -760,13 +773,6 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   flex-direction: column;
   align-items: flex-end;
   gap: 6px;
-}
-
-.badge-desc {
-  font-size: 0.85rem;
-  color: #64748b;
-  line-height: 1.35;
-  margin-bottom: 6px;
 }
 
 /* ===== VUE CONFRONTATION ===== */
@@ -1803,10 +1809,12 @@ function renderBadgesTab() {
     return `
       <div class="badge-desc-item">
         <div class="badge-header">
-          <span class="badge-title">${b.title}</span>
+          <div class="badge-title-block">
+            <span class="badge-title">${b.title}</span>
+            <div class="badge-desc">${b.desc}</div>
+          </div>
           ${holderHtml}
         </div>
-        <div class="badge-desc">${b.desc}</div>
         ${valHtml}
       </div>
     `;
