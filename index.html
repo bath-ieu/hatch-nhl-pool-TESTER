@@ -1743,7 +1743,7 @@ function renderStatsTab() {
 
   const renderRecordBox = (rec, elementId) => {
     const el = document.getElementById(elementId);
-    if (!rec || !rec.name) {
+    if (!rec || !rec.name || rec.name === "—" || (rec.points === 0 && !rec.date)) {
       el.innerHTML = '<span class="gray-user-name">Aucun record enregistré</span>';
       return;
     }
