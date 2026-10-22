@@ -1320,6 +1320,71 @@ def parse_player(pid, data):
     }
 
 
+def update_periodic_records(leaderboard, existing_records):
+    now = datetime.now()
+    current_week_key = now.strftime("%Y-W%V")
+    current_month_key = now.strftime("%Y-%m")
+
+    tracking = existing_records.get("tracking_periods", {})
+    saved_week = tracking.get("week_key")
+    saved_month = tracking.get("month_key")
+    
+    week_scores = tracking.get("week_scores", {})
+    month_scores = tracking.get("month_scores", {})
+
+    # 1. Gestion de la Semaine (Lundi au Dimanche)
+    if saved_week != current_week_key:
+        if week_scores:
+            best_prev_week_user = max(week_scores, key=week_scores.get)
+            prev_week_pts = week_scores[best_prev_week_user]
+            
+            current_best_week = existing_records.get("best_week", {"points": 0})
+            if prev_week_pts > current_best_week.get("points", 0):
+                existing_records["best_week"] = {
+                    "name": best_prev_week_user,
+                    "points": prev_week_pts,
+                    "date": f"Semaine {saved_week}"
+                }
+        week_scores = {}
+        saved_week = current_week_key
+
+    # 2. Gestion du Mois (Mois complet)
+    if saved_month != current_month_key:
+        if month_scores:
+            best_prev_month_user = max(month_scores, key=month_scores.get)
+            prev_month_pts = month_scores[best_prev_month_user]
+            
+            current_best_month = existing_records.get("best_month", {"points": 0})
+            if prev_month_pts > current_best_month.get("points", 0):
+                existing_records["best_month"] = {
+                    "name": best_prev_month_user,
+                    "points": prev_month_pts,
+                    "date": saved_month
+                }
+        month_scores = {}
+        saved_month = current_month_key
+
+    # 3. Accumulation des points du jour
+    for p in leaderboard:
+        name = p.get("name")
+        night_pts = (
+            sum(x.get("pts_last", 0) for x in p.get("skaters", [])) +
+            sum(x.get("pts_last", 0) for x in p.get("goalies", [])) +
+            sum(x.get("pts_last", 0) for x in p.get("teams", []))
+        )
+        week_scores[name] = week_scores.get(name, 0) + night_pts
+        month_scores[name] = month_scores.get(name, 0) + night_pts
+
+    existing_records["tracking_periods"] = {
+        "week_key": saved_week,
+        "week_scores": week_scores,
+        "month_key": saved_month,
+        "month_scores": month_scores
+    }
+
+    return existing_records
+
+
 def main():
     previous_ranks, previous_player_pts, previous_team_pts, existing_records = load_previous()
 
@@ -1484,12 +1549,19 @@ def main():
 
     for new_rank, p in enumerate(leaderboard, start=1):
         old_rank = previous_ranks.get(p["name"])
-        if old_rank is None or old_rank == new_rank:
+        p["rank"] = new_rank
+        
+        if old_rank is None:
+            p["rank_change"] = 0
             p["trend"] = "same"
-        elif new_rank < old_rank:
-            p["trend"] = "up"
         else:
-            p["trend"] = "down"
+            p["rank_change"] = old_rank - new_rank
+            if old_rank == new_rank:
+                p["trend"] = "same"
+            elif new_rank < old_rank:
+                p["trend"] = "up"
+            else:
+                p["trend"] = "down"
 
     chart_dates = update_friday_history(leaderboard)
 
@@ -1513,6 +1585,9 @@ def main():
             "points": max_night_pts,
             "date": datetime.now().strftime("%d %b %Y")
         }
+
+    # Mise à jour des records de Semaine et de Mois via la nouvelle fonction
+    existing_records = update_periodic_records(leaderboard, existing_records)
 
     stats_records = {
         "best_night": current_best_night,
