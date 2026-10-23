@@ -1061,7 +1061,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 
       <div class="stats-grid-container">
         <div class="stats-box-item">
-          <div class="stats-item-title">🔥 Meilleure Soirée Unique</div>
+          <div class="stats-item-title">🔥 Meilleure Soirée</div>
           <div id="statBestNightRecord"></div>
         </div>
 
@@ -1497,7 +1497,7 @@ function computeBadges() {
 
   assignMultiple('🎯 Sniper', p => (p.skaters || []).reduce((s, x) => s + (x.goals || 0), 0));
   assignMultiple('🪄 Playmaker', p => (p.skaters || []).reduce((s, x) => s + (x.assists || 0), 0));
-  assignMultiple('🛡️ Mur de Briques', p => p.goalie_pts || 0);
+  assignMultiple('🧱 Mur de Briques', p => p.goalie_pts || 0);
 }
 
 function buildPlayerPool(data) {
@@ -1833,7 +1833,7 @@ function renderBadgesTab() {
     { key: '📈 Plus forte hausse', title: '📈 Plus Forte Hausse', desc: 'Attribué au participant ayant grimpé le plus grand nombre de places au classement lors de la dernière mise à jour.', unit: 'places' },
     { key: '🎯 Sniper', title: '🎯 Sniper', desc: 'Attribué au participant dont les joueurs ont accumulé le plus grand nombre de buts marqués.', unit: 'buts' },
     { key: '🪄 Playmaker', title: '🪄 Playmaker', desc: 'Attribué au participant dont les joueurs ont accumulé le plus grand nombre de passes.', unit: 'passes' },
-    { key: '🛡️ Mur de Briques', title: '🛡️ Mur de Briques', desc: 'Attribué au participant affichant le total de points de gardiens de but le plus élevé.', unit: 'pts' }
+    { key: '🧱 Mur de Briques', title: '🧱 Mur de Briques', desc: 'Attribué au participant affichant le total de points de gardiens de but le plus élevé.', unit: 'pts' }
   ];
 
   container.innerHTML = badgeDefs.map(b => {
