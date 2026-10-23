@@ -1721,9 +1721,10 @@ function renderAdvancedStats() {
   const goalies = topN(players.filter(isGoalie), 5, p => p.points || 0);
   const canadiens = topN(players.filter(isCanadien), 5, p => p.points || 0);
 
+  /* MODIFICATION : "Points Totals" changé pour "Points Total" */
   container.innerHTML =
     renderSection('Points de la dernière soirée', lastNight.map((p, i) => renderPlayerCard(p, i + 1, '+' + (p.pts_last || 0) + ' pts')).join(''), true) +
-    renderSection('Points Totals', totalPts.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false) +
+    renderSection('Points Total', totalPts.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false) +
     renderSection('Meilleurs buteurs', scorers.map((p, i) => renderPlayerCard(p, i + 1, (p.goals || 0) + ' Buts')).join(''), false) +
     renderSection('Meilleurs passeurs', assist.map((p, i) => renderPlayerCard(p, i + 1, (p.assists || 0) + ' Passes')).join(''), false) +
     renderSection('Meilleurs Attaquants', attackers.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false) +
@@ -1734,7 +1735,6 @@ function renderAdvancedStats() {
 
 /* ===== VUE STATISTIQUES ===== */
 function renderStatsTab() {
-  // Calculer le total des points de la soirée d'hier pour chaque participant
   const participantNightScores = [...allParticipants].map(p => {
     const h = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
               (p.goalies || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
@@ -1742,7 +1742,6 @@ function renderStatsTab() {
     return { name: p.name, pts: h };
   }).filter(p => p.pts > 0);
 
-  // Grouper les participants par nombre de points
   const groupedScores = {};
   participantNightScores.forEach(p => {
     if (!groupedScores[p.pts]) {
@@ -1751,11 +1750,10 @@ function renderStatsTab() {
     groupedScores[p.pts].push(p.name);
   });
 
-  // Trier les paliers de points de manière décroissante
   const sortedPoints = Object.keys(groupedScores)
     .map(Number)
     .sort((a, b) => b - a)
-    .slice(0, 5); // Prendre au maximum 5 paliers de points distincts
+    .slice(0, 5);
 
   const nightListEl = document.getElementById('top5NightList');
 
@@ -1828,9 +1826,13 @@ function renderStatsTab() {
 function renderBadgesTab() {
   const container = document.getElementById('badgesList');
   
+  /* MODIFICATIONS : 
+     - Description de "📈 Plus forte hausse" mise à jour
+     - Badge "🧱 Mur de Brique" renommé avec le nouvel emoji 🧱
+  */
   const badgeDefs = [
     { key: '🔥 En Feu', title: '🔥 En Feu', desc: 'Attribué au participant ayant cumulé le plus de points au cours des 3 derniers jours de compétition.', unit: 'pts' },
-    { key: '📈 Plus forte hausse', title: '📈 Plus Forte Hausse', desc: 'Attribué au participant ayant grimpé le plus grand nombre de places au classement lors de la dernière mise à jour.', unit: 'places' },
+    { key: '📈 Plus forte hausse', title: '📈 Plus Forte Hausse', desc: 'Attribué au participant ayant grimpé du plus grand nombre de places au classement lors de la dernière mise à jour.', unit: 'places' },
     { key: '🎯 Sniper', title: '🎯 Sniper', desc: 'Attribué au participant dont les joueurs ont accumulé le plus grand nombre de buts marqués.', unit: 'buts' },
     { key: '🪄 Playmaker', title: '🪄 Playmaker', desc: 'Attribué au participant dont les joueurs ont accumulé le plus grand nombre de passes.', unit: 'passes' },
     { key: '🧱 Mur de Brique', title: '🧱 Mur de Brique', desc: 'Attribué au participant affichant le total de points de gardiens de but le plus élevé.', unit: 'pts' }
