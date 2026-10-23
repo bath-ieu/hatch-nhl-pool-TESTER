@@ -637,14 +637,14 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .top5-night-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: 8px 12px;
+  padding: 10px 12px;
   background: #ffffff;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
@@ -656,14 +656,22 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   font-size: 0.85rem;
   color: var(--accent-red);
   width: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .top5-names-wrap {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   flex-grow: 1;
   min-width: 0;
   margin-right: 10px;
+}
+
+.top5-user-unit {
+  display: flex;
+  flex-direction: column;
 }
 
 .top5-names-wrap .orange-team-name {
@@ -685,6 +693,8 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   font-weight: 800;
   font-size: 0.95rem;
   white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* ===== VUE BADGES ===== */
@@ -1051,7 +1061,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 
       <div class="stats-grid-container">
         <div class="stats-box-item">
-          <div class="stats-item-title">🔥 Meilleure Soirée</div>
+          <div class="stats-item-title">🔥 Meilleure Soirée Unique</div>
           <div id="statBestNightRecord"></div>
         </div>
 
@@ -1487,7 +1497,7 @@ function computeBadges() {
 
   assignMultiple('🎯 Sniper', p => (p.skaters || []).reduce((s, x) => s + (x.goals || 0), 0));
   assignMultiple('🪄 Playmaker', p => (p.skaters || []).reduce((s, x) => s + (x.assists || 0), 0));
-  assignMultiple('🧱 Mur de Brique', p => p.goalie_pts || 0);
+  assignMultiple('🛡️ Mur de Briques', p => p.goalie_pts || 0);
 }
 
 function buildPlayerPool(data) {
@@ -1591,8 +1601,7 @@ function renderLeaderboard(list) {
 
     const uBadgesMap = specialBadges[p.name] || {};
     const uBadgesEntries = Object.entries(uBadgesMap);
-    
-    /* MODIFICATION : Retrait de la valeur numérique sous le badge dans le classement */
+
     const badgesHtml = uBadgesEntries.length
       ? '<div class="participant-badges">' + uBadgesEntries.map(([bKey]) => {
           return '<div class="badge-wrapper"><span class="badge-icon">' + bKey + '</span></div>';
@@ -1723,25 +1732,55 @@ function renderAdvancedStats() {
     renderSection('Top 5 Canadiens', canadiens.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false);
 }
 
+/* ===== VUE STATISTIQUES ===== */
 function renderStatsTab() {
-  const sortedNight = [...allParticipants].map(p => {
+  // Calculer le total des points de la soirée d'hier pour chaque participant
+  const participantNightScores = [...allParticipants].map(p => {
     const h = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
               (p.goalies || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
               (p.teams || []).reduce((s, x) => s + (x.pts_last || 0), 0);
     return { name: p.name, pts: h };
-  }).sort((a, b) => b.pts - a.pts).slice(0, 5);
+  }).filter(p => p.pts > 0);
+
+  // Grouper les participants par nombre de points
+  const groupedScores = {};
+  participantNightScores.forEach(p => {
+    if (!groupedScores[p.pts]) {
+      groupedScores[p.pts] = [];
+    }
+    groupedScores[p.pts].push(p.name);
+  });
+
+  // Trier les paliers de points de manière décroissante
+  const sortedPoints = Object.keys(groupedScores)
+    .map(Number)
+    .sort((a, b) => b - a)
+    .slice(0, 5); // Prendre au maximum 5 paliers de points distincts
 
   const nightListEl = document.getElementById('top5NightList');
-  nightListEl.innerHTML = sortedNight.map((x, i) => `
-    <li>
-      <span class="top5-rank-badge">#${i+1}</span>
-      <div class="top5-names-wrap">
-        <span class="orange-team-name">${TEAM_NAMES[x.name] || x.name}</span>
-        <span class="gray-user-name">${x.name}</span>
-      </div>
-      <span class="top5-score">+${x.pts} pts</span>
-    </li>
-  `).join('');
+
+  if (sortedPoints.length === 0) {
+    nightListEl.innerHTML = '<li><span class="gray-user-name" style="padding:4px 0;">Aucun point cumulé hier</span></li>';
+  } else {
+    nightListEl.innerHTML = sortedPoints.map((pts, index) => {
+      const usersHtml = groupedScores[pts].map(uName => `
+        <div class="top5-user-unit">
+          <span class="orange-team-name">${TEAM_NAMES[uName] || uName}</span>
+          <span class="gray-user-name">${uName}</span>
+        </div>
+      `).join('');
+
+      return `
+        <li>
+          <span class="top5-rank-badge">#${index + 1}</span>
+          <div class="top5-names-wrap">
+            ${usersHtml}
+          </div>
+          <span class="top5-score">+${pts} pts</span>
+        </li>
+      `;
+    }).join('');
+  }
 
   let statsRec = rawData.stats_records || {};
 
@@ -1789,13 +1828,12 @@ function renderStatsTab() {
 function renderBadgesTab() {
   const container = document.getElementById('badgesList');
   
-  /* MODIFICATION : Intitulé 'En Feu' mis à jour */
   const badgeDefs = [
     { key: '🔥 En Feu', title: '🔥 En Feu', desc: 'Attribué au participant ayant cumulé le plus de points au cours des 3 derniers jours de compétition.', unit: 'pts' },
     { key: '📈 Plus forte hausse', title: '📈 Plus Forte Hausse', desc: 'Attribué au participant ayant grimpé le plus grand nombre de places au classement lors de la dernière mise à jour.', unit: 'places' },
     { key: '🎯 Sniper', title: '🎯 Sniper', desc: 'Attribué au participant dont les joueurs ont accumulé le plus grand nombre de buts marqués.', unit: 'buts' },
     { key: '🪄 Playmaker', title: '🪄 Playmaker', desc: 'Attribué au participant dont les joueurs ont accumulé le plus grand nombre de passes.', unit: 'passes' },
-    { key: '🧱 Mur de Brique', title: '🧱 Mur de Brique', desc: 'Attribué au participant affichant le total de points de gardiens de but le plus élevé.', unit: 'pts' }
+    { key: '🛡️ Mur de Briques', title: '🛡️ Mur de Briques', desc: 'Attribué au participant affichant le total de points de gardiens de but le plus élevé.', unit: 'pts' }
   ];
 
   container.innerHTML = badgeDefs.map(b => {
