@@ -434,11 +434,15 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   white-space: nowrap;
 }
 
-.details table { table-layout: fixed; width: 100%; }
-.details th:nth-child(1), .details td:nth-child(1) { width: 60%; text-align: left; }
-.details th:nth-child(2), .details td:nth-child(2) { width: 18%; text-align: right; }
-.details th:nth-child(3), .details td:nth-child(3) { width: 10%; text-align: right; }
-.details th:nth-child(4), .details td:nth-child(4) { width: 12%; text-align: center; }
+.details table, .compare-roster-table { table-layout: fixed; width: 100%; }
+.details th:nth-child(1), .details td:nth-child(1),
+.compare-roster-table th:nth-child(1), .compare-roster-table td:nth-child(1) { width: 52%; text-align: left; }
+.details th:nth-child(2), .details td:nth-child(2),
+.compare-roster-table th:nth-child(2), .compare-roster-table td:nth-child(2) { width: 22%; text-align: right; }
+.details th:nth-child(3), .details td:nth-child(3),
+.compare-roster-table th:nth-child(3), .compare-roster-table td:nth-child(3) { width: 12%; text-align: right; }
+.details th:nth-child(4), .details td:nth-child(4),
+.compare-roster-table th:nth-child(4), .compare-roster-table td:nth-child(4) { width: 14%; text-align: center; }
 
 /* ===== Top 5 Joueurs ===== */
 #advancedView { display: none; padding-top: 8px; }
@@ -1950,9 +1954,42 @@ function updateCompareUI() {
   const getWinnerClass = (v1, v2) => v1 > v2 ? 'compare-winner' : '';
 
   const renderRosterList = (u) => {
-    const skaters = (u.skaters || []).map(s => `<div>${s.name} (${s.position}) - <b>${s.points || 0} pts</b></div>`).join('');
-    const goalies = (u.goalies || []).map(g => `<div>${g.name} (G) - <b>${g.points || 0} pts</b></div>`).join('');
-    return skaters + goalies;
+    let skatersHtml = (u.skaters || []).map(s => {
+      const displayPos = (s.position === 'D') ? 'D' : 'A';
+      return '<tr>' +
+        '<td><b>' + (s.name || '') + '</b> <span class="badge">' + displayPos + '</span></td>' +
+        '<td>' + (s.goals || 0) + ' B / ' + (s.assists || 0) + ' P</td>' +
+        '<td><b>' + (s.points || 0) + ' pts</b></td>' +
+        '<td>' + formatPtsLast(s.pts_last) + '</td>' +
+        '</tr>';
+    }).join('');
+
+    let goaliesHtml = (u.goalies || []).map(g => {
+      return '<tr>' +
+        '<td><b>' + (g.name || '') + '</b> <span class="badge">G</span></td>' +
+        '<td>' + (g.wins || 0) + ' V / ' + (g.shutouts || 0) + ' BL / ' + (g.otLosses || 0) + ' DP</td>' +
+        '<td><b>' + (g.points || 0) + ' pts</b></td>' +
+        '<td>' + formatPtsLast(g.pts_last) + '</td>' +
+        '</tr>';
+    }).join('');
+
+    let teamsHtml = (u.teams || []).map(t => {
+      return '<tr>' +
+        '<td><b>' + (t.name || '') + '</b> (' + (t.abbrev || '') + ')</td>' +
+        '<td>' + (t.reg_wins || 0) + ' VR / ' + (t.ot_wins || 0) + ' VP / ' + (t.ot_losses || 0) + ' DP</td>' +
+        '<td><b>' + (t.points || 0) + ' pts</b></td>' +
+        '<td>' + formatPtsLast(t.pts_last) + '</td>' +
+        '</tr>';
+    }).join('');
+
+    return `
+      <div class="section-title" style="margin-top:0;">Attaquants & Défenseurs</div>
+      <table class="compare-roster-table"><thead><tr><th>Joueur</th><th>Statistiques</th><th>Points</th><th>Hier</th></tr></thead><tbody>${skatersHtml}</tbody></table>
+      <div class="section-title">Gardiens</div>
+      <table class="compare-roster-table"><thead><tr><th>Gardien</th><th>Statistiques</th><th>Points</th><th>Hier</th></tr></thead><tbody>${goaliesHtml}</tbody></table>
+      <div class="section-title">Équipes</div>
+      <table class="compare-roster-table"><thead><tr><th>Équipe</th><th>Statistiques</th><th>Points</th><th>Hier</th></tr></thead><tbody>${teamsHtml}</tbody></table>
+    `;
   };
 
   const nameHeader1 = `
@@ -1992,7 +2029,7 @@ function updateCompareUI() {
       </tbody>
     </table>
 
-    <h3 style="text-align:center; margin-bottom: 8px;">Alignements & Statistiques Joueurs</h3>
+    <h3 style="text-align:center; margin-bottom: 8px;">Alignements & Statistiques Détaillées</h3>
     <div class="roster-comparison-grid">
       <div class="roster-column">
         <div class="roster-column-header">
