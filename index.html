@@ -88,6 +88,37 @@ body {
   position: relative;
 }
 
+/* Bouton Règlements en haut à droite de l'en-tête */
+.rules-top-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: inherit;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-color);
+  background: #ffffff;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.25;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.rules-top-btn:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+.rules-top-btn.active {
+  background: var(--text-dark);
+  color: #ffffff;
+  border-color: var(--text-dark);
+}
+
 .brand-block {
   display: flex;
   flex-direction: column;
@@ -781,6 +812,63 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   gap: 6px;
 }
 
+/* ===== VUE RÈGLEMENTS DE POINTAGE ===== */
+#rulesView { display: none; padding-top: 8px; }
+
+.rules-card {
+  background: #ffffff;
+  border: 2.5px solid var(--border-color);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.rules-card h2 {
+  margin-top: 0;
+  color: var(--text-dark);
+  font-size: 1.25rem;
+  font-weight: 800;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.rule-category {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.rule-category h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #0284c7;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.rule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+
+.rule-table th {
+  background: #f1f5f9;
+  font-size: 0.78rem;
+}
+
+.rule-table td {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
 /* ===== VUE CONFRONTATION ===== */
 #compareView { display: none; padding-top: 8px; }
 
@@ -1011,6 +1099,9 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 
   <div class="sticky-top">
     <header class="header">
+      <!-- Bouton Règlements en haut à droite -->
+      <button type="button" class="rules-top-btn" id="btnRulesTop" onclick="showView('rules')">Règlements 📋</button>
+      
       <div class="brand-block">
         <img src="./images/hatch-logo.png" alt="Hatch Logo" class="hatch-logo" onerror="this.style.display='none'">
         <h1>🏒 NHL Super Pool 🥅</h1>
@@ -1092,7 +1183,61 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     </div>
   </div>
 
-  <!-- VUE 5 : CONFRONTATION HEAD-TO-HEAD -->
+  <!-- VUE 5 : RÈGLEMENTS DE POINTAGE -->
+  <div id="rulesView">
+    <div class="rules-card">
+      <h2>Règlements de Pointage 📋</h2>
+
+      <div class="rule-category">
+        <h3>🏒 Attaquants (A)</h3>
+        <table class="rule-table">
+          <thead><tr><th>Événement</th><th>Points</th></tr></thead>
+          <tbody>
+            <tr><td>But (Goal)</td><td><b>2 pts</b></td></tr>
+            <tr><td>Passe (Assist)</td><td><b>1 pt</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule-category">
+        <h3>🛡️ Défenseurs (D)</h3>
+        <table class="rule-table">
+          <thead><tr><th>Événement</th><th>Points</th></tr></thead>
+          <tbody>
+            <tr><td>But (Goal)</td><td><b>3 pts</b></td></tr>
+            <tr><td>Passe (Assist)</td><td><b>2 pts</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule-category">
+        <h3>🧱 Gardiens de but (G)</h3>
+        <table class="rule-table">
+          <thead><tr><th>Événement</th><th>Points</th></tr></thead>
+          <tbody>
+            <tr><td>Victoire (Win)</td><td><b>4 pts</b></td></tr>
+            <tr><td>Blanchissage (Shutout)</td><td><b>5 pts</b></td></tr>
+            <tr><td>Défaite en prolongation / fusillade (OT Loss)</td><td><b>1 pt</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule-category">
+        <h3>🏆 Équipes de la LNH</h3>
+        <table class="rule-table">
+          <thead><tr><th>Événement</th><th>Points</th></tr></thead>
+          <tbody>
+            <tr><td>Victoire en temps réglementaire (Regulation Win)</td><td><b>3 pts</b></td></tr>
+            <tr><td>Victoire en prolongation / fusillade (OT/SO Win)</td><td><b>2 pts</b></td></tr>
+            <tr><td>Défaite en prolongation / fusillade (OT Loss)</td><td><b>1 pt</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VUE 6 : CONFRONTATION HEAD-TO-HEAD -->
   <div id="compareView">
     <div class="compare-card">
       <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Confrontation Directe ⚔️</h2>
@@ -1115,7 +1260,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     </div>
   </div>
 
-  <!-- VUE 6 : GRAPHIQUE DE PROGRESSION -->
+  <!-- VUE 7 : GRAPHIQUE DE PROGRESSION -->
   <div id="chartView">
     <div class="chart-card">
       <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Évolution des Points 📊</h2>
@@ -1338,11 +1483,13 @@ let compUser1 = null;
 let compUser2 = null;
 
 function showView(which) {
-  const views = ['generalView', 'advancedView', 'statsView', 'badgesView', 'compareView', 'chartView'];
+  const views = ['generalView', 'advancedView', 'statsView', 'badgesView', 'rulesView', 'compareView', 'chartView'];
   const btns = ['btnGeneral', 'btnAdvanced', 'btnStats', 'btnBadges', 'btnCompare', 'btnChart'];
+  const rulesTopBtn = document.getElementById('btnRulesTop');
 
   views.forEach(v => document.getElementById(v).style.display = 'none');
   btns.forEach(b => document.getElementById(b).classList.remove('active'));
+  if (rulesTopBtn) rulesTopBtn.classList.remove('active');
 
   const searchWrap = document.getElementById('searchBarWrap');
   const searchHint = document.getElementById('searchHint');
@@ -1365,6 +1512,11 @@ function showView(which) {
     searchWrap.style.display = 'none';
     searchHint.style.display = 'none';
     renderBadgesTab();
+  } else if (which === 'rules') {
+    document.getElementById('rulesView').style.display = 'block';
+    if (rulesTopBtn) rulesTopBtn.classList.add('active');
+    searchWrap.style.display = 'none';
+    searchHint.style.display = 'none';
   } else if (which === 'compare') {
     document.getElementById('compareView').style.display = 'block';
     document.getElementById('btnCompare').classList.add('active');
