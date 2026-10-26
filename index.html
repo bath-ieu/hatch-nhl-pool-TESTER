@@ -88,7 +88,6 @@ body {
   position: relative;
 }
 
-/* Bouton Règlements aux dimensions et styles des autres boutons de vue */
 .rules-top-btn {
   position: absolute;
   top: 0;
@@ -857,16 +856,22 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 0;
+  table-layout: fixed;
 }
 
-.rule-table th {
-  background: #f1f5f9;
-  font-size: 0.78rem;
+.rule-table th, .rule-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #cbd5e1;
 }
 
-.rule-table td {
-  font-size: 0.88rem;
-  font-weight: 600;
+.rule-table th:nth-child(1), .rule-table td:nth-child(1) {
+  width: 80%;
+  text-align: left;
+}
+
+.rule-table th:nth-child(2), .rule-table td:nth-child(2) {
+  width: 20%;
+  text-align: right;
 }
 
 /* ===== VUE CONFRONTATION ===== */
@@ -1099,7 +1104,6 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
 
   <div class="sticky-top">
     <header class="header">
-      <!-- Bouton Règlements harmonisé avec les autres boutons -->
       <button type="button" class="rules-top-btn" id="btnRulesTop" onclick="showView('rules')">Règlements 📋</button>
       
       <div class="brand-block">
@@ -1186,7 +1190,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   <!-- VUE 5 : RÈGLEMENTS DE POINTAGE -->
   <div id="rulesView">
     <div class="rules-card">
-      <h2>Règlements de Pointage 📋</h2>
+      <h2>Règlements 📋</h2>
 
       <div class="rule-category">
         <h3>🏒 Attaquants</h3>
@@ -1211,12 +1215,12 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
       </div>
 
       <div class="rule-category">
-        <h3>🧱 Gardiens de but</h3>
+        <h3>🧱 Gardiens</h3>
         <table class="rule-table">
           <thead><tr><th>Événement</th><th>Points</th></tr></thead>
           <tbody>
             <tr><td>Victoire</td><td><b>4 pts</b></td></tr>
-            <tr><td>Blanchissage (Points supplémentaires en plus de la victoire) (Aucun but alloué durant la partie)</td><td><b>5 pts</b></td></tr>
+            <tr><td>Blanchissage (Aucun but alloué durant la partie)</td><td><b>+5 pts</b></td></tr>
             <tr><td>Défaite en prolongation / fusillade</td><td><b>1 pt</b></td></tr>
           </tbody>
         </table>
@@ -2281,4 +2285,3 @@ loadPoolData();
 </script>
 </body>
 </html>
-
