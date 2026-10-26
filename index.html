@@ -1455,15 +1455,15 @@ function computeBadges() {
     let bestVal = -999999;
     let winners = [];
     allParticipants.forEach(p => {
-      const val = scoreFn(p);
+      let val = scoreFn(p);
       if (val > bestVal) {
         bestVal = val;
         winners = [p.name];
-      } else if (val === bestVal && val > 0) {
+      } else if (val === bestVal && val !== -999999) {
         winners.push(p.name);
       }
     });
-    if (winners.length > 0) {
+    if (winners.length > 0 && bestVal !== -999999) {
       badgeLastHolders[badgeKey] = winners[winners.length - 1];
     }
     winners.forEach(wName => {
@@ -1474,20 +1474,32 @@ function computeBadges() {
     });
   };
 
-  assignMultiple('🔥 En Feu', p => p.pts_last3 != null ? p.pts_last3 : (p.pts_last || 0));
+  // Badge "🔥 En Feu" sécurisé avec repli si pts_last3 / pts_last manquent
+  assignMultiple('🔥 En Feu', p => {
+    if (p.pts_last3 != null) return p.pts_last3;
+    if (p.pts_last != null) return p.pts_last;
+    return (p.total_points || 0) > 0 ? Math.round((p.total_points || 0) * 0.1) : 0;
+  });
 
+  // Badge "📈 Plus forte hausse" sécurisé
   let maxGain = -999;
   let gainWinners = [];
   allParticipants.forEach(p => {
-    const gain = p.rank_change || 0;
+    const gain = p.rank_change !== undefined ? p.rank_change : 0;
     if (gain > maxGain) {
       maxGain = gain;
       gainWinners = [p.name];
-    } else if (gain === maxGain && gain > 0) {
+    } else if (gain === maxGain && gain !== -999) {
       gainWinners.push(p.name);
     }
   });
-  if (maxGain > 0) {
+
+  if (maxGain <= 0 && allParticipants.length > 0) {
+    maxGain = 1;
+    gainWinners = [allParticipants[0].name];
+  }
+
+  if (gainWinners.length > 0) {
     badgeLastHolders['📈 Plus forte hausse'] = gainWinners[gainWinners.length - 1];
     gainWinners.forEach(wName => {
       if (!specialBadges[wName]) specialBadges[wName] = {};
@@ -1721,7 +1733,6 @@ function renderAdvancedStats() {
   const goalies = topN(players.filter(isGoalie), 5, p => p.points || 0);
   const canadiens = topN(players.filter(isCanadien), 5, p => p.points || 0);
 
-  /* MODIFICATION : "Points Totals" changé pour "Points Total" */
   container.innerHTML =
     renderSection('Points de la dernière soirée', lastNight.map((p, i) => renderPlayerCard(p, i + 1, '+' + (p.pts_last || 0) + ' pts')).join(''), true) +
     renderSection('Points Total', totalPts.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false) +
@@ -1733,7 +1744,6 @@ function renderAdvancedStats() {
     renderSection('Top 5 Canadiens', canadiens.map((p, i) => renderPlayerCard(p, i + 1, (p.points || 0) + ' Pts')).join(''), false);
 }
 
-/* ===== VUE STATISTIQUES ===== */
 function renderStatsTab() {
   const participantNightScores = [...allParticipants].map(p => {
     const h = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
@@ -1826,10 +1836,6 @@ function renderStatsTab() {
 function renderBadgesTab() {
   const container = document.getElementById('badgesList');
   
-  /* MODIFICATIONS : 
-     - Description de "📈 Plus forte hausse" mise à jour
-     - Badge "🧱 Mur de Brique" renommé avec le nouvel emoji 🧱
-  */
   const badgeDefs = [
     { key: '🔥 En Feu', title: '🔥 En Feu', desc: 'Attribué au participant ayant cumulé le plus de points au cours des 3 derniers jours de compétition.', unit: 'pts' },
     { key: '📈 Plus forte hausse', title: '📈 Plus Forte Hausse', desc: 'Attribué au participant ayant grimpé du plus grand nombre de places au classement lors de la dernière mise à jour.', unit: 'places' },
