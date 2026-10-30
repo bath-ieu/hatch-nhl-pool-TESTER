@@ -1631,7 +1631,6 @@ function computeBadges() {
     });
   };
 
-  // Utilisation directe et exacte de pts_last3 calculé par le script GitHub
   assignMultiple('🔥 En Feu', p => {
     return p.pts_last3 != null ? p.pts_last3 : 0;
   });
@@ -1946,38 +1945,39 @@ function renderStatsTab() {
 
   let statsRec = rawData.stats_records || {};
 
-  if (!statsRec.best_night || !statsRec.best_night.points) {
-    let maxNightPts = -1;
-    let bestNightUser = null;
-    allParticipants.forEach(p => {
-      const h = (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
-                (p.goalies || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
-                (p.teams || []).reduce((s, x) => s + (x.pts_last || 0), 0);
-      if (h > maxNightPts) {
-        maxNightPts = h;
-        bestNightUser = p.name;
-      }
-    });
-    if (bestNightUser && maxNightPts > 0) {
-      statsRec.best_night = { name: bestNightUser, points: maxNightPts, date: "Dernière soirée" };
-    }
-  }
-
   const renderRecordBox = (rec, elementId) => {
     const el = document.getElementById(elementId);
-    if (!rec || !rec.name || rec.name === "—" || (rec.points === 0 && !rec.date)) {
+    
+    // Récupération sécurisée du tableau de noms (gère aussi l'ancienne version avec un seul nom au cas où)
+    let namesArr = [];
+    if (rec && rec.names && Array.isArray(rec.names)) {
+      namesArr = rec.names;
+    } else if (rec && rec.name && rec.name !== "—") {
+      namesArr = [rec.name];
+    }
+
+    if (!rec || namesArr.length === 0 || namesArr.includes("—") || (rec.points === 0 && !rec.date)) {
       el.innerHTML = '<span class="gray-user-name">Aucun record enregistré</span>';
       return;
     }
-    const tName = TEAM_NAMES[rec.name] || rec.name;
-    const uName = rec.name;
+
     const info = rec.date || rec.period || '';
     
+    // Génération de l'affichage pour chaque participant détenteur du record (gère les ex aequo)
+    const namesHtml = namesArr.map(uName => {
+      const tName = TEAM_NAMES[uName] || uName;
+      return `
+        <div style="margin-bottom: 4px;">
+          <span class="orange-team-name" style="font-size:0.95rem;">${tName}</span><br>
+          <span class="gray-user-name" style="font-size:0.75rem;">${uName}</span>
+        </div>
+      `;
+    }).join('');
+
     el.innerHTML = `
       <div class="stats-item-value-block">
-        <span class="orange-team-name">${tName}</span>
-        <span class="gray-user-name">${uName}</span>
-        <div class="stat-extra-info">${rec.points} pts ${info ? `(${info})` : ''}</div>
+        ${namesHtml}
+        <div class="stat-extra-info" style="margin-top:2px;">${rec.points} pts ${info ? `(${info})` : ''}</div>
       </div>
     `;
   };
