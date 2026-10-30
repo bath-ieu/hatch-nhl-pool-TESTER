@@ -1,0 +1,538 @@
+{
+  "chart_dates": [
+    "30 Oct"
+  ],
+  "cumulative_history": {
+    "Etienne Paquin-Foisy": [
+      643
+    ],
+    "Benjamin Arcand": [
+      605
+    ],
+    "Xavier Leblanc": [
+      601
+    ],
+    "Mathieu Mei": [
+      596
+    ],
+    "Michel Bolduc": [
+      596
+    ],
+    "Emmanuelle Lajoie": [
+      591
+    ],
+    "Steven Parent": [
+      590
+    ],
+    "Mohamad Bouaram": [
+      589
+    ],
+    "Patrick Barbieri": [
+      588
+    ],
+    "Catherine Gaudio": [
+      586
+    ],
+    "Philippe Martin": [
+      586
+    ],
+    "Ariel Beauregard Breton": [
+      585
+    ],
+    "Joel Labadie": [
+      584
+    ],
+    "Mathieu Huot": [
+      581
+    ],
+    "Richard Verbanac": [
+      581
+    ],
+    "Serge Masse": [
+      579
+    ],
+    "Kevin Gadbois": [
+      577
+    ],
+    "Patrick Bisson": [
+      577
+    ],
+    "Vincent Cassabon": [
+      576
+    ],
+    "Alexandre Bergeron": [
+      575
+    ],
+    "Louis-Philippe Corriveau": [
+      574
+    ],
+    "Allen Chan": [
+      573
+    ],
+    "Arnaud Fournier": [
+      571
+    ],
+    "Serge Arguin": [
+      570
+    ],
+    "Jean-Benoit Boucher": [
+      570
+    ],
+    "Olivier Jubelin": [
+      569
+    ],
+    "Amelie Mercier Arsenault": [
+      569
+    ],
+    "Noémie Pinsonnault-Duchemin": [
+      569
+    ],
+    "Carine Adam": [
+      568
+    ],
+    "Jean-Sebastien Langlois": [
+      567
+    ],
+    "Naomie Curis-Friedman": [
+      565
+    ],
+    "Samia Merazga": [
+      562
+    ],
+    "Justine Fournier": [
+      562
+    ],
+    "Soulaiman Benaamer": [
+      560
+    ],
+    "Bruno Cournoyer": [
+      560
+    ],
+    "François Lacerte": [
+      559
+    ],
+    "Alexy Fafard": [
+      558
+    ],
+    "Jeanne Lemonde-Trudeau": [
+      555
+    ],
+    "Josianne Lafontaine": [
+      552
+    ],
+    "Benoit Gaudet": [
+      552
+    ],
+    "Eva Marre": [
+      552
+    ],
+    "Olivier Lemoine": [
+      552
+    ],
+    "Normand Yelle": [
+      551
+    ],
+    "Jean Lamoureux": [
+      551
+    ],
+    "Tristan Juette": [
+      551
+    ],
+    "Mathieu Labranche": [
+      550
+    ],
+    "Michael Lee": [
+      549
+    ],
+    "Rebecca Owen": [
+      549
+    ],
+    "Robert Dellazizzo": [
+      548
+    ],
+    "Ludovic Morissette": [
+      548
+    ],
+    "Pamela Pachal": [
+      547
+    ],
+    "Hubert Perreault": [
+      547
+    ],
+    "Julie Harvey": [
+      546
+    ],
+    "Philippe Khalil": [
+      545
+    ],
+    "Matthew Totarella": [
+      544
+    ],
+    "Anthony Lamer": [
+      542
+    ],
+    "Daniel Reichelson": [
+      541
+    ],
+    "Jean Francois Boulet": [
+      541
+    ],
+    "Alexis Lemire": [
+      540
+    ],
+    "Bakar Amara": [
+      539
+    ],
+    "Olivier Tom": [
+      538
+    ],
+    "Xavier Rousseau-Laliberte": [
+      538
+    ],
+    "Dina Lagonskaya": [
+      538
+    ],
+    "Mélanie Ouellette": [
+      538
+    ],
+    "Charles-Olivier Boudrias": [
+      538
+    ],
+    "Alexandru Rogai": [
+      537
+    ],
+    "Francis Emond": [
+      537
+    ],
+    "George Forlini": [
+      537
+    ],
+    "Nousk Ghailane": [
+      536
+    ],
+    "Pierre-Luc Pigeon": [
+      536
+    ],
+    "Ashley Nguyen": [
+      536
+    ],
+    "Axelle Monnot": [
+      536
+    ],
+    "Danny Bouchard": [
+      535
+    ],
+    "Eduardo": [
+      530
+    ],
+    "Cristina Murillo": [
+      530
+    ],
+    "Daniel Marcoux": [
+      530
+    ],
+    "Xavier Lafortune": [
+      529
+    ],
+    "Frederic Langevin": [
+      529
+    ],
+    "Gerald Tugas": [
+      528
+    ],
+    "Samuel Leblanc": [
+      528
+    ],
+    "Marie-Laurence Boutin": [
+      527
+    ],
+    "Colin Barbeau": [
+      527
+    ],
+    "Nathalie Bourgeois": [
+      526
+    ],
+    "Kalvin Southern": [
+      526
+    ],
+    "Simon-Pierre Lefebvre": [
+      525
+    ],
+    "Elisabeth Danis": [
+      525
+    ],
+    "Isabelle Lemay": [
+      524
+    ],
+    "Michael Bino": [
+      523
+    ],
+    "Florence Gagnon": [
+      523
+    ],
+    "Gabriel De Muy Larose": [
+      522
+    ],
+    "Marc-Antoine Dery": [
+      521
+    ],
+    "Vincent Joyal": [
+      521
+    ],
+    "Robert Austen": [
+      521
+    ],
+    "Regina Nair": [
+      520
+    ],
+    "Charles-Antoine Dubeau": [
+      520
+    ],
+    "Nick Totarella": [
+      519
+    ],
+    "Marc-Antoine Lebel": [
+      519
+    ],
+    "Hakjun Oh": [
+      518
+    ],
+    "Thomas Gueville": [
+      518
+    ],
+    "Alondra Rima": [
+      516
+    ],
+    "Marlyn Tchoukuegno": [
+      516
+    ],
+    "Florence Riopel": [
+      516
+    ],
+    "Dany Lafontaine": [
+      516
+    ],
+    "Marie-Claude Tremblay": [
+      516
+    ],
+    "Vinh Truong": [
+      516
+    ],
+    "Gabrielle Lamirande-Gauvin": [
+      515
+    ],
+    "Jacob Bissonnette": [
+      514
+    ],
+    "Alexia Fiorilli": [
+      514
+    ],
+    "Mounir Tamimi": [
+      514
+    ],
+    "Andreanne Blais": [
+      513
+    ],
+    "Martin Bélanger": [
+      513
+    ],
+    "Pier-Olivier Hotte-Rene": [
+      512
+    ],
+    "Mathieu St-Pierre": [
+      511
+    ],
+    "Leandro Pereira": [
+      510
+    ],
+    "Nicolas Besner": [
+      510
+    ],
+    "Jean-Sebastien Bisaillon": [
+      510
+    ],
+    "Martin Brunet": [
+      510
+    ],
+    "Martin Beaulieu": [
+      510
+    ],
+    "John Greene": [
+      510
+    ],
+    "Xavier Monette": [
+      510
+    ],
+    "Louis-Philippe Dufresne Viau": [
+      509
+    ],
+    "Jean Gohin": [
+      508
+    ],
+    "Shayne Renaud": [
+      508
+    ],
+    "Aymeric Bellefeuille": [
+      508
+    ],
+    "Logan Bélanger": [
+      507
+    ],
+    "Marc-Antoine Laforest": [
+      507
+    ],
+    "Jean-Marc Gauthier": [
+      506
+    ],
+    "Yanick Tremblay": [
+      505
+    ],
+    "Sabrina Ficara": [
+      504
+    ],
+    "Lenna Gatouillat": [
+      503
+    ],
+    "Fabrice Danger": [
+      503
+    ],
+    "Ahmad Bou Aram": [
+      502
+    ],
+    "Philippe Denis-Ducharme": [
+      502
+    ],
+    "Jessica Forest": [
+      501
+    ],
+    "Andrew Middleton": [
+      501
+    ],
+    "Samantha Levac": [
+      498
+    ],
+    "Alain Roy": [
+      497
+    ],
+    "Léonore Jean-François": [
+      497
+    ],
+    "Laurence Gamache": [
+      497
+    ],
+    "Quentin Tuphile": [
+      496
+    ],
+    "Lucas Parkinson": [
+      496
+    ],
+    "Caroline Bergeron": [
+      495
+    ],
+    "Cédrick Charest": [
+      494
+    ],
+    "Karl St-André": [
+      494
+    ],
+    "Nicolas St-Pierre": [
+      493
+    ],
+    "Dominic Neveu": [
+      492
+    ],
+    "Anne-Laurence Trudeau": [
+      491
+    ],
+    "Marine Quemeneur": [
+      491
+    ],
+    "Jules Saint-Jean": [
+      490
+    ],
+    "Alexandre Neal": [
+      488
+    ],
+    "Veronique Therrien": [
+      488
+    ],
+    "Chloe Sallé": [
+      487
+    ],
+    "Sophie Couture": [
+      487
+    ],
+    "Charles Simard": [
+      487
+    ],
+    "Maxime Beaudry-Lemay": [
+      486
+    ],
+    "Michael Brie": [
+      483
+    ],
+    "Guildo Gagnon": [
+      483
+    ],
+    "Yves Couture": [
+      482
+    ],
+    "Samuel Rouleau": [
+      482
+    ],
+    "Antoine Duguay": [
+      481
+    ],
+    "Guillaume Leblanc": [
+      480
+    ],
+    "Charles Gauthier": [
+      477
+    ],
+    "Line Poirier": [
+      474
+    ],
+    "Steeve Simard": [
+      471
+    ],
+    "Julie Arseneault": [
+      470
+    ],
+    "Jordan Moman": [
+      470
+    ],
+    "Marc Cousineau": [
+      466
+    ],
+    "Vincent Coulombe": [
+      466
+    ],
+    "Rami El Mays": [
+      462
+    ],
+    "Lyès Hacini": [
+      462
+    ],
+    "Serge Danis": [
+      460
+    ],
+    "Janet Long": [
+      455
+    ],
+    "Aya el Khazen": [
+      451
+    ],
+    "Jean-Philip Tremblay": [
+      447
+    ],
+    "Lauriane Marchand": [
+      447
+    ],
+    "Francois Létourneau": [
+      445
+    ],
+    "Olivier Guimond": [
+      412
+    ]
+  }
+}
