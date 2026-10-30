@@ -1124,16 +1124,15 @@ def load_previous():
     previous_player_pts = {}
     previous_team_pts = {}
     existing_records = {}
+    old = {}
 
-    if not os.path.exists("data.json"):
-        return previous_ranks, previous_player_pts, previous_team_pts, existing_records
-
-    try:
-        with open("data.json", "r", encoding="utf-8") as f:
-            old = json.load(f)
-            existing_records = old.get("stats_records", {})
-    except Exception:
-        pass
+    if os.path.exists("data.json"):
+        try:
+            with open("data.json", "r", encoding="utf-8") as f:
+                old = json.load(f)
+                existing_records = old.get("stats_records", {})
+        except Exception as e:
+            print(f"Avertissement: Impossible de lire data.json ({e})")
 
     for i, p in enumerate(old.get("leaderboard", []), start=1):
         previous_ranks[p.get("name")] = i
@@ -1172,10 +1171,6 @@ def save_history_cache(cache):
 
 
 def update_recent_points_history(leaderboard):
-    """
-    Gère un historique glissant de 3 soirs dans 'recent_points.json'.
-    Injecte directement le cumul (pts_last3) dans chaque participant pour le badge 'En Feu'.
-    """
     recent_history = {}
     if os.path.exists(RECENT_POINTS_FILE):
         try:
@@ -1193,15 +1188,13 @@ def update_recent_points_history(leaderboard):
         )
 
         user_history = recent_history.get(name, [0, 0, 0])
-        # Décale vers la gauche et ajoute le nouveau score de la soirée
         user_history = [user_history[1], user_history[2], night_pts]
         recent_history[name] = user_history
-
-        # Injecte le cumul des 3 derniers soirs directement dans l'objet participant
         p["pts_last3"] = sum(user_history)
 
     with open(RECENT_POINTS_FILE, "w", encoding="utf-8") as f:
         json.dump(recent_history, f, ensure_ascii=False, indent=2)
+    print(f"OK — {RECENT_POINTS_FILE} mis à jour.")
 
 
 def update_friday_history(leaderboard):
@@ -1368,31 +1361,45 @@ def update_periodic_records(leaderboard, existing_records):
 
     if saved_week != current_week_key:
         if week_scores:
-            best_prev_week_user = max(week_scores, key=week_scores.get)
-            prev_week_pts = week_scores[best_prev_week_user]
+            max_w_pts = max(week_scores.values()) if week_scores else 0
+            best_prev_week_users = [k for k, v in week_scores.items() if v == max_w_pts]
             
-            current_best_week = existing_records.get("best_week", {"points": 0})
-            if prev_week_pts > current_best_week.get("points", 0):
+            current_best_week = existing_records.get("best_week", {"names": [], "points": 0, "date": ""})
+            if "name" in current_best_week and "names" not in current_best_week:
+                current_best_week["names"] = [current_best_week["name"]] if current_best_week["name"] else []
+
+            if max_w_pts > current_best_week.get("points", 0):
                 existing_records["best_week"] = {
-                    "name": best_prev_week_user,
-                    "points": prev_week_pts,
+                    "names": best_prev_week_users,
+                    "points": max_w_pts,
                     "date": f"Semaine {saved_week}"
                 }
+            elif max_w_pts == current_best_week.get("points", 0) and max_w_pts > 0:
+                for name in best_prev_week_users:
+                    if name not in current_best_week.get("names", []):
+                        current_best_week["names"].append(name)
         week_scores = {}
         saved_week = current_week_key
 
     if saved_month != current_month_key:
         if month_scores:
-            best_prev_month_user = max(month_scores, key=month_scores.get)
-            prev_month_pts = month_scores[best_prev_month_user]
+            max_m_pts = max(month_scores.values()) if month_scores else 0
+            best_prev_month_users = [k for k, v in month_scores.items() if v == max_m_pts]
             
-            current_best_month = existing_records.get("best_month", {"points": 0})
-            if prev_month_pts > current_best_month.get("points", 0):
+            current_best_month = existing_records.get("best_month", {"names": [], "points": 0, "date": ""})
+            if "name" in current_best_month and "names" not in current_best_month:
+                current_best_month["names"] = [current_best_month["name"]] if current_best_month["name"] else []
+
+            if max_m_pts > current_best_month.get("points", 0):
                 existing_records["best_month"] = {
-                    "name": best_prev_month_user,
-                    "points": prev_month_pts,
+                    "names": best_prev_month_users,
+                    "points": max_m_pts,
                     "date": saved_month
                 }
+            elif max_m_pts == current_best_month.get("points", 0) and max_m_pts > 0:
+                for name in best_prev_month_users:
+                    if name not in current_best_month.get("names", []):
+                        current_best_month["names"].append(name)
         month_scores = {}
         saved_month = current_month_key
 
@@ -1417,241 +1424,255 @@ def update_periodic_records(leaderboard, existing_records):
 
 
 def main():
-    previous_ranks, previous_player_pts, previous_team_pts, existing_records = load_previous()
-
-    all_skater_ids = set()
-    all_goalie_ids = set()
-    all_team_ids = set()
-    for p in PARTICIPANTS:
-        all_skater_ids.update(p["skaters"])
-        all_goalie_ids.update(p["goalies"])
-        all_team_ids.update(p["teams"])
-
-    players_stats = {}
-
-    for pid in sorted(all_skater_ids | all_goalie_ids):
-        try:
-            data = fetch_json(f"https://api-web.nhle.com/v1/player/{pid}/landing")
-            players_stats[pid] = parse_player(pid, data)
-        except Exception as e:
-            print(f"Erreur joueur {pid}: {e}")
-            players_stats[pid] = {
-                "id": pid,
-                "name": f"ID {pid}",
-                "abbrev": "",
-                "position": "G" if pid in all_goalie_ids else "A",
-                "goals": 0,
-                "assists": 0,
-                "points": 0,
-                "wins": 0,
-                "shutouts": 0,
-                "otLosses": 0,
-            }
-
-    teams_by_abbrev = {}
     try:
-        standings = fetch_json("https://api-web.nhle.com/v1/standings/now")
-        for t in standings.get("standings", []):
-            abbrev = t.get("teamAbbrev", {})
-            if isinstance(abbrev, dict):
-                abbrev = abbrev.get("default", "")
-            abbrev = str(abbrev or "").upper()
-            if not abbrev:
-                continue
+        previous_ranks, previous_player_pts, previous_team_pts, existing_records = load_previous()
 
-            team_name = t.get("teamName", {})
-            if isinstance(team_name, dict):
-                team_name = team_name.get("default", abbrev)
-            team_name = team_name or abbrev
+        all_skater_ids = set()
+        all_goalie_ids = set()
+        all_team_ids = set()
+        for p in PARTICIPANTS:
+            all_skater_ids.update(p["skaters"])
+            all_goalie_ids.update(p["goalies"])
+            all_team_ids.update(p["teams"])
 
-            reg_wins = int(t.get("regulationWins") or 0)
-            wins = int(t.get("wins") or 0)
-            ot_wins = max(0, wins - reg_wins)
-            ot_losses = int(t.get("otLosses") or 0)
-            points = reg_wins * 3 + ot_wins * 2 + ot_losses * 1
+        players_stats = {}
 
-            teams_by_abbrev[abbrev] = {
-                "name": team_name,
-                "abbrev": abbrev,
-                "points": points,
-                "reg_wins": reg_wins,
-                "ot_wins": ot_wins,
-                "ot_losses": ot_losses,
-            }
-        print(f"Standings chargés: {len(teams_by_abbrev)} équipes")
-    except Exception as e:
-        print(f"Erreur standings: {e}")
-
-    teams_stats = {}
-    for tid in all_team_ids:
-        info = TEAM_INFO.get(tid, {"name": f"Équipe {tid}", "abbrev": ""})
-        abbrev = (info.get("abbrev") or "").upper()
-        if abbrev and abbrev in teams_by_abbrev:
-            teams_stats[tid] = dict(teams_by_abbrev[abbrev])
-        else:
-            teams_stats[tid] = {
-                "name": info["name"],
-                "abbrev": abbrev,
-                "points": 0,
-                "reg_wins": 0,
-                "ot_wins": 0,
-                "ot_losses": 0,
-            }
-
-    leaderboard = []
-
-    for p in PARTICIPANTS:
-        att_pts = def_pts = goalie_pts = team_pts = 0
-        skater_details = []
-        goalie_details = []
-        team_details = []
-
-        for pid in p["skaters"]:
-            st = players_stats.get(
-                pid,
-                {
+        for pid in sorted(all_skater_ids | all_goalie_ids):
+            try:
+                data = fetch_json(f"https://api-web.nhle.com/v1/player/{pid}/landing")
+                players_stats[pid] = parse_player(pid, data)
+            except Exception as e:
+                print(f"Erreur joueur {pid}: {e}")
+                players_stats[pid] = {
                     "id": pid,
                     "name": f"ID {pid}",
                     "abbrev": "",
-                    "points": 0,
+                    "position": "G" if pid in all_goalie_ids else "A",
                     "goals": 0,
                     "assists": 0,
-                    "position": "A",
-                },
-            )
-            st = with_pts_last(st, previous_player_pts)
-            if st.get("position") == "D":
-                def_pts += st.get("points", 0)
-            else:
-                att_pts += st.get("points", 0)
-            skater_details.append(st)
-
-        for pid in p["goalies"]:
-            st = players_stats.get(
-                pid,
-                {
-                    "id": pid,
-                    "name": f"ID {pid}",
-                    "abbrev": "",
                     "points": 0,
                     "wins": 0,
                     "shutouts": 0,
                     "otLosses": 0,
-                    "position": "G",
-                },
-            )
-            st = with_pts_last(st, previous_player_pts)
-            goalie_pts += st.get("points", 0)
-            goalie_details.append(st)
+                }
 
-        for tid in p["teams"]:
-            st = teams_stats.get(tid)
-            if st is None:
-                info = TEAM_INFO.get(tid, {"name": f"Équipe {tid}", "abbrev": ""})
-                st = {
+        teams_by_abbrev = {}
+        try:
+            standings = fetch_json("https://api-web.nhle.com/v1/standings/now")
+            for t in standings.get("standings", []):
+                abbrev = t.get("teamAbbrev", {})
+                if isinstance(abbrev, dict):
+                    abbrev = abbrev.get("default", "")
+                abbrev = str(abbrev or "").upper()
+                if not abbrev:
+                    continue
+
+                team_name = t.get("teamName", {})
+                if isinstance(team_name, dict):
+                    team_name = team_name.get("default", abbrev)
+                team_name = team_name or abbrev
+
+                reg_wins = int(t.get("regulationWins") or 0)
+                wins = int(t.get("wins") or 0)
+                ot_wins = max(0, wins - reg_wins)
+                ot_losses = int(t.get("otLosses") or 0)
+                points = reg_wins * 3 + ot_wins * 2 + ot_losses * 1
+
+                teams_by_abbrev[abbrev] = {
+                    "name": team_name,
+                    "abbrev": abbrev,
+                    "points": points,
+                    "reg_wins": reg_wins,
+                    "ot_wins": ot_wins,
+                    "ot_losses": ot_losses,
+                }
+            print(f"Standings chargés: {len(teams_by_abbrev)} équipes")
+        except Exception as e:
+            print(f"Erreur standings: {e}")
+
+        teams_stats = {}
+        for tid in all_team_ids:
+            info = TEAM_INFO.get(tid, {"name": f"Équipe {tid}", "abbrev": ""})
+            abbrev = (info.get("abbrev") or "").upper()
+            if abbrev and abbrev in teams_by_abbrev:
+                teams_stats[tid] = dict(teams_by_abbrev[abbrev])
+            else:
+                teams_stats[tid] = {
                     "name": info["name"],
-                    "abbrev": info.get("abbrev", ""),
+                    "abbrev": abbrev,
                     "points": 0,
                     "reg_wins": 0,
                     "ot_wins": 0,
                     "ot_losses": 0,
                 }
-            st = with_team_pts_last(st, previous_team_pts)
-            team_pts += st.get("points", 0)
-            team_details.append(st)
 
-        total_points = att_pts + def_pts + goalie_pts + team_pts
+        leaderboard = []
 
-        leaderboard.append(
-            {
-                "name": p["name"],
-                "total_points": total_points,
-                "att_pts": att_pts,
-                "def_pts": def_pts,
-                "goalie_pts": goalie_pts,
-                "team_pts": team_pts,
-                "skaters": skater_details,
-                "goalies": goalie_details,
-                "teams": team_details,
-            }
-        )
+        for p in PARTICIPANTS:
+            att_pts = def_pts = goalie_pts = team_pts = 0
+            skater_details = []
+            goalie_details = []
+            team_details = []
 
-    leaderboard.sort(key=lambda x: x["total_points"], reverse=True)
+            for pid in p["skaters"]:
+                st = players_stats.get(
+                    pid,
+                    {
+                        "id": pid,
+                        "name": f"ID {pid}",
+                        "abbrev": "",
+                        "points": 0,
+                        "goals": 0,
+                        "assists": 0,
+                        "position": "A",
+                    },
+                )
+                st = with_pts_last(st, previous_player_pts)
+                if st.get("position") == "D":
+                    def_pts += st.get("points", 0)
+                else:
+                    att_pts += st.get("points", 0)
+                skater_details.append(st)
 
-    for new_rank, p in enumerate(leaderboard, start=1):
-        old_rank = previous_ranks.get(p["name"])
-        p["rank"] = new_rank
-        
-        if old_rank is None:
-            p["rank_change"] = 0
-            p["trend"] = "same"
-        else:
-            p["rank_change"] = old_rank - new_rank
-            if old_rank == new_rank:
+            for pid in p["goalies"]:
+                st = players_stats.get(
+                    pid,
+                    {
+                        "id": pid,
+                        "name": f"ID {pid}",
+                        "abbrev": "",
+                        "points": 0,
+                        "wins": 0,
+                        "shutouts": 0,
+                        "otLosses": 0,
+                        "position": "G",
+                    },
+                )
+                st = with_pts_last(st, previous_player_pts)
+                goalie_pts += st.get("points", 0)
+                goalie_details.append(st)
+
+            for tid in p["teams"]:
+                st = teams_stats.get(tid)
+                if st is None:
+                    info = TEAM_INFO.get(tid, {"name": f"Équipe {tid}", "abbrev": ""})
+                    st = {
+                        "name": info["name"],
+                        "abbrev": info.get("abbrev", ""),
+                        "points": 0,
+                        "reg_wins": 0,
+                        "ot_wins": 0,
+                        "ot_losses": 0,
+                    }
+                st = with_team_pts_last(st, previous_team_pts)
+                team_pts += st.get("points", 0)
+                team_details.append(st)
+
+            total_points = att_pts + def_pts + goalie_pts + team_pts
+
+            leaderboard.append(
+                {
+                    "name": p["name"],
+                    "total_points": total_points,
+                    "att_pts": att_pts,
+                    "def_pts": def_pts,
+                    "goalie_pts": goalie_pts,
+                    "team_pts": team_pts,
+                    "skaters": skater_details,
+                    "goalies": goalie_details,
+                    "teams": team_details,
+                }
+            )
+
+        leaderboard.sort(key=lambda x: x["total_points"], reverse=True)
+
+        for new_rank, p in enumerate(leaderboard, start=1):
+            old_rank = previous_ranks.get(p["name"])
+            p["rank"] = new_rank
+            
+            if old_rank is None:
+                p["rank_change"] = 0
                 p["trend"] = "same"
-            elif new_rank < old_rank:
-                p["trend"] = "up"
             else:
-                p["trend"] = "down"
+                p["rank_change"] = old_rank - new_rank
+                if old_rank == new_rank:
+                    p["trend"] = "same"
+                elif new_rank < old_rank:
+                    p["trend"] = "up"
+                else:
+                    p["trend"] = "down"
 
-    # Mise à jour de l'historique des 3 derniers soirs et calcul de pts_last3
-    update_recent_points_history(leaderboard)
+        update_recent_points_history(leaderboard)
+        chart_dates = update_friday_history(leaderboard)
 
-    chart_dates = update_friday_history(leaderboard)
+        max_night_pts = -1
+        best_night_users = []
+        for p in leaderboard:
+            night_pts = (
+                sum(x.get("pts_last", 0) for x in p.get("skaters", [])) +
+                sum(x.get("pts_last", 0) for x in p.get("goalies", [])) +
+                sum(x.get("pts_last", 0) for x in p.get("teams", []))
+            )
+            if night_pts > max_night_pts:
+                max_night_pts = night_pts
+                best_night_users = [p.get("name")]
+            elif night_pts == max_night_pts and night_pts > 0:
+                if p.get("name") not in best_night_users:
+                    best_night_users.append(p.get("name"))
 
-    max_night_pts = -1
-    best_night_user = None
-    for p in leaderboard:
-        night_pts = (
-            sum(x.get("pts_last", 0) for x in p.get("skaters", [])) +
-            sum(x.get("pts_last", 0) for x in p.get("goalies", [])) +
-            sum(x.get("pts_last", 0) for x in p.get("teams", []))
-        )
-        if night_pts > max_night_pts:
-            max_night_pts = night_pts
-            best_night_user = p.get("name")
+        current_best_night = existing_records.get("best_night", {"names": [], "points": 0, "date": ""})
+        if "name" in current_best_night and "names" not in current_best_night:
+            current_best_night["names"] = [current_best_night["name"]] if current_best_night["name"] else []
 
-    current_best_night = existing_records.get("best_night", {})
-    if max_night_pts > current_best_night.get("points", 0):
-        current_best_night = {
-            "name": best_night_user,
-            "points": max_night_pts,
-            "date": datetime.now().strftime("%d %b %Y")
+        if max_night_pts > current_best_night.get("points", 0):
+            current_best_night = {
+                "names": best_night_users,
+                "points": max_night_pts,
+                "date": datetime.now().strftime("%d %b %Y")
+            }
+        elif max_night_pts == current_best_night.get("points", 0) and max_night_pts > 0:
+            for name in best_night_users:
+                if name not in current_best_night["names"]:
+                    current_best_night["names"].append(name)
+
+        existing_records = update_periodic_records(leaderboard, existing_records)
+
+        stats_records = {
+            "best_night": current_best_night,
+            "best_week": existing_records.get("best_week", {"names": ["—"], "points": 0, "date": ""}),
+            "best_month": existing_records.get("best_month", {"names": ["—"], "points": 0, "date": ""})
         }
 
-    existing_records = update_periodic_records(leaderboard, existing_records)
+        seen = {}
+        for entry in leaderboard:
+            for s in entry.get("skaters", []):
+                key = s.get("id") if s.get("id") is not None else s.get("name")
+                if key is not None and key not in seen:
+                    seen[key] = s
+            for g in entry.get("goalies", []):
+                key = g.get("id") if g.get("id") is not None else g.get("name")
+                if key is not None and key not in seen:
+                    seen[key] = g
+        players_unique = list(seen.values())
 
-    stats_records = {
-        "best_night": current_best_night,
-        "best_week": existing_records.get("best_week", {"name": "—", "points": 0, "date": ""}),
-        "best_month": existing_records.get("best_month", {"name": "—", "points": 0, "date": ""})
-    }
+        output = {
+            "season": SEASON_ID,
+            "updated_at": datetime.now().astimezone().isoformat(),
+            "chart_dates": chart_dates if chart_dates else ["Début"],
+            "stats_records": stats_records,
+            "leaderboard": leaderboard,
+            "players": players_unique,
+        }
 
-    seen = {}
-    for entry in leaderboard:
-        for s in entry.get("skaters", []):
-            key = s.get("id") if s.get("id") is not None else s.get("name")
-            if key is not None and key not in seen:
-                seen[key] = s
-        for g in entry.get("goalies", []):
-            key = g.get("id") if g.get("id") is not None else g.get("name")
-            if key is not None and key not in seen:
-                seen[key] = g
-    players_unique = list(seen.values())
+        with open("data.json", "w", encoding="utf-8") as f:
+            json.dump(output, f, ensure_ascii=False, indent=2)
 
-    output = {
-        "season": SEASON_ID,
-        "updated_at": datetime.now().astimezone().isoformat(),
-        "chart_dates": chart_dates if chart_dates else ["Début"],
-        "stats_records": stats_records,
-        "leaderboard": leaderboard,
-        "players": players_unique,
-    }
+        print(f"OK — {len(leaderboard)} participants, {len(players_unique)} joueurs uniques → data.json")
 
-    with open("data.json", "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
-
-    print(f"OK — {len(leaderboard)} participants, {len(players_unique)} joueurs uniques → data.json")
+    except Exception as e:
+        print(f"ERREUR CRITIQUE DANS MAIN : {e}")
+        import traceback
+        traceback.print_exc()
 
 
 if __name__ == "__main__":
