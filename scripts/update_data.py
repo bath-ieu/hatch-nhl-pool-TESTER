@@ -5,6 +5,7 @@ from datetime import datetime
 
 SEASON_ID = "20262027"
 HISTORY_FILE = "history_cache.json"
+RECENT_POINTS_FILE = "recent_points.json"
 
 PARTICIPANTS = [
 {
@@ -1170,6 +1171,39 @@ def save_history_cache(cache):
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
 
+def update_recent_points_history(leaderboard):
+    """
+    Gère un historique glissant de 3 soirs dans 'recent_points.json'.
+    Injecte directement le cumul (pts_last3) dans chaque participant pour le badge 'En Feu'.
+    """
+    recent_history = {}
+    if os.path.exists(RECENT_POINTS_FILE):
+        try:
+            with open(RECENT_POINTS_FILE, "r", encoding="utf-8") as f:
+                recent_history = json.load(f)
+        except Exception:
+            recent_history = {}
+
+    for p in leaderboard:
+        name = p["name"]
+        night_pts = (
+            sum(s.get("pts_last", 0) for s in p.get("skaters", [])) +
+            sum(g.get("pts_last", 0) for g in p.get("goalies", [])) +
+            sum(t.get("pts_last", 0) for t in p.get("teams", []))
+        )
+
+        user_history = recent_history.get(name, [0, 0, 0])
+        # Décale vers la gauche et ajoute le nouveau score de la soirée
+        user_history = [user_history[1], user_history[2], night_pts]
+        recent_history[name] = user_history
+
+        # Injecte le cumul des 3 derniers soirs directement dans l'objet participant
+        p["pts_last3"] = sum(user_history)
+
+    with open(RECENT_POINTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(recent_history, f, ensure_ascii=False, indent=2)
+
+
 def update_friday_history(leaderboard):
     now = datetime.now()
     is_friday = (now.weekday() == 4)
@@ -1332,7 +1366,6 @@ def update_periodic_records(leaderboard, existing_records):
     week_scores = tracking.get("week_scores", {})
     month_scores = tracking.get("month_scores", {})
 
-    # 1. Gestion de la Semaine (Lundi au Dimanche)
     if saved_week != current_week_key:
         if week_scores:
             best_prev_week_user = max(week_scores, key=week_scores.get)
@@ -1348,7 +1381,6 @@ def update_periodic_records(leaderboard, existing_records):
         week_scores = {}
         saved_week = current_week_key
 
-    # 2. Gestion du Mois (Mois complet)
     if saved_month != current_month_key:
         if month_scores:
             best_prev_month_user = max(month_scores, key=month_scores.get)
@@ -1364,7 +1396,6 @@ def update_periodic_records(leaderboard, existing_records):
         month_scores = {}
         saved_month = current_month_key
 
-    # 3. Accumulation des points du jour
     for p in leaderboard:
         name = p.get("name")
         night_pts = (
@@ -1563,9 +1594,11 @@ def main():
             else:
                 p["trend"] = "down"
 
+    # Mise à jour de l'historique des 3 derniers soirs et calcul de pts_last3
+    update_recent_points_history(leaderboard)
+
     chart_dates = update_friday_history(leaderboard)
 
-    # Calcul dynamique de la meilleure soirée (best_night)
     max_night_pts = -1
     best_night_user = None
     for p in leaderboard:
@@ -1586,7 +1619,6 @@ def main():
             "date": datetime.now().strftime("%d %b %Y")
         }
 
-    # Mise à jour des records de Semaine et de Mois via la nouvelle fonction
     existing_records = update_periodic_records(leaderboard, existing_records)
 
     stats_records = {
