@@ -1,6 +1,6 @@
 {
   "season": "20262027",
-  "updated_at": "2026-10-30T18:48:25.500721+00:00",
+  "updated_at": "2026-10-30T18:56:10.416216+00:00",
   "chart_dates": [
     "30 Oct"
   ],
@@ -781,7 +781,7 @@
       "rank": 2,
       "rank_change": 0,
       "trend": "same",
-      "pts_last3": 0,
+      "pts_last3": 60,
       "history": [
         605
       ]
