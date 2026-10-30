@@ -88,6 +88,7 @@ body {
   position: relative;
 }
 
+/* Bouton Règlements aux dimensions et styles des autres boutons de vue */
 .rules-top-btn {
   position: absolute;
   top: 0;
@@ -656,7 +657,6 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   margin-top: 4px;
 }
 
-/* Style affiné pour le Top 5 Soirée d'hier */
 .top5-night-card {
   background: #f8fafc;
   border: 1.5px solid #cbd5e1;
@@ -983,7 +983,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
   border-bottom: 1px dashed #cbd5e1;
 }
 
-/* ===== VUE GRAPHIQUE & BANNIÈRE "À VENIR" ===== */
+/* ===== VUE GRAPHIQUE ===== */
 #chartView { display: none; padding-top: 8px; }
 
 .chart-card {
@@ -1152,7 +1152,6 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     <div class="stats-card">
       <h2>Statistiques Globales du Pool 📊</h2>
       
-      <!-- Top 5 Soirée d'hier affiné -->
       <div class="top5-night-card">
         <div class="stats-item-title">🏆 Top 5 de la Soirée d'Hier</div>
         <ul class="top5-night-list" id="top5NightList"></ul>
@@ -1187,7 +1186,7 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     </div>
   </div>
 
-  <!-- VUE 5 : RÈGLEMENTS DE POINTAGE -->
+  <!-- VUE 5 : RÈGLEMENTS -->
   <div id="rulesView">
     <div class="rules-card">
       <h2>Règlements 📋</h2>
@@ -1269,13 +1268,11 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     <div class="chart-card">
       <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Évolution des Points 📊</h2>
       
-      <!-- BANNIÈRE "À VENIR" -->
       <div id="chartComingSoon" class="coming-soon-banner">
         <div class="coming-soon-title">🚧 À VENIR ! 🚧</div>
         <div class="coming-soon-subtitle">Le graphique de progression se remplit en arrière-plan et sera bientôt disponible.</div>
       </div>
 
-      <!-- CONTENEUR DU GRAPHIQUE -->
       <div id="chartActualContent" style="display: none;">
         <div class="chart-search-bar search-select-wrap">
           <input type="text" id="chartUserSearch" placeholder="Ajouter/Chercher un participant..." onfocus="showDropdown('chartList')" oninput="filterDropdown('chartUserSearch', 'chartList')">
@@ -1634,10 +1631,9 @@ function computeBadges() {
     });
   };
 
+  // Utilisation directe et exacte de pts_last3 calculé par le script GitHub
   assignMultiple('🔥 En Feu', p => {
-    if (p.pts_last3 != null) return p.pts_last3;
-    if (p.pts_last != null) return p.pts_last;
-    return (p.total_points || 0) > 0 ? Math.round((p.total_points || 0) * 0.1) : 0;
+    return p.pts_last3 != null ? p.pts_last3 : 0;
   });
 
   let maxGain = -999;
