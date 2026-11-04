@@ -2,7 +2,7 @@ name: Mise a jour Hatch NHL Super Pool
 
 on:
   schedule:
-    - cron: '*/20 * * * *'
+    - cron: '57 14 * * 0-6'
   workflow_dispatch:
 
 # Autoriser le commit/push :
