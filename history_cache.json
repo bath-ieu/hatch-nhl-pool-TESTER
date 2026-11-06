@@ -1,538 +1,716 @@
 {
   "chart_dates": [
-    "30 Oct"
+    "30 Oct",
+    "06 Nov"
   ],
   "cumulative_history": {
     "Etienne Paquin-Foisy": [
-      643
+      643,
+      795
     ],
     "Benjamin Arcand": [
-      605
+      605,
+      730
     ],
     "Xavier Leblanc": [
-      601
+      601,
+      722
     ],
     "Mathieu Mei": [
-      596
+      596,
+      711
     ],
     "Michel Bolduc": [
-      596
+      596,
+      727
     ],
     "Emmanuelle Lajoie": [
-      591
+      591,
+      717
     ],
     "Steven Parent": [
-      590
+      590,
+      726
     ],
     "Mohamad Bouaram": [
-      589
+      589,
+      708
     ],
     "Patrick Barbieri": [
-      588
+      588,
+      723
     ],
     "Catherine Gaudio": [
-      586
+      586,
+      724
     ],
     "Philippe Martin": [
-      586
+      586,
+      740
     ],
     "Ariel Beauregard Breton": [
-      585
+      585,
+      717
     ],
     "Joel Labadie": [
-      584
+      584,
+      704
     ],
     "Mathieu Huot": [
-      581
+      581,
+      729
     ],
     "Richard Verbanac": [
-      581
+      581,
+      704
     ],
     "Serge Masse": [
-      579
+      579,
+      723
     ],
     "Kevin Gadbois": [
-      577
+      577,
+      719
     ],
     "Patrick Bisson": [
-      577
+      577,
+      707
     ],
     "Vincent Cassabon": [
-      576
+      576,
+      728
     ],
     "Alexandre Bergeron": [
-      575
+      575,
+      716
     ],
     "Louis-Philippe Corriveau": [
-      574
+      574,
+      707
     ],
     "Allen Chan": [
-      573
+      573,
+      703
     ],
     "Arnaud Fournier": [
-      571
+      571,
+      685
     ],
     "Serge Arguin": [
-      570
+      570,
+      697
     ],
     "Jean-Benoit Boucher": [
-      570
+      570,
+      702
     ],
     "Olivier Jubelin": [
-      569
+      569,
+      699
     ],
     "Amelie Mercier Arsenault": [
-      569
+      569,
+      686
     ],
     "Noémie Pinsonnault-Duchemin": [
-      569
+      569,
+      690
     ],
     "Carine Adam": [
-      568
+      568,
+      696
     ],
     "Jean-Sebastien Langlois": [
-      567
+      567,
+      687
     ],
     "Naomie Curis-Friedman": [
-      565
+      565,
+      696
     ],
     "Samia Merazga": [
-      562
+      562,
+      696
     ],
     "Justine Fournier": [
-      562
+      562,
+      674
     ],
     "Soulaiman Benaamer": [
-      560
+      560,
+      689
     ],
     "Bruno Cournoyer": [
-      560
+      560,
+      688
     ],
     "François Lacerte": [
-      559
+      559,
+      678
     ],
     "Alexy Fafard": [
-      558
+      558,
+      685
     ],
     "Jeanne Lemonde-Trudeau": [
-      555
+      555,
+      671
     ],
     "Josianne Lafontaine": [
-      552
+      552,
+      681
     ],
     "Benoit Gaudet": [
-      552
+      552,
+      691
     ],
     "Eva Marre": [
-      552
+      552,
+      690
     ],
     "Olivier Lemoine": [
-      552
+      552,
+      671
     ],
     "Normand Yelle": [
-      551
+      551,
+      690
     ],
     "Jean Lamoureux": [
-      551
+      551,
+      681
     ],
     "Tristan Juette": [
-      551
+      551,
+      701
     ],
     "Mathieu Labranche": [
-      550
+      550,
+      670
     ],
     "Michael Lee": [
-      549
+      549,
+      679
     ],
     "Rebecca Owen": [
-      549
+      549,
+      686
     ],
     "Robert Dellazizzo": [
-      548
+      548,
+      689
     ],
     "Ludovic Morissette": [
-      548
+      548,
+      685
     ],
     "Pamela Pachal": [
-      547
+      547,
+      674
     ],
     "Hubert Perreault": [
-      547
+      547,
+      690
     ],
     "Julie Harvey": [
-      546
+      546,
+      667
     ],
     "Philippe Khalil": [
-      545
+      545,
+      665
     ],
     "Matthew Totarella": [
-      544
+      544,
+      692
     ],
     "Anthony Lamer": [
-      542
+      542,
+      662
     ],
     "Daniel Reichelson": [
-      541
+      541,
+      640
     ],
     "Jean Francois Boulet": [
-      541
+      541,
+      665
     ],
     "Alexis Lemire": [
-      540
+      540,
+      673
     ],
     "Bakar Amara": [
-      539
+      539,
+      676
     ],
     "Olivier Tom": [
-      538
+      538,
+      672
     ],
     "Xavier Rousseau-Laliberte": [
-      538
+      538,
+      656
     ],
     "Dina Lagonskaya": [
-      538
+      538,
+      663
     ],
     "Mélanie Ouellette": [
-      538
+      538,
+      640
     ],
     "Charles-Olivier Boudrias": [
-      538
+      538,
+      659
     ],
     "Alexandru Rogai": [
-      537
+      537,
+      674
     ],
     "Francis Emond": [
-      537
+      537,
+      668
     ],
     "George Forlini": [
-      537
+      537,
+      657
     ],
     "Nousk Ghailane": [
-      536
+      536,
+      670
     ],
     "Pierre-Luc Pigeon": [
-      536
+      536,
+      671
     ],
     "Ashley Nguyen": [
-      536
+      536,
+      654
     ],
     "Axelle Monnot": [
-      536
+      536,
+      662
     ],
     "Danny Bouchard": [
-      535
+      535,
+      657
     ],
     "Eduardo": [
-      530
+      530,
+      659
     ],
     "Cristina Murillo": [
-      530
+      530,
+      679
     ],
     "Daniel Marcoux": [
-      530
+      530,
+      665
     ],
     "Xavier Lafortune": [
-      529
+      529,
+      630
     ],
     "Frederic Langevin": [
-      529
+      529,
+      652
     ],
     "Gerald Tugas": [
-      528
+      528,
+      630
     ],
     "Samuel Leblanc": [
-      528
+      528,
+      648
     ],
     "Marie-Laurence Boutin": [
-      527
+      527,
+      653
     ],
     "Colin Barbeau": [
-      527
+      527,
+      655
     ],
     "Nathalie Bourgeois": [
-      526
+      526,
+      658
     ],
     "Kalvin Southern": [
-      526
+      526,
+      653
     ],
     "Simon-Pierre Lefebvre": [
-      525
+      525,
+      658
     ],
     "Elisabeth Danis": [
-      525
+      525,
+      652
     ],
     "Isabelle Lemay": [
-      524
+      524,
+      652
     ],
     "Michael Bino": [
-      523
+      523,
+      629
     ],
     "Florence Gagnon": [
-      523
+      523,
+      641
     ],
     "Gabriel De Muy Larose": [
-      522
+      522,
+      619
     ],
     "Marc-Antoine Dery": [
-      521
+      521,
+      625
     ],
     "Vincent Joyal": [
-      521
+      521,
+      643
     ],
     "Robert Austen": [
-      521
+      521,
+      658
     ],
     "Regina Nair": [
-      520
+      520,
+      658
     ],
     "Charles-Antoine Dubeau": [
-      520
+      520,
+      641
     ],
     "Nick Totarella": [
-      519
+      519,
+      656
     ],
     "Marc-Antoine Lebel": [
-      519
+      519,
+      646
     ],
     "Hakjun Oh": [
-      518
+      518,
+      626
     ],
     "Thomas Gueville": [
-      518
+      518,
+      645
     ],
     "Alondra Rima": [
-      516
+      516,
+      635
     ],
     "Marlyn Tchoukuegno": [
-      516
+      516,
+      647
     ],
     "Florence Riopel": [
-      516
+      516,
+      637
     ],
     "Dany Lafontaine": [
-      516
+      516,
+      636
     ],
     "Marie-Claude Tremblay": [
-      516
+      516,
+      635
     ],
     "Vinh Truong": [
-      516
+      516,
+      641
     ],
     "Gabrielle Lamirande-Gauvin": [
-      515
+      515,
+      659
     ],
     "Jacob Bissonnette": [
-      514
+      514,
+      653
     ],
     "Alexia Fiorilli": [
-      514
+      514,
+      640
     ],
     "Mounir Tamimi": [
-      514
+      514,
+      624
     ],
     "Andreanne Blais": [
-      513
+      513,
+      642
     ],
     "Martin Bélanger": [
-      513
+      513,
+      629
     ],
     "Pier-Olivier Hotte-Rene": [
-      512
+      512,
+      621
     ],
     "Mathieu St-Pierre": [
-      511
+      511,
+      651
     ],
     "Leandro Pereira": [
-      510
+      510,
+      625
     ],
     "Nicolas Besner": [
-      510
+      510,
+      657
     ],
     "Jean-Sebastien Bisaillon": [
-      510
+      510,
+      639
     ],
     "Martin Brunet": [
-      510
+      510,
+      632
     ],
     "Martin Beaulieu": [
-      510
+      510,
+      649
     ],
     "John Greene": [
-      510
+      510,
+      621
     ],
     "Xavier Monette": [
-      510
+      510,
+      622
     ],
     "Louis-Philippe Dufresne Viau": [
-      509
+      509,
+      625
     ],
     "Jean Gohin": [
-      508
+      508,
+      639
     ],
     "Shayne Renaud": [
-      508
+      508,
+      637
     ],
     "Aymeric Bellefeuille": [
-      508
+      508,
+      652
     ],
     "Logan Bélanger": [
-      507
+      507,
+      631
     ],
     "Marc-Antoine Laforest": [
-      507
+      507,
+      615
     ],
     "Jean-Marc Gauthier": [
-      506
+      506,
+      614
     ],
     "Yanick Tremblay": [
-      505
+      505,
+      642
     ],
     "Sabrina Ficara": [
-      504
+      504,
+      609
     ],
     "Lenna Gatouillat": [
-      503
+      503,
+      627
     ],
     "Fabrice Danger": [
-      503
+      503,
+      622
     ],
     "Ahmad Bou Aram": [
-      502
+      502,
+      593
     ],
     "Philippe Denis-Ducharme": [
-      502
+      502,
+      631
     ],
     "Jessica Forest": [
-      501
+      501,
+      592
     ],
     "Andrew Middleton": [
-      501
+      501,
+      592
     ],
     "Samantha Levac": [
-      498
+      498,
+      638
     ],
     "Alain Roy": [
-      497
+      497,
+      608
     ],
     "Léonore Jean-François": [
-      497
+      497,
+      636
     ],
     "Laurence Gamache": [
-      497
+      497,
+      622
     ],
     "Quentin Tuphile": [
-      496
+      496,
+      631
     ],
     "Lucas Parkinson": [
-      496
+      496,
+      631
     ],
     "Caroline Bergeron": [
-      495
+      495,
+      609
     ],
     "Cédrick Charest": [
-      494
+      494,
+      603
     ],
     "Karl St-André": [
-      494
+      494,
+      653
     ],
     "Nicolas St-Pierre": [
-      493
+      493,
+      605
     ],
     "Dominic Neveu": [
-      492
+      492,
+      609
     ],
     "Anne-Laurence Trudeau": [
-      491
+      491,
+      615
     ],
     "Marine Quemeneur": [
-      491
+      491,
+      611
     ],
     "Jules Saint-Jean": [
-      490
+      490,
+      597
     ],
     "Alexandre Neal": [
-      488
+      488,
+      598
     ],
     "Veronique Therrien": [
-      488
+      488,
+      602
     ],
     "Chloe Sallé": [
-      487
+      487,
+      593
     ],
     "Sophie Couture": [
-      487
+      487,
+      608
     ],
     "Charles Simard": [
-      487
+      487,
+      621
     ],
     "Maxime Beaudry-Lemay": [
-      486
+      486,
+      628
     ],
     "Michael Brie": [
-      483
+      483,
+      594
     ],
     "Guildo Gagnon": [
-      483
+      483,
+      589
     ],
     "Yves Couture": [
-      482
+      482,
+      622
     ],
     "Samuel Rouleau": [
-      482
+      482,
+      593
     ],
     "Antoine Duguay": [
-      481
+      481,
+      578
     ],
     "Guillaume Leblanc": [
-      480
+      480,
+      610
     ],
     "Charles Gauthier": [
-      477
+      477,
+      606
     ],
     "Line Poirier": [
-      474
+      474,
+      575
     ],
     "Steeve Simard": [
-      471
+      471,
+      592
     ],
     "Julie Arseneault": [
-      470
+      470,
+      565
     ],
     "Jordan Moman": [
-      470
+      470,
+      580
     ],
     "Marc Cousineau": [
-      466
+      466,
+      601
     ],
     "Vincent Coulombe": [
-      466
+      466,
+      574
     ],
     "Rami El Mays": [
-      462
+      462,
+      586
     ],
     "Lyès Hacini": [
-      462
+      462,
+      573
     ],
     "Serge Danis": [
-      460
+      460,
+      595
     ],
     "Janet Long": [
-      455
+      455,
+      578
     ],
     "Aya el Khazen": [
-      451
+      451,
+      561
     ],
     "Jean-Philip Tremblay": [
-      447
+      447,
+      571
     ],
     "Lauriane Marchand": [
-      447
+      447,
+      555
     ],
     "Francois Létourneau": [
-      445
+      445,
+      538
     ],
     "Olivier Guimond": [
-      412
+      412,
+      526
     ]
   }
 }
