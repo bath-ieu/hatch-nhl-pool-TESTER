@@ -1268,12 +1268,12 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     <div class="chart-card">
       <h2 style="text-align: center; margin-top: 0; color: var(--text-dark);">Évolution des Points 📊</h2>
       
-      <div id="chartComingSoon" class="coming-soon-banner">
+      <div id="chartComingSoon" class="coming-soon-banner" style="display: none;">
         <div class="coming-soon-title">🚧 À VENIR ! 🚧</div>
         <div class="coming-soon-subtitle">Le graphique de progression se remplit en arrière-plan et sera bientôt disponible.</div>
       </div>
 
-      <div id="chartActualContent" style="display: none;">
+      <div id="chartActualContent" style="display: block;">
         <div class="chart-search-bar search-select-wrap">
           <input type="text" id="chartUserSearch" placeholder="Ajouter/Chercher un participant..." onfocus="showDropdown('chartList')" oninput="filterDropdown('chartUserSearch', 'chartList')">
           <div class="dropdown-list" id="chartList"></div>
