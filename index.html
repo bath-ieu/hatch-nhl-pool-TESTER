@@ -1477,6 +1477,7 @@ let allPlayers = [];
 let rawData = {};
 let specialBadges = {};
 let badgeLastHolders = {};
+let chartHistoryCache = { chart_dates: [], cumulative_history: {} };
 let selectedChartUsers = [];
 let chartInstance = null;
 
@@ -1572,7 +1573,12 @@ async function loadPoolData() {
   try {
     const res = await fetch('data.json?t=' + new Date().getTime());
     rawData = await res.json();
-    
+
+    const historyRes = await fetch('history_cache.json?t=' + new Date().getTime());
+    if (historyRes.ok) {
+      chartHistoryCache = await historyRes.json();
+    }
+
     displayLastUpdate(rawData.updated_at || rawData.last_update || null);
 
     allParticipants = compute1224Ranking(rawData.leaderboard || []);
@@ -1580,7 +1586,7 @@ async function loadPoolData() {
 
     computeBadges();
     renderLeaderboard(allParticipants);
-    
+
     document.getElementById('searchInput').addEventListener('input', (e) => {
       const query = e.target.value.trim().toLowerCase();
       if (!query) {
@@ -1594,11 +1600,11 @@ async function loadPoolData() {
       });
       renderLeaderboard(filtered);
     });
-    
+
   } catch (e) {
     console.error(e);
     document.getElementById('lastUpdate').textContent = 'Mise à jour: —';
-    document.getElementById('leaderboard').innerHTML = 
+    document.getElementById('leaderboard').innerHTML =
       "<p style='text-align:center; color:#ef4444;'>Erreur lors du chargement des données.</p>";
   }
 }
@@ -2060,7 +2066,11 @@ function filterDropdown(inputId, listId) {
   const listEl = document.getElementById(listId);
   listEl.innerHTML = '';
 
-  const matches = allParticipants.filter(p => 
+  const participantsForList = listId === 'chartList'
+    ? Object.keys(chartHistoryCache.cumulative_history || {}).map(name => ({ name }))
+    : allParticipants;
+
+  const matches = participantsForList.filter(p =>
     p.name.toLowerCase().includes(query) || (TEAM_NAMES[p.name] || '').toLowerCase().includes(query)
   );
 
@@ -2200,8 +2210,8 @@ function updateCompareUI() {
 }
 
 function initChartTab() {
-  if (selectedChartUsers.length === 0 && allParticipants.length > 0) {
-    selectedChartUsers = allParticipants.slice(0, 5).map(p => p.name);
+  if (selectedChartUsers.length === 0) {
+    selectedChartUsers = Object.keys(chartHistoryCache.cumulative_history || {}).slice(0, 5);
   }
   renderChartTags();
   renderProgressionChart();
@@ -2235,37 +2245,27 @@ function renderChartTags() {
 }
 
 function renderProgressionChart() {
-  const ctx = document.getElementById('progressionChart');
-  if (!ctx) return;
+  const canvas = document.getElementById('progressionChart');
+  if (!canvas) return;
 
   if (chartInstance) chartInstance.destroy();
 
-  const labels = rawData.chart_dates || ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Actuel'];
+  const history = chartHistoryCache.cumulative_history || {};
+  const labels = chartHistoryCache.chart_dates || [];
   const colors = ['#e0564c', '#0284c7', '#22c55e', '#eab308', '#a855f7', '#ec4899', '#14b8a6', '#f97316'];
 
-  const datasets = selectedChartUsers.map((uName, idx) => {
-    const p = allParticipants.find(x => x.name === uName);
-    if (!p) return null;
-    const total = p.total_points || 0;
-    
-    const dataPoints = p.history || [
-      Math.round(total * 0.35),
-      Math.round(total * 0.6),
-      Math.round(total * 0.8),
-      total
-    ];
-
-    return {
-      label: `${TEAM_NAMES[p.name] || p.name} (${p.name})`,
-      data: dataPoints,
-      borderColor: colors[idx % colors.length],
-      backgroundColor: colors[idx % colors.length],
+  const datasets = selectedChartUsers
+    .filter(name => Array.isArray(history[name]))
+    .map((name, index) => ({
+      label: `${TEAM_NAMES[name] || name} (${name})`,
+      data: history[name],
+      borderColor: colors[index % colors.length],
+      backgroundColor: colors[index % colors.length],
       tension: 0.3,
       fill: false
-    };
-  }).filter(Boolean);
+    }));
 
-  chartInstance = new Chart(ctx, {
+  chartInstance = new Chart(canvas, {
     type: 'line',
     data: { labels, datasets },
     options: {
