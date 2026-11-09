@@ -2251,14 +2251,25 @@ function renderProgressionChart() {
   if (chartInstance) chartInstance.destroy();
 
   const history = chartHistoryCache.cumulative_history || {};
-  const labels = chartHistoryCache.chart_dates || [];
+  const baseLabels = chartHistoryCache.chart_dates || [];
   const colors = ['#e0564c', '#0284c7', '#22c55e', '#eab308', '#a855f7', '#ec4899', '#14b8a6', '#f97316'];
+
+  // Point d'aujourd'hui, a l'extreme droite : le total actuel dans data.json,
+  // pas le dernier vendredi de history_cache.json.
+  // updated_at est la date de la derniere mise a jour (ex : 09 Nov).
+  const updatedDate = rawData && rawData.updated_at ? new Date(rawData.updated_at) : new Date();
+  const todayStr = updatedDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', timeZone: 'America/Toronto' });
+  const isTodayAlready = baseLabels.length > 0 && baseLabels[baseLabels.length - 1] === todayStr;
+  const labels = isTodayAlready ? [...baseLabels] : [...baseLabels, `Aujourd'hui (${todayStr})`];
+
+  const totalsByName = {};
+  (rawData.leaderboard || []).forEach(p => { totalsByName[p.name] = p.total_points; });
 
   const datasets = selectedChartUsers
     .filter(name => Array.isArray(history[name]))
     .map((name, index) => ({
       label: `${TEAM_NAMES[name] || name} (${name})`,
-      data: history[name],
+      data: isTodayAlready ? history[name] : [...history[name], totalsByName[name] ?? history[name][history[name].length - 1]],
       borderColor: colors[index % colors.length],
       backgroundColor: colors[index % colors.length],
       tension: 0.3,
