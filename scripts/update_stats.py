@@ -59,6 +59,12 @@ def apply_trade_to_skater(participant_name, st):
             new_entry["is_trade"] = True
             new_entry["is_trade_new"] = True
             new_entry["points_since_trade"] = new_entry["points"]
+            # Securite : pts_last ne peut pas depasser les points depuis l'echange.
+            # Sinon, une reference precedente polluee ferait afficher +72 en une nuit.
+            if new_entry["points_since_trade"] == 0:
+                new_entry["pts_last"] = 0
+            else:
+                new_entry["pts_last"] = min(new_entry.get("pts_last", 0), new_entry["points_since_trade"])
             # pts_last garde le delta brut de la soiree, qui est aussi le delta depuis l'echange
             return [old_entry, new_entry]
     return [st]
@@ -1208,20 +1214,26 @@ def load_previous():
     for i, p in enumerate(old.get("leaderboard", []), start=1):
         previous_ranks[p.get("name")] = i
 
+    # D'abord la liste "players" : ce sont les points bruts LNH, non ajustes par les echanges.
+    for pl in old.get("players", []):
+        name = pl.get("name")
+        if name:
+            previous_player_pts[name] = pl.get("points", 0)
+
     for p in old.get("leaderboard", []):
         for s in p.get("skaters", []) + p.get("goalies", []):
+            # Ne jamais utiliser une entree d'echange comme reference : son "points"
+            # vaut 0 (nouveau joueur) ou un score fige (ancien joueur), pas le total LNH.
+            # C'est ce qui a fait passer Bouchard a pts_last = 72 pour tout le monde.
+            if s.get("is_trade"):
+                continue
             name = s.get("name")
-            if name:
+            if name and name not in previous_player_pts:
                 previous_player_pts[name] = s.get("points", 0)
         for t in p.get("teams", []):
             key = t.get("abbrev") or t.get("name")
             if key:
                 previous_team_pts[key] = t.get("points", 0)
-
-    for pl in old.get("players", []):
-        name = pl.get("name")
-        if name and name not in previous_player_pts:
-            previous_player_pts[name] = pl.get("points", 0)
 
     return previous_ranks, previous_player_pts, previous_team_pts, existing_records
 
