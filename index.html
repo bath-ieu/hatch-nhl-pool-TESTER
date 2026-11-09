@@ -1736,11 +1736,11 @@ function renderLeaderboard(list) {
 
     let skatersHtml = p.skaters.map(s => {
       const displayPos = (s.position === 'D') ? 'D' : 'A';
-      const tradeHtml = s.traded_from_name
-        ? '<div style="font-size:0.72rem; color:#b45309; font-weight:bold;">🔄 Échangé le ' + (s.trade_date || '') + ' — remplace ' + s.traded_from_name + ' (' + (s.traded_from_points || 0) + ' pts) — Groupe ' + (s.trade_group || '') + ' — depuis : ' + (s.points_since_trade || 0) + ' pts</div>'
-        : '';
+      const nameHtml = s.is_trade
+        ? '<b style="color:#ea580c;">' + (s.name || '') + ' 🔄</b>'
+        : '<b>' + (s.name || '') + '</b>';
       return '<tr>' +
-        '<td><b>' + (s.name || '') + '</b> <span class="badge">' + displayPos + '</span>' + tradeHtml + '</td>' +
+        '<td>' + nameHtml + ' <span class="badge">' + displayPos + '</span></td>' +
         '<td>' + (s.goals || 0) + ' B / ' + (s.assists || 0) + ' P</td>' +
         '<td><b>' + (s.points || 0) + ' pts</b></td>' +
         '<td>' + formatPtsLast(s.pts_last) + '</td>' +
@@ -1808,7 +1808,6 @@ function renderLeaderboard(list) {
       '</div>' +
       '<div class="details" id="details-' + detailId + '">' +
         hierTotalHtml +
-        ((p.trades && p.trades.length) ? '<div class="section-title">🔄 Échanges</div><div style="font-size:0.85rem; padding:6px 0 10px;">' + p.trades.map(t => t.old_name + ' (' + t.old_points + ' pts) → ' + t.new_name + ' — Groupe ' + t.group + ' — ' + t.trade_date).join('<br>') + '</div>' : '') +
         '<div class="section-title">Attaquants & Défenseurs</div>' +
         '<table><thead><tr><th>Joueur</th><th>Statistiques</th><th>Points</th><th>Hier</th></tr></thead><tbody>' + skatersHtml + '</tbody></table>' +
         '<div class="section-title">Gardiens</div>' +
@@ -2120,11 +2119,11 @@ function updateCompareUI() {
   const renderRosterList = (u) => {
     let skatersHtml = (u.skaters || []).map(s => {
       const displayPos = (s.position === 'D') ? 'D' : 'A';
-      const tradeHtml = s.traded_from_name
-        ? '<div style="font-size:0.72rem; color:#b45309; font-weight:bold;">🔄 Échangé le ' + (s.trade_date || '') + ' — remplace ' + s.traded_from_name + ' (' + (s.traded_from_points || 0) + ' pts) — Groupe ' + (s.trade_group || '') + '</div>'
-        : '';
+      const nameHtml = s.is_trade
+        ? '<b style="color:#ea580c;">' + (s.name || '') + ' 🔄</b>'
+        : '<b>' + (s.name || '') + '</b>';
       return '<tr>' +
-        '<td><b>' + (s.name || '') + '</b> <span class="badge">' + displayPos + '</span>' + tradeHtml + '</td>' +
+        '<td>' + nameHtml + ' <span class="badge">' + displayPos + '</span></td>' +
         '<td>' + (s.goals || 0) + ' B / ' + (s.assists || 0) + ' P</td>' +
         '<td><b>' + (s.points || 0) + ' pts</b></td>' +
         '<td>' + formatPtsLast(s.pts_last) + '</td>' +
