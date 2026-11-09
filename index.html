@@ -1736,9 +1736,11 @@ function renderLeaderboard(list) {
 
     let skatersHtml = p.skaters.map(s => {
       const displayPos = (s.position === 'D') ? 'D' : 'A';
-      const nameHtml = s.is_trade
+      const nameHtml = s.is_trade_old
         ? '<b style="color:#ea580c;">' + (s.name || '') + ' 🔄</b>'
-        : '<b>' + (s.name || '') + '</b>';
+        : (s.is_trade_new
+          ? '<b>' + (s.name || '') + ' 🔄</b>'
+          : '<b>' + (s.name || '') + '</b>');
       return '<tr>' +
         '<td>' + nameHtml + ' <span class="badge">' + displayPos + '</span></td>' +
         '<td>' + (s.goals || 0) + ' B / ' + (s.assists || 0) + ' P</td>' +
@@ -2119,9 +2121,11 @@ function updateCompareUI() {
   const renderRosterList = (u) => {
     let skatersHtml = (u.skaters || []).map(s => {
       const displayPos = (s.position === 'D') ? 'D' : 'A';
-      const nameHtml = s.is_trade
+      const nameHtml = s.is_trade_old
         ? '<b style="color:#ea580c;">' + (s.name || '') + ' 🔄</b>'
-        : '<b>' + (s.name || '') + '</b>';
+        : (s.is_trade_new
+          ? '<b>' + (s.name || '') + ' 🔄</b>'
+          : '<b>' + (s.name || '') + '</b>');
       return '<tr>' +
         '<td>' + nameHtml + ' <span class="badge">' + displayPos + '</span></td>' +
         '<td>' + (s.goals || 0) + ' B / ' + (s.assists || 0) + ' P</td>' +
