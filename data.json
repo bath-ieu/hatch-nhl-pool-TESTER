@@ -1,6 +1,6 @@
 {
   "season": "20262027",
-  "updated_at": "2026-11-09T19:33:14.755984+00:00",
+  "updated_at": "2026-11-09T21:42:48.526673+00:00",
   "chart_dates": [
     "16 Oct",
     "23 Oct",
@@ -401,6 +401,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 1,
       "rank_change": 0,
       "trend": "same",
@@ -787,6 +788,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 2,
       "rank_change": 0,
       "trend": "same",
@@ -1173,6 +1175,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 3,
       "rank_change": 0,
       "trend": "same",
@@ -1559,6 +1562,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 4,
       "rank_change": 0,
       "trend": "same",
@@ -1945,6 +1949,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 5,
       "rank_change": 0,
       "trend": "same",
@@ -2331,6 +2336,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 6,
       "rank_change": 0,
       "trend": "same",
@@ -2717,6 +2723,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 7,
       "rank_change": 0,
       "trend": "same",
@@ -3103,6 +3110,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 8,
       "rank_change": 0,
       "trend": "same",
@@ -3489,6 +3497,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 9,
       "rank_change": 0,
       "trend": "same",
@@ -3875,6 +3884,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 10,
       "rank_change": 0,
       "trend": "same",
@@ -4261,6 +4271,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 11,
       "rank_change": 0,
       "trend": "same",
@@ -4647,6 +4658,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 12,
       "rank_change": 0,
       "trend": "same",
@@ -5033,6 +5045,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 13,
       "rank_change": 0,
       "trend": "same",
@@ -5419,6 +5432,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 14,
       "rank_change": 0,
       "trend": "same",
@@ -5805,6 +5819,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 15,
       "rank_change": 0,
       "trend": "same",
@@ -6191,6 +6206,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 16,
       "rank_change": 0,
       "trend": "same",
@@ -6577,6 +6593,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 17,
       "rank_change": 0,
       "trend": "same",
@@ -6963,6 +6980,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 18,
       "rank_change": 0,
       "trend": "same",
@@ -7349,6 +7367,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 19,
       "rank_change": 0,
       "trend": "same",
@@ -7364,8 +7383,8 @@
     {
       "name": "Mathieu Mei",
       "total_points": 777,
-      "att_pts": 410,
-      "def_pts": 187,
+      "att_pts": 468,
+      "def_pts": 129,
       "goalie_pts": 71,
       "team_pts": 109,
       "skaters": [
@@ -7383,17 +7402,22 @@
           "pts_last": 0
         },
         {
-          "id": 8480800,
-          "name": "Quinn Hughes",
-          "abbrev": "MIN",
-          "position": "D",
+          "id": 8484801,
+          "name": "Macklin Celebrini",
+          "abbrev": "SJS",
+          "position": "A",
           "goals": 6,
           "assists": 20,
           "points": 58,
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 0,
+          "trade_group": 2,
+          "trade_date": "2026-11-09",
+          "traded_from_name": "Quinn Hughes",
+          "traded_from_points": 58,
+          "points_since_trade": 0
         },
         {
           "id": 8478864,
@@ -7733,6 +7757,23 @@
           "ot_wins": 5,
           "ot_losses": 1,
           "pts_last": 0
+        }
+      ],
+      "trades": [
+        {
+          "participant": "Mathieu Mei",
+          "group": 2,
+          "trade_date": "2026-11-09",
+          "old_id": 8480800,
+          "old_name": "Quinn Hughes",
+          "old_points": 58,
+          "old_goals": 6,
+          "old_assists": 20,
+          "new_id": 8484801,
+          "new_name": "Macklin Celebrini",
+          "new_baseline_points": 28,
+          "new_baseline_goals": 7,
+          "new_baseline_assists": 14
         }
       ],
       "rank": 20,
@@ -8121,6 +8162,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 21,
       "rank_change": 0,
       "trend": "same",
@@ -8507,6 +8549,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 22,
       "rank_change": 0,
       "trend": "same",
@@ -8893,6 +8936,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 23,
       "rank_change": 0,
       "trend": "same",
@@ -9279,6 +9323,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 24,
       "rank_change": 0,
       "trend": "same",
@@ -9665,6 +9710,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 25,
       "rank_change": 0,
       "trend": "same",
@@ -10051,6 +10097,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 26,
       "rank_change": 0,
       "trend": "same",
@@ -10437,6 +10484,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 27,
       "rank_change": 0,
       "trend": "same",
@@ -10823,6 +10871,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 28,
       "rank_change": 0,
       "trend": "same",
@@ -11209,6 +11258,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 29,
       "rank_change": 0,
       "trend": "same",
@@ -11595,6 +11645,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 30,
       "rank_change": 0,
       "trend": "same",
@@ -11981,6 +12032,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 31,
       "rank_change": 0,
       "trend": "same",
@@ -12367,6 +12419,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 32,
       "rank_change": 0,
       "trend": "same",
@@ -12753,6 +12806,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 33,
       "rank_change": 0,
       "trend": "same",
@@ -13139,6 +13193,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 34,
       "rank_change": 0,
       "trend": "same",
@@ -13525,6 +13580,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 35,
       "rank_change": 0,
       "trend": "same",
@@ -13911,6 +13967,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 36,
       "rank_change": 0,
       "trend": "same",
@@ -14297,6 +14354,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 37,
       "rank_change": 0,
       "trend": "same",
@@ -14683,6 +14741,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 38,
       "rank_change": 0,
       "trend": "same",
@@ -15069,6 +15128,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 39,
       "rank_change": 0,
       "trend": "same",
@@ -15455,6 +15515,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 40,
       "rank_change": 0,
       "trend": "same",
@@ -15841,6 +15902,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 41,
       "rank_change": 0,
       "trend": "same",
@@ -16227,6 +16289,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 42,
       "rank_change": 0,
       "trend": "same",
@@ -16613,6 +16676,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 43,
       "rank_change": 0,
       "trend": "same",
@@ -16999,6 +17063,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 44,
       "rank_change": 0,
       "trend": "same",
@@ -17385,6 +17450,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 45,
       "rank_change": 0,
       "trend": "same",
@@ -17771,6 +17837,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 46,
       "rank_change": 0,
       "trend": "same",
@@ -18157,6 +18224,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 47,
       "rank_change": 0,
       "trend": "same",
@@ -18543,6 +18611,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 48,
       "rank_change": 0,
       "trend": "same",
@@ -18929,6 +18998,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 49,
       "rank_change": 0,
       "trend": "same",
@@ -19315,6 +19385,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 50,
       "rank_change": 0,
       "trend": "same",
@@ -19453,9 +19524,9 @@
           "pts_last": 0
         },
         {
-          "id": 8478427,
-          "name": "Sebastian Aho",
-          "abbrev": "CAR",
+          "id": 8476459,
+          "name": "Mika Zibanejad",
+          "abbrev": "NYR",
           "position": "A",
           "goals": 10,
           "assists": 16,
@@ -19463,7 +19534,12 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 0,
+          "trade_group": 10,
+          "trade_date": "2026-11-09",
+          "traded_from_name": "Sebastian Aho",
+          "traded_from_points": 36,
+          "points_since_trade": 0
         },
         {
           "id": 8483445,
@@ -19699,6 +19775,23 @@
           "ot_wins": 5,
           "ot_losses": 1,
           "pts_last": 0
+        }
+      ],
+      "trades": [
+        {
+          "participant": "Olivier Tom",
+          "group": 10,
+          "trade_date": "2026-11-09",
+          "old_id": 8478427,
+          "old_name": "Sebastian Aho",
+          "old_points": 36,
+          "old_goals": 10,
+          "old_assists": 16,
+          "new_id": 8476459,
+          "new_name": "Mika Zibanejad",
+          "new_baseline_points": 18,
+          "new_baseline_goals": 3,
+          "new_baseline_assists": 12
         }
       ],
       "rank": 51,
@@ -20087,6 +20180,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 52,
       "rank_change": 0,
       "trend": "same",
@@ -20473,6 +20567,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 53,
       "rank_change": 0,
       "trend": "same",
@@ -20859,6 +20954,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 54,
       "rank_change": 0,
       "trend": "same",
@@ -21245,6 +21341,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 55,
       "rank_change": 0,
       "trend": "same",
@@ -21631,6 +21728,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 56,
       "rank_change": 0,
       "trend": "same",
@@ -22017,6 +22115,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 57,
       "rank_change": 0,
       "trend": "same",
@@ -22403,6 +22502,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 58,
       "rank_change": 0,
       "trend": "same",
@@ -22789,6 +22889,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 59,
       "rank_change": 0,
       "trend": "same",
@@ -23175,6 +23276,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 60,
       "rank_change": 0,
       "trend": "same",
@@ -23561,6 +23663,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 61,
       "rank_change": 0,
       "trend": "same",
@@ -23947,6 +24050,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 62,
       "rank_change": 0,
       "trend": "same",
@@ -24333,6 +24437,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 63,
       "rank_change": 0,
       "trend": "same",
@@ -24719,6 +24824,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 64,
       "rank_change": 0,
       "trend": "same",
@@ -25105,6 +25211,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 65,
       "rank_change": 0,
       "trend": "same",
@@ -25491,6 +25598,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 66,
       "rank_change": 0,
       "trend": "same",
@@ -25877,6 +25985,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 67,
       "rank_change": 0,
       "trend": "same",
@@ -26263,6 +26372,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 68,
       "rank_change": 0,
       "trend": "same",
@@ -26649,6 +26759,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 69,
       "rank_change": 0,
       "trend": "same",
@@ -27035,6 +27146,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 70,
       "rank_change": 0,
       "trend": "same",
@@ -27421,6 +27533,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 71,
       "rank_change": 0,
       "trend": "same",
@@ -27807,6 +27920,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 72,
       "rank_change": 0,
       "trend": "same",
@@ -28193,6 +28307,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 73,
       "rank_change": 0,
       "trend": "same",
@@ -28579,6 +28694,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 74,
       "rank_change": 0,
       "trend": "same",
@@ -28965,6 +29081,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 75,
       "rank_change": 0,
       "trend": "same",
@@ -29351,6 +29468,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 76,
       "rank_change": 0,
       "trend": "same",
@@ -29737,6 +29855,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 77,
       "rank_change": 0,
       "trend": "same",
@@ -30123,6 +30242,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 78,
       "rank_change": 0,
       "trend": "same",
@@ -30509,6 +30629,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 79,
       "rank_change": 0,
       "trend": "same",
@@ -30895,6 +31016,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 80,
       "rank_change": 0,
       "trend": "same",
@@ -31281,6 +31403,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 81,
       "rank_change": 0,
       "trend": "same",
@@ -31667,6 +31790,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 82,
       "rank_change": 0,
       "trend": "same",
@@ -32053,6 +32177,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 83,
       "rank_change": 0,
       "trend": "same",
@@ -32439,6 +32564,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 84,
       "rank_change": 0,
       "trend": "same",
@@ -32825,6 +32951,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 85,
       "rank_change": 0,
       "trend": "same",
@@ -33211,6 +33338,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 86,
       "rank_change": 0,
       "trend": "same",
@@ -33597,6 +33725,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 87,
       "rank_change": 0,
       "trend": "same",
@@ -33983,6 +34112,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 88,
       "rank_change": 0,
       "trend": "same",
@@ -33998,8 +34128,8 @@
     {
       "name": "Thomas Gueville",
       "total_points": 712,
-      "att_pts": 206,
-      "def_pts": 317,
+      "att_pts": 264,
+      "def_pts": 259,
       "goalie_pts": 66,
       "team_pts": 123,
       "skaters": [
@@ -34017,17 +34147,22 @@
           "pts_last": 0
         },
         {
-          "id": 8480800,
-          "name": "Quinn Hughes",
-          "abbrev": "MIN",
-          "position": "D",
+          "id": 8477934,
+          "name": "Leon Draisaitl",
+          "abbrev": "EDM",
+          "position": "A",
           "goals": 6,
           "assists": 20,
           "points": 58,
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 0,
+          "trade_group": 2,
+          "trade_date": "2026-11-09",
+          "traded_from_name": "Quinn Hughes",
+          "traded_from_points": 58,
+          "points_since_trade": 0
         },
         {
           "id": 8480839,
@@ -34367,6 +34502,23 @@
           "ot_wins": 1,
           "ot_losses": 3,
           "pts_last": 0
+        }
+      ],
+      "trades": [
+        {
+          "participant": "Thomas Gueville",
+          "group": 2,
+          "trade_date": "2026-11-09",
+          "old_id": 8480800,
+          "old_name": "Quinn Hughes",
+          "old_points": 58,
+          "old_goals": 6,
+          "old_assists": 20,
+          "new_id": 8477934,
+          "new_name": "Leon Draisaitl",
+          "new_baseline_points": 50,
+          "new_baseline_goals": 16,
+          "new_baseline_assists": 18
         }
       ],
       "rank": 89,
@@ -34755,6 +34907,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 90,
       "rank_change": 0,
       "trend": "same",
@@ -35141,6 +35294,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 91,
       "rank_change": 0,
       "trend": "same",
@@ -35527,6 +35681,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 92,
       "rank_change": 0,
       "trend": "same",
@@ -35913,6 +36068,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 93,
       "rank_change": 0,
       "trend": "same",
@@ -36299,6 +36455,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 94,
       "rank_change": 0,
       "trend": "same",
@@ -36685,6 +36842,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 95,
       "rank_change": 0,
       "trend": "same",
@@ -37071,6 +37229,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 96,
       "rank_change": 0,
       "trend": "same",
@@ -37457,6 +37616,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 97,
       "rank_change": 0,
       "trend": "same",
@@ -37491,9 +37651,9 @@
           "pts_last": 0
         },
         {
-          "id": 8483457,
-          "name": "Lane Hutson",
-          "abbrev": "MTL",
+          "id": 8479323,
+          "name": "Adam Fox",
+          "abbrev": "NYR",
           "position": "D",
           "goals": 3,
           "assists": 14,
@@ -37501,7 +37661,12 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 0,
+          "trade_group": 2,
+          "trade_date": "2026-11-09",
+          "traded_from_name": "Lane Hutson",
+          "traded_from_points": 37,
+          "points_since_trade": 0
         },
         {
           "id": 8480839,
@@ -37841,6 +38006,23 @@
           "ot_wins": 5,
           "ot_losses": 1,
           "pts_last": 0
+        }
+      ],
+      "trades": [
+        {
+          "participant": "Mathieu Labranche",
+          "group": 2,
+          "trade_date": "2026-11-09",
+          "old_id": 8483457,
+          "old_name": "Lane Hutson",
+          "old_points": 37,
+          "old_goals": 3,
+          "old_assists": 14,
+          "new_id": 8479323,
+          "new_name": "Adam Fox",
+          "new_baseline_points": 46,
+          "new_baseline_goals": 2,
+          "new_baseline_assists": 20
         }
       ],
       "rank": 98,
@@ -38229,6 +38411,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 99,
       "rank_change": 0,
       "trend": "same",
@@ -38615,6 +38798,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 100,
       "rank_change": 0,
       "trend": "same",
@@ -39001,6 +39185,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 101,
       "rank_change": 0,
       "trend": "same",
@@ -39387,6 +39572,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 102,
       "rank_change": 0,
       "trend": "same",
@@ -39773,6 +39959,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 103,
       "rank_change": 0,
       "trend": "same",
@@ -40159,6 +40346,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 104,
       "rank_change": 0,
       "trend": "same",
@@ -40545,6 +40733,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 105,
       "rank_change": 0,
       "trend": "same",
@@ -40931,6 +41120,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 106,
       "rank_change": 0,
       "trend": "same",
@@ -41317,6 +41507,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 107,
       "rank_change": 0,
       "trend": "same",
@@ -41703,6 +41894,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 108,
       "rank_change": 0,
       "trend": "same",
@@ -42089,6 +42281,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 109,
       "rank_change": 0,
       "trend": "same",
@@ -42475,6 +42668,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 110,
       "rank_change": 0,
       "trend": "same",
@@ -42861,6 +43055,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 111,
       "rank_change": 0,
       "trend": "same",
@@ -43247,6 +43442,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 112,
       "rank_change": 0,
       "trend": "same",
@@ -43633,6 +43829,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 113,
       "rank_change": 0,
       "trend": "same",
@@ -44019,6 +44216,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 114,
       "rank_change": 0,
       "trend": "same",
@@ -44405,6 +44603,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 115,
       "rank_change": 0,
       "trend": "same",
@@ -44791,6 +44990,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 116,
       "rank_change": 0,
       "trend": "same",
@@ -45177,6 +45377,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 117,
       "rank_change": 0,
       "trend": "same",
@@ -45563,6 +45764,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 118,
       "rank_change": 0,
       "trend": "same",
@@ -45949,6 +46151,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 119,
       "rank_change": 0,
       "trend": "same",
@@ -46335,6 +46538,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 120,
       "rank_change": 0,
       "trend": "same",
@@ -46721,6 +46925,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 121,
       "rank_change": 0,
       "trend": "same",
@@ -47107,6 +47312,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 122,
       "rank_change": 0,
       "trend": "same",
@@ -47493,6 +47699,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 123,
       "rank_change": 0,
       "trend": "same",
@@ -47879,6 +48086,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 124,
       "rank_change": 0,
       "trend": "same",
@@ -48265,6 +48473,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 125,
       "rank_change": 0,
       "trend": "same",
@@ -48651,6 +48860,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 126,
       "rank_change": 0,
       "trend": "same",
@@ -49037,6 +49247,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 127,
       "rank_change": 0,
       "trend": "same",
@@ -49423,6 +49634,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 128,
       "rank_change": 0,
       "trend": "same",
@@ -49809,6 +50021,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 129,
       "rank_change": 0,
       "trend": "same",
@@ -50195,6 +50408,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 130,
       "rank_change": 0,
       "trend": "same",
@@ -50581,6 +50795,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 131,
       "rank_change": 0,
       "trend": "same",
@@ -50967,6 +51182,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 132,
       "rank_change": 0,
       "trend": "same",
@@ -51353,6 +51569,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 133,
       "rank_change": 0,
       "trend": "same",
@@ -51739,6 +51956,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 134,
       "rank_change": 0,
       "trend": "same",
@@ -52125,6 +52343,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 135,
       "rank_change": 0,
       "trend": "same",
@@ -52511,6 +52730,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 136,
       "rank_change": 0,
       "trend": "same",
@@ -52897,6 +53117,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 137,
       "rank_change": 0,
       "trend": "same",
@@ -53283,6 +53504,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 138,
       "rank_change": 0,
       "trend": "same",
@@ -53669,6 +53891,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 139,
       "rank_change": 0,
       "trend": "same",
@@ -53684,8 +53907,8 @@
     {
       "name": "Leandro Pereira",
       "total_points": 670,
-      "att_pts": 267,
-      "def_pts": 234,
+      "att_pts": 269,
+      "def_pts": 232,
       "goalie_pts": 71,
       "team_pts": 98,
       "skaters": [
@@ -53885,17 +54108,22 @@
           "pts_last": 0
         },
         {
-          "id": 8481524,
-          "name": "Bowen Byram",
-          "abbrev": "CHI",
-          "position": "D",
+          "id": 8484387,
+          "name": "Matvei Michkov",
+          "abbrev": "PHI",
+          "position": "A",
           "goals": 0,
           "assists": 1,
           "points": 2,
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 0,
+          "trade_group": 16,
+          "trade_date": "2026-11-09",
+          "traded_from_name": "Bowen Byram",
+          "traded_from_points": 2,
+          "points_since_trade": 0
         },
         {
           "id": 8480014,
@@ -54055,6 +54283,23 @@
           "pts_last": 0
         }
       ],
+      "trades": [
+        {
+          "participant": "Leandro Pereira",
+          "group": 16,
+          "trade_date": "2026-11-09",
+          "old_id": 8481524,
+          "old_name": "Bowen Byram",
+          "old_points": 2,
+          "old_goals": 0,
+          "old_assists": 1,
+          "new_id": 8484387,
+          "new_name": "Matvei Michkov",
+          "new_baseline_points": 23,
+          "new_baseline_goals": 10,
+          "new_baseline_assists": 3
+        }
+      ],
       "rank": 140,
       "rank_change": 0,
       "trend": "same",
@@ -54070,23 +54315,28 @@
     {
       "name": "Cédrick Charest",
       "total_points": 666,
-      "att_pts": 357,
-      "def_pts": 134,
+      "att_pts": 300,
+      "def_pts": 191,
       "goalie_pts": 66,
       "team_pts": 109,
       "skaters": [
         {
-          "id": 8478402,
-          "name": "Connor McDavid",
+          "id": 8480803,
+          "name": "Evan Bouchard",
           "abbrev": "EDM",
-          "position": "A",
+          "position": "D",
           "goals": 10,
           "assists": 37,
           "points": 57,
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 0,
+          "trade_group": 1,
+          "trade_date": "2026-11-09",
+          "traded_from_name": "Connor McDavid",
+          "traded_from_points": 57,
+          "points_since_trade": 0
         },
         {
           "id": 8480800,
@@ -54439,6 +54689,23 @@
           "ot_wins": 5,
           "ot_losses": 1,
           "pts_last": 0
+        }
+      ],
+      "trades": [
+        {
+          "participant": "Cédrick Charest",
+          "group": 1,
+          "trade_date": "2026-11-09",
+          "old_id": 8478402,
+          "old_name": "Connor McDavid",
+          "old_points": 57,
+          "old_goals": 10,
+          "old_assists": 37,
+          "new_id": 8480803,
+          "new_name": "Evan Bouchard",
+          "new_baseline_points": 72,
+          "new_baseline_goals": 10,
+          "new_baseline_assists": 21
         }
       ],
       "rank": 141,
@@ -54827,6 +55094,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 142,
       "rank_change": 0,
       "trend": "same",
@@ -55213,6 +55481,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 143,
       "rank_change": 0,
       "trend": "same",
@@ -55599,6 +55868,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 144,
       "rank_change": 0,
       "trend": "same",
@@ -55985,6 +56255,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 145,
       "rank_change": 0,
       "trend": "same",
@@ -56371,6 +56642,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 146,
       "rank_change": 0,
       "trend": "same",
@@ -56757,6 +57029,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 147,
       "rank_change": 0,
       "trend": "same",
@@ -57143,6 +57416,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 148,
       "rank_change": 0,
       "trend": "same",
@@ -57529,6 +57803,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 149,
       "rank_change": 0,
       "trend": "same",
@@ -57915,6 +58190,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 150,
       "rank_change": 0,
       "trend": "same",
@@ -58301,6 +58577,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 151,
       "rank_change": 0,
       "trend": "same",
@@ -58687,6 +58964,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 152,
       "rank_change": 0,
       "trend": "same",
@@ -59073,6 +59351,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 153,
       "rank_change": 0,
       "trend": "same",
@@ -59459,6 +59738,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 154,
       "rank_change": 0,
       "trend": "same",
@@ -59845,6 +60125,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 155,
       "rank_change": 0,
       "trend": "same",
@@ -60231,6 +60512,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 156,
       "rank_change": 0,
       "trend": "same",
@@ -60617,6 +60899,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 157,
       "rank_change": 0,
       "trend": "same",
@@ -61003,6 +61286,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 158,
       "rank_change": 0,
       "trend": "same",
@@ -61389,6 +61673,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 159,
       "rank_change": 0,
       "trend": "same",
@@ -61775,6 +62060,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 160,
       "rank_change": 0,
       "trend": "same",
@@ -62161,6 +62447,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 161,
       "rank_change": 0,
       "trend": "same",
@@ -62547,6 +62834,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 162,
       "rank_change": 0,
       "trend": "same",
@@ -62933,6 +63221,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 163,
       "rank_change": 0,
       "trend": "same",
@@ -63319,6 +63608,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 164,
       "rank_change": 0,
       "trend": "same",
@@ -63705,6 +63995,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 165,
       "rank_change": 0,
       "trend": "same",
@@ -63720,23 +64011,28 @@
     {
       "name": "Jean-Philip Tremblay",
       "total_points": 640,
-      "att_pts": 333,
-      "def_pts": 137,
+      "att_pts": 380,
+      "def_pts": 90,
       "goalie_pts": 56,
       "team_pts": 114,
       "skaters": [
         {
-          "id": 8480069,
-          "name": "Cale Makar",
-          "abbrev": "COL",
-          "position": "D",
+          "id": 8478402,
+          "name": "Connor McDavid",
+          "abbrev": "EDM",
+          "position": "A",
           "goals": 5,
           "assists": 16,
           "points": 47,
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 0,
+          "trade_group": 1,
+          "trade_date": "2026-11-09",
+          "traded_from_name": "Cale Makar",
+          "traded_from_points": 47,
+          "points_since_trade": 0
         },
         {
           "id": 8484801,
@@ -64089,6 +64385,23 @@
           "ot_wins": 1,
           "ot_losses": 3,
           "pts_last": 0
+        }
+      ],
+      "trades": [
+        {
+          "participant": "Jean-Philip Tremblay",
+          "group": 1,
+          "trade_date": "2026-11-09",
+          "old_id": 8480069,
+          "old_name": "Cale Makar",
+          "old_points": 47,
+          "old_goals": 5,
+          "old_assists": 16,
+          "new_id": 8478402,
+          "new_name": "Connor McDavid",
+          "new_baseline_points": 57,
+          "new_baseline_goals": 10,
+          "new_baseline_assists": 37
         }
       ],
       "rank": 166,
@@ -64477,6 +64790,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 167,
       "rank_change": 0,
       "trend": "same",
@@ -64863,6 +65177,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 168,
       "rank_change": 0,
       "trend": "same",
@@ -65249,6 +65564,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 169,
       "rank_change": 0,
       "trend": "same",
@@ -65635,6 +65951,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 170,
       "rank_change": 0,
       "trend": "same",
@@ -66021,6 +66338,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 171,
       "rank_change": 0,
       "trend": "same",
@@ -66407,6 +66725,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 172,
       "rank_change": 0,
       "trend": "same",
@@ -66793,6 +67112,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 173,
       "rank_change": 0,
       "trend": "same",
@@ -67179,6 +67499,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 174,
       "rank_change": 0,
       "trend": "same",
@@ -67565,6 +67886,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 175,
       "rank_change": 0,
       "trend": "same",
@@ -67951,6 +68273,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 176,
       "rank_change": 0,
       "trend": "same",
@@ -68337,6 +68660,7 @@
           "pts_last": 0
         }
       ],
+      "trades": [],
       "rank": 177,
       "rank_change": 0,
       "trend": "same",
@@ -70016,6 +70340,24 @@
       "pts_last": 0
     },
     {
+      "id": 8476459,
+      "name": "Mika Zibanejad",
+      "abbrev": "NYR",
+      "position": "A",
+      "goals": 10,
+      "assists": 16,
+      "points": 36,
+      "wins": 0,
+      "shutouts": 0,
+      "otLosses": 0,
+      "pts_last": 0,
+      "trade_group": 10,
+      "trade_date": "2026-11-09",
+      "traded_from_name": "Sebastian Aho",
+      "traded_from_points": 36,
+      "points_since_trade": 0
+    },
+    {
       "id": 8486067,
       "name": "Gavin McKenna",
       "abbrev": "TOR",
@@ -70172,19 +70514,6 @@
       "pts_last": 0
     },
     {
-      "id": 8476459,
-      "name": "Mika Zibanejad",
-      "abbrev": "NYR",
-      "position": "A",
-      "goals": 3,
-      "assists": 12,
-      "points": 18,
-      "wins": 0,
-      "shutouts": 0,
-      "otLosses": 0,
-      "pts_last": 0
-    },
-    {
       "id": 8480023,
       "name": "Robert Thomas",
       "abbrev": "STL",
@@ -70215,13 +70544,18 @@
       "name": "Adam Fox",
       "abbrev": "NYR",
       "position": "D",
-      "goals": 2,
-      "assists": 20,
-      "points": 46,
+      "goals": 3,
+      "assists": 14,
+      "points": 37,
       "wins": 0,
       "shutouts": 0,
       "otLosses": 0,
-      "pts_last": 0
+      "pts_last": 0,
+      "trade_group": 2,
+      "trade_date": "2026-11-09",
+      "traded_from_name": "Lane Hutson",
+      "traded_from_points": 37,
+      "points_since_trade": 0
     },
     {
       "id": 8475786,
