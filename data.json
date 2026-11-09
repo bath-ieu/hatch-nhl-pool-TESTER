@@ -1,6 +1,6 @@
 {
   "season": "20262027",
-  "updated_at": "2026-11-09T22:07:11.838400+00:00",
+  "updated_at": "2026-11-09T22:16:12.164558+00:00",
   "chart_dates": [
     "16 Oct",
     "23 Oct",
@@ -9,9 +9,9 @@
   ],
   "stats_records": {
     "best_night": {
-      "name": "Lenna Gatouillat",
-      "points": 71,
-      "date": "08 Nov 2026"
+      "name": "Etienne Paquin-Foisy",
+      "points": 72,
+      "date": "09 Nov 2026"
     },
     "best_week": {
       "date": "Semaine 23 Oct -> 30 Oct",
@@ -46,7 +46,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -1594,7 +1594,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8484801,
@@ -1981,7 +1981,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8477934,
@@ -2755,7 +2755,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8484801,
@@ -3529,7 +3529,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -3916,7 +3916,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -4303,7 +4303,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8483457,
@@ -4690,7 +4690,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8483457,
@@ -6238,7 +6238,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -7413,7 +7413,8 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "is_trade": true
+          "is_trade": true,
+          "is_trade_old": true
         },
         {
           "id": 8484801,
@@ -7428,6 +7429,7 @@
           "otLosses": 0,
           "pts_last": 0,
           "is_trade": true,
+          "is_trade_new": true,
           "points_since_trade": 0
         },
         {
@@ -14397,7 +14399,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -16719,7 +16721,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -19546,7 +19548,8 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "is_trade": true
+          "is_trade": true,
+          "is_trade_old": true
         },
         {
           "id": 8476459,
@@ -19561,6 +19564,7 @@
           "otLosses": 0,
           "pts_last": 0,
           "is_trade": true,
+          "is_trade_new": true,
           "points_since_trade": 0
         },
         {
@@ -24493,7 +24497,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -27589,7 +27593,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8483457,
@@ -31459,7 +31463,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8483457,
@@ -34168,7 +34172,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -34182,7 +34186,8 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "is_trade": true
+          "is_trade": true,
+          "is_trade_old": true
         },
         {
           "id": 8477934,
@@ -34197,6 +34202,7 @@
           "otLosses": 0,
           "pts_last": 0,
           "is_trade": true,
+          "is_trade_new": true,
           "points_since_trade": 0
         },
         {
@@ -35750,7 +35756,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8483457,
@@ -37298,7 +37304,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8480800,
@@ -37699,7 +37705,8 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "is_trade": true
+          "is_trade": true,
+          "is_trade_old": true
         },
         {
           "id": 8479323,
@@ -37714,6 +37721,7 @@
           "otLosses": 0,
           "pts_last": 0,
           "is_trade": true,
+          "is_trade_new": true,
           "points_since_trade": 0
         },
         {
@@ -43911,7 +43919,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8483457,
@@ -49716,7 +49724,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8483457,
@@ -50877,7 +50885,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15
+          "pts_last": 72
         },
         {
           "id": 8484801,
@@ -54169,7 +54177,8 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "is_trade": true
+          "is_trade": true,
+          "is_trade_old": true
         },
         {
           "id": 8484387,
@@ -54184,6 +54193,7 @@
           "otLosses": 0,
           "pts_last": 0,
           "is_trade": true,
+          "is_trade_new": true,
           "points_since_trade": 0
         },
         {
@@ -54395,7 +54405,8 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "is_trade": true
+          "is_trade": true,
+          "is_trade_old": true
         },
         {
           "id": 8480803,
@@ -54408,8 +54419,9 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 15,
+          "pts_last": 72,
           "is_trade": true,
+          "is_trade_new": true,
           "points_since_trade": 0
         },
         {
@@ -64104,7 +64116,8 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "is_trade": true
+          "is_trade": true,
+          "is_trade_old": true
         },
         {
           "id": 8478402,
@@ -64119,6 +64132,7 @@
           "otLosses": 0,
           "pts_last": 0,
           "is_trade": true,
+          "is_trade_new": true,
           "points_since_trade": 0
         },
         {
@@ -68775,7 +68789,7 @@
       "wins": 0,
       "shutouts": 0,
       "otLosses": 0,
-      "pts_last": 15
+      "pts_last": 72
     },
     {
       "id": 8480800,
