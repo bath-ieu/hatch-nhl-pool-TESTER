@@ -18,46 +18,49 @@ RECORDS_FILE = "records.json"
 #          nouveau_id, nouveau_nom, plancher_pts, plancher_B, plancher_P
 TRADES = [
     {"participant": "Cédrick Charest", "group": 1, "trade_date": "2026-11-09",
-     "old_id": 8478402, "old_name": "Connor McDavid", "old_points": 57, "old_goals": 10, "old_assists": 37,
+     "old_id": 8478402, "old_name": "Connor McDavid", "old_points": 57, "old_goals": 10, "old_assists": 37, "old_abbrev": "EDM", "old_position": "A",
      "new_id": 8480803, "new_name": "Evan Bouchard", "new_baseline_points": 72, "new_baseline_goals": 10, "new_baseline_assists": 21},
     {"participant": "Jean-Philip Tremblay", "group": 1, "trade_date": "2026-11-09",
-     "old_id": 8480069, "old_name": "Cale Makar", "old_points": 47, "old_goals": 5, "old_assists": 16,
+     "old_id": 8480069, "old_name": "Cale Makar", "old_points": 47, "old_goals": 5, "old_assists": 16, "old_abbrev": "COL", "old_position": "D",
      "new_id": 8478402, "new_name": "Connor McDavid", "new_baseline_points": 57, "new_baseline_goals": 10, "new_baseline_assists": 37},
     {"participant": "Thomas Gueville", "group": 2, "trade_date": "2026-11-09",
-     "old_id": 8480800, "old_name": "Quinn Hughes", "old_points": 58, "old_goals": 6, "old_assists": 20,
+     "old_id": 8480800, "old_name": "Quinn Hughes", "old_points": 58, "old_goals": 6, "old_assists": 20, "old_abbrev": "MIN", "old_position": "D",
      "new_id": 8477934, "new_name": "Leon Draisaitl", "new_baseline_points": 50, "new_baseline_goals": 16, "new_baseline_assists": 18},
     {"participant": "Mathieu Mei", "group": 2, "trade_date": "2026-11-09",
      "old_id": 8480800, "old_name": "Quinn Hughes", "old_points": 58, "old_goals": 6, "old_assists": 20,
      "new_id": 8484801, "new_name": "Macklin Celebrini", "new_baseline_points": 28, "new_baseline_goals": 7, "new_baseline_assists": 14},
     {"participant": "Olivier Tom", "group": 10, "trade_date": "2026-11-09",
-     "old_id": 8478427, "old_name": "Sebastian Aho", "old_points": 36, "old_goals": 10, "old_assists": 16,
+     "old_id": 8478427, "old_name": "Sebastian Aho", "old_points": 36, "old_goals": 10, "old_assists": 16, "old_abbrev": "CAR", "old_position": "A",
      "new_id": 8476459, "new_name": "Mika Zibanejad", "new_baseline_points": 18, "new_baseline_goals": 3, "new_baseline_assists": 12},
     {"participant": "Mathieu Labranche", "group": 2, "trade_date": "2026-11-09",
-     "old_id": 8483457, "old_name": "Lane Hutson", "old_points": 37, "old_goals": 3, "old_assists": 14,
+     "old_id": 8483457, "old_name": "Lane Hutson", "old_points": 37, "old_goals": 3, "old_assists": 14, "old_abbrev": "MTL", "old_position": "D",
      "new_id": 8479323, "new_name": "Adam Fox", "new_baseline_points": 46, "new_baseline_goals": 2, "new_baseline_assists": 20},
     {"participant": "Leandro Pereira", "group": 16, "trade_date": "2026-11-09",
-     "old_id": 8481524, "old_name": "Bowen Byram", "old_points": 2, "old_goals": 0, "old_assists": 1,
+     "old_id": 8481524, "old_name": "Bowen Byram", "old_points": 2, "old_goals": 0, "old_assists": 1, "old_abbrev": "CHI", "old_position": "D",
      "new_id": 8484387, "new_name": "Matvei Michkov", "new_baseline_points": 23, "new_baseline_goals": 10, "new_baseline_assists": 3},
 ]
 
 def apply_trade_to_skater(participant_name, st):
-    """Ajuste les points d'un joueur echange : points figes de l'ancien + points du nouveau depuis son plancher."""
+    """Renvoie [ancien joueur fige, nouveau joueur a partir de 0] pour un poste echange, sinon [st]."""
     for t in TRADES:
         if t["participant"] == participant_name and t["new_id"] == st.get("id"):
-            st = dict(st)
-            adj_points = t["old_points"] + max(0, st.get("points", 0) - t["new_baseline_points"])
-            adj_goals = t["old_goals"] + max(0, st.get("goals", 0) - t["new_baseline_goals"])
-            adj_assists = t["old_assists"] + max(0, st.get("assists", 0) - t["new_baseline_assists"])
-            st["points"] = adj_points
-            st["goals"] = adj_goals
-            st["assists"] = adj_assists
-            st["trade_group"] = t["group"]
-            st["trade_date"] = t["trade_date"]
-            st["traded_from_name"] = t["old_name"]
-            st["traded_from_points"] = t["old_points"]
-            st["points_since_trade"] = adj_points - t["old_points"]
-            return st
-    return st
+            # Ancien joueur : garde tel quel, statistiques figees, pts_last 0
+            old_entry = {
+                "id": t["old_id"], "name": t["old_name"], "abbrev": t.get("old_abbrev", ""),
+                "position": t.get("old_position", "A"),
+                "goals": t["old_goals"], "assists": t["old_assists"], "points": t["old_points"],
+                "wins": 0, "shutouts": 0, "otLosses": 0, "pts_last": 0, "is_trade": True,
+            }
+            # Nouveau joueur : comme un joueur normal, mais ses stats repartent de 0
+            new_entry = dict(st)
+            new_entry["points"] = max(0, st.get("points", 0) - t["new_baseline_points"])
+            new_entry["goals"] = max(0, st.get("goals", 0) - t["new_baseline_goals"])
+            new_entry["assists"] = max(0, st.get("assists", 0) - t["new_baseline_assists"])
+            new_entry["is_trade"] = True
+            new_entry["points_since_trade"] = new_entry["points"]
+            # pts_last garde le delta brut de la soiree, qui est aussi le delta depuis l'echange
+            return [old_entry, new_entry]
+    return [st]
 
 RECENT_POINTS_FILE = "recent_points.json"
 
@@ -1666,12 +1669,12 @@ def main():
                 },
             )
             st = with_pts_last(st, previous_player_pts)
-            st = apply_trade_to_skater(p["name"], st)
-            if st.get("position") == "D":
-                def_pts += st.get("points", 0)
-            else:
-                att_pts += st.get("points", 0)
-            skater_details.append(st)
+            for entry in apply_trade_to_skater(p["name"], st):
+                if entry.get("position") == "D":
+                    def_pts += entry.get("points", 0)
+                else:
+                    att_pts += entry.get("points", 0)
+                skater_details.append(entry)
 
         for pid in p["goalies"]:
             st = players_stats.get(
@@ -1779,6 +1782,8 @@ def main():
     seen = {}
     for entry in leaderboard:
         for s in entry.get("skaters", []):
+            if s.get("is_trade"):
+                continue
             key = s.get("id") if s.get("id") is not None else s.get("name")
             if key is not None and key not in seen:
                 seen[key] = s
