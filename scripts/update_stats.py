@@ -49,7 +49,7 @@ def apply_trade_to_skater(participant_name, st):
                 "id": t["old_id"], "name": t["old_name"], "abbrev": t.get("old_abbrev", ""),
                 "position": t.get("old_position", "A"),
                 "goals": t["old_goals"], "assists": t["old_assists"], "points": t["old_points"],
-                "wins": 0, "shutouts": 0, "otLosses": 0, "pts_last": 0, "is_trade": True,
+                "wins": 0, "shutouts": 0, "otLosses": 0, "pts_last": 0, "is_trade": True, "is_trade_old": True,
             }
             # Nouveau joueur : comme un joueur normal, mais ses stats repartent de 0
             new_entry = dict(st)
@@ -57,6 +57,7 @@ def apply_trade_to_skater(participant_name, st):
             new_entry["goals"] = max(0, st.get("goals", 0) - t["new_baseline_goals"])
             new_entry["assists"] = max(0, st.get("assists", 0) - t["new_baseline_assists"])
             new_entry["is_trade"] = True
+            new_entry["is_trade_new"] = True
             new_entry["points_since_trade"] = new_entry["points"]
             # pts_last garde le delta brut de la soiree, qui est aussi le delta depuis l'echange
             return [old_entry, new_entry]
