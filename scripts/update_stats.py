@@ -2,9 +2,23 @@ import json
 import os
 import urllib.request
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 SEASON_ID = "20262027"
 HISTORY_FILE = "history_cache.json"
+RECORDS_FILE = "records.json"
+
+MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin",
+           "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+
+
+def format_mois_fr(month_key):
+    """'2026-11' -> 'Novembre 2026'. Pas besoin de locale fr sur le serveur."""
+    try:
+        annee, mois = month_key.split("-")
+        return f"{MOIS_FR[int(mois) - 1].capitalize()} {annee}"
+    except Exception:
+        return month_key
 
 PARTICIPANTS = [
 {
@@ -1170,8 +1184,35 @@ def save_history_cache(cache):
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
 
+def load_records():
+    default = {
+        "best_week": {"name": "\u2014", "points": 0, "date": "", "period": ""},
+        "best_month": {"name": "\u2014", "points": 0, "date": "", "period": ""},
+        "current_week": {"key": None, "scores": {}, "last_run_date": None},
+        "current_month": {"key": None, "scores": {}, "last_run_date": None},
+        "history": {"weeks": [], "months": []},
+        "daily": {},
+        "daily_points": {},
+    }
+    if not os.path.exists(RECORDS_FILE):
+        return default
+    try:
+        with open(RECORDS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        for key, value in default.items():
+            data.setdefault(key, value)
+        return data
+    except Exception:
+        return default
+
+
+def save_records(records):
+    with open(RECORDS_FILE, "w", encoding="utf-8") as f:
+        json.dump(records, f, ensure_ascii=False, indent=2)
+
+
 def update_friday_history(leaderboard):
-    now = datetime.now()
+    now = datetime.now(ZoneInfo("America/Toronto"))
     is_friday = (now.weekday() == 4)
 
     cache = load_history_cache()
@@ -1320,51 +1361,79 @@ def parse_player(pid, data):
     }
 
 
-def update_periodic_records(leaderboard, existing_records):
-    now = datetime.now()
-    current_week_key = now.strftime("%Y-W%V")
-    current_month_key = now.strftime("%Y-%m")
+def update_periodic_records(leaderboard, records):
+    now = datetime.now(ZoneInfo("America/Toronto"))
+    today = now.date().isoformat()
+    current_week_key = now.strftime("%Y-W%V")  # ex: 2026-W46, lundi au dimanche
+    current_month_key = now.strftime("%Y-%m")  # ex: 2026-11
 
-    tracking = existing_records.get("tracking_periods", {})
-    saved_week = tracking.get("week_key")
-    saved_month = tracking.get("month_key")
-    
-    week_scores = tracking.get("week_scores", {})
-    month_scores = tracking.get("month_scores", {})
+    week = records.setdefault("current_week", {"key": None, "scores": {}, "last_run_date": None})
+    month = records.setdefault("current_month", {"key": None, "scores": {}, "last_run_date": None})
+    records.setdefault("best_week", {"name": "\u2014", "points": 0, "date": "", "period": ""})
+    records.setdefault("best_month", {"name": "\u2014", "points": 0, "date": "", "period": ""})
+    records.setdefault("history", {"weeks": [], "months": []})
+    records.setdefault("daily", {})
+    records.setdefault("daily_points", {})
 
-    # 1. Gestion de la Semaine (Lundi au Dimanche)
-    if saved_week != current_week_key:
+    # Anti-double-comptage : si le script tourne 2 fois le meme jour, on ne rajoute rien
+    if week.get("last_run_date") == today and month.get("last_run_date") == today:
+        return records
+
+    week_scores = dict(week.get("scores") or {})
+    month_scores = dict(month.get("scores") or {})
+
+    # 1. Cloture de la semaine precedente
+    saved_week = week.get("key")
+    if saved_week is None:
+        week["key"] = current_week_key
+    elif saved_week != current_week_key:
         if week_scores:
             best_prev_week_user = max(week_scores, key=week_scores.get)
             prev_week_pts = week_scores[best_prev_week_user]
-            
-            current_best_week = existing_records.get("best_week", {"points": 0})
+            records["history"]["weeks"].append({
+                "period": saved_week,
+                "name": best_prev_week_user,
+                "points": prev_week_pts,
+                "date": f"Semaine {saved_week}",
+            })
+            current_best_week = records.get("best_week", {"points": 0})
             if prev_week_pts > current_best_week.get("points", 0):
-                existing_records["best_week"] = {
+                records["best_week"] = {
                     "name": best_prev_week_user,
                     "points": prev_week_pts,
-                    "date": f"Semaine {saved_week}"
+                    "date": f"Semaine {saved_week}",
+                    "period": saved_week,
                 }
         week_scores = {}
-        saved_week = current_week_key
+        week["key"] = current_week_key
 
-    # 2. Gestion du Mois (Mois complet)
-    if saved_month != current_month_key:
+    # 2. Cloture du mois precedent
+    saved_month = month.get("key")
+    if saved_month is None:
+        month["key"] = current_month_key
+    elif saved_month != current_month_key:
         if month_scores:
             best_prev_month_user = max(month_scores, key=month_scores.get)
             prev_month_pts = month_scores[best_prev_month_user]
-            
-            current_best_month = existing_records.get("best_month", {"points": 0})
+            records["history"]["months"].append({
+                "period": saved_month,
+                "name": best_prev_month_user,
+                "points": prev_month_pts,
+                "date": format_mois_fr(saved_month),
+            })
+            current_best_month = records.get("best_month", {"points": 0})
             if prev_month_pts > current_best_month.get("points", 0):
-                existing_records["best_month"] = {
+                records["best_month"] = {
                     "name": best_prev_month_user,
                     "points": prev_month_pts,
-                    "date": saved_month
+                    "date": format_mois_fr(saved_month),
+                    "period": saved_month,
                 }
         month_scores = {}
-        saved_month = current_month_key
+        month["key"] = current_month_key
 
-    # 3. Accumulation des points du jour
+    # 3. Accumulation des points du jour (pts_last = delta depuis le dernier data.json)
+    daily_points = {}
     for p in leaderboard:
         name = p.get("name")
         night_pts = (
@@ -1372,21 +1441,25 @@ def update_periodic_records(leaderboard, existing_records):
             sum(x.get("pts_last", 0) for x in p.get("goalies", [])) +
             sum(x.get("pts_last", 0) for x in p.get("teams", []))
         )
+        daily_points[name] = night_pts
         week_scores[name] = week_scores.get(name, 0) + night_pts
         month_scores[name] = month_scores.get(name, 0) + night_pts
 
-    existing_records["tracking_periods"] = {
-        "week_key": saved_week,
-        "week_scores": week_scores,
-        "month_key": saved_month,
-        "month_scores": month_scores
-    }
+    week["scores"] = week_scores
+    month["scores"] = month_scores
+    week["last_run_date"] = today
+    month["last_run_date"] = today
 
-    return existing_records
+    # 4. Historique journalier : permet de verifier / reconstruire une semaine plus tard
+    records["daily"][today] = {p.get("name"): p.get("total_points", 0) for p in leaderboard}
+    records["daily_points"][today] = daily_points
+
+    return records
 
 
 def main():
     previous_ranks, previous_player_pts, previous_team_pts, existing_records = load_previous()
+    records = load_records()
 
     all_skater_ids = set()
     all_goalie_ids = set()
@@ -1583,16 +1656,17 @@ def main():
         current_best_night = {
             "name": best_night_user,
             "points": max_night_pts,
-            "date": datetime.now().strftime("%d %b %Y")
+            "date": datetime.now(ZoneInfo("America/Toronto")).strftime("%d %b %Y")
         }
 
-    # Mise à jour des records de Semaine et de Mois via la nouvelle fonction
-    existing_records = update_periodic_records(leaderboard, existing_records)
+    # Mise à jour des records de Semaine et de Mois
+    records = update_periodic_records(leaderboard, records)
+    save_records(records)
 
     stats_records = {
         "best_night": current_best_night,
-        "best_week": existing_records.get("best_week", {"name": "—", "points": 0, "date": ""}),
-        "best_month": existing_records.get("best_month", {"name": "—", "points": 0, "date": ""})
+        "best_week": records.get("best_week", {"name": "—", "points": 0, "date": ""}),
+        "best_month": records.get("best_month", {"name": "—", "points": 0, "date": ""})
     }
 
     seen = {}
