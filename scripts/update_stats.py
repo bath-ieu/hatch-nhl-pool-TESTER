@@ -1,12 +1,13 @@
 import json
 import os
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 SEASON_ID = "20262027"
 HISTORY_FILE = "history_cache.json"
 RECORDS_FILE = "records.json"
+RECENT_POINTS_FILE = "recent_points.json"
 
 MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin",
            "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
@@ -1211,6 +1212,51 @@ def save_records(records):
         json.dump(records, f, ensure_ascii=False, indent=2)
 
 
+def update_recent_points_history(leaderboard, records=None):
+    # Fonction reprise du projet Official-Hatch-NHL-Pool, ou elle existe.
+    # Dans TESTER elle avait disparu : c'est pour ca que recent_points.json
+    # etait fige au 04 nov et que le badge feu ne marchait pas.
+    # Chaque run : on decale la liste de 3 jours vers la gauche et on ajoute
+    # les points de la derniere soiree a droite : [jour-2, jour-1, aujourd'hui].
+    # pts_last3 = somme des 3.
+    today = datetime.now(ZoneInfo("America/Toronto")).date().isoformat()
+
+    recent_history = {}
+    if os.path.exists(RECENT_POINTS_FILE):
+        try:
+            with open(RECENT_POINTS_FILE, "r", encoding="utf-8") as f:
+                recent_history = json.load(f)
+        except Exception:
+            recent_history = {}
+
+    # Garde-fou ajoute par rapport a l'officiel : si le script tourne 2 fois
+    # le meme jour, on ne decale pas une 2e fois (sinon on perd un jour et
+    # on ajoute 0). On remet juste pts_last3 depuis la liste existante.
+    if records is not None and records.get("recent_points_last_run_date") == today:
+        for p in leaderboard:
+            p["pts_last3"] = sum(recent_history.get(p["name"], [0, 0, 0]))
+        return
+
+    for p in leaderboard:
+        name = p["name"]
+        night_pts = (
+            sum(s.get("pts_last", 0) for s in p.get("skaters", [])) +
+            sum(g.get("pts_last", 0) for g in p.get("goalies", [])) +
+            sum(t.get("pts_last", 0) for t in p.get("teams", []))
+        )
+
+        user_history = recent_history.get(name, [0, 0, 0])
+        user_history = [user_history[1], user_history[2], night_pts]
+        recent_history[name] = user_history
+        p["pts_last3"] = sum(user_history)
+
+    with open(RECENT_POINTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(recent_history, f, ensure_ascii=False, indent=2)
+    print(f"OK — {RECENT_POINTS_FILE} mis à jour.")
+    if records is not None:
+        records["recent_points_last_run_date"] = today
+
+
 def update_friday_history(leaderboard):
     now = datetime.now(ZoneInfo("America/Toronto"))
     is_friday = (now.weekday() == 4)
@@ -1364,8 +1410,13 @@ def parse_player(pid, data):
 def update_periodic_records(leaderboard, records):
     now = datetime.now(ZoneInfo("America/Toronto"))
     today = now.date().isoformat()
-    current_week_key = now.strftime("%Y-W%V")  # ex: 2026-W46, lundi au dimanche
-    current_month_key = now.strftime("%Y-%m")  # ex: 2026-11
+    # Le run du matin compte les points de la soiree d'avant, pas ceux du jour meme
+    # (aucun match n'est joue a 7h du matin). On attribue donc pts_last a hier
+    # si le run est avant midi, a aujourd'hui sinon. Sinon les points du dimanche
+    # soir tomberaient dans la nouvelle semaine, et ceux du 31 oct dans novembre.
+    game_date = now.date() - timedelta(days=1) if now.hour < 12 else now.date()
+    current_week_key = game_date.strftime("%Y-W%V")  # ex: 2026-W46, lundi au dimanche
+    current_month_key = game_date.strftime("%Y-%m")  # ex: 2026-11
 
     week = records.setdefault("current_week", {"key": None, "scores": {}, "last_run_date": None})
     month = records.setdefault("current_month", {"key": None, "scores": {}, "last_run_date": None})
@@ -1451,8 +1502,9 @@ def update_periodic_records(leaderboard, records):
     month["last_run_date"] = today
 
     # 4. Historique journalier : permet de verifier / reconstruire une semaine plus tard
-    records["daily"][today] = {p.get("name"): p.get("total_points", 0) for p in leaderboard}
-    records["daily_points"][today] = daily_points
+    # Cle = date des matchs (game_date), pas date du run
+    records["daily"][game_date.isoformat()] = {p.get("name"): p.get("total_points", 0) for p in leaderboard}
+    records["daily_points"][game_date.isoformat()] = daily_points
 
     return records
 
@@ -1636,6 +1688,7 @@ def main():
             else:
                 p["trend"] = "down"
 
+    update_recent_points_history(leaderboard, records)
     chart_dates = update_friday_history(leaderboard)
 
     # Calcul dynamique de la meilleure soirée (best_night)
