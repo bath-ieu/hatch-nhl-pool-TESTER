@@ -1,6 +1,6 @@
 {
   "season": "20262027",
-  "updated_at": "2026-11-09T21:42:48.526673+00:00",
+  "updated_at": "2026-11-09T22:07:11.838400+00:00",
   "chart_dates": [
     "16 Oct",
     "23 Oct",
@@ -46,7 +46,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8480800,
@@ -1594,7 +1594,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8484801,
@@ -1981,7 +1981,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8477934,
@@ -2755,7 +2755,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8484801,
@@ -3529,7 +3529,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8480800,
@@ -3916,7 +3916,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8480800,
@@ -4303,7 +4303,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8483457,
@@ -4690,7 +4690,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8483457,
@@ -6238,7 +6238,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8480800,
@@ -7402,9 +7402,9 @@
           "pts_last": 0
         },
         {
-          "id": 8484801,
-          "name": "Macklin Celebrini",
-          "abbrev": "SJS",
+          "id": 8480800,
+          "name": "Quinn Hughes",
+          "abbrev": "",
           "position": "A",
           "goals": 6,
           "assists": 20,
@@ -7413,10 +7413,21 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "trade_group": 2,
-          "trade_date": "2026-11-09",
-          "traded_from_name": "Quinn Hughes",
-          "traded_from_points": 58,
+          "is_trade": true
+        },
+        {
+          "id": 8484801,
+          "name": "Macklin Celebrini",
+          "abbrev": "SJS",
+          "position": "A",
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "wins": 0,
+          "shutouts": 0,
+          "otLosses": 0,
+          "pts_last": 0,
+          "is_trade": true,
           "points_since_trade": 0
         },
         {
@@ -14386,7 +14397,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8480800,
@@ -16708,7 +16719,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8480800,
@@ -19524,9 +19535,9 @@
           "pts_last": 0
         },
         {
-          "id": 8476459,
-          "name": "Mika Zibanejad",
-          "abbrev": "NYR",
+          "id": 8478427,
+          "name": "Sebastian Aho",
+          "abbrev": "CAR",
           "position": "A",
           "goals": 10,
           "assists": 16,
@@ -19535,10 +19546,21 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "trade_group": 10,
-          "trade_date": "2026-11-09",
-          "traded_from_name": "Sebastian Aho",
-          "traded_from_points": 36,
+          "is_trade": true
+        },
+        {
+          "id": 8476459,
+          "name": "Mika Zibanejad",
+          "abbrev": "NYR",
+          "position": "A",
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "wins": 0,
+          "shutouts": 0,
+          "otLosses": 0,
+          "pts_last": 0,
+          "is_trade": true,
           "points_since_trade": 0
         },
         {
@@ -19787,6 +19809,8 @@
           "old_points": 36,
           "old_goals": 10,
           "old_assists": 16,
+          "old_abbrev": "CAR",
+          "old_position": "A",
           "new_id": 8476459,
           "new_name": "Mika Zibanejad",
           "new_baseline_points": 18,
@@ -24469,7 +24493,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8480800,
@@ -27565,7 +27589,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8483457,
@@ -31435,7 +31459,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8483457,
@@ -34128,8 +34152,8 @@
     {
       "name": "Thomas Gueville",
       "total_points": 712,
-      "att_pts": 264,
-      "def_pts": 259,
+      "att_pts": 206,
+      "def_pts": 317,
       "goalie_pts": 66,
       "team_pts": 123,
       "skaters": [
@@ -34144,13 +34168,13 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
-          "id": 8477934,
-          "name": "Leon Draisaitl",
-          "abbrev": "EDM",
-          "position": "A",
+          "id": 8480800,
+          "name": "Quinn Hughes",
+          "abbrev": "MIN",
+          "position": "D",
           "goals": 6,
           "assists": 20,
           "points": 58,
@@ -34158,10 +34182,21 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "trade_group": 2,
-          "trade_date": "2026-11-09",
-          "traded_from_name": "Quinn Hughes",
-          "traded_from_points": 58,
+          "is_trade": true
+        },
+        {
+          "id": 8477934,
+          "name": "Leon Draisaitl",
+          "abbrev": "EDM",
+          "position": "A",
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "wins": 0,
+          "shutouts": 0,
+          "otLosses": 0,
+          "pts_last": 0,
+          "is_trade": true,
           "points_since_trade": 0
         },
         {
@@ -34514,6 +34549,8 @@
           "old_points": 58,
           "old_goals": 6,
           "old_assists": 20,
+          "old_abbrev": "MIN",
+          "old_position": "D",
           "new_id": 8477934,
           "new_name": "Leon Draisaitl",
           "new_baseline_points": 50,
@@ -35713,7 +35750,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8483457,
@@ -37261,7 +37298,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8480800,
@@ -37651,9 +37688,9 @@
           "pts_last": 0
         },
         {
-          "id": 8479323,
-          "name": "Adam Fox",
-          "abbrev": "NYR",
+          "id": 8483457,
+          "name": "Lane Hutson",
+          "abbrev": "MTL",
           "position": "D",
           "goals": 3,
           "assists": 14,
@@ -37662,10 +37699,21 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "trade_group": 2,
-          "trade_date": "2026-11-09",
-          "traded_from_name": "Lane Hutson",
-          "traded_from_points": 37,
+          "is_trade": true
+        },
+        {
+          "id": 8479323,
+          "name": "Adam Fox",
+          "abbrev": "NYR",
+          "position": "D",
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "wins": 0,
+          "shutouts": 0,
+          "otLosses": 0,
+          "pts_last": 0,
+          "is_trade": true,
           "points_since_trade": 0
         },
         {
@@ -38018,6 +38066,8 @@
           "old_points": 37,
           "old_goals": 3,
           "old_assists": 14,
+          "old_abbrev": "MTL",
+          "old_position": "D",
           "new_id": 8479323,
           "new_name": "Adam Fox",
           "new_baseline_points": 46,
@@ -43861,7 +43911,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8483457,
@@ -49666,7 +49716,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8483457,
@@ -50827,7 +50877,7 @@
           "wins": 0,
           "shutouts": 0,
           "otLosses": 0,
-          "pts_last": 0
+          "pts_last": 15
         },
         {
           "id": 8484801,
@@ -53907,8 +53957,8 @@
     {
       "name": "Leandro Pereira",
       "total_points": 670,
-      "att_pts": 269,
-      "def_pts": 232,
+      "att_pts": 267,
+      "def_pts": 234,
       "goalie_pts": 71,
       "team_pts": 98,
       "skaters": [
@@ -54108,10 +54158,10 @@
           "pts_last": 0
         },
         {
-          "id": 8484387,
-          "name": "Matvei Michkov",
-          "abbrev": "PHI",
-          "position": "A",
+          "id": 8481524,
+          "name": "Bowen Byram",
+          "abbrev": "CHI",
+          "position": "D",
           "goals": 0,
           "assists": 1,
           "points": 2,
@@ -54119,10 +54169,21 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "trade_group": 16,
-          "trade_date": "2026-11-09",
-          "traded_from_name": "Bowen Byram",
-          "traded_from_points": 2,
+          "is_trade": true
+        },
+        {
+          "id": 8484387,
+          "name": "Matvei Michkov",
+          "abbrev": "PHI",
+          "position": "A",
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "wins": 0,
+          "shutouts": 0,
+          "otLosses": 0,
+          "pts_last": 0,
+          "is_trade": true,
           "points_since_trade": 0
         },
         {
@@ -54293,6 +54354,8 @@
           "old_points": 2,
           "old_goals": 0,
           "old_assists": 1,
+          "old_abbrev": "CHI",
+          "old_position": "D",
           "new_id": 8484387,
           "new_name": "Matvei Michkov",
           "new_baseline_points": 23,
@@ -54315,16 +54378,16 @@
     {
       "name": "Cédrick Charest",
       "total_points": 666,
-      "att_pts": 300,
-      "def_pts": 191,
+      "att_pts": 357,
+      "def_pts": 134,
       "goalie_pts": 66,
       "team_pts": 109,
       "skaters": [
         {
-          "id": 8480803,
-          "name": "Evan Bouchard",
+          "id": 8478402,
+          "name": "Connor McDavid",
           "abbrev": "EDM",
-          "position": "D",
+          "position": "A",
           "goals": 10,
           "assists": 37,
           "points": 57,
@@ -54332,10 +54395,21 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "trade_group": 1,
-          "trade_date": "2026-11-09",
-          "traded_from_name": "Connor McDavid",
-          "traded_from_points": 57,
+          "is_trade": true
+        },
+        {
+          "id": 8480803,
+          "name": "Evan Bouchard",
+          "abbrev": "EDM",
+          "position": "D",
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "wins": 0,
+          "shutouts": 0,
+          "otLosses": 0,
+          "pts_last": 15,
+          "is_trade": true,
           "points_since_trade": 0
         },
         {
@@ -54701,6 +54775,8 @@
           "old_points": 57,
           "old_goals": 10,
           "old_assists": 37,
+          "old_abbrev": "EDM",
+          "old_position": "A",
           "new_id": 8480803,
           "new_name": "Evan Bouchard",
           "new_baseline_points": 72,
@@ -64011,16 +64087,16 @@
     {
       "name": "Jean-Philip Tremblay",
       "total_points": 640,
-      "att_pts": 380,
-      "def_pts": 90,
+      "att_pts": 333,
+      "def_pts": 137,
       "goalie_pts": 56,
       "team_pts": 114,
       "skaters": [
         {
-          "id": 8478402,
-          "name": "Connor McDavid",
-          "abbrev": "EDM",
-          "position": "A",
+          "id": 8480069,
+          "name": "Cale Makar",
+          "abbrev": "COL",
+          "position": "D",
           "goals": 5,
           "assists": 16,
           "points": 47,
@@ -64028,10 +64104,21 @@
           "shutouts": 0,
           "otLosses": 0,
           "pts_last": 0,
-          "trade_group": 1,
-          "trade_date": "2026-11-09",
-          "traded_from_name": "Cale Makar",
-          "traded_from_points": 47,
+          "is_trade": true
+        },
+        {
+          "id": 8478402,
+          "name": "Connor McDavid",
+          "abbrev": "EDM",
+          "position": "A",
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "wins": 0,
+          "shutouts": 0,
+          "otLosses": 0,
+          "pts_last": 0,
+          "is_trade": true,
           "points_since_trade": 0
         },
         {
@@ -64397,6 +64484,8 @@
           "old_points": 47,
           "old_goals": 5,
           "old_assists": 16,
+          "old_abbrev": "COL",
+          "old_position": "D",
           "new_id": 8478402,
           "new_name": "Connor McDavid",
           "new_baseline_points": 57,
@@ -68686,7 +68775,7 @@
       "wins": 0,
       "shutouts": 0,
       "otLosses": 0,
-      "pts_last": 0
+      "pts_last": 15
     },
     {
       "id": 8480800,
@@ -70340,24 +70429,6 @@
       "pts_last": 0
     },
     {
-      "id": 8476459,
-      "name": "Mika Zibanejad",
-      "abbrev": "NYR",
-      "position": "A",
-      "goals": 10,
-      "assists": 16,
-      "points": 36,
-      "wins": 0,
-      "shutouts": 0,
-      "otLosses": 0,
-      "pts_last": 0,
-      "trade_group": 10,
-      "trade_date": "2026-11-09",
-      "traded_from_name": "Sebastian Aho",
-      "traded_from_points": 36,
-      "points_since_trade": 0
-    },
-    {
       "id": 8486067,
       "name": "Gavin McKenna",
       "abbrev": "TOR",
@@ -70514,6 +70585,19 @@
       "pts_last": 0
     },
     {
+      "id": 8476459,
+      "name": "Mika Zibanejad",
+      "abbrev": "NYR",
+      "position": "A",
+      "goals": 3,
+      "assists": 12,
+      "points": 18,
+      "wins": 0,
+      "shutouts": 0,
+      "otLosses": 0,
+      "pts_last": 0
+    },
+    {
       "id": 8480023,
       "name": "Robert Thomas",
       "abbrev": "STL",
@@ -70544,18 +70628,13 @@
       "name": "Adam Fox",
       "abbrev": "NYR",
       "position": "D",
-      "goals": 3,
-      "assists": 14,
-      "points": 37,
+      "goals": 2,
+      "assists": 20,
+      "points": 46,
       "wins": 0,
       "shutouts": 0,
       "otLosses": 0,
-      "pts_last": 0,
-      "trade_group": 2,
-      "trade_date": "2026-11-09",
-      "traded_from_name": "Lane Hutson",
-      "traded_from_points": 37,
-      "points_since_trade": 0
+      "pts_last": 0
     },
     {
       "id": 8475786,
