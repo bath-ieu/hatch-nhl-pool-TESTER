@@ -8,37 +8,24 @@ SEASON_ID = "20262027"
 HISTORY_FILE = "history_cache.json"
 RECORDS_FILE = "records.json"
 
-# --- ECHANGES (test reel, 09 nov 2026) ---
-# Un echange est effectif le 09 nov 2026. Les points de l'ancien joueur sont
-# figes a cette date, le nouveau joueur repart de 0 a partir de son plancher
-# (ses points LNH au 09 nov). Total du poste = points figes + max(0, points LNH actuels - plancher).
-# Les 7 echanges ont ete verifies : meme groupe (boxes.json renumerote 1-25),
-# l'ancien joueur etait bien dans l'effectif du participant.
+# --- ECHANGES ---
+# Liste vide pour l'instant : les 7 echanges test du 09 nov 2026 ont ete
+# retires le 10 nov 2026 et les effectifs sont revenus a l'original
+# (verifie contre le repo officiel : https://github.com/bath-ieu/Official-Hatch-NHL-Pool).
+# La logique est gardee telle quelle (apply_trade_to_skater ci-dessous,
+# affichage orange + \U0001f504 dans index.html) : pour un vrai echange,
+# il suffit d'ajouter un dict ici. Les points de l'ancien joueur sont
+# figes a la date de l'echange, le nouveau repart de 0 a partir de son
+# plancher (ses points LNH au jour de l'echange). Echange permis seulement
+# dans le meme groupe (boxes.json, groupes 1-25).
 # Format : participant, groupe, ancien_id, ancien_nom, ancien_pts, ancien_B, ancien_P,
 #          nouveau_id, nouveau_nom, plancher_pts, plancher_B, plancher_P
-TRADES = [
-    {"participant": "Cédrick Charest", "group": 1, "trade_date": "2026-11-09",
-     "old_id": 8478402, "old_name": "Connor McDavid", "old_points": 57, "old_goals": 10, "old_assists": 37, "old_abbrev": "EDM", "old_position": "A",
-     "new_id": 8480803, "new_name": "Evan Bouchard", "new_baseline_points": 72, "new_baseline_goals": 10, "new_baseline_assists": 21},
-    {"participant": "Jean-Philip Tremblay", "group": 1, "trade_date": "2026-11-09",
-     "old_id": 8480069, "old_name": "Cale Makar", "old_points": 47, "old_goals": 5, "old_assists": 16, "old_abbrev": "COL", "old_position": "D",
-     "new_id": 8478402, "new_name": "Connor McDavid", "new_baseline_points": 57, "new_baseline_goals": 10, "new_baseline_assists": 37},
-    {"participant": "Thomas Gueville", "group": 2, "trade_date": "2026-11-09",
-     "old_id": 8480800, "old_name": "Quinn Hughes", "old_points": 58, "old_goals": 6, "old_assists": 20, "old_abbrev": "MIN", "old_position": "D",
-     "new_id": 8477934, "new_name": "Leon Draisaitl", "new_baseline_points": 50, "new_baseline_goals": 16, "new_baseline_assists": 18},
-    {"participant": "Mathieu Mei", "group": 2, "trade_date": "2026-11-09",
-     "old_id": 8480800, "old_name": "Quinn Hughes", "old_points": 58, "old_goals": 6, "old_assists": 20,
-     "new_id": 8484801, "new_name": "Macklin Celebrini", "new_baseline_points": 28, "new_baseline_goals": 7, "new_baseline_assists": 14},
-    {"participant": "Olivier Tom", "group": 10, "trade_date": "2026-11-09",
-     "old_id": 8478427, "old_name": "Sebastian Aho", "old_points": 36, "old_goals": 10, "old_assists": 16, "old_abbrev": "CAR", "old_position": "A",
-     "new_id": 8476459, "new_name": "Mika Zibanejad", "new_baseline_points": 18, "new_baseline_goals": 3, "new_baseline_assists": 12},
-    {"participant": "Mathieu Labranche", "group": 2, "trade_date": "2026-11-09",
-     "old_id": 8483457, "old_name": "Lane Hutson", "old_points": 37, "old_goals": 3, "old_assists": 14, "old_abbrev": "MTL", "old_position": "D",
-     "new_id": 8479323, "new_name": "Adam Fox", "new_baseline_points": 46, "new_baseline_goals": 2, "new_baseline_assists": 20},
-    {"participant": "Leandro Pereira", "group": 16, "trade_date": "2026-11-09",
-     "old_id": 8481524, "old_name": "Bowen Byram", "old_points": 2, "old_goals": 0, "old_assists": 1, "old_abbrev": "CHI", "old_position": "D",
-     "new_id": 8484387, "new_name": "Matvei Michkov", "new_baseline_points": 23, "new_baseline_goals": 10, "new_baseline_assists": 3},
-]
+# Exemple (commente, a adapter ; ne pas activer tel quel) :
+# {"participant": "C\u00e9drick Charest", "group": 1, "trade_date": "2026-11-09",
+#  "old_id": 8478402, "old_name": "Connor McDavid", "old_points": 57, "old_goals": 10, "old_assists": 37, "old_abbrev": "EDM", "old_position": "A",
+#  "new_id": 8480803, "new_name": "Evan Bouchard", "new_baseline_points": 72, "new_baseline_goals": 10, "new_baseline_assists": 21},
+TRADES = []
+
 
 def apply_trade_to_skater(participant_name, st):
     """Renvoie [ancien joueur fige, nouveau joueur a partir de 0] pour un poste echange, sinon [st]."""
@@ -86,7 +73,7 @@ def format_mois_fr(month_key):
 PARTICIPANTS = [
 {
 "name": "Jean-Philip Tremblay",
-"skaters": [8478402, 8484801, 8480839, 8480018, 8481540, 8484144, 8485366, 8477493, 8478483, 8478427, 8483445, 8484153, 8478397, 8484984, 8483515, 8484387, 8478013, 8481533, 8483495, 8478010, 8476468, 8481618],
+"skaters": [8480069, 8484801, 8480839, 8480018, 8481540, 8484144, 8485366, 8477493, 8478483, 8478427, 8483445, 8484153, 8478397, 8484984, 8483515, 8484387, 8478013, 8481533, 8483495, 8478010, 8476468, 8481618],
 "goalies": [8476883, 8479406, 8480045],
 "teams": [8, 7, 1, 52]
 },
@@ -152,7 +139,7 @@ PARTICIPANTS = [
 },
 {
 "name": "Cédrick Charest",
-"skaters": [8480803, 8480800, 8480839, 8480018, 8478398, 8471675, 8480023, 8477493, 8479420, 8478427, 8479343, 8484153, 8478038, 8484984, 8483515, 8481524, 8475754, 8478445, 8483495, 8478010, 8480002, 8481618],
+"skaters": [8478402, 8480800, 8480839, 8480018, 8478398, 8471675, 8480023, 8477493, 8479420, 8478427, 8479343, 8484153, 8478038, 8484984, 8483515, 8481524, 8475754, 8478445, 8483495, 8478010, 8480002, 8481618],
 "goalies": [8479979, 8479406, 8482487],
 "teams": [8, 15, 1, 28]
 },
@@ -164,7 +151,7 @@ PARTICIPANTS = [
 },
 {
 "name": "Thomas Gueville",
-"skaters": [8480803, 8477934, 8480839, 8480018, 8479345, 8477504, 8478403, 8479542, 8474578, 8477933, 8477447, 8476887, 8477946, 8484984, 8482078, 8480893, 8476462, 8481581, 8485402, 8482730, 8477346, 8480074],
+"skaters": [8480803, 8480800, 8480839, 8480018, 8479345, 8477504, 8478403, 8479542, 8474578, 8477933, 8477447, 8476887, 8477946, 8484984, 8482078, 8480893, 8476462, 8481581, 8485402, 8482730, 8477346, 8480074],
 "goalies": [8476945, 8480313, 8480843],
 "teams": [25, 22, 1, 52]
 },
@@ -218,19 +205,19 @@ PARTICIPANTS = [
 },
 {
 "name": "Mathieu Mei",
-"skaters": [8478402, 8484801, 8478864, 8480039, 8479345, 8480036, 8485366, 8477404, 8479420, 8477933, 8479343, 8480208, 8477495, 8484984, 8483515, 8480893, 8480014, 8479407, 8485406, 8478010, 8480002, 8482737],
+"skaters": [8478402, 8480800, 8478864, 8480039, 8479345, 8480036, 8485366, 8477404, 8479420, 8477933, 8479343, 8480208, 8477495, 8484984, 8483515, 8480893, 8480014, 8479407, 8485406, 8478010, 8480002, 8482737],
 "goalies": [8476883, 8480313, 8482487],
 "teams": [21, 15, 1, 28]
 },
 {
 "name": "Mathieu Labranche",
-"skaters": [8480069, 8479323, 8480839, 8480018, 8479410, 8477504, 8485366, 8477493, 8482116, 8477933, 8479343, 8480208, 8477495, 8484873, 8483515, 8484387, 8471214, 8481533, 8485406, 8478010, 8484145, 8482737],
+"skaters": [8480069, 8483457, 8480839, 8480018, 8479410, 8477504, 8485366, 8477493, 8482116, 8477933, 8479343, 8480208, 8477495, 8484873, 8483515, 8484387, 8471214, 8481533, 8485406, 8478010, 8484145, 8482737],
 "goalies": [8476883, 8480313, 8480981],
 "teams": [12, 15, 4, 28]
 },
 {
 "name": "Olivier Tom",
-"skaters": [8478402, 8484801, 8477956, 8480018, 8481540, 8482740, 8485366, 8477493, 8478483, 8476459, 8483445, 8484153, 8478038, 8484227, 8480830, 8481604, 8476462, 8478445, 8485406, 8476875, 8482702, 8481618],
+"skaters": [8478402, 8484801, 8477956, 8480018, 8481540, 8482740, 8485366, 8477493, 8478483, 8478427, 8483445, 8484153, 8478038, 8484227, 8480830, 8481604, 8476462, 8478445, 8485406, 8476875, 8482702, 8481618],
 "goalies": [8476883, 8478048, 8482661],
 "teams": [21, 14, 1, 28]
 },
@@ -260,7 +247,7 @@ PARTICIPANTS = [
 },
 {
 "name": "Leandro Pereira",
-"skaters": [8478402, 8484801, 8480839, 8480018, 8481540, 8480036, 8485366, 8481605, 8474578, 8482093, 8482699, 8479425, 8478397, 8484873, 8483515, 8484387, 8480014, 8481533, 8485406, 8478010, 8482702, 8482775],
+"skaters": [8478402, 8484801, 8480839, 8480018, 8481540, 8480036, 8485366, 8481605, 8474578, 8482093, 8482699, 8479425, 8478397, 8484873, 8483515, 8481524, 8480014, 8481533, 8485406, 8478010, 8482702, 8482775],
 "goalies": [8476883, 8480313, 8482487],
 "teams": [21, 14, 29, 28]
 },
