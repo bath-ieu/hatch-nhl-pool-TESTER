@@ -2072,7 +2072,7 @@ function filterDropdown(inputId, listId) {
   listEl.innerHTML = '';
 
   const participantsForList = listId === 'chartList'
-    ? Object.keys(chartHistoryCache.cumulative_history || {}).map(name => ({ name }))
+    ? chartParticipantsInStandingsOrder().map(name => ({ name }))
     : allParticipants;
 
   const matches = participantsForList.filter(p =>
@@ -2219,9 +2219,24 @@ function updateCompareUI() {
   `;
 }
 
+// Participants du graphique, dans l'ordre du classement actuel.
+// Le leaderboard de data.json est trié par total_points décroissant, et
+// allParticipants garde cet ordre (compute1224Ranking ne fait que recalculer
+// les rangs en cas d'égalité). On ne garde que les noms qui ont un
+// historique, sinon le graphique ne peut pas les tracer.
+// Avant, l'ordre venait de Object.keys(cumulative_history), figé depuis le
+// premier vendredi, donc ni le top 5 par défaut ni le menu déroulant ne
+// suivaient le classement.
+function chartParticipantsInStandingsOrder() {
+  const history = chartHistoryCache.cumulative_history || {};
+  const inHistory = new Set(Object.keys(history));
+  const ordered = (allParticipants || []).map(p => p.name).filter(name => inHistory.has(name));
+  return ordered.length > 0 ? ordered : Object.keys(history);
+}
+
 function initChartTab() {
   if (selectedChartUsers.length === 0) {
-    selectedChartUsers = Object.keys(chartHistoryCache.cumulative_history || {}).slice(0, 5);
+    selectedChartUsers = chartParticipantsInStandingsOrder().slice(0, 5);
   }
   renderChartTags();
   renderProgressionChart();
