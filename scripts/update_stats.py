@@ -1411,20 +1411,26 @@ def parse_player(pid, data):
         if league not in ("NHL",):
             continue
 
+        # Un joueur echange en cours de saison a UNE entree seasonTotals PAR
+        # equipe (ex. Larkin 2026-27 : Detroit 2 B / 4 P + Montreal 0 B / 1 P).
+        # Il faut ADDITIONNER toutes les equipes au lieu de s'arreter a la
+        # premiere (l'ancien `break` jetait les points de la 2e equipe).
         if position == "G":
-            wins = int(st.get("wins") or 0)
-            shutouts = int(st.get("shutouts") or 0)
-            ot_losses = int(st.get("otLosses") or st.get("overtimeLosses") or 0)
-            points = wins * 4 + shutouts * 5 + ot_losses * 1
+            wins += int(st.get("wins") or 0)
+            shutouts += int(st.get("shutouts") or 0)
+            ot_losses += int(st.get("otLosses") or st.get("overtimeLosses") or 0)
         else:
-            goals = int(st.get("goals") or 0)
-            assists = int(st.get("assists") or 0)
-            if position == "D":
-                points = goals * 3 + assists * 2
-            else:
-                points = goals * 2 + assists * 1
+            goals += int(st.get("goals") or 0)
+            assists += int(st.get("assists") or 0)
         found = True
-        break
+
+    if found:
+        if position == "G":
+            points = wins * 4 + shutouts * 5 + ot_losses * 1
+        elif position == "D":
+            points = goals * 3 + assists * 2
+        else:
+            points = goals * 2 + assists * 1
 
     if not found:
         featured = data.get("featuredStats") or {}
