@@ -1,887 +1,887 @@
 {
   "Etienne Paquin-Foisy": [
-    0,
     30,
-    12
-  ],
-  "Benjamin Arcand": [
-    0,
-    17,
-    2
-  ],
-  "Xavier Leblanc": [
-    0,
-    29,
-    18
-  ],
-  "Mathieu Mei": [
-    0,
-    27,
+    12,
     6
   ],
+  "Benjamin Arcand": [
+    17,
+    2,
+    16
+  ],
+  "Xavier Leblanc": [
+    29,
+    18,
+    6
+  ],
+  "Mathieu Mei": [
+    27,
+    6,
+    14
+  ],
   "Michel Bolduc": [
-    0,
     33,
+    8,
     8
   ],
   "Emmanuelle Lajoie": [
-    0,
     34,
-    20
+    20,
+    10
   ],
   "Steven Parent": [
-    0,
     32,
-    17
+    17,
+    18
   ],
   "Mohamad Bouaram": [
-    0,
     16,
-    7
+    7,
+    11
   ],
   "Patrick Barbieri": [
-    0,
     24,
-    22
+    22,
+    11
   ],
   "Catherine Gaudio": [
-    0,
     24,
-    7
+    7,
+    9
   ],
   "Philippe Martin": [
-    0,
     22,
-    4
-  ],
-  "Ariel Beauregard Breton": [
-    0,
-    26,
-    11
-  ],
-  "Joel Labadie": [
-    0,
-    25,
+    4,
     16
   ],
-  "Mathieu Huot": [
-    0,
-    25,
+  "Ariel Beauregard Breton": [
+    26,
+    11,
     8
+  ],
+  "Joel Labadie": [
+    25,
+    16,
+    6
+  ],
+  "Mathieu Huot": [
+    25,
+    8,
+    9
   ],
   "Richard Verbanac": [
-    0,
     18,
-    12
-  ],
-  "Serge Masse": [
-    0,
-    40,
-    4
-  ],
-  "Kevin Gadbois": [
-    0,
-    27,
-    14
-  ],
-  "Patrick Bisson": [
-    0,
-    17,
-    11
-  ],
-  "Vincent Cassabon": [
-    0,
-    41,
-    8
-  ],
-  "Alexandre Bergeron": [
-    0,
-    27,
+    12,
     7
   ],
+  "Serge Masse": [
+    40,
+    4,
+    14
+  ],
+  "Kevin Gadbois": [
+    27,
+    14,
+    6
+  ],
+  "Patrick Bisson": [
+    17,
+    11,
+    14
+  ],
+  "Vincent Cassabon": [
+    41,
+    8,
+    7
+  ],
+  "Alexandre Bergeron": [
+    27,
+    7,
+    8
+  ],
   "Louis-Philippe Corriveau": [
-    0,
     15,
+    5,
     5
   ],
   "Allen Chan": [
-    0,
     32,
-    9
+    9,
+    10
   ],
   "Arnaud Fournier": [
-    0,
     41,
-    7
+    7,
+    8
   ],
   "Serge Arguin": [
-    0,
     41,
+    4,
     4
   ],
   "Jean-Benoit Boucher": [
-    0,
     37,
-    12
+    12,
+    10
   ],
   "Olivier Jubelin": [
-    0,
     36,
-    12
-  ],
-  "Amelie Mercier Arsenault": [
-    0,
-    33,
-    2
-  ],
-  "Noémie Pinsonnault-Duchemin": [
-    0,
-    20,
-    10
-  ],
-  "Carine Adam": [
-    0,
-    29,
-    18
-  ],
-  "Jean-Sebastien Langlois": [
-    0,
-    23,
+    12,
     14
   ],
-  "Naomie Curis-Friedman": [
-    0,
-    37,
-    9
-  ],
-  "Samia Merazga": [
-    0,
-    14,
-    0
-  ],
-  "Justine Fournier": [
-    0,
-    22,
-    18
-  ],
-  "Soulaiman Benaamer": [
-    0,
-    23,
-    3
-  ],
-  "Bruno Cournoyer": [
-    0,
-    37,
-    21
-  ],
-  "François Lacerte": [
-    0,
-    36,
-    19
-  ],
-  "Alexy Fafard": [
-    0,
+  "Amelie Mercier Arsenault": [
     33,
+    2,
     10
   ],
-  "Jeanne Lemonde-Trudeau": [
-    0,
-    28,
-    17
-  ],
-  "Josianne Lafontaine": [
-    0,
-    29,
-    8
-  ],
-  "Benoit Gaudet": [
-    0,
-    29,
-    15
-  ],
-  "Eva Marre": [
-    0,
-    29,
-    17
-  ],
-  "Olivier Lemoine": [
-    0,
-    22,
+  "Noémie Pinsonnault-Duchemin": [
+    20,
+    10,
     5
   ],
-  "Normand Yelle": [
-    0,
-    19,
-    18
-  ],
-  "Jean Lamoureux": [
-    0,
-    37,
-    10
-  ],
-  "Tristan Juette": [
-    0,
-    21,
-    6
-  ],
-  "Mathieu Labranche": [
-    0,
-    30,
-    13
-  ],
-  "Michael Lee": [
-    0,
-    26,
-    10
-  ],
-  "Rebecca Owen": [
-    0,
+  "Carine Adam": [
+    29,
     18,
-    6
+    9
   ],
-  "Robert Dellazizzo": [
-    0,
-    27,
-    18
-  ],
-  "Ludovic Morissette": [
-    0,
+  "Jean-Sebastien Langlois": [
+    23,
     14,
-    6
-  ],
-  "Pamela Pachal": [
-    0,
-    27,
-    13
-  ],
-  "Hubert Perreault": [
-    0,
-    28,
     11
   ],
-  "Julie Harvey": [
+  "Naomie Curis-Friedman": [
+    37,
+    9,
+    19
+  ],
+  "Samia Merazga": [
+    14,
     0,
-    15,
+    16
+  ],
+  "Justine Fournier": [
+    22,
+    18,
+    15
+  ],
+  "Soulaiman Benaamer": [
+    23,
+    3,
     2
   ],
-  "Philippe Khalil": [
-    0,
-    28,
-    9
+  "Bruno Cournoyer": [
+    37,
+    21,
+    7
   ],
-  "Matthew Totarella": [
-    0,
-    14,
-    20
-  ],
-  "Anthony Lamer": [
-    0,
+  "François Lacerte": [
     36,
-    8
-  ],
-  "Daniel Reichelson": [
-    0,
-    36,
-    6
-  ],
-  "Jean Francois Boulet": [
-    0,
-    36,
-    3
-  ],
-  "Alexis Lemire": [
-    0,
-    27,
-    9
-  ],
-  "Bakar Amara": [
-    0,
-    26,
+    19,
     12
   ],
-  "Olivier Tom": [
-    0,
+  "Alexy Fafard": [
     33,
+    10,
+    12
+  ],
+  "Jeanne Lemonde-Trudeau": [
+    28,
+    17,
     4
   ],
+  "Josianne Lafontaine": [
+    29,
+    8,
+    18
+  ],
+  "Benoit Gaudet": [
+    29,
+    15,
+    8
+  ],
+  "Eva Marre": [
+    29,
+    17,
+    9
+  ],
+  "Olivier Lemoine": [
+    22,
+    5,
+    2
+  ],
+  "Normand Yelle": [
+    19,
+    18,
+    13
+  ],
+  "Jean Lamoureux": [
+    37,
+    10,
+    13
+  ],
+  "Tristan Juette": [
+    21,
+    6,
+    12
+  ],
+  "Mathieu Labranche": [
+    30,
+    13,
+    2
+  ],
+  "Michael Lee": [
+    26,
+    10,
+    9
+  ],
+  "Rebecca Owen": [
+    18,
+    6,
+    19
+  ],
+  "Robert Dellazizzo": [
+    27,
+    18,
+    9
+  ],
+  "Ludovic Morissette": [
+    14,
+    6,
+    2
+  ],
+  "Pamela Pachal": [
+    27,
+    13,
+    11
+  ],
+  "Hubert Perreault": [
+    28,
+    11,
+    10
+  ],
+  "Julie Harvey": [
+    15,
+    2,
+    7
+  ],
+  "Philippe Khalil": [
+    28,
+    9,
+    14
+  ],
+  "Matthew Totarella": [
+    14,
+    20,
+    6
+  ],
+  "Anthony Lamer": [
+    36,
+    8,
+    11
+  ],
+  "Daniel Reichelson": [
+    36,
+    6,
+    9
+  ],
+  "Jean Francois Boulet": [
+    36,
+    3,
+    10
+  ],
+  "Alexis Lemire": [
+    27,
+    9,
+    18
+  ],
+  "Bakar Amara": [
+    26,
+    12,
+    13
+  ],
+  "Olivier Tom": [
+    33,
+    4,
+    13
+  ],
   "Xavier Rousseau-Laliberte": [
-    0,
     31,
+    7,
     7
   ],
   "Dina Lagonskaya": [
-    0,
     24,
-    6
+    6,
+    20
   ],
   "Mélanie Ouellette": [
-    0,
     29,
-    9
+    9,
+    13
   ],
   "Charles-Olivier Boudrias": [
-    0,
     24,
-    8
+    8,
+    7
   ],
   "Alexandru Rogai": [
-    0,
     33,
-    12
+    12,
+    14
   ],
   "Francis Emond": [
-    0,
     22,
-    18
+    18,
+    9
   ],
   "George Forlini": [
-    0,
     39,
+    10,
     10
   ],
   "Nousk Ghailane": [
-    0,
     37,
-    9
+    9,
+    13
   ],
   "Pierre-Luc Pigeon": [
-    0,
     29,
-    2
+    2,
+    10
   ],
   "Ashley Nguyen": [
-    0,
     32,
-    10
-  ],
-  "Axelle Monnot": [
-    0,
-    17,
-    10
-  ],
-  "Danny Bouchard": [
-    0,
-    32,
-    6
-  ],
-  "Eduardo": [
-    0,
-    23,
-    7
-  ],
-  "Cristina Murillo": [
-    0,
-    37,
+    10,
     9
   ],
+  "Axelle Monnot": [
+    17,
+    10,
+    5
+  ],
+  "Danny Bouchard": [
+    32,
+    6,
+    14
+  ],
+  "Eduardo": [
+    23,
+    7,
+    18
+  ],
+  "Cristina Murillo": [
+    37,
+    9,
+    11
+  ],
   "Daniel Marcoux": [
-    0,
     39,
-    8
+    8,
+    13
   ],
   "Xavier Lafortune": [
-    0,
     38,
-    7
+    7,
+    9
   ],
   "Frederic Langevin": [
-    0,
     38,
-    16
+    16,
+    5
   ],
   "Gerald Tugas": [
-    0,
     34,
+    5,
     5
   ],
   "Samuel Leblanc": [
-    0,
     24,
-    8
-  ],
-  "Marie-Laurence Boutin": [
-    0,
-    22,
-    15
-  ],
-  "Colin Barbeau": [
-    0,
-    27,
-    7
-  ],
-  "Nathalie Bourgeois": [
-    0,
-    21,
-    15
-  ],
-  "Kalvin Southern": [
-    0,
-    30,
-    7
-  ],
-  "Simon-Pierre Lefebvre": [
-    0,
-    36,
-    1
-  ],
-  "Elisabeth Danis": [
-    0,
-    27,
-    10
-  ],
-  "Isabelle Lemay": [
-    0,
-    27,
-    10
-  ],
-  "Michael Bino": [
-    0,
-    28,
-    8
-  ],
-  "Florence Gagnon": [
-    0,
-    17,
-    4
-  ],
-  "Gabriel De Muy Larose": [
-    0,
-    33,
+    8,
     12
   ],
-  "Marc-Antoine Dery": [
-    0,
-    39,
-    6
+  "Marie-Laurence Boutin": [
+    22,
+    15,
+    7
   ],
-  "Vincent Joyal": [
-    0,
-    26,
-    5
+  "Colin Barbeau": [
+    27,
+    7,
+    13
   ],
-  "Robert Austen": [
-    0,
+  "Nathalie Bourgeois": [
+    21,
+    15,
+    2
+  ],
+  "Kalvin Southern": [
+    30,
+    7,
+    13
+  ],
+  "Simon-Pierre Lefebvre": [
+    36,
+    1,
+    15
+  ],
+  "Elisabeth Danis": [
+    27,
+    10,
+    7
+  ],
+  "Isabelle Lemay": [
+    27,
+    10,
+    13
+  ],
+  "Michael Bino": [
     28,
+    8,
+    9
+  ],
+  "Florence Gagnon": [
+    17,
+    4,
+    15
+  ],
+  "Gabriel De Muy Larose": [
+    33,
+    12,
+    18
+  ],
+  "Marc-Antoine Dery": [
+    39,
+    6,
     14
   ],
+  "Vincent Joyal": [
+    26,
+    5,
+    8
+  ],
+  "Robert Austen": [
+    28,
+    14,
+    11
+  ],
   "Regina Nair": [
-    0,
     42,
-    5
+    5,
+    11
   ],
   "Charles-Antoine Dubeau": [
-    0,
     28,
+    9,
     9
   ],
   "Nick Totarella": [
-    0,
     17,
-    14
-  ],
-  "Marc-Antoine Lebel": [
-    0,
-    23,
-    15
-  ],
-  "Hakjun Oh": [
-    0,
-    25,
+    14,
     7
   ],
-  "Thomas Gueville": [
-    0,
-    17,
-    8
+  "Marc-Antoine Lebel": [
+    23,
+    15,
+    9
   ],
-  "Alondra Rima": [
-    0,
-    33,
+  "Hakjun Oh": [
+    25,
+    7,
+    13
+  ],
+  "Thomas Gueville": [
+    17,
+    8,
     16
   ],
-  "Marlyn Tchoukuegno": [
-    0,
-    18,
+  "Alondra Rima": [
+    33,
+    16,
     15
+  ],
+  "Marlyn Tchoukuegno": [
+    18,
+    15,
+    21
   ],
   "Florence Riopel": [
-    0,
     19,
-    15
+    15,
+    16
   ],
   "Dany Lafontaine": [
-    0,
     36,
-    5
+    5,
+    13
   ],
   "Marie-Claude Tremblay": [
-    0,
     34,
+    6,
     6
   ],
   "Vinh Truong": [
-    0,
     22,
-    10
-  ],
-  "Gabrielle Lamirande-Gauvin": [
-    0,
-    19,
-    4
-  ],
-  "Jacob Bissonnette": [
-    0,
-    26,
-    11
-  ],
-  "Alexia Fiorilli": [
-    0,
-    22,
-    12
-  ],
-  "Mounir Tamimi": [
-    0,
-    18,
-    10
-  ],
-  "Andreanne Blais": [
-    0,
-    28,
-    5
-  ],
-  "Martin Bélanger": [
-    0,
-    34,
-    7
-  ],
-  "Pier-Olivier Hotte-Rene": [
-    0,
-    27,
-    26
-  ],
-  "Mathieu St-Pierre": [
-    0,
-    15,
-    16
-  ],
-  "Leandro Pereira": [
-    0,
-    21,
-    7
-  ],
-  "Nicolas Besner": [
-    0,
-    18,
-    8
-  ],
-  "Jean-Sebastien Bisaillon": [
-    0,
-    15,
-    7
-  ],
-  "Martin Brunet": [
-    0,
-    33,
-    3
-  ],
-  "Martin Beaulieu": [
-    0,
-    25,
-    9
-  ],
-  "John Greene": [
-    0,
-    35,
+    10,
     6
   ],
+  "Gabrielle Lamirande-Gauvin": [
+    19,
+    4,
+    18
+  ],
+  "Jacob Bissonnette": [
+    26,
+    11,
+    13
+  ],
+  "Alexia Fiorilli": [
+    22,
+    12,
+    18
+  ],
+  "Mounir Tamimi": [
+    18,
+    10,
+    14
+  ],
+  "Andreanne Blais": [
+    28,
+    5,
+    10
+  ],
+  "Martin Bélanger": [
+    34,
+    7,
+    17
+  ],
+  "Pier-Olivier Hotte-Rene": [
+    27,
+    26,
+    6
+  ],
+  "Mathieu St-Pierre": [
+    15,
+    16,
+    14
+  ],
+  "Leandro Pereira": [
+    21,
+    7,
+    10
+  ],
+  "Nicolas Besner": [
+    18,
+    8,
+    12
+  ],
+  "Jean-Sebastien Bisaillon": [
+    15,
+    7,
+    13
+  ],
+  "Martin Brunet": [
+    33,
+    3,
+    12
+  ],
+  "Martin Beaulieu": [
+    25,
+    9,
+    16
+  ],
+  "John Greene": [
+    35,
+    6,
+    12
+  ],
   "Xavier Monette": [
-    0,
+    20,
+    4,
+    18
+  ],
+  "Louis-Philippe Dufresne Viau": [
+    27,
+    16,
+    13
+  ],
+  "Jean Gohin": [
+    31,
+    5,
+    13
+  ],
+  "Shayne Renaud": [
+    29,
+    4,
+    18
+  ],
+  "Aymeric Bellefeuille": [
+    29,
+    6,
+    7
+  ],
+  "Logan Bélanger": [
+    24,
+    12,
+    11
+  ],
+  "Marc-Antoine Laforest": [
+    32,
+    13,
+    15
+  ],
+  "Jean-Marc Gauthier": [
+    40,
+    5,
+    18
+  ],
+  "Yanick Tremblay": [
+    29,
+    7,
+    12
+  ],
+  "Sabrina Ficara": [
+    27,
+    10,
+    2
+  ],
+  "Lenna Gatouillat": [
+    14,
+    11,
+    10
+  ],
+  "Fabrice Danger": [
+    22,
+    8,
+    13
+  ],
+  "Ahmad Bou Aram": [
+    39,
+    5,
+    12
+  ],
+  "Philippe Denis-Ducharme": [
+    17,
+    10,
+    16
+  ],
+  "Jessica Forest": [
+    34,
     20,
     4
   ],
-  "Louis-Philippe Dufresne Viau": [
-    0,
-    27,
-    16
-  ],
-  "Jean Gohin": [
-    0,
-    31,
-    5
-  ],
-  "Shayne Renaud": [
-    0,
-    29,
-    4
-  ],
-  "Aymeric Bellefeuille": [
-    0,
-    29,
-    6
-  ],
-  "Logan Bélanger": [
-    0,
-    24,
-    12
-  ],
-  "Marc-Antoine Laforest": [
-    0,
-    32,
-    13
-  ],
-  "Jean-Marc Gauthier": [
-    0,
-    40,
-    5
-  ],
-  "Yanick Tremblay": [
-    0,
-    29,
-    7
-  ],
-  "Sabrina Ficara": [
-    0,
-    27,
-    10
-  ],
-  "Lenna Gatouillat": [
-    0,
-    14,
-    11
-  ],
-  "Fabrice Danger": [
-    0,
-    22,
-    8
-  ],
-  "Ahmad Bou Aram": [
-    0,
-    39,
-    5
-  ],
-  "Philippe Denis-Ducharme": [
-    0,
-    17,
-    10
-  ],
-  "Jessica Forest": [
-    0,
-    34,
-    20
-  ],
   "Andrew Middleton": [
-    0,
     30,
-    11
+    11,
+    7
   ],
   "Samantha Levac": [
-    0,
     33,
-    7
+    7,
+    11
   ],
   "Alain Roy": [
-    0,
     29,
-    6
+    6,
+    4
   ],
   "Léonore Jean-François": [
-    0,
     28,
-    13
-  ],
-  "Laurence Gamache": [
-    0,
-    17,
-    22
-  ],
-  "Quentin Tuphile": [
-    0,
-    17,
-    12
-  ],
-  "Lucas Parkinson": [
-    0,
-    26,
-    2
-  ],
-  "Caroline Bergeron": [
-    0,
-    30,
+    13,
     14
   ],
-  "Cédrick Charest": [
-    0,
-    26,
-    18
-  ],
-  "Karl St-André": [
-    0,
-    24,
-    18
-  ],
-  "Nicolas St-Pierre": [
-    0,
-    29,
-    8
-  ],
-  "Dominic Neveu": [
-    0,
-    37,
-    11
-  ],
-  "Anne-Laurence Trudeau": [
-    0,
-    12,
-    4
-  ],
-  "Marine Quemeneur": [
-    0,
-    21,
-    11
-  ],
-  "Jules Saint-Jean": [
-    0,
-    23,
-    11
-  ],
-  "Alexandre Neal": [
-    0,
-    18,
-    8
-  ],
-  "Veronique Therrien": [
-    0,
-    35,
-    8
-  ],
-  "Chloe Sallé": [
-    0,
-    27,
+  "Laurence Gamache": [
+    17,
+    22,
     7
   ],
-  "Sophie Couture": [
-    0,
-    35,
-    4
+  "Quentin Tuphile": [
+    17,
+    12,
+    16
   ],
-  "Charles Simard": [
-    0,
-    14,
-    6
-  ],
-  "Maxime Beaudry-Lemay": [
-    0,
-    28,
-    2
-  ],
-  "Michael Brie": [
-    0,
-    23,
-    12
-  ],
-  "Guildo Gagnon": [
-    0,
-    28,
-    9
-  ],
-  "Yves Couture": [
-    0,
-    31,
+  "Lucas Parkinson": [
+    26,
+    2,
     10
   ],
-  "Samuel Rouleau": [
-    0,
-    22,
+  "Caroline Bergeron": [
+    30,
+    14,
+    13
+  ],
+  "Cédrick Charest": [
+    26,
+    18,
+    15
+  ],
+  "Karl St-André": [
+    24,
+    18,
+    20
+  ],
+  "Nicolas St-Pierre": [
+    29,
+    8,
+    7
+  ],
+  "Dominic Neveu": [
+    37,
+    11,
+    21
+  ],
+  "Anne-Laurence Trudeau": [
+    12,
+    4,
+    18
+  ],
+  "Marine Quemeneur": [
+    21,
+    11,
     3
   ],
-  "Antoine Duguay": [
-    0,
+  "Jules Saint-Jean": [
+    23,
+    11,
+    6
+  ],
+  "Alexandre Neal": [
     18,
+    8,
+    14
+  ],
+  "Veronique Therrien": [
+    35,
+    8,
+    9
+  ],
+  "Chloe Sallé": [
+    27,
+    7,
+    16
+  ],
+  "Sophie Couture": [
+    35,
+    4,
+    13
+  ],
+  "Charles Simard": [
+    14,
+    6,
+    7
+  ],
+  "Maxime Beaudry-Lemay": [
+    28,
+    2,
     12
   ],
-  "Guillaume Leblanc": [
-    0,
+  "Michael Brie": [
+    23,
+    12,
+    6
+  ],
+  "Guildo Gagnon": [
+    28,
+    9,
+    12
+  ],
+  "Yves Couture": [
     31,
-    3
+    10,
+    12
+  ],
+  "Samuel Rouleau": [
+    22,
+    3,
+    6
+  ],
+  "Antoine Duguay": [
+    18,
+    12,
+    5
+  ],
+  "Guillaume Leblanc": [
+    31,
+    3,
+    11
   ],
   "Charles Gauthier": [
-    0,
     16,
-    8
+    8,
+    11
   ],
   "Line Poirier": [
-    0,
     42,
+    9,
     9
   ],
   "Steeve Simard": [
-    0,
     32,
-    12
+    12,
+    21
   ],
   "Julie Arseneault": [
-    0,
     24,
-    13
+    13,
+    5
   ],
   "Jordan Moman": [
-    0,
     22,
-    6
+    6,
+    9
   ],
   "Marc Cousineau": [
-    0,
     21,
-    7
+    7,
+    15
   ],
   "Vincent Coulombe": [
-    0,
     25,
-    6
+    6,
+    9
   ],
   "Rami El Mays": [
-    0,
     27,
-    10
+    10,
+    7
   ],
   "Lyès Hacini": [
-    0,
     16,
+    9,
     9
   ],
   "Serge Danis": [
-    0,
     14,
-    13
+    13,
+    11
   ],
   "Janet Long": [
-    0,
     29,
-    3
+    3,
+    12
   ],
   "Aya el Khazen": [
-    0,
     19,
-    9
+    9,
+    4
   ],
   "Jean-Philip Tremblay": [
-    0,
     21,
-    13
+    13,
+    18
   ],
   "Lauriane Marchand": [
-    0,
     24,
-    6
+    6,
+    12
   ],
   "Francois Létourneau": [
-    0,
     19,
+    11,
     11
   ],
   "Olivier Guimond": [
-    0,
     10,
-    13
+    13,
+    14
   ]
 }
