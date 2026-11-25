@@ -1193,16 +1193,53 @@ body { color: #425563; }
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
-.rank-number.medal-2 { color: #334155; }
-.rank-number.medal-3 { color: #9a3412; }
+.rank-number.medal-2 {
+  background: linear-gradient(135deg, #475569 0%, #94a3b8 35%, #e2e8f0 50%, #64748b 65%, #334155 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.rank-number.medal-3 {
+  background: linear-gradient(135deg, #6b4423 0%, #cd7f32 35%, #e8b07d 50%, #a06a35 65%, #6b4423 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 .total-circle {
   background: rgba(255, 255, 255, 0.35);
   border: 1.5px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 4px 20px rgba(31, 38, 135, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
 }
-.total-circle.medal-1 { border-color: rgba(201, 162, 39, 0.95); background: rgba(212, 175, 55, 0.25); }
-.total-circle.medal-2 { border-color: rgba(100, 116, 139, 0.95); background: rgba(203, 213, 225, 0.55); }
-.total-circle.medal-3 { border-color: rgba(251, 146, 60, 0.9); background: rgba(255, 237, 213, 0.4); }
+/* OPTION C : anneau metallique, centre en verre clair */
+.total-circle.medal-1 {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 62%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(135deg, #8a6d1b 0%, #c9a227 35%, #e8c85a 50%, #b8860b 65%, #8a6d1b 100%);
+  box-shadow: 0 3px 10px rgba(138, 109, 27, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+.total-circle.medal-1 .total-points { color: #7a5c05; }
+.total-circle.medal-1 .total-label { color: #8a6d1b; }
+.total-circle.medal-2 {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 62%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(135deg, #64748b 0%, #cbd5e1 35%, #ffffff 50%, #94a3b8 65%, #475569 100%);
+  box-shadow: 0 3px 10px rgba(100, 116, 139, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+.total-circle.medal-2 .total-points { color: #334155; }
+.total-circle.medal-2 .total-label { color: #475569; }
+.total-circle.medal-3 {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 62%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(135deg, #6b4423 0%, #cd7f32 35%, #f0c08a 50%, #a06a35 65%, #6b4423 100%);
+  box-shadow: 0 3px 10px rgba(122, 74, 33, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+.total-circle.medal-3 .total-points { color: #6b4423; }
+.total-circle.medal-3 .total-label { color: #7a4a21; }
 .breakdown-item + .breakdown-item { border-left: 1px solid rgba(255, 255, 255, 0.7); padding-left: clamp(10px, 3.5vw, 36px); }
 .adv-section, .stats-card, .badges-card, .rules-card, .compare-card, .chart-card {
   background: rgba(255, 255, 255, 0.28);
