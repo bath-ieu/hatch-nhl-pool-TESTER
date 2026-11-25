@@ -2361,7 +2361,7 @@ function renderProgressionChart() {
         rankData: ranks,
         borderColor: colors[index % colors.length],
         backgroundColor: colors[index % colors.length],
-        tension: 0,
+        tension: chartMode === 'rank' ? 0 : 0.3,
         fill: false
       };
     });
