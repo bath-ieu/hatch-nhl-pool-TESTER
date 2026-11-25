@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NHL Super Pool</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.2.0/dist/chartjs-plugin-zoom.min.js"></script>
 <style>
 :root {
   --border-color: #34495e;
@@ -201,6 +203,13 @@ h1 {
   background: var(--text-dark);
   color: #ffffff;
   border-color: var(--text-dark);
+}
+
+.chart-mode-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
 }
 
 .search-bar {
@@ -1280,6 +1289,12 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
           <div class="dropdown-list" id="chartList"></div>
         </div>
 
+        <div class="chart-mode-bar">
+          <button type="button" class="view-btn active" id="btnChartPoints" onclick="setChartMode('points')">Points</button>
+          <button type="button" class="view-btn" id="btnChartRank" onclick="setChartMode('rank')">Position</button>
+          <button type="button" class="view-btn" onclick="resetChartZoom()">↺ Réinitialiser le zoom</button>
+        </div>
+
         <div class="selected-chart-tags" id="chartTags"></div>
 
         <div style="height: 400px; position: relative;">
@@ -1481,6 +1496,7 @@ let badgeLastHolders = {};
 let chartHistoryCache = { chart_dates: [], cumulative_history: {} };
 let selectedChartUsers = [];
 let chartInstance = null;
+let chartMode = 'points';
 
 let compUser1 = null;
 let compUser2 = null;
@@ -2270,6 +2286,32 @@ function renderChartTags() {
   `).join('');
 }
 
+function computeChartRanks(valuesByName) {
+  // Classement competition (1, 2, 2, 4...) comme le vrai classement du pool.
+  const entries = Object.entries(valuesByName).sort((a, b) => b[1] - a[1]);
+  const rank = new Map();
+  let current = 0, prev = null;
+  entries.forEach(([name, pts], i) => {
+    if (pts !== prev) current = i + 1;
+    rank.set(name, current);
+    prev = pts;
+  });
+  return rank;
+}
+
+function setChartMode(mode) {
+  chartMode = mode;
+  const btnPoints = document.getElementById('btnChartPoints');
+  const btnRank = document.getElementById('btnChartRank');
+  if (btnPoints) btnPoints.classList.toggle('active', mode === 'points');
+  if (btnRank) btnRank.classList.toggle('active', mode === 'rank');
+  renderProgressionChart();
+}
+
+function resetChartZoom() {
+  if (chartInstance && chartInstance.resetZoom) chartInstance.resetZoom();
+}
+
 function renderProgressionChart() {
   const canvas = document.getElementById('progressionChart');
   if (!canvas) return;
@@ -2289,18 +2331,40 @@ function renderProgressionChart() {
   const labels = isTodayAlready ? [...baseLabels] : [...baseLabels, `Aujourd'hui (${todayStr})`];
 
   const totalsByName = {};
-  (rawData.leaderboard || []).forEach(p => { totalsByName[p.name] = p.total_points; });
+  const rankByName = {};
+  (rawData.leaderboard || []).forEach(p => { totalsByName[p.name] = p.total_points; rankByName[p.name] = p.rank; });
+
+  // Rang au classement general a chaque date : calcule a partir des points
+  // cumules des 177 participants dans history_cache.json (aucun changement
+  // au script necessaire). Le rang d'aujourd'hui vient de data.json.
+  const rankByDate = baseLabels.map((_, i) => {
+    const vals = {};
+    for (const name in history) vals[name] = history[name][i];
+    return computeChartRanks(vals);
+  });
+  if (!isTodayAlready) {
+    const vals = {};
+    for (const name in history) vals[name] = totalsByName[name] ?? history[name][history[name].length - 1];
+    rankByDate.push(computeChartRanks(vals));
+  }
+  const rankAt = (name, i) => rankByDate[i] ? rankByDate[i].get(name) : undefined;
 
   const datasets = selectedChartUsers
     .filter(name => Array.isArray(history[name]))
-    .map((name, index) => ({
-      label: `${TEAM_NAMES[name] || name} (${name})`,
-      data: isTodayAlready ? history[name] : [...history[name], totalsByName[name] ?? history[name][history[name].length - 1]],
-      borderColor: colors[index % colors.length],
-      backgroundColor: colors[index % colors.length],
-      tension: 0.3,
-      fill: false
-    }));
+    .map((name, index) => {
+      const pts = isTodayAlready ? history[name] : [...history[name], totalsByName[name] ?? history[name][history[name].length - 1]];
+      const ranks = pts.map((_, i) => rankAt(name, i));
+      return {
+        label: name,
+        data: chartMode === 'rank' ? ranks : pts,
+        ptsData: pts,
+        rankData: ranks,
+        borderColor: colors[index % colors.length],
+        backgroundColor: colors[index % colors.length],
+        tension: 0.3,
+        fill: false
+      };
+    });
 
   chartInstance = new Chart(canvas, {
     type: 'line',
@@ -2308,8 +2372,42 @@ function renderProgressionChart() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { position: 'bottom' } },
-      scales: { y: { beginAtZero: false } }
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            usePointStyle: true,
+            generateLabels: (ch) => ch.data.datasets.map((ds, i) => ({
+              text: `#${rankByName[ds.label] ?? '?'} ${TEAM_NAMES[ds.label] || ds.label} (${ds.label}) — ${totalsByName[ds.label] ?? '?'} pts`,
+              fillStyle: ds.borderColor,
+              strokeStyle: ds.borderColor,
+              pointStyle: 'circle',
+              hidden: !ch.isDatasetVisible(i),
+              datasetIndex: i
+            }))
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const ds = ctx.dataset;
+              const i = ctx.dataIndex;
+              return chartMode === 'rank'
+                ? ` ${ds.label} : #${ds.rankData[i]} (${ds.ptsData[i]} pts)`
+                : ` ${ds.label} : ${ds.ptsData[i]} pts — #${ds.rankData[i]}`;
+            }
+          }
+        },
+        zoom: {
+          limits: { x: { min: 'original', max: 'original' }, y: { min: 'original', max: 'original' } },
+          pan: { enabled: true, mode: 'x' },
+          zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
+        }
+      },
+      scales: chartMode === 'rank'
+        ? { y: { reverse: true, min: 1, max: 177, ticks: { stepSize: 20 } } }
+        : { y: { beginAtZero: false } }
     }
   });
 }
