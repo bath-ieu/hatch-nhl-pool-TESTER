@@ -1212,10 +1212,10 @@ body { color: #425563; }
   border: 1.5px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 4px 20px rgba(31, 38, 135, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
 }
-/* S2 : contour uni tres fin, interieur identique aux autres pastilles */
-.total-circle.medal-1 { border: 1.5px solid #C9A227; background: rgba(255, 255, 255, 0.35); }
-.total-circle.medal-2 { border: 1.5px solid #94A3B8; background: rgba(255, 255, 255, 0.35); }
-.total-circle.medal-3 { border: 1.5px solid #CD7F32; background: rgba(255, 255, 255, 0.35); }
+/* S2-metal : bordure fine AVEC effet metallique (degrade), interieur identique aux autres pastilles */
+.total-circle.medal-1 { border: 1.5px solid transparent; background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)) padding-box, linear-gradient(135deg, #8a6d1b 0%, #d4af37 40%, #e8c85a 55%, #b8860b 75%, #8a6d1b 100%) border-box; }
+.total-circle.medal-2 { border: 1.5px solid transparent; background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)) padding-box, linear-gradient(135deg, #64748b 0%, #cbd5e1 40%, #ffffff 55%, #94a3b8 75%, #475569 100%) border-box; }
+.total-circle.medal-3 { border: 1.5px solid transparent; background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)) padding-box, linear-gradient(135deg, #6b4423 0%, #cd7f32 40%, #f0c08a 55%, #a06a35 75%, #6b4423 100%) border-box; }
 .breakdown-item + .breakdown-item { border-left: 1px solid rgba(255, 255, 255, 0.7); padding-left: clamp(10px, 3.5vw, 36px); }
 .adv-section, .stats-card, .badges-card, .rules-card, .compare-card, .chart-card {
   background: rgba(255, 255, 255, 0.28);
