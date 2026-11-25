@@ -91,19 +91,20 @@ body {
   background: #ECEEEF;
   pointer-events: none;
 }
-/* Fondu rapide sous l'en-tete : floute puis cache les cartes qui remontent */
+/* Fondu long et adouci sous l'en-tete : une zone de 80px qui cache progressivement,
+   sans ligne droite visible — on voit juste les cartes disparaitre tranquillement */
 .sticky-top::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
   top: 100%;
-  height: 40px;
-  background: linear-gradient(to bottom, #ECEEEF, rgba(236, 238, 239, 0));
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  height: 80px;
+  background: linear-gradient(to bottom, #ECEEEF 0%, rgba(236, 238, 239, 0.92) 20%, rgba(236, 238, 239, 0.62) 40%, rgba(236, 238, 239, 0.32) 60%, rgba(236, 238, 239, 0.1) 80%, rgba(236, 238, 239, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.15) 75%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.15) 75%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   pointer-events: none;
 }
 .sticky-top > *:not(.header-fade) { position: relative; z-index: 1; }
@@ -1291,7 +1292,7 @@ th { color: #75828f; }
 .badge-val-card-bottom-right { color: #5b6b7d; }
 
 /* Espace sous l'en-tete flottant : la premiere carte commence sous le fondu */
-#generalView, #advancedView, #statsView, #badgesView, #rulesView, #compareView, #chartView { padding-top: 48px; }
+#generalView, #advancedView, #statsView, #badgesView, #rulesView, #compareView, #chartView { padding-top: 56px; }
 </style>
 </head>
 <body>
