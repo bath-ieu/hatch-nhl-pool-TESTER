@@ -212,6 +212,48 @@ h1 {
   margin: 8px 0;
 }
 
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 30, 58, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.popup-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 20px 18px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.popup-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+
 .search-bar {
   width: 100%;
   max-width: 280px;
@@ -1305,6 +1347,14 @@ th { color: #64748b; font-weight: 700; text-transform: uppercase; font-size: 0.7
     </div>
   </div>
 
+</div>
+
+<div id="chartPopupOverlay" class="popup-overlay" onclick="if (event.target === this) closeChartPopup()">
+  <div class="popup-box">
+    <button type="button" class="popup-close" onclick="closeChartPopup()">✕</button>
+    <div class="popup-text">La section Graphique est maintenant disponible ! 📊</div>
+    <button type="button" class="view-btn" onclick="closeChartPopup()">OK</button>
+  </div>
 </div>
 
 <script>
@@ -2430,7 +2480,22 @@ function renderProgressionChart() {
   });
 }
 
+function showChartPopup() {
+  try {
+    if (localStorage.getItem('chartPopupSeen')) return;
+  } catch (e) {}
+  const overlay = document.getElementById('chartPopupOverlay');
+  if (overlay) overlay.style.display = 'flex';
+}
+
+function closeChartPopup() {
+  const overlay = document.getElementById('chartPopupOverlay');
+  if (overlay) overlay.style.display = 'none';
+  try { localStorage.setItem('chartPopupSeen', '1'); } catch (e) {}
+}
+
 loadPoolData();
+showChartPopup();
 </script>
 </body>
 </html>
