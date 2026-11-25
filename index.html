@@ -2361,10 +2361,28 @@ function renderProgressionChart() {
         rankData: ranks,
         borderColor: colors[index % colors.length],
         backgroundColor: colors[index % colors.length],
-        tension: 0.3,
+        tension: 0,
         fill: false
       };
     });
+
+  // En mode Position : axe Y ajuste au range des participants selectionnes,
+  // pas de 1 a 177. Ex. : rangs de 5 a 80 -> axe d'environ 1 a 85.
+  let rankScale = null;
+  if (chartMode === 'rank') {
+    let lo = Infinity, hi = -Infinity;
+    datasets.forEach(ds => ds.rankData.forEach(r => {
+      if (r != null) { lo = Math.min(lo, r); hi = Math.max(hi, r); }
+    }));
+    if (!isFinite(lo)) { lo = 1; hi = 177; }
+    const pad = Math.max(2, Math.round((hi - lo) * 0.1));
+    rankScale = {
+      reverse: true,
+      min: Math.max(1, lo - pad),
+      max: Math.min(177, hi + pad),
+      ticks: { maxTicksLimit: 8 }
+    };
+  }
 
   chartInstance = new Chart(canvas, {
     type: 'line',
@@ -2406,7 +2424,7 @@ function renderProgressionChart() {
         }
       },
       scales: chartMode === 'rank'
-        ? { y: { reverse: true, min: 1, max: 177, ticks: { stepSize: 20 } } }
+        ? { y: rankScale }
         : { y: { beginAtZero: false } }
     }
   });
