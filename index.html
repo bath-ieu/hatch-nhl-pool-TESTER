@@ -35,7 +35,7 @@ body {
 .bg-shapes {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 101;
   pointer-events: none;
   overflow: hidden;
 }
@@ -1186,7 +1186,13 @@ body { color: #425563; }
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .main-pill:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.38); box-shadow: 0 14px 36px rgba(31, 38, 135, 0.16), inset 0 1px 0 rgba(255, 255, 255, 1); }
-.rank-number.medal-1 { color: #a16207; }
+.rank-number.medal-1 {
+  background: linear-gradient(135deg, #8a6d1b 0%, #c9a227 35%, #e8c85a 50%, #b8860b 65%, #8a6d1b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 .rank-number.medal-2 { color: #334155; }
 .rank-number.medal-3 { color: #9a3412; }
 .total-circle {
@@ -1194,7 +1200,7 @@ body { color: #425563; }
   border: 1.5px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 4px 20px rgba(31, 38, 135, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
 }
-.total-circle.medal-1 { border-color: rgba(250, 204, 21, 0.9); background: rgba(254, 249, 195, 0.4); }
+.total-circle.medal-1 { border-color: rgba(201, 162, 39, 0.95); background: rgba(212, 175, 55, 0.25); }
 .total-circle.medal-2 { border-color: rgba(100, 116, 139, 0.95); background: rgba(203, 213, 225, 0.55); }
 .total-circle.medal-3 { border-color: rgba(251, 146, 60, 0.9); background: rgba(255, 237, 213, 0.4); }
 .breakdown-item + .breakdown-item { border-left: 1px solid rgba(255, 255, 255, 0.7); padding-left: clamp(10px, 3.5vw, 36px); }
