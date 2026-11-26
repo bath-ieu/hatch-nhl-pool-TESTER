@@ -1212,10 +1212,10 @@ body { color: #425563; }
   border: 1.5px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 4px 20px rgba(31, 38, 135, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
 }
-/* S2 epais-metal : bordure un peu plus epaisse (2,5px) avec leger effet metallique, interieur identique aux autres pastilles */
-.total-circle.medal-1 { border: 2.5px solid transparent; background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)) padding-box, linear-gradient(135deg, #b08d2e 0%, #d4af37 40%, #ecd27a 55%, #c9a227 75%, #b08d2e 100%) border-box; }
-.total-circle.medal-2 { border: 2.5px solid transparent; background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)) padding-box, linear-gradient(135deg, #8a97a5 0%, #cbd5e1 40%, #ffffff 55%, #a8b6c4 75%, #8a97a5 100%) border-box; }
-.total-circle.medal-3 { border: 2.5px solid transparent; background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)) padding-box, linear-gradient(135deg, #9a6a35 0%, #cd7f32 40%, #e8b07d 55%, #b07a45 75%, #9a6a35 100%) border-box; }
+/* S2 epais leger-metal : bordure 2,5px avec petit effet metallique leger, interieur en verre identique aux autres pastilles */
+.total-circle.medal-1 { border: 2.5px solid transparent; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), linear-gradient(135deg, #b8932a 0%, #e8cf7d 50%, #c9a227 100%); background-clip: padding-box, border-box; background-origin: padding-box, border-box; }
+.total-circle.medal-2 { border: 2.5px solid transparent; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), linear-gradient(135deg, #7f8fa0 0%, #c3ccd6 50%, #94a3b8 100%); background-clip: padding-box, border-box; background-origin: padding-box, border-box; }
+.total-circle.medal-3 { border: 2.5px solid transparent; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), linear-gradient(135deg, #b06a28 0%, #e0a866 50%, #cd7f32 100%); background-clip: padding-box, border-box; background-origin: padding-box, border-box; }
 .breakdown-item + .breakdown-item { border-left: 1px solid rgba(255, 255, 255, 0.7); padding-left: clamp(10px, 3.5vw, 36px); }
 .adv-section, .stats-card, .badges-card, .rules-card, .compare-card, .chart-card {
   background: rgba(255, 255, 255, 0.28);
