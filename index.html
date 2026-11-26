@@ -1212,10 +1212,12 @@ body { color: #425563; }
   border: 1.5px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 4px 20px rgba(31, 38, 135, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
 }
-/* S2 epais leger-metal : bordure 2,5px avec petit effet metallique leger, interieur en verre identique aux autres pastilles */
-.total-circle.medal-1 { border: 2.5px solid transparent; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), linear-gradient(135deg, #b8932a 0%, #e8cf7d 50%, #c9a227 100%); background-clip: padding-box, border-box; background-origin: padding-box, border-box; }
-.total-circle.medal-2 { border: 2.5px solid transparent; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), linear-gradient(135deg, #7f8fa0 0%, #c3ccd6 50%, #94a3b8 100%); background-clip: padding-box, border-box; background-origin: padding-box, border-box; }
-.total-circle.medal-3 { border: 2.5px solid transparent; background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), linear-gradient(135deg, #b06a28 0%, #e0a866 50%, #cd7f32 100%); background-clip: padding-box, border-box; background-origin: padding-box, border-box; }
+/* S2 epais leger-metal v2 : petit effet metallique leger UNIQUEMENT sur la bordure (anneau en ::before + masque), interieur en verre identique aux autres pastilles */
+.total-circle.medal-1, .total-circle.medal-2, .total-circle.medal-3 { position: relative; border: 2.5px solid transparent; background: rgba(255, 255, 255, 0.35); }
+.total-circle.medal-1::before, .total-circle.medal-2::before, .total-circle.medal-3::before { content: ''; position: absolute; inset: -2.5px; border-radius: 50%; padding: 2.5px; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude; pointer-events: none; }
+.total-circle.medal-1::before { background: linear-gradient(135deg, #b8932a 0%, #e8cf7d 50%, #c9a227 100%); }
+.total-circle.medal-2::before { background: linear-gradient(135deg, #7f8fa0 0%, #c3ccd6 50%, #94a3b8 100%); }
+.total-circle.medal-3::before { background: linear-gradient(135deg, #b06a28 0%, #e0a866 50%, #cd7f32 100%); }
 .breakdown-item + .breakdown-item { border-left: 1px solid rgba(255, 255, 255, 0.7); padding-left: clamp(10px, 3.5vw, 36px); }
 .adv-section, .stats-card, .badges-card, .rules-card, .compare-card, .chart-card {
   background: rgba(255, 255, 255, 0.28);
