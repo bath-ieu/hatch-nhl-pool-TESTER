@@ -1299,13 +1299,16 @@ th { color: #75828f; }
 .lnh-sec-head h2 { margin: 0; font-size: 1.05rem; font-weight: 800; }
 .lnh-sec-head span { font-size: 0.8rem; color: #75828f; }
 .lnh-game-card { background: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; box-shadow: 0 8px 32px rgba(31,38,135,0.12), inset 0 1px 0 rgba(255,255,255,0.9); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px); padding: 14px; margin-bottom: 12px; }
-.lnh-game-header { all: unset; display: flex; align-items: center; width: 100%; cursor: pointer; }
-.lnh-gh-team { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; }
-.lnh-gh-team img { width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 4px 5px rgba(66,85,99,0.4)); }
-.lnh-gh-team b { font-size: 0.95rem; }
+.lnh-game-header { all: unset; display: flex; align-items: center; width: 100%; cursor: pointer; position: relative; overflow: hidden; padding: 16px 12px; box-sizing: border-box; }
+.lnh-gh-bg { position: absolute; top: 0; bottom: 0; width: 46%; background-repeat: no-repeat; background-position: center; background-size: 250%; filter: blur(10px); opacity: 0.5; pointer-events: none; }
+.lnh-gh-bg-away { left: 0; }
+.lnh-gh-bg-home { right: 0; }
+.lnh-gh-team { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; position: relative; z-index: 1; }
+.lnh-gh-team img { width: 56px; height: 56px; object-fit: contain; background: #ffffff; border-radius: 50%; padding: 4px; box-shadow: 0 2px 8px rgba(66,85,99,0.25); }
+.lnh-gh-team b { font-size: 1rem; font-weight: 700; color: #1e293b; }
 .lnh-gh-team i { font-style: normal; font-size: 0.78rem; color: #75828f; }
-.lnh-gh-score { text-align: center; padding: 0 6px; }
-.lnh-gh-score b { display: block; font-size: 1.7rem; font-weight: 800; color: #425563; white-space: nowrap; }
+.lnh-gh-score { text-align: center; padding: 0 6px; position: relative; z-index: 1; }
+.lnh-gh-score b { display: block; font-size: 1.9rem; font-weight: 800; color: #1e293b; white-space: nowrap; }
 .lnh-gh-score i { font-style: normal; font-size: 0.78rem; color: #75828f; }
 
 
@@ -1337,7 +1340,9 @@ th { color: #75828f; }
 .lnh-goalie-stats b { display: block; font-size: 1rem; }
 .lnh-goalie-stats span { font-size: 0.72rem; color: #75828f; }
 .lnh-sog { text-align: center; font-size: 0.82rem; color: #75828f; margin-top: 10px; }
-.lnh-tonight-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; background: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.7); border-radius: 16px; padding: 10px 12px; margin-bottom: 8px; box-shadow: 0 8px 32px rgba(31,38,135,0.12); backdrop-filter: blur(32px); }
+.lnh-tonight-row { display: flex; position: relative; overflow: hidden; align-items: center; flex-wrap: wrap; gap: 8px; background: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.7); border-radius: 16px; padding: 10px 12px; margin-bottom: 8px; box-shadow: 0 8px 32px rgba(31,38,135,0.12); backdrop-filter: blur(32px); }
+.lnh-tonight-row .lnh-gh-bg { opacity: 0.35; filter: blur(8px); }
+.lnh-tonight-row > span:not(.lnh-gh-bg), .lnh-tonight-row > div { position: relative; z-index: 1; }
 .lnh-tn-team { display: flex; align-items: center; gap: 6px; }
 .lnh-tn-team img { width: 30px; height: 30px; object-fit: contain; }
 .lnh-tn-vs { color: #75828f; }
@@ -2819,6 +2824,8 @@ function lnhGameCard(gm, teamInfo) {
   const sog = 'Tirs au but : ' + lnhEsc(away.abbrev || '') + ' ' + (away.sog != null ? away.sog : '—') + ' — ' + lnhEsc(home.abbrev || '') + ' ' + (home.sog != null ? home.sog : '—');
   return '<div class="lnh-game-card">' +
     '<button type="button" class="lnh-game-header" onclick="lnhToggleGame(this)">' +
+      '<span class="lnh-gh-bg lnh-gh-bg-away" style="background-image:url(' + lnhEsc(away.logo || '') + ')"></span>' +
+      '<span class="lnh-gh-bg lnh-gh-bg-home" style="background-image:url(' + lnhEsc(home.logo || '') + ')"></span>' +
       '<span class="lnh-gh-team"><img src="' + lnhEsc(away.logo || '') + '" alt=""><b>' + lnhEsc(away.name || '') + '</b><i>' + lnhEsc(away.record || '') + '</i></span>' +
       '<span class="lnh-gh-score"><b>' + (away.score != null ? away.score : '—') + ' - ' + (home.score != null ? home.score : '—') + '</b><i>Final</i></span>' +
       '<span class="lnh-gh-team"><img src="' + lnhEsc(home.logo || '') + '" alt=""><b>' + lnhEsc(home.name || '') + '</b><i>' + lnhEsc(home.record || '') + '</i></span>' +
@@ -2835,6 +2842,8 @@ function lnhTonightRow(gm) {
   const away = gm.away || {}, home = gm.home || {};
   const watch = (gm.watch || []).length ? '<div class="lnh-tn-watch">À surveiller (pool) : ' + gm.watch.map(lnhEsc).join(', ') + '</div>' : '';
   return '<div class="lnh-tonight-row">' +
+    '<span class="lnh-gh-bg lnh-gh-bg-away" style="background-image:url(' + lnhEsc(away.logo || '') + ')"></span>' +
+    '<span class="lnh-gh-bg lnh-gh-bg-home" style="background-image:url(' + lnhEsc(home.logo || '') + ')"></span>' +
     '<span class="lnh-tn-team"><img src="' + lnhEsc(away.logo || '') + '" alt=""><b>' + lnhEsc(away.abbrev || '') + '</b></span>' +
     '<span class="lnh-tn-vs">@</span>' +
     '<span class="lnh-tn-team"><img src="' + lnhEsc(home.logo || '') + '" alt=""><b>' + lnhEsc(home.abbrev || '') + '</b></span>' +
