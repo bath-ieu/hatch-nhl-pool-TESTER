@@ -1292,8 +1292,8 @@ th { color: #75828f; }
 #generalView, #advancedView, #statsView, #badgesView, #rulesView, #compareView, #chartView { padding-top: 56px; }
 
 /* --- SECTION LNH (Hier soir & Ce soir) --- */
-.lnh-tabs { display: flex; gap: 6px; justify-content: center; margin-bottom: 14px; }
-.lnh-tabs .view-btn { background: #ffffff; color: #425563; border: 1.5px solid #94a3b8; font-size: 0.9rem; font-weight: 700; padding: 8px 22px; border-radius: 999px; opacity: 1; visibility: visible; }
+.lnh-tabs { display: flex; gap: 6px; justify-content: center; margin-top: 12px; margin-bottom: 14px; }
+.lnh-tabs .view-btn { background: #ffffff; color: #425563; border: 1.5px solid #94a3b8; font-size: 1rem; font-weight: 700; padding: 10px 26px; border-radius: 999px; opacity: 1; visibility: visible; }
 .lnh-tabs .view-btn.active { background: #425563; color: #ffffff; border-color: #425563; }
 .lnh-sec-head { display: flex; align-items: baseline; justify-content: space-between; margin: 18px 2px 8px; }
 .lnh-sec-head h2 { margin: 0; font-size: 1.05rem; font-weight: 800; }
@@ -1307,16 +1307,16 @@ th { color: #75828f; }
 .lnh-gh-score { text-align: center; padding: 0 6px; }
 .lnh-gh-score b { display: block; font-size: 1.7rem; font-weight: 800; color: #425563; white-space: nowrap; }
 .lnh-gh-score i { font-style: normal; font-size: 0.78rem; color: #75828f; }
-.lnh-gh-chev { font-size: 1.2rem; color: #94a3b8; transition: transform .2s; }
-.lnh-game-card.open .lnh-gh-chev { transform: rotate(180deg); }
+
+
 .lnh-game-body { display: none; margin-top: 12px; border-top: 1px solid rgba(66,85,99,0.12); padding-top: 12px; }
 .lnh-game-card.open .lnh-game-body { display: block; }
 .lnh-sec-title { font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: .03em; margin: 10px 0 8px; }
 .lnh-period-label { font-size: 0.82rem; font-weight: 700; color: #75828f; margin: 10px 0 6px; }
 .lnh-goal-card { background: rgba(255,255,255,0.9); border: 1.5px solid transparent; border-radius: 14px; padding: 10px 12px; margin-bottom: 8px; box-shadow: 0 4px 14px rgba(66,85,99,0.20); }
 .lnh-goal-top { display: flex; align-items: center; gap: 10px; }
-.lnh-goal-photo { position: relative; flex: none; border-radius: 50%; }
-.lnh-goal-photo img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: transparent; }
+.lnh-goal-photo { position: relative; flex: none; border-radius: 12px; }
+.lnh-goal-photo img { width: 48px; height: 48px; border-radius: 12px; object-fit: cover; background: transparent; }
 .lnh-goal-photo img.lnh-goal-team-logo, .lnh-goalie-photo img.lnh-goal-team-logo { position: absolute; right: -4px; bottom: -4px; width: 22px; height: 22px; border-radius: 50%; background: #fff; padding: 2px; box-shadow: 0 1px 4px rgba(0,0,0,.25); object-fit: contain; }
 .lnh-goal-who { flex: 1; min-width: 0; }
 .lnh-goal-name { font-weight: 800; font-size: 1rem; }
@@ -1329,8 +1329,8 @@ th { color: #75828f; }
 .lnh-goal-bottom { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid rgba(66,85,99,0.12); margin-top: 8px; padding-top: 8px; font-size: 0.85rem; color: #75828f; }
 .lnh-goal-time { font-weight: 700; color: #425563; }
 .lnh-goalie-row { display: flex; gap: 10px; align-items: center; background: #fff; border: 1px solid transparent; border-radius: 14px; padding: 10px 12px; margin-bottom: 8px; box-shadow: 0 10px 28px rgba(66,85,99,0.26); }
-.lnh-goalie-photo { position: relative; border-radius: 50%; }
-.lnh-goalie-photo img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; background: transparent; }
+.lnh-goalie-photo { position: relative; border-radius: 12px; }
+.lnh-goalie-photo img { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; background: transparent; }
 .lnh-goalie-who { flex: 1; min-width: 0; }
 .lnh-goalie-name { font-weight: 800; font-size: 0.95rem; }
 .lnh-goalie-stats { display: flex; gap: 18px; margin-top: 6px; }
@@ -2822,7 +2822,6 @@ function lnhGameCard(gm, teamInfo) {
       '<span class="lnh-gh-team"><img src="' + lnhEsc(away.logo || '') + '" alt=""><b>' + lnhEsc(away.name || '') + '</b><i>' + lnhEsc(away.record || '') + '</i></span>' +
       '<span class="lnh-gh-score"><b>' + (away.score != null ? away.score : '—') + ' - ' + (home.score != null ? home.score : '—') + '</b><i>Final</i></span>' +
       '<span class="lnh-gh-team"><img src="' + lnhEsc(home.logo || '') + '" alt=""><b>' + lnhEsc(home.name || '') + '</b><i>' + lnhEsc(home.record || '') + '</i></span>' +
-      '<span class="lnh-gh-chev">⌄</span>' +
     '</button>' +
     '<div class="lnh-game-body">' +
       '<div class="lnh-sec-title">Buts</div>' + goalsHtml +
