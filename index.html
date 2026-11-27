@@ -1289,9 +1289,9 @@ th { color: #75828f; }
 #generalView, #advancedView, #statsView, #badgesView, #rulesView, #compareView, #chartView, #lnhView { padding-top: 56px; }
 
 /* --- SECTION LNH (Hier soir & Ce soir) --- */
-.lnh-top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; margin-top: 28px; margin-bottom: 12px; }
+.lnh-top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; margin-top: 20px; margin-bottom: 12px; }
 .lnh-top .lnh-top-date { grid-column: 2; font-size: 0.8rem; color: #75828f; text-align: center; }
-.lnh-top .lnh-tabs { grid-column: 3; justify-self: end; }
+.lnh-top .lnh-tabs { grid-column: 1; justify-self: start; }
 .lnh-tabs { display: flex; gap: 6px; }
 .lnh-game-card { background: rgba(255, 255, 255, 0.28); border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; box-shadow: 0 8px 32px rgba(31,38,135,0.12), inset 0 1px 0 rgba(255,255,255,0.9); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); padding: 0; margin-bottom: 12px; overflow: hidden; }
 .lnh-game-header { all: unset; display: flex; align-items: center; width: 100%; cursor: pointer; position: relative; overflow: hidden; padding: 16px 12px; box-sizing: border-box; }
@@ -1343,7 +1343,8 @@ th { color: #75828f; }
 .lnh-tn-vs { color: #75828f; }
 .lnh-tn-time { font-weight: 800; }
 .lnh-tn-tag { font-size: 0.7rem; font-weight: 800; background: #425563; color: #fff; border-radius: 999px; padding: 2px 8px; }
-.lnh-tn-watch { flex-basis: 100%; font-size: 0.8rem; color: #1e293b; font-weight: 700; background: rgba(66,85,99,0.08); border-radius: 10px; padding: 4px 8px; text-align: center; }
+.lnh-tn-watch { flex-basis: 100%; display: flex; justify-content: center; font-size: 0.8rem; text-align: center; }
+.lnh-tn-watch span { color: #1e293b; font-weight: 700; background: rgba(66,85,99,0.08); border-radius: 10px; padding: 4px 8px; }
 .lnh-empty { text-align: center; color: #75828f; padding: 18px 0; }
 </style>
 </head>
@@ -1379,7 +1380,7 @@ th { color: #75828f; }
         <button type="button" class="view-btn active" id="btnGeneral" onclick="showView('general')">Classement</button>
         <button type="button" class="view-btn" id="btnAdvanced" onclick="showView('advanced')">Top 5 Joueurs</button>
         <button type="button" class="view-btn" id="btnStats" onclick="showView('stats')">Statistiques</button>
-        <button type="button" class="view-btn" id="btnLnh" onclick="showView('lnh')">LNH 🏒</button>
+        <button type="button" class="view-btn" id="btnBadges" onclick="showView('badges')">Badges</button>
       </div>
       
       <div class="search-bar" id="searchBarWrap">
@@ -1388,7 +1389,7 @@ th { color: #75828f; }
       </div>
 
       <div class="btn-group-right">
-        <button type="button" class="view-btn" id="btnBadges" onclick="showView('badges')">Badges</button>
+        <button type="button" class="view-btn" id="btnLnh" onclick="showView('lnh')">LNH 🏒</button>
         <button type="button" class="view-btn" id="btnCompare" onclick="showView('compare')">Confrontation ⚔️</button>
         <button type="button" class="view-btn" id="btnChart" onclick="showView('chart')">Graphique 📊</button>
         <button type="button" class="rules-top-btn" id="btnRulesTop" onclick="showView('rules')">Règlements 📋</button>
@@ -2835,7 +2836,7 @@ function lnhGameCard(gm, teamInfo) {
 
 function lnhTonightRow(gm) {
   const away = gm.away || {}, home = gm.home || {};
-  const watch = (gm.watch || []).length ? '<div class="lnh-tn-watch">À surveiller (pool) : ' + gm.watch.map(lnhEsc).join(', ') + '</div>' : '';
+  const watch = (gm.watch || []).length ? '<div class="lnh-tn-watch"><span>À surveiller (pool) : ' + gm.watch.map(lnhEsc).join(', ') + '</span></div>' : '';
   return '<div class="lnh-tonight-row">' +
     '<span class="lnh-gh-bg lnh-gh-bg-away" style="background-image:url(' + lnhEsc(away.logo || '') + ')"></span>' +
     '<span class="lnh-gh-bg lnh-gh-bg-home" style="background-image:url(' + lnhEsc(home.logo || '') + ')"></span>' +
