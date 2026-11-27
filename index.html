@@ -127,9 +127,6 @@ body {
 
 /* Bouton Règlements aux dimensions et styles des autres boutons de vue */
 .rules-top-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
   font-family: inherit;
   font-size: 0.65rem;
   font-weight: 600;
@@ -1289,12 +1286,10 @@ th { color: #75828f; }
 .badge-val-card-bottom-right { color: #5b6b7d; }
 
 /* Espace sous l'en-tete flottant : la premiere carte commence sous le fondu */
-#generalView, #advancedView, #statsView, #badgesView, #rulesView, #compareView, #chartView { padding-top: 56px; }
+#generalView, #advancedView, #statsView, #badgesView, #rulesView, #compareView, #chartView, #lnhView { padding-top: 56px; }
 
 /* --- SECTION LNH (Hier soir & Ce soir) --- */
-.lnh-tabs { display: flex; gap: 6px; justify-content: center; margin-top: 20px; margin-bottom: 14px; }
-.lnh-tabs .view-btn { background: #ffffff; color: #1e293b; border: 2px solid #425563; font-size: 1.05rem; font-weight: 800; padding: 12px 28px; border-radius: 999px; opacity: 1; visibility: visible; box-shadow: 0 2px 10px rgba(66,85,99,0.2); }
-.lnh-tabs .view-btn.active { background: #E84B37; color: #ffffff; border-color: #E84B37; }
+.lnh-tabs { display: flex; gap: 6px; justify-content: center; margin-top: 28px; margin-bottom: 14px; }
 .lnh-sec-head { display: flex; align-items: baseline; justify-content: space-between; margin: 18px 2px 8px; }
 .lnh-sec-head h2 { margin: 0; font-size: 1.05rem; font-weight: 800; }
 .lnh-sec-head span { font-size: 0.8rem; color: #75828f; }
@@ -1372,8 +1367,6 @@ th { color: #75828f; }
   <div class="sticky-top">
     <div class="header-fade"></div>
     <header class="header">
-      <button type="button" class="rules-top-btn" id="btnRulesTop" onclick="showView('rules')">Règlements 📋</button>
-      
       <div class="brand-block">
         <img src="./images/hatch-logo.png" alt="Hatch Logo" class="hatch-logo" onerror="this.style.display='none'">
         <h1>🏒 NHL Super Pool 🥅</h1>
@@ -1388,6 +1381,7 @@ th { color: #75828f; }
         <button type="button" class="view-btn active" id="btnGeneral" onclick="showView('general')">Classement</button>
         <button type="button" class="view-btn" id="btnAdvanced" onclick="showView('advanced')">Top 5 Joueurs</button>
         <button type="button" class="view-btn" id="btnStats" onclick="showView('stats')">Statistiques</button>
+        <button type="button" class="view-btn" id="btnLnh" onclick="showView('lnh')">LNH 🏒</button>
       </div>
       
       <div class="search-bar" id="searchBarWrap">
@@ -1399,7 +1393,7 @@ th { color: #75828f; }
         <button type="button" class="view-btn" id="btnBadges" onclick="showView('badges')">Badges</button>
         <button type="button" class="view-btn" id="btnCompare" onclick="showView('compare')">Confrontation ⚔️</button>
         <button type="button" class="view-btn" id="btnChart" onclick="showView('chart')">Graphique 📊</button>
-        <button type="button" class="view-btn" id="btnLnh" onclick="showView('lnh')">LNH 🏒</button>
+        <button type="button" class="rules-top-btn" id="btnRulesTop" onclick="showView('rules')">Règlements 📋</button>
       </div>
     </div>
 
