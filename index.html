@@ -1868,6 +1868,14 @@ function computeBadges() {
     return p.pts_last3 != null ? p.pts_last3 : 0;
   });
 
+  // Points de la veille : somme des pts_last des joueurs de chaque participant.
+  // S'il n'y en a aucun, le badge de plus forte hausse n'est pas attribue.
+  const hadPointsYesterday = allParticipants.some(p =>
+    (p.skaters || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
+    (p.goalies || []).reduce((s, x) => s + (x.pts_last || 0), 0) +
+    (p.teams || []).reduce((s, x) => s + (x.pts_last || 0), 0) > 0
+  );
+
   let maxGain = -999;
   let gainWinners = [];
   allParticipants.forEach(p => {
@@ -1885,7 +1893,7 @@ function computeBadges() {
     gainWinners = [allParticipants[0].name];
   }
 
-  if (gainWinners.length > 0) {
+  if (hadPointsYesterday && gainWinners.length > 0) {
     badgeLastHolders['📈 Plus forte hausse'] = gainWinners[gainWinners.length - 1];
     gainWinners.forEach(wName => {
       if (!specialBadges[wName]) specialBadges[wName] = {};
@@ -2237,7 +2245,8 @@ function renderBadgesTab() {
     { key: '🧱 Mur de Brique', title: '🧱 Mur de Brique', desc: 'Attribué au participant affichant le total de points de gardiens de but le plus élevé.', unit: 'pts' }
   ];
 
-  container.innerHTML = badgeDefs.map(b => {
+  const visibleDefs = badgeDefs.filter(b => b.key !== '📈 Plus forte hausse' || badgeLastHolders['📈 Plus forte hausse'] !== undefined);
+  container.innerHTML = visibleDefs.map(b => {
     let holders = [];
     let statValue = null;
 
