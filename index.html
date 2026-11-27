@@ -1293,6 +1293,8 @@ th { color: #75828f; }
 
 /* --- SECTION LNH (Hier soir & Ce soir) --- */
 .lnh-tabs { display: flex; gap: 6px; justify-content: center; margin-bottom: 14px; }
+.lnh-tabs .view-btn { background: #ffffff; color: #425563; border: 1.5px solid #94a3b8; font-size: 0.9rem; font-weight: 700; padding: 8px 22px; border-radius: 999px; opacity: 1; visibility: visible; }
+.lnh-tabs .view-btn.active { background: #425563; color: #ffffff; border-color: #425563; }
 .lnh-sec-head { display: flex; align-items: baseline; justify-content: space-between; margin: 18px 2px 8px; }
 .lnh-sec-head h2 { margin: 0; font-size: 1.05rem; font-weight: 800; }
 .lnh-sec-head span { font-size: 0.8rem; color: #75828f; }
@@ -1315,7 +1317,7 @@ th { color: #75828f; }
 .lnh-goal-top { display: flex; align-items: center; gap: 10px; }
 .lnh-goal-photo { position: relative; flex: none; border-radius: 50%; }
 .lnh-goal-photo img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: transparent; }
-.lnh-goal-team-logo { position: absolute; right: -4px; bottom: -4px; width: 22px; height: 22px; border-radius: 50%; background: #fff; padding: 2px; box-shadow: 0 1px 4px rgba(0,0,0,.25); object-fit: contain; }
+.lnh-goal-photo img.lnh-goal-team-logo, .lnh-goalie-photo img.lnh-goal-team-logo { position: absolute; right: -4px; bottom: -4px; width: 22px; height: 22px; border-radius: 50%; background: #fff; padding: 2px; box-shadow: 0 1px 4px rgba(0,0,0,.25); object-fit: contain; }
 .lnh-goal-who { flex: 1; min-width: 0; }
 .lnh-goal-name { font-weight: 800; font-size: 1rem; }
 .lnh-goal-name.pool, .lnh-goalie-name.pool { color: #E84B37; }
@@ -2747,6 +2749,10 @@ function lnhEsc(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+function lnhHideImg(img) {
+  if (img) img.style.visibility = 'hidden';
+}
+
 function lnhOrdinal(n) {
   return n === 1 ? '1<sup>er</sup> but' : n + '<sup>e</sup> but';
 }
@@ -2771,7 +2777,7 @@ function lnhGoalCard(gl, awayAb, homeAb, teamInfo) {
   return '<div class="lnh-goal-card">' +
     '<div class="lnh-goal-top">' +
       '<div class="lnh-goal-photo" style="background:' + t.color + '">' +
-        '<img src="' + lnhEsc(sc.mugshot || '') + '" alt="" loading="lazy" onerror="onPhotoError(this, ' + (sc.id || 0) + ')">' +
+        '<img src="' + lnhEsc(sc.mugshot || '') + '" alt="" loading="lazy" onerror="lnhHideImg(this)">' +
         (t.logo ? '<img class="lnh-goal-team-logo" src="' + lnhEsc(t.logo) + '" alt="">' : '') +
       '</div>' +
       '<div class="lnh-goal-who"><div class="lnh-goal-name' + (sc.pool ? ' pool' : '') + '">' + lnhEsc(sc.name) + poolTag + '</div>' +
@@ -2788,7 +2794,7 @@ function lnhGoalieRow(gk, teamInfo) {
   const dec = gk.decision ? ' (' + gk.decision + ')' : '';
   return '<div class="lnh-goalie-row">' +
     '<div class="lnh-goalie-photo" style="background:' + t.color + '">' +
-      '<img src="' + lnhEsc(gk.mugshot || '') + '" alt="" loading="lazy" onerror="onPhotoError(this, ' + (gk.id || 0) + ')">' +
+      '<img src="' + lnhEsc(gk.mugshot || '') + '" alt="" loading="lazy" onerror="lnhHideImg(this)">' +
       (t.logo ? '<img class="lnh-goal-team-logo" src="' + lnhEsc(t.logo) + '" alt="">' : '') +
     '</div>' +
     '<div class="lnh-goalie-who"><div class="lnh-goalie-name' + (gk.pool ? ' pool' : '') + '">' + lnhEsc(gk.name) + dec + poolTag + '</div>' +
@@ -2811,7 +2817,7 @@ function lnhGameCard(gm, teamInfo) {
   });
   const goaliesHtml = (gm.goalies || []).map(gk => lnhGoalieRow(gk, teamInfo)).join('');
   const sog = 'Tirs au but : ' + lnhEsc(away.abbrev || '') + ' ' + (away.sog != null ? away.sog : '—') + ' — ' + lnhEsc(home.abbrev || '') + ' ' + (home.sog != null ? home.sog : '—');
-  return '<div class="lnh-game-card open">' +
+  return '<div class="lnh-game-card">' +
     '<button type="button" class="lnh-game-header" onclick="lnhToggleGame(this)">' +
       '<span class="lnh-gh-team"><img src="' + lnhEsc(away.logo || '') + '" alt=""><b>' + lnhEsc(away.name || '') + '</b><i>' + lnhEsc(away.record || '') + '</i></span>' +
       '<span class="lnh-gh-score"><b>' + (away.score != null ? away.score : '—') + ' - ' + (home.score != null ? home.score : '—') + '</b><i>Final</i></span>' +
