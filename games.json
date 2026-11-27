@@ -1,0 +1,3229 @@
+{
+ "generated_at": "2026-11-27T10:11:48",
+ "yesterday": {
+  "date": "2026-11-25",
+  "label": "Mercredi 25 novembre 2026",
+  "games": [
+   {
+    "id": 2026020386,
+    "away": {
+     "abbrev": "WPG",
+     "name": "Jets",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+     "record": "13-9-4",
+     "score": 4,
+     "sog": 18,
+     "color": "#041E42"
+    },
+    "home": {
+     "abbrev": "BOS",
+     "name": "Bruins",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
+     "record": "15-8-1",
+     "score": 2,
+     "sog": 23,
+     "color": "#FFB81C"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "01:05",
+      "scorer": {
+       "id": 8478398,
+       "name": "K. Connor",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8478398.png",
+       "team": "WPG",
+       "goalsToDate": 20,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8476460,
+        "name": "M. Scheifele",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 0
+     },
+     {
+      "period": "1re période",
+      "time": "06:11",
+      "scorer": {
+       "id": 8479987,
+       "name": "M. Geekie",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8479987.png",
+       "team": "BOS",
+       "goalsToDate": 6,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8477956,
+        "name": "D. Pastrnak",
+        "pool": true
+       },
+       {
+        "id": 8478401,
+        "name": "P. Zacha",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 1
+     },
+     {
+      "period": "1re période",
+      "time": "17:56",
+      "scorer": {
+       "id": 8477504,
+       "name": "J. Morrissey",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8477504.png",
+       "team": "WPG",
+       "goalsToDate": 2,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8478398,
+        "name": "K. Connor",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "10:57",
+      "scorer": {
+       "id": 8483489,
+       "name": "F. Minten",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8483489.png",
+       "team": "BOS",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482511,
+        "name": "M. Lohrei",
+        "pool": false
+       },
+       {
+        "id": 8476854,
+        "name": "H. Lindholm",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 2
+     },
+     {
+      "period": "2e période",
+      "time": "17:53",
+      "scorer": {
+       "id": 8480289,
+       "name": "M. Barron",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8480289.png",
+       "team": "WPG",
+       "goalsToDate": 6,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8479983,
+        "name": "M. Ferraro",
+        "pool": false
+       },
+       {
+        "id": 8482110,
+        "name": "D. Mercer",
+        "pool": false
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 2
+     },
+     {
+      "period": "3e période",
+      "time": "18:48",
+      "scorer": {
+       "id": 8476460,
+       "name": "M. Scheifele",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8476460.png",
+       "team": "WPG",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8478398,
+        "name": "K. Connor",
+        "pool": true
+       },
+       {
+        "id": 8480049,
+        "name": "D. Samberg",
+        "pool": false
+       }
+      ],
+      "awayScore": 4,
+      "homeScore": 2
+     }
+    ],
+    "goalies": [
+     {
+      "team": "WPG",
+      "id": 8482076,
+      "name": "N. Daws",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8482076.png",
+      "decision": "V",
+      "shotsAgainst": 23,
+      "goalsAgainst": 2,
+      "saves": 21,
+      "savePctg": ".913",
+      "pool": false
+     },
+     {
+      "team": "BOS",
+      "id": 8480280,
+      "name": "J. Swayman",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8480280.png",
+      "decision": "D",
+      "shotsAgainst": 17,
+      "goalsAgainst": 3,
+      "saves": 14,
+      "savePctg": ".824",
+      "pool": true
+     }
+    ]
+   },
+   {
+    "id": 2026020387,
+    "away": {
+     "abbrev": "NYR",
+     "name": "Rangers",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg",
+     "record": "13-10-1",
+     "score": 1,
+     "sog": 30,
+     "color": "#0038A8"
+    },
+    "home": {
+     "abbrev": "BUF",
+     "name": "Sabres",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+     "record": "11-10-4",
+     "score": 5,
+     "sog": 30,
+     "color": "#003087"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "00:17",
+      "scorer": {
+       "id": 8480839,
+       "name": "R. Dahlin",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480839.png",
+       "team": "BUF",
+       "goalsToDate": 5,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8483468,
+        "name": "J.Kulich",
+        "pool": false
+       },
+       {
+        "id": 8479420,
+        "name": "T. Thompson",
+        "pool": true
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "02:37",
+      "scorer": {
+       "id": 8480064,
+       "name": "J. Norris",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480064.png",
+       "team": "BUF",
+       "goalsToDate": 5,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8482659,
+        "name": "J. Doan",
+        "pool": false
+       },
+       {
+        "id": 8475722,
+        "name": "J. Zucker",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 2
+     },
+     {
+      "period": "2e période",
+      "time": "03:10",
+      "scorer": {
+       "id": 8484145,
+       "name": "Z. Benson",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8484145.png",
+       "team": "BUF",
+       "goalsToDate": 5,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8480839,
+        "name": "R. Dahlin",
+        "pool": true
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 3
+     },
+     {
+      "period": "2e période",
+      "time": "19:14",
+      "scorer": {
+       "id": 8478882,
+       "name": "V. Gavrikov",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NYR/8478882.png",
+       "team": "NYR",
+       "goalsToDate": 2,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8479323,
+        "name": "A. Fox",
+        "pool": true
+       },
+       {
+        "id": 8479390,
+        "name": "T. Raddysh",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 3
+     },
+     {
+      "period": "3e période",
+      "time": "09:16",
+      "scorer": {
+       "id": 8482097,
+       "name": "J. Quinn",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8482097.png",
+       "team": "BUF",
+       "goalsToDate": 14,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8481522,
+        "name": "P. Krebs",
+        "pool": false
+       },
+       {
+        "id": 8483500,
+        "name": "N. Ostlund",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 4
+     },
+     {
+      "period": "3e période",
+      "time": "11:49",
+      "scorer": {
+       "id": 8483468,
+       "name": "J.Kulich",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8483468.png",
+       "team": "BUF",
+       "goalsToDate": 5,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8479420,
+        "name": "T. Thompson",
+        "pool": true
+       },
+       {
+        "id": 8484145,
+        "name": "Z. Benson",
+        "pool": true
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 5
+     }
+    ],
+    "goalies": [
+     {
+      "team": "NYR",
+      "id": 8476914,
+      "name": "J. Korpisalo",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NYR/8476914.png",
+      "decision": "D",
+      "shotsAgainst": 30,
+      "goalsAgainst": 5,
+      "saves": 25,
+      "savePctg": ".833",
+      "pool": false
+     },
+     {
+      "team": "BUF",
+      "id": 8480045,
+      "name": "U. Luukkonen",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480045.png",
+      "decision": "V",
+      "shotsAgainst": 30,
+      "goalsAgainst": 1,
+      "saves": 29,
+      "savePctg": ".967",
+      "pool": true
+     }
+    ]
+   },
+   {
+    "id": 2026020388,
+    "away": {
+     "abbrev": "CAR",
+     "name": "Hurricanes",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+     "record": "19-3-3",
+     "score": 3,
+     "sog": 30,
+     "color": "#CE1126"
+    },
+    "home": {
+     "abbrev": "TBL",
+     "name": "Lightning",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+     "record": "15-7-2",
+     "score": 1,
+     "sog": 33,
+     "color": "#002868"
+    },
+    "goals": [
+     {
+      "period": "2e période",
+      "time": "00:55",
+      "scorer": {
+       "id": 8478519,
+       "name": "A. Cirelli",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8478519.png",
+       "team": "TBL",
+       "goalsToDate": 7,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8477404,
+        "name": "J. Guentzel",
+        "pool": true
+       },
+       {
+        "id": 8476453,
+        "name": "N. Kucherov",
+        "pool": true
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 1
+     },
+     {
+      "period": "3e période",
+      "time": "05:24",
+      "scorer": {
+       "id": 8480762,
+       "name": "E. Robinson",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8480762.png",
+       "team": "CAR",
+       "goalsToDate": 4,
+       "pool": false
+      },
+      "assists": [],
+      "awayScore": 1,
+      "homeScore": 1
+     },
+     {
+      "period": "3e période",
+      "time": "07:01",
+      "scorer": {
+       "id": 8476958,
+       "name": "J. Slavin",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8476958.png",
+       "team": "CAR",
+       "goalsToDate": 1,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8478427,
+        "name": "S. Aho",
+        "pool": true
+       },
+       {
+        "id": 8482093,
+        "name": "S. Jarvis",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "3e période",
+      "time": "19:25",
+      "scorer": {
+       "id": 8482809,
+       "name": "J. Blake",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8482809.png",
+       "team": "CAR",
+       "goalsToDate": 8,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8473533,
+        "name": "J. Staal",
+        "pool": false
+       },
+       {
+        "id": 8476958,
+        "name": "J. Slavin",
+        "pool": false
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 1
+     }
+    ],
+    "goalies": [
+     {
+      "team": "CAR",
+      "id": 8483548,
+      "name": "B. Bussi",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8483548.png",
+      "decision": "V",
+      "shotsAgainst": 33,
+      "goalsAgainst": 1,
+      "saves": 32,
+      "savePctg": ".970",
+      "pool": false
+     },
+     {
+      "team": "TBL",
+      "id": 8476883,
+      "name": "A. Vasilevskiy",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8476883.png",
+      "decision": "D",
+      "shotsAgainst": 29,
+      "goalsAgainst": 2,
+      "saves": 27,
+      "savePctg": ".931",
+      "pool": true
+     }
+    ]
+   },
+   {
+    "id": 2026020389,
+    "away": {
+     "abbrev": "OTT",
+     "name": "Senators",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
+     "record": "16-7-3",
+     "score": 3,
+     "sog": 28,
+     "color": "#C52032"
+    },
+    "home": {
+     "abbrev": "FLA",
+     "name": "Panthers",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+     "record": "14-8-3",
+     "score": 5,
+     "sog": 32,
+     "color": "#C8102E"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "16:16",
+      "scorer": {
+       "id": 8480185,
+       "name": "E. Luostarinen",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8480185.png",
+       "team": "FLA",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8473419,
+        "name": "B. Marchand",
+        "pool": true
+       },
+       {
+        "id": 8478859,
+        "name": "N. Mikkola",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "01:12",
+      "scorer": {
+       "id": 8481528,
+       "name": "D. Cozens",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/OTT/8481528.png",
+       "team": "OTT",
+       "goalsToDate": 7,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482245,
+        "name": "A. Zub",
+        "pool": false
+       },
+       {
+        "id": 8482105,
+        "name": "J. Sanderson",
+        "pool": true
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "01:53",
+      "scorer": {
+       "id": 8481577,
+       "name": "P. Tomasino",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/OTT/8481577.png",
+       "team": "OTT",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482245,
+        "name": "A. Zub",
+        "pool": false
+       },
+       {
+        "id": 8482105,
+        "name": "J. Sanderson",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "08:52",
+      "scorer": {
+       "id": 8478859,
+       "name": "N. Mikkola",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8478859.png",
+       "team": "FLA",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8479314,
+        "name": "M. Tkachuk",
+        "pool": true
+       },
+       {
+        "id": 8477495,
+        "name": "S. Jones",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 2
+     },
+     {
+      "period": "2e période",
+      "time": "18:55",
+      "scorer": {
+       "id": 8482113,
+       "name": "A. Lundell",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8482113.png",
+       "team": "FLA",
+       "goalsToDate": 8,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8473419,
+        "name": "B. Marchand",
+        "pool": true
+       },
+       {
+        "id": 8475179,
+        "name": "D. Kulikov",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 3
+     },
+     {
+      "period": "3e période",
+      "time": "09:17",
+      "scorer": {
+       "id": 8477935,
+       "name": "S. Bennett",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8477935.png",
+       "team": "FLA",
+       "goalsToDate": 11,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482113,
+        "name": "A. Lundell",
+        "pool": false
+       },
+       {
+        "id": 8473419,
+        "name": "B. Marchand",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 4
+     },
+     {
+      "period": "3e période",
+      "time": "16:08",
+      "scorer": {
+       "id": 8477493,
+       "name": "A. Barkov",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8477493.png",
+       "team": "FLA",
+       "goalsToDate": 1,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8478055,
+        "name": "G. Forsling",
+        "pool": false
+       },
+       {
+        "id": 8477409,
+        "name": "C. Verhaeghe",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 5
+     },
+     {
+      "period": "3e période",
+      "time": "19:09",
+      "scorer": {
+       "id": 8478020,
+       "name": "M. Amadio",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/OTT/8478020.png",
+       "team": "OTT",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482092,
+        "name": "R. Greig",
+        "pool": false
+       },
+       {
+        "id": 8481577,
+        "name": "P. Tomasino",
+        "pool": false
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 5
+     }
+    ],
+    "goalies": [
+     {
+      "team": "OTT",
+      "id": 8476999,
+      "name": "L. Ullmark",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/OTT/8476999.png",
+      "decision": "D",
+      "shotsAgainst": 31,
+      "goalsAgainst": 4,
+      "saves": 27,
+      "savePctg": ".871",
+      "pool": true
+     },
+     {
+      "team": "FLA",
+      "id": 8474593,
+      "name": "J. Markstrom",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8474593.png",
+      "decision": "V",
+      "shotsAgainst": 28,
+      "goalsAgainst": 3,
+      "saves": 25,
+      "savePctg": ".893",
+      "pool": true
+     }
+    ]
+   },
+   {
+    "id": 2026020390,
+    "away": {
+     "abbrev": "STL",
+     "name": "Blues",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
+     "record": "13-9-3",
+     "score": 2,
+     "sog": 23,
+     "color": "#002F87"
+    },
+    "home": {
+     "abbrev": "NYI",
+     "name": "Islanders",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
+     "record": "12-7-5",
+     "score": 3,
+     "sog": 29,
+     "color": "#00539B"
+    },
+    "goals": [
+     {
+      "period": "2e période",
+      "time": "05:37",
+      "scorer": {
+       "id": 8476419,
+       "name": "J. Pageau",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8476419.png",
+       "team": "NYI",
+       "goalsToDate": 2,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8484221,
+        "name": "C. Ritchie",
+        "pool": false
+       },
+       {
+        "id": 8482516,
+        "name": "M. Kessel",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "15:24",
+      "scorer": {
+       "id": 8482077,
+       "name": "D. Holloway",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/STL/8482077.png",
+       "team": "STL",
+       "goalsToDate": 7,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8480023,
+        "name": "R. Thomas",
+        "pool": true
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 1
+     },
+     {
+      "period": "3e période",
+      "time": "14:00",
+      "scorer": {
+       "id": 8482745,
+       "name": "M. McTavish",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/STL/8482745.png",
+       "team": "STL",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482733,
+        "name": "L. Mailloux",
+        "pool": false
+       },
+       {
+        "id": 8484230,
+        "name": "O. Stenberg",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "3e période",
+      "time": "19:57",
+      "scorer": {
+       "id": 8485388,
+       "name": "V. Eklund",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8485388.png",
+       "team": "NYI",
+       "goalsToDate": 8,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8475170,
+        "name": "B. Schenn",
+        "pool": false
+       },
+       {
+        "id": 8477500,
+        "name": "B. Horvat",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 2
+     },
+     {
+      "period": "Tirs de barrage",
+      "time": "00:00",
+      "scorer": {
+       "id": 8477500,
+       "name": "B. Horvat",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8477500.png",
+       "team": "NYI",
+       "goalsToDate": 0,
+       "pool": true
+      },
+      "assists": [],
+      "awayScore": 2,
+      "homeScore": 3
+     }
+    ],
+    "goalies": [
+     {
+      "team": "STL",
+      "id": 8480981,
+      "name": "J. Hofer",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/STL/8480981.png",
+      "decision": "",
+      "shotsAgainst": 29,
+      "goalsAgainst": 2,
+      "saves": 27,
+      "savePctg": ".931",
+      "pool": true
+     },
+     {
+      "team": "NYI",
+      "id": 8478009,
+      "name": "I. Sorokin",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NYI/8478009.png",
+      "decision": "V",
+      "shotsAgainst": 23,
+      "goalsAgainst": 2,
+      "saves": 21,
+      "savePctg": ".913",
+      "pool": true
+     }
+    ]
+   },
+   {
+    "id": 2026020391,
+    "away": {
+     "abbrev": "CGY",
+     "name": "Flames",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+     "record": "11-13-2",
+     "score": 6,
+     "sog": 27,
+     "color": "#C8102E"
+    },
+    "home": {
+     "abbrev": "PIT",
+     "name": "Penguins",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
+     "record": "7-15-2",
+     "score": 3,
+     "sog": 28,
+     "color": "#FCB514"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "16:20",
+      "scorer": {
+       "id": 8478438,
+       "name": "T. Novak",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/PIT/8478438.png",
+       "team": "PIT",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8485414,
+        "name": "B. Kindel",
+        "pool": false
+       },
+       {
+        "id": 8481527,
+        "name": "K. Korczak",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "00:38",
+      "scorer": {
+       "id": 8480797,
+       "name": "J. Farabee",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8480797.png",
+       "team": "CGY",
+       "goalsToDate": 8,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8483609,
+        "name": "A. Klapka",
+        "pool": false
+       },
+       {
+        "id": 8480727,
+        "name": "Z. Whitecloud",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "06:26",
+      "scorer": {
+       "id": 8482747,
+       "name": "B. Othmann",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8482747.png",
+       "team": "CGY",
+       "goalsToDate": 1,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8477810,
+        "name": "J. Hanley",
+        "pool": false
+       },
+       {
+        "id": 8484958,
+        "name": "M. Tsyplakov",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "10:37",
+      "scorer": {
+       "id": 8484958,
+       "name": "M. Tsyplakov",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8484958.png",
+       "team": "CGY",
+       "goalsToDate": 1,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8484768,
+        "name": "Z. Parekh",
+        "pool": false
+       },
+       {
+        "id": 8482747,
+        "name": "B. Othmann",
+        "pool": false
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "14:53",
+      "scorer": {
+       "id": 8471215,
+       "name": "E. Malkin",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/PIT/8471215.png",
+       "team": "PIT",
+       "goalsToDate": 7,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8474578,
+        "name": "E. Karlsson",
+        "pool": true
+       },
+       {
+        "id": 8476483,
+        "name": "R. Rakell",
+        "pool": false
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 2
+     },
+     {
+      "period": "2e période",
+      "time": "15:14",
+      "scorer": {
+       "id": 8476458,
+       "name": "R. Strome",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8476458.png",
+       "team": "CGY",
+       "goalsToDate": 5,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8480797,
+        "name": "J. Farabee",
+        "pool": false
+       },
+       {
+        "id": 8483495,
+        "name": "S. Nemec",
+        "pool": true
+       }
+      ],
+      "awayScore": 4,
+      "homeScore": 2
+     },
+     {
+      "period": "2e période",
+      "time": "15:57",
+      "scorer": {
+       "id": 8476483,
+       "name": "R. Rakell",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/PIT/8476483.png",
+       "team": "PIT",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8478438,
+        "name": "T. Novak",
+        "pool": false
+       },
+       {
+        "id": 8471215,
+        "name": "E. Malkin",
+        "pool": true
+       }
+      ],
+      "awayScore": 4,
+      "homeScore": 3
+     },
+     {
+      "period": "3e période",
+      "time": "09:18",
+      "scorer": {
+       "id": 8484154,
+       "name": "J. Castagna",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8484154.png",
+       "team": "CGY",
+       "goalsToDate": 4,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8480727,
+        "name": "Z. Whitecloud",
+        "pool": false
+       },
+       {
+        "id": 8474150,
+        "name": "M. Backlund",
+        "pool": false
+       }
+      ],
+      "awayScore": 5,
+      "homeScore": 3
+     },
+     {
+      "period": "3e période",
+      "time": "17:41",
+      "scorer": {
+       "id": 8481068,
+       "name": "Y. Sharangovich",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8481068.png",
+       "team": "CGY",
+       "goalsToDate": 6,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482679,
+        "name": "M. Coronato",
+        "pool": false
+       },
+       {
+        "id": 8478136,
+        "name": "J. Middleton",
+        "pool": false
+       }
+      ],
+      "awayScore": 6,
+      "homeScore": 3
+     }
+    ],
+    "goalies": [
+     {
+      "team": "CGY",
+      "id": 8481692,
+      "name": "D. Wolf",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CGY/8481692.png",
+      "decision": "V",
+      "shotsAgainst": 28,
+      "goalsAgainst": 3,
+      "saves": 25,
+      "savePctg": ".893",
+      "pool": false
+     },
+     {
+      "team": "PIT",
+      "id": 8481668,
+      "name": "A. Silovs",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/PIT/8481668.png",
+      "decision": "D",
+      "shotsAgainst": 26,
+      "goalsAgainst": 5,
+      "saves": 21,
+      "savePctg": ".808",
+      "pool": false
+     }
+    ]
+   },
+   {
+    "id": 2026020392,
+    "away": {
+     "abbrev": "PHI",
+     "name": "Flyers",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
+     "record": "9-12-6",
+     "score": 3,
+     "sog": 21,
+     "color": "#F74902"
+    },
+    "home": {
+     "abbrev": "WSH",
+     "name": "Capitals",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
+     "record": "11-11-0",
+     "score": 7,
+     "sog": 35,
+     "color": "#C8102E"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "00:17",
+      "scorer": {
+       "id": 8478439,
+       "name": "T. Konecny",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8478439.png",
+       "team": "PHI",
+       "goalsToDate": 4,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8477989,
+        "name": "C. Dvorak",
+        "pool": false
+       },
+       {
+        "id": 8482159,
+        "name": "T. Foerster",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 0
+     },
+     {
+      "period": "1re période",
+      "time": "03:33",
+      "scorer": {
+       "id": 8484186,
+       "name": "R. Leonard",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WSH/8484186.png",
+       "team": "WSH",
+       "goalsToDate": 10,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8477949,
+        "name": "A. Tuch",
+        "pool": false
+       },
+       {
+        "id": 8478911,
+        "name": "M. Roy",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "13:13",
+      "scorer": {
+       "id": 8484873,
+       "name": "C. Hutson",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WSH/8484873.png",
+       "team": "WSH",
+       "goalsToDate": 6,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8477949,
+        "name": "A. Tuch",
+        "pool": false
+       },
+       {
+        "id": 8484186,
+        "name": "R. Leonard",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 2
+     },
+     {
+      "period": "2e période",
+      "time": "18:17",
+      "scorer": {
+       "id": 8476432,
+       "name": "B. Jenner",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WSH/8476432.png",
+       "team": "WSH",
+       "goalsToDate": 8,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8483491,
+        "name": "I. Miroshnichenko",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 3
+     },
+     {
+      "period": "3e période",
+      "time": "01:59",
+      "scorer": {
+       "id": 8477499,
+       "name": "R. Ristolainen",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8477499.png",
+       "team": "PHI",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8478439,
+        "name": "T. Konecny",
+        "pool": false
+       },
+       {
+        "id": 8482159,
+        "name": "T. Foerster",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 3
+     },
+     {
+      "period": "3e période",
+      "time": "17:01",
+      "scorer": {
+       "id": 8477949,
+       "name": "A. Tuch",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WSH/8477949.png",
+       "team": "WSH",
+       "goalsToDate": 15,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8480043,
+        "name": "T. Liljegren",
+        "pool": false
+       },
+       {
+        "id": 8479345,
+        "name": "J. Chychrun",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 4
+     },
+     {
+      "period": "3e période",
+      "time": "17:38",
+      "scorer": {
+       "id": 8478911,
+       "name": "M. Roy",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WSH/8478911.png",
+       "team": "WSH",
+       "goalsToDate": 2,
+       "pool": false
+      },
+      "assists": [],
+      "awayScore": 2,
+      "homeScore": 5
+     },
+     {
+      "period": "3e période",
+      "time": "18:48",
+      "scorer": {
+       "id": 8483491,
+       "name": "I. Miroshnichenko",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WSH/8483491.png",
+       "team": "WSH",
+       "goalsToDate": 2,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8476432,
+        "name": "B. Jenner",
+        "pool": false
+       },
+       {
+        "id": 8482088,
+        "name": "J. Sourdif",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 6
+     },
+     {
+      "period": "3e période",
+      "time": "19:18",
+      "scorer": {
+       "id": 8483787,
+       "name": "C. Knuble",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8483787.png",
+       "team": "PHI",
+       "goalsToDate": 5,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8485406,
+        "name": "P. Martone",
+        "pool": true
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 6
+     },
+     {
+      "period": "3e période",
+      "time": "19:49",
+      "scorer": {
+       "id": 8478440,
+       "name": "D. Strome",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WSH/8478440.png",
+       "team": "WSH",
+       "goalsToDate": 5,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8480796,
+        "name": "M. Fehérváry",
+        "pool": false
+       },
+       {
+        "id": 8478463,
+        "name": "A. Beauvillier",
+        "pool": false
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 7
+     }
+    ],
+    "goalies": [
+     {
+      "team": "PHI",
+      "id": 8479361,
+      "name": "J. Woll",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/PHI/8479361.png",
+      "decision": "D",
+      "shotsAgainst": 34,
+      "goalsAgainst": 6,
+      "saves": 28,
+      "savePctg": ".824",
+      "pool": false
+     },
+     {
+      "team": "WSH",
+      "id": 8480313,
+      "name": "L. Thompson",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/WSH/8480313.png",
+      "decision": "V",
+      "shotsAgainst": 21,
+      "goalsAgainst": 3,
+      "saves": 18,
+      "savePctg": ".857",
+      "pool": true
+     }
+    ]
+   },
+   {
+    "id": 2026020393,
+    "away": {
+     "abbrev": "NJD",
+     "name": "Devils",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+     "record": "17-8-0",
+     "score": 3,
+     "sog": 26,
+     "color": "#CE1126"
+    },
+    "home": {
+     "abbrev": "CBJ",
+     "name": "Blue Jackets",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg",
+     "record": "9-13-1",
+     "score": 2,
+     "sog": 24,
+     "color": "#002654"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "08:06",
+      "scorer": {
+       "id": 8480002,
+       "name": "N. Hischier",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8480002.png",
+       "team": "NJD",
+       "goalsToDate": 10,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8479407,
+        "name": "J. Bratt",
+        "pool": true
+       },
+       {
+        "id": 8477488,
+        "name": "B. Pesce",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 0
+     },
+     {
+      "period": "2e période",
+      "time": "09:00",
+      "scorer": {
+       "id": 8482705,
+       "name": "C. Sillinger",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8482705.png",
+       "team": "CBJ",
+       "goalsToDate": 5,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8477497,
+        "name": "S. Monahan",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "19:23",
+      "scorer": {
+       "id": 8478542,
+       "name": "E. Rodrigues",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8478542.png",
+       "team": "NJD",
+       "goalsToDate": 8,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8481721,
+        "name": "A. Gritsyuk",
+        "pool": false
+       },
+       {
+        "id": 8476462,
+        "name": "D. Hamilton",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "3e période",
+      "time": "08:48",
+      "scorer": {
+       "id": 8483432,
+       "name": "L. Del Bel Belluz",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8483432.png",
+       "team": "CBJ",
+       "goalsToDate": 1,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482660,
+        "name": "K. Johnson",
+        "pool": false
+       },
+       {
+        "id": 8481161,
+        "name": "J. Christiansen",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 2
+     },
+     {
+      "period": "Tirs de barrage",
+      "time": "00:00",
+      "scorer": {
+       "id": 8481721,
+       "name": "A. Gritsyuk",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8481721.png",
+       "team": "NJD",
+       "goalsToDate": 0,
+       "pool": false
+      },
+      "assists": [],
+      "awayScore": 3,
+      "homeScore": 2
+     }
+    ],
+    "goalies": [
+     {
+      "team": "NJD",
+      "id": 8476945,
+      "name": "C. Hellebuyck",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NJD/8476945.png",
+      "decision": "V",
+      "shotsAgainst": 24,
+      "goalsAgainst": 2,
+      "saves": 22,
+      "savePctg": ".917",
+      "pool": true
+     },
+     {
+      "team": "CBJ",
+      "id": 8475660,
+      "name": "C. Talbot",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8475660.png",
+      "decision": "",
+      "shotsAgainst": 26,
+      "goalsAgainst": 2,
+      "saves": 24,
+      "savePctg": ".923",
+      "pool": false
+     }
+    ]
+   },
+   {
+    "id": 2026020394,
+    "away": {
+     "abbrev": "VAN",
+     "name": "Canucks",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
+     "record": "6-20-1",
+     "score": 1,
+     "sog": 26,
+     "color": "#00205B"
+    },
+    "home": {
+     "abbrev": "DET",
+     "name": "Red Wings",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+     "record": "9-12-3",
+     "score": 5,
+     "sog": 26,
+     "color": "#CE1126"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "01:16",
+      "scorer": {
+       "id": 8484471,
+       "name": "E. Finnie",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484471.png",
+       "team": "DET",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8478042,
+        "name": "V. Arvidsson",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 1
+     },
+     {
+      "period": "1re période",
+      "time": "04:05",
+      "scorer": {
+       "id": 8484471,
+       "name": "E. Finnie",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/DET/8484471.png",
+       "team": "DET",
+       "goalsToDate": 10,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8483464,
+        "name": "M. Kasper",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 2
+     },
+     {
+      "period": "1re période",
+      "time": "19:03",
+      "scorer": {
+       "id": 8482078,
+       "name": "L. Raymond",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/DET/8482078.png",
+       "team": "DET",
+       "goalsToDate": 10,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8481542,
+        "name": "M. Seider",
+        "pool": true
+       },
+       {
+        "id": 8478042,
+        "name": "V. Arvidsson",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 3
+     },
+     {
+      "period": "2e période",
+      "time": "06:24",
+      "scorer": {
+       "id": 8477456,
+       "name": "J. Compher",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/DET/8477456.png",
+       "team": "DET",
+       "goalsToDate": 4,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8484794,
+        "name": "M. Brandsegg-Nygård",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 4
+     },
+     {
+      "period": "3e période",
+      "time": "07:26",
+      "scorer": {
+       "id": 8481032,
+       "name": "P. Cotter",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/VAN/8481032.png",
+       "team": "VAN",
+       "goalsToDate": 5,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8481133,
+        "name": "C. Reinhardt",
+        "pool": false
+       },
+       {
+        "id": 8484901,
+        "name": "J. Quillan",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 4
+     },
+     {
+      "period": "3e période",
+      "time": "08:08",
+      "scorer": {
+       "id": 8478042,
+       "name": "V. Arvidsson",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/DET/8478042.png",
+       "team": "DET",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8481542,
+        "name": "M. Seider",
+        "pool": true
+       },
+       {
+        "id": 8484471,
+        "name": "E. Finnie",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 5
+     }
+    ],
+    "goalies": [
+     {
+      "team": "VAN",
+      "id": 8482447,
+      "name": "L. Meriläinen",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/VAN/8482447.png",
+      "decision": "D",
+      "shotsAgainst": 26,
+      "goalsAgainst": 5,
+      "saves": 21,
+      "savePctg": ".808",
+      "pool": false
+     },
+     {
+      "team": "DET",
+      "id": 8480193,
+      "name": "D. Tarasov",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/DET/8480193.png",
+      "decision": "V",
+      "shotsAgainst": 26,
+      "goalsAgainst": 1,
+      "saves": 25,
+      "savePctg": ".962",
+      "pool": false
+     }
+    ]
+   },
+   {
+    "id": 2026020395,
+    "away": {
+     "abbrev": "NSH",
+     "name": "Predators",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg",
+     "record": "13-6-5",
+     "score": 3,
+     "sog": 27,
+     "color": "#FFB81C"
+    },
+    "home": {
+     "abbrev": "DAL",
+     "name": "Stars",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+     "record": "15-7-2",
+     "score": 1,
+     "sog": 21,
+     "color": "#006847"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "19:02",
+      "scorer": {
+       "id": 8482145,
+       "name": "M. Bourque",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8482145.png",
+       "team": "NSH",
+       "goalsToDate": 1,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8476869,
+        "name": "B. Skjei",
+        "pool": false
+       },
+       {
+        "id": 8475158,
+        "name": "R. O'Reilly",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 0
+     },
+     {
+      "period": "3e période",
+      "time": "18:39",
+      "scorer": {
+       "id": 8479525,
+       "name": "R. Colton",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8479525.png",
+       "team": "NSH",
+       "goalsToDate": 6,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8476887,
+        "name": "F. Forsberg",
+        "pool": true
+       },
+       {
+        "id": 8481593,
+        "name": "J. Struble",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 0
+     },
+     {
+      "period": "3e période",
+      "time": "19:25",
+      "scorer": {
+       "id": 8482740,
+       "name": "W. Johnston",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/DAL/8482740.png",
+       "team": "DAL",
+       "goalsToDate": 8,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8475794,
+        "name": "T. Seguin",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "3e période",
+      "time": "19:45",
+      "scorer": {
+       "id": 8480835,
+       "name": "J. Drury",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8480835.png",
+       "team": "NSH",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8475158,
+        "name": "R. O'Reilly",
+        "pool": false
+       },
+       {
+        "id": 8474600,
+        "name": "R. Josi",
+        "pool": true
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 1
+     }
+    ],
+    "goalies": [
+     {
+      "team": "NSH",
+      "id": 8477424,
+      "name": "J. Saros",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8477424.png",
+      "decision": "V",
+      "shotsAgainst": 21,
+      "goalsAgainst": 1,
+      "saves": 20,
+      "savePctg": ".952",
+      "pool": false
+     },
+     {
+      "team": "DAL",
+      "id": 8479979,
+      "name": "J. Oettinger",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/DAL/8479979.png",
+      "decision": "D",
+      "shotsAgainst": 25,
+      "goalsAgainst": 1,
+      "saves": 24,
+      "savePctg": ".960",
+      "pool": true
+     }
+    ]
+   },
+   {
+    "id": 2026020396,
+    "away": {
+     "abbrev": "UTA",
+     "name": "Mammoth",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg",
+     "record": "13-10-3",
+     "score": 4,
+     "sog": 21,
+     "color": "#6CACE4"
+    },
+    "home": {
+     "abbrev": "MIN",
+     "name": "Wild",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+     "record": "18-4-5",
+     "score": 3,
+     "sog": 25,
+     "color": "#154734"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "06:17",
+      "scorer": {
+       "id": 8478474,
+       "name": "L. Crouse",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/UTA/8478474.png",
+       "team": "UTA",
+       "goalsToDate": 4,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8476389,
+        "name": "V. Trocheck",
+        "pool": false
+       },
+       {
+        "id": 8479369,
+        "name": "A. Peeke",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 0
+     },
+     {
+      "period": "2e période",
+      "time": "02:44",
+      "scorer": {
+       "id": 8483431,
+       "name": "L. Cooley",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/UTA/8483431.png",
+       "team": "UTA",
+       "goalsToDate": 13,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8482699,
+        "name": "D. Guenther",
+        "pool": true
+       },
+       {
+        "id": 8479410,
+        "name": "M. Sergachev",
+        "pool": true
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 0
+     },
+     {
+      "period": "2e période",
+      "time": "05:47",
+      "scorer": {
+       "id": 8481553,
+       "name": "B. Brink",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8481553.png",
+       "team": "MIN",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "06:31",
+      "scorer": {
+       "id": 8484386,
+       "name": "D. Simashev",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/UTA/8484386.png",
+       "team": "UTA",
+       "goalsToDate": 6,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8484388,
+        "name": "D. But",
+        "pool": false
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "08:11",
+      "scorer": {
+       "id": 8476399,
+       "name": "B. Coleman",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8476399.png",
+       "team": "MIN",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8476463,
+        "name": "J. Brodin",
+        "pool": false
+       },
+       {
+        "id": 8477446,
+        "name": "M. McCarron",
+        "pool": false
+       }
+      ],
+      "awayScore": 3,
+      "homeScore": 2
+     },
+     {
+      "period": "2e période",
+      "time": "19:11",
+      "scorer": {
+       "id": 8482699,
+       "name": "D. Guenther",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/UTA/8482699.png",
+       "team": "UTA",
+       "goalsToDate": 7,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8483431,
+        "name": "L. Cooley",
+        "pool": true
+       },
+       {
+        "id": 8475314,
+        "name": "A. Lee",
+        "pool": false
+       }
+      ],
+      "awayScore": 4,
+      "homeScore": 2
+     },
+     {
+      "period": "3e période",
+      "time": "15:56",
+      "scorer": {
+       "id": 8476399,
+       "name": "B. Coleman",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8476399.png",
+       "team": "MIN",
+       "goalsToDate": 10,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8483525,
+        "name": "D. Yurov",
+        "pool": false
+       },
+       {
+        "id": 8478508,
+        "name": "Y. Trenin",
+        "pool": false
+       }
+      ],
+      "awayScore": 4,
+      "homeScore": 3
+     }
+    ],
+    "goalies": [
+     {
+      "team": "UTA",
+      "id": 8478872,
+      "name": "K. Vejmelka",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/UTA/8478872.png",
+      "decision": "V",
+      "shotsAgainst": 25,
+      "goalsAgainst": 3,
+      "saves": 22,
+      "savePctg": ".880",
+      "pool": true
+     },
+     {
+      "team": "MIN",
+      "id": 8482661,
+      "name": "J. Wallstedt",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8482661.png",
+      "decision": "D",
+      "shotsAgainst": 21,
+      "goalsAgainst": 4,
+      "saves": 17,
+      "savePctg": ".810",
+      "pool": true
+     }
+    ]
+   },
+   {
+    "id": 2026020397,
+    "away": {
+     "abbrev": "MTL",
+     "name": "Canadiens",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+     "record": "14-8-4",
+     "score": 0,
+     "sog": 28,
+     "color": "#AF1E2D"
+    },
+    "home": {
+     "abbrev": "COL",
+     "name": "Avalanche",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+     "record": "14-7-3",
+     "score": 6,
+     "sog": 38,
+     "color": "#6F263D"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "09:43",
+      "scorer": {
+       "id": 8481186,
+       "name": "L. O'Connor",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/COL/8481186.png",
+       "team": "COL",
+       "goalsToDate": 1,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8481550,
+        "name": "A. Beckman",
+        "pool": false
+       },
+       {
+        "id": 8484258,
+        "name": "S. Malinski",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 1
+     },
+     {
+      "period": "2e période",
+      "time": "00:30",
+      "scorer": {
+       "id": 8477476,
+       "name": "A. Lehkonen",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/COL/8477476.png",
+       "team": "COL",
+       "goalsToDate": 16,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8480069,
+        "name": "C. Makar",
+        "pool": true
+       },
+       {
+        "id": 8480039,
+        "name": "M. Necas",
+        "pool": true
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 2
+     },
+     {
+      "period": "2e période",
+      "time": "18:21",
+      "scorer": {
+       "id": 8478038,
+       "name": "D. Toews",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/COL/8478038.png",
+       "team": "COL",
+       "goalsToDate": 8,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8486171,
+        "name": "T. Hughes",
+        "pool": false
+       },
+       {
+        "id": 8475754,
+        "name": "B. Nelson",
+        "pool": true
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 3
+     },
+     {
+      "period": "2e période",
+      "time": "19:54",
+      "scorer": {
+       "id": 8478038,
+       "name": "D. Toews",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/COL/8478038.png",
+       "team": "COL",
+       "goalsToDate": 9,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8480069,
+        "name": "C. Makar",
+        "pool": true
+       },
+       {
+        "id": 8486171,
+        "name": "T. Hughes",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 4
+     },
+     {
+      "period": "3e période",
+      "time": "02:09",
+      "scorer": {
+       "id": 8480039,
+       "name": "M. Necas",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/COL/8480039.png",
+       "team": "COL",
+       "goalsToDate": 11,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8477476,
+        "name": "A. Lehkonen",
+        "pool": false
+       },
+       {
+        "id": 8475754,
+        "name": "B. Nelson",
+        "pool": true
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 5
+     },
+     {
+      "period": "3e période",
+      "time": "18:06",
+      "scorer": {
+       "id": 8476455,
+       "name": "G. Landeskog",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/COL/8476455.png",
+       "team": "COL",
+       "goalsToDate": 9,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8480039,
+        "name": "M. Necas",
+        "pool": true
+       },
+       {
+        "id": 8480069,
+        "name": "C. Makar",
+        "pool": true
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 6
+     }
+    ],
+    "goalies": [
+     {
+      "team": "MTL",
+      "id": 8484170,
+      "name": "J. Fowler",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/MTL/8484170.png",
+      "decision": "D",
+      "shotsAgainst": 38,
+      "goalsAgainst": 6,
+      "saves": 32,
+      "savePctg": ".842",
+      "pool": false
+     },
+     {
+      "team": "COL",
+      "id": 8478406,
+      "name": "M. Blackwood",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/COL/8478406.png",
+      "decision": "V",
+      "shotsAgainst": 28,
+      "goalsAgainst": 0,
+      "saves": 28,
+      "savePctg": ".1000",
+      "pool": false
+     }
+    ]
+   },
+   {
+    "id": 2026020399,
+    "away": {
+     "abbrev": "CHI",
+     "name": "Blackhawks",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
+     "record": "9-14-2",
+     "score": 3,
+     "sog": 19,
+     "color": "#CF0A2C"
+    },
+    "home": {
+     "abbrev": "SEA",
+     "name": "Kraken",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
+     "record": "11-10-1",
+     "score": 1,
+     "sog": 30,
+     "color": "#001628"
+    },
+    "goals": [
+     {
+      "period": "3e période",
+      "time": "05:58",
+      "scorer": {
+       "id": 8482062,
+       "name": "C. Smith",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8482062.png",
+       "team": "CHI",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482807,
+        "name": "E. Del Mastro",
+        "pool": false
+       },
+       {
+        "id": 8478413,
+        "name": "J. Greenway",
+        "pool": false
+       }
+      ],
+      "awayScore": 1,
+      "homeScore": 0
+     },
+     {
+      "period": "3e période",
+      "time": "07:32",
+      "scorer": {
+       "id": 8484390,
+       "name": "R. Kantserov",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8484390.png",
+       "team": "CHI",
+       "goalsToDate": 14,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8483506,
+        "name": "S. Rinzel",
+        "pool": false
+       },
+       {
+        "id": 8474141,
+        "name": "P. Kane",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 0
+     },
+     {
+      "period": "3e période",
+      "time": "16:59",
+      "scorer": {
+       "id": 8474586,
+       "name": "J. Eberle",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/SEA/8474586.png",
+       "team": "SEA",
+       "goalsToDate": 7,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8484800,
+        "name": "B. Catton",
+        "pool": false
+       },
+       {
+        "id": 8482665,
+        "name": "M. Beniers",
+        "pool": false
+       }
+      ],
+      "awayScore": 2,
+      "homeScore": 1
+     },
+     {
+      "period": "3e période",
+      "time": "19:40",
+      "scorer": {
+       "id": 8484390,
+       "name": "R. Kantserov",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8484390.png",
+       "team": "CHI",
+       "goalsToDate": 15,
+       "pool": false
+      },
+      "assists": [],
+      "awayScore": 3,
+      "homeScore": 1
+     }
+    ],
+    "goalies": [
+     {
+      "team": "CHI",
+      "id": 8481519,
+      "name": "S. Knight",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8481519.png",
+      "decision": "V",
+      "shotsAgainst": 30,
+      "goalsAgainst": 1,
+      "saves": 29,
+      "savePctg": ".967",
+      "pool": false
+     },
+     {
+      "team": "SEA",
+      "id": 8478916,
+      "name": "J. Daccord",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/SEA/8478916.png",
+      "decision": "D",
+      "shotsAgainst": 18,
+      "goalsAgainst": 2,
+      "saves": 16,
+      "savePctg": ".889",
+      "pool": false
+     }
+    ]
+   },
+   {
+    "id": 2026020398,
+    "away": {
+     "abbrev": "SJS",
+     "name": "Sharks",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+     "record": "11-14-2",
+     "score": 0,
+     "sog": 23,
+     "color": "#006D75"
+    },
+    "home": {
+     "abbrev": "ANA",
+     "name": "Ducks",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+     "record": "12-13-1",
+     "score": 7,
+     "sog": 30,
+     "color": "#F47A38"
+    },
+    "goals": [
+     {
+      "period": "1re période",
+      "time": "13:37",
+      "scorer": {
+       "id": 8481538,
+       "name": "J. Caulfield",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8481538.png",
+       "team": "ANA",
+       "goalsToDate": 5,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482408,
+        "name": "J. Malott",
+        "pool": false
+       },
+       {
+        "id": 8482178,
+        "name": "I. Moore",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 1
+     },
+     {
+      "period": "1re période",
+      "time": "14:07",
+      "scorer": {
+       "id": 8473986,
+       "name": "A. Killorn",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8473986.png",
+       "team": "ANA",
+       "goalsToDate": 4,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8475798,
+        "name": "M. Granlund",
+        "pool": false
+       },
+       {
+        "id": 8481563,
+        "name": "D. Helleson",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 2
+     },
+     {
+      "period": "1re période",
+      "time": "15:17",
+      "scorer": {
+       "id": 8483445,
+       "name": "C. Gauthier",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8483445.png",
+       "team": "ANA",
+       "goalsToDate": 23,
+       "pool": true
+      },
+      "assists": [
+       {
+        "id": 8481605,
+        "name": "J. LaCombe",
+        "pool": true
+       },
+       {
+        "id": 8475798,
+        "name": "M. Granlund",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 3
+     },
+     {
+      "period": "2e période",
+      "time": "10:53",
+      "scorer": {
+       "id": 8482178,
+       "name": "I. Moore",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8482178.png",
+       "team": "ANA",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8485512,
+        "name": "T. Washe",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 4
+     },
+     {
+      "period": "2e période",
+      "time": "12:47",
+      "scorer": {
+       "id": 8485400,
+       "name": "R. McQueen",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8485400.png",
+       "team": "ANA",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8484201,
+        "name": "N. Myatovic",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 5
+     },
+     {
+      "period": "3e période",
+      "time": "10:14",
+      "scorer": {
+       "id": 8478366,
+       "name": "F. Vatrano",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8478366.png",
+       "team": "ANA",
+       "goalsToDate": 3,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8482118,
+        "name": "S. Colangelo",
+        "pool": false
+       },
+       {
+        "id": 8481563,
+        "name": "D. Helleson",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 6
+     },
+     {
+      "period": "3e période",
+      "time": "14:00",
+      "scorer": {
+       "id": 8473986,
+       "name": "A. Killorn",
+       "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8473986.png",
+       "team": "ANA",
+       "goalsToDate": 5,
+       "pool": false
+      },
+      "assists": [
+       {
+        "id": 8475798,
+        "name": "M. Granlund",
+        "pool": false
+       },
+       {
+        "id": 8483490,
+        "name": "P. Mintyukov",
+        "pool": false
+       }
+      ],
+      "awayScore": 0,
+      "homeScore": 7
+     }
+    ],
+    "goalies": [
+     {
+      "team": "SJS",
+      "id": 8477968,
+      "name": "A. Nedeljkovic",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8477968.png",
+      "decision": "D",
+      "shotsAgainst": 30,
+      "goalsAgainst": 7,
+      "saves": 23,
+      "savePctg": ".767",
+      "pool": false
+     },
+     {
+      "team": "ANA",
+      "id": 8476316,
+      "name": "L. Brossoit",
+      "mugshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8476316.png",
+      "decision": "V",
+      "shotsAgainst": 23,
+      "goalsAgainst": 0,
+      "saves": 23,
+      "savePctg": ".1000",
+      "pool": false
+     }
+    ]
+   }
+  ]
+ },
+ "tonight": {
+  "date": "2026-11-27",
+  "label": "Vendredi 27 novembre 2026",
+  "games": [
+   {
+    "away": {
+     "abbrev": "TOR",
+     "name": "Maple Leafs",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+     "record": "9-14-3",
+     "score": null,
+     "sog": null,
+     "color": "#00205B"
+    },
+    "home": {
+     "abbrev": "BOS",
+     "name": "Bruins",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
+     "record": "15-8-1",
+     "score": null,
+     "sog": null,
+     "color": "#FFB81C"
+    },
+    "startTime": "13 h 00",
+    "watch": [
+     "Auston Matthews",
+     "Darren Raddysh",
+     "Jeremy Swayman",
+     "David Pastrnak"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "CGY",
+     "name": "Flames",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+     "record": "11-13-2",
+     "score": null,
+     "sog": null,
+     "color": "#C8102E"
+    },
+    "home": {
+     "abbrev": "NJD",
+     "name": "Devils",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+     "record": "17-8-0",
+     "score": null,
+     "sog": null,
+     "color": "#CE1126"
+    },
+    "startTime": "13 h 00",
+    "watch": [
+     "Simon Nemec",
+     "Jack Hughes",
+     "Connor Hellebuyck"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "UTA",
+     "name": "Mammoth",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg",
+     "record": "13-10-3",
+     "score": null,
+     "sog": null,
+     "color": "#6CACE4"
+    },
+    "home": {
+     "abbrev": "NSH",
+     "name": "Predators",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg",
+     "record": "13-6-5",
+     "score": null,
+     "sog": null,
+     "color": "#FFB81C"
+    },
+    "startTime": "13 h 00",
+    "watch": [
+     "Mikhail Sergachev",
+     "Logan Cooley",
+     "Roman Josi",
+     "Steven Stamkos"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "DAL",
+     "name": "Stars",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+     "record": "15-7-2",
+     "score": null,
+     "sog": null,
+     "color": "#006847"
+    },
+    "home": {
+     "abbrev": "STL",
+     "name": "Blues",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
+     "record": "13-9-3",
+     "score": null,
+     "sog": null,
+     "color": "#002F87"
+    },
+    "startTime": "14 h 00",
+    "watch": [
+     "Jake Oettinger",
+     "Mikko Rantanen",
+     "Joel Hofer",
+     "Philip Broberg"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "OTT",
+     "name": "Senators",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
+     "record": "16-7-3",
+     "score": null,
+     "sog": null,
+     "color": "#C52032"
+    },
+    "home": {
+     "abbrev": "TBL",
+     "name": "Lightning",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+     "record": "15-7-2",
+     "score": null,
+     "sog": null,
+     "color": "#002868"
+    },
+    "startTime": "15 h 00",
+    "watch": [
+     "Linus Ullmark",
+     "Tim Stützle",
+     "John Carlson",
+     "Andrei Vasilevskiy"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "VAN",
+     "name": "Canucks",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
+     "record": "6-20-1",
+     "score": null,
+     "sog": null,
+     "color": "#00205B"
+    },
+    "home": {
+     "abbrev": "PHI",
+     "name": "Flyers",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
+     "record": "9-12-6",
+     "score": null,
+     "sog": null,
+     "color": "#F74902"
+    },
+    "startTime": "15 h 00",
+    "watch": [
+     "Filip Hronek",
+     "Matvei Michkov",
+     "Trevor Zegras"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "FLA",
+     "name": "Panthers",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+     "record": "14-8-3",
+     "score": null,
+     "sog": null,
+     "color": "#C8102E"
+    },
+    "home": {
+     "abbrev": "WSH",
+     "name": "Capitals",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
+     "record": "11-11-0",
+     "score": null,
+     "sog": null,
+     "color": "#C8102E"
+    },
+    "startTime": "15 h 00",
+    "watch": [
+     "Seth Jones",
+     "Matthew Tkachuk",
+     "Cole Hutson",
+     "Jakob Chychrun"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "DET",
+     "name": "Red Wings",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+     "record": "9-12-3",
+     "score": null,
+     "sog": null,
+     "color": "#CE1126"
+    },
+    "home": {
+     "abbrev": "CBJ",
+     "name": "Blue Jackets",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg",
+     "record": "9-13-1",
+     "score": null,
+     "sog": null,
+     "color": "#002654"
+    },
+    "startTime": "15 h 00",
+    "watch": [
+     "Lucas Raymond",
+     "Moritz Seider",
+     "Zach Werenski",
+     "Matthew Knies"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "COL",
+     "name": "Avalanche",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+     "record": "14-7-3",
+     "score": null,
+     "sog": null,
+     "color": "#6F263D"
+    },
+    "home": {
+     "abbrev": "MIN",
+     "name": "Wild",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+     "record": "18-4-5",
+     "score": null,
+     "sog": null,
+     "color": "#154734"
+    },
+    "startTime": "16 h 00",
+    "watch": [
+     "Cale Makar",
+     "Devon Toews",
+     "Quinn Hughes",
+     "Jesper Wallstedt"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "LAK",
+     "name": "Kings",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+     "record": "8-12-2",
+     "score": null,
+     "sog": null,
+     "color": "#111111"
+    },
+    "home": {
+     "abbrev": "ANA",
+     "name": "Ducks",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+     "record": "12-13-1",
+     "score": null,
+     "sog": null,
+     "color": "#F47A38"
+    },
+    "startTime": "16 h 00",
+    "watch": [
+     "Brandt Clarke",
+     "Artemi Panarin",
+     "Jackson LaCombe",
+     "Cutter Gauthier"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "VGK",
+     "name": "Golden Knights",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+     "record": "15-6-5",
+     "score": null,
+     "sog": null,
+     "color": "#B4975A"
+    },
+    "home": {
+     "abbrev": "SJS",
+     "name": "Sharks",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+     "record": "11-14-2",
+     "score": null,
+     "sog": null,
+     "color": "#006D75"
+    },
+    "startTime": "16 h 00",
+    "watch": [
+     "Jack Eichel",
+     "Mark Stone",
+     "Macklin Celebrini",
+     "Will Smith"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "NYR",
+     "name": "Rangers",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg",
+     "record": "13-10-1",
+     "score": null,
+     "sog": null,
+     "color": "#0038A8"
+    },
+    "home": {
+     "abbrev": "CHI",
+     "name": "Blackhawks",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
+     "record": "9-14-2",
+     "score": null,
+     "sog": null,
+     "color": "#CF0A2C"
+    },
+    "startTime": "17 h 30",
+    "watch": [
+     "Adam Fox",
+     "Mika Zibanejad",
+     "Connor Bedard",
+     "Anton Frondell"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "WPG",
+     "name": "Jets",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+     "record": "13-9-4",
+     "score": null,
+     "sog": null,
+     "color": "#041E42"
+    },
+    "home": {
+     "abbrev": "NYI",
+     "name": "Islanders",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
+     "record": "12-7-5",
+     "score": null,
+     "sog": null,
+     "color": "#00539B"
+    },
+    "startTime": "19 h 30",
+    "watch": [
+     "Kyle Connor",
+     "Gabriel Vilardi",
+     "Matthew Schaefer",
+     "Ilya Sorokin"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "PIT",
+     "name": "Penguins",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
+     "record": "7-15-2",
+     "score": null,
+     "sog": null,
+     "color": "#FCB514"
+    },
+    "home": {
+     "abbrev": "BUF",
+     "name": "Sabres",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+     "record": "11-10-4",
+     "score": null,
+     "sog": null,
+     "color": "#003087"
+    },
+    "startTime": "20 h 00",
+    "watch": [
+     "Erik Karlsson",
+     "Evgeni Malkin",
+     "Tage Thompson",
+     "Rasmus Dahlin"
+    ]
+   },
+   {
+    "away": {
+     "abbrev": "SEA",
+     "name": "Kraken",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
+     "record": "11-10-1",
+     "score": null,
+     "sog": null,
+     "color": "#001628"
+    },
+    "home": {
+     "abbrev": "EDM",
+     "name": "Oilers",
+     "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
+     "record": "17-6-4",
+     "score": null,
+     "sog": null,
+     "color": "#FF4C00"
+    },
+    "startTime": "20 h 00",
+    "watch": [
+     "Jared McCann",
+     "Evan Bouchard",
+     "Connor McDavid"
+    ]
+   }
+  ]
+ }
+}
