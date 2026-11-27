@@ -1289,10 +1289,10 @@ th { color: #75828f; }
 #generalView, #advancedView, #statsView, #badgesView, #rulesView, #compareView, #chartView, #lnhView { padding-top: 56px; }
 
 /* --- SECTION LNH (Hier soir & Ce soir) --- */
-.lnh-tabs { display: flex; gap: 6px; justify-content: center; margin-top: 28px; margin-bottom: 14px; }
-.lnh-sec-head { display: flex; align-items: baseline; justify-content: space-between; margin: 18px 2px 8px; }
-.lnh-sec-head h2 { margin: 0; font-size: 1.05rem; font-weight: 800; }
-.lnh-sec-head span { font-size: 0.8rem; color: #75828f; }
+.lnh-top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; margin-top: 28px; margin-bottom: 12px; }
+.lnh-top .lnh-top-date { grid-column: 2; font-size: 0.8rem; color: #75828f; text-align: center; }
+.lnh-top .lnh-tabs { grid-column: 3; justify-self: end; }
+.lnh-tabs { display: flex; gap: 6px; }
 .lnh-game-card { background: rgba(255, 255, 255, 0.28); border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; box-shadow: 0 8px 32px rgba(31,38,135,0.12), inset 0 1px 0 rgba(255,255,255,0.9); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); padding: 0; margin-bottom: 12px; overflow: hidden; }
 .lnh-game-header { all: unset; display: flex; align-items: center; width: 100%; cursor: pointer; position: relative; overflow: hidden; padding: 16px 12px; box-sizing: border-box; }
 .lnh-gh-bg { position: absolute; top: 0; bottom: 0; width: 46%; background-repeat: no-repeat; background-position: center; background-size: 180%; filter: blur(14px); opacity: 0.55; pointer-events: none; }
@@ -1301,7 +1301,7 @@ th { color: #75828f; }
 .lnh-gh-team { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; position: relative; z-index: 1; }
 .lnh-gh-team img { width: 72px; height: 72px; object-fit: contain; background: #ffffff; border-radius: 50%; padding: 5px; box-shadow: 0 0 0 1px rgba(66,85,99,0.12), 0 2px 10px rgba(66,85,99,0.22); }
 .lnh-gh-team b { font-size: 1.25rem; font-weight: 800; color: #1e293b; }
-.lnh-gh-team i { font-style: normal; font-size: 0.8rem; color: #75828f; }
+.lnh-gh-team i { font-style: normal; font-size: 0.8rem; color: #1e293b; font-weight: 700; background: rgba(66,85,99,0.10); padding: 2px 8px; border-radius: 999px; }
 .lnh-gh-score { text-align: center; padding: 0 6px; position: relative; z-index: 1; }
 .lnh-gh-score b { display: block; font-size: 2.5rem; font-weight: 800; color: #1e293b; white-space: nowrap; }
 .lnh-gh-score i { font-style: normal; font-size: 0.78rem; color: #75828f; }
@@ -1338,14 +1338,12 @@ th { color: #75828f; }
 .lnh-tonight-row { display: flex; justify-content: center; position: relative; overflow: hidden; align-items: center; flex-wrap: wrap; gap: 8px; background: rgba(255, 255, 255, 0.28); border: 1px solid rgba(255,255,255,0.7); border-radius: 16px; padding: 10px 12px; margin-bottom: 8px; box-shadow: 0 8px 32px rgba(31,38,135,0.12); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); }
 .lnh-tonight-row .lnh-gh-bg { opacity: 0.35; filter: blur(8px); }
 .lnh-tonight-row > span:not(.lnh-gh-bg), .lnh-tonight-row > div { position: relative; z-index: 1; }
-#lnhCeSoir .lnh-sec-head { justify-content: center; }
 .lnh-tn-team { display: flex; align-items: center; gap: 6px; }
 .lnh-tn-team img { width: 30px; height: 30px; object-fit: contain; }
 .lnh-tn-vs { color: #75828f; }
 .lnh-tn-time { font-weight: 800; }
 .lnh-tn-tag { font-size: 0.7rem; font-weight: 800; background: #425563; color: #fff; border-radius: 999px; padding: 2px 8px; }
-.lnh-tn-watch { flex-basis: 100%; font-size: 0.8rem; color: #75828f; text-align: center; }
-.lnh-note { text-align: center; font-size: 0.78rem; color: #75828f; margin-top: 16px; }
+.lnh-tn-watch { flex-basis: 100%; font-size: 0.8rem; color: #1e293b; font-weight: 700; background: rgba(66,85,99,0.08); border-radius: 10px; padding: 4px 8px; text-align: center; }
 .lnh-empty { text-align: center; color: #75828f; padding: 18px 0; }
 </style>
 </head>
@@ -1560,13 +1558,15 @@ th { color: #75828f; }
 
   <!-- VUE 8 : LNH — HIER SOIR & CE SOIR -->
   <div id="lnhView" style="display:none">
-    <div class="lnh-tabs" id="lnhTabs">
-      <button type="button" class="view-btn active" id="btnLnhHier" onclick="showLnhSection('hier')">Hier</button>
-      <button type="button" class="view-btn" id="btnLnhCeSoir" onclick="showLnhSection('ce-soir')">Ce soir</button>
+    <div class="lnh-top" id="lnhTop">
+      <span class="lnh-top-date" id="lnhDate">Mercredi 25 novembre 2026 · 14 matchs</span>
+      <div class="lnh-tabs" id="lnhTabs">
+        <button type="button" class="view-btn active" id="btnLnhHier" onclick="showLnhSection('hier')">Hier</button>
+        <button type="button" class="view-btn" id="btnLnhCeSoir" onclick="showLnhSection('ce-soir')">Aujourd'hui</button>
+      </div>
     </div>
     <div id="lnhHier"></div>
     <div id="lnhCeSoir" style="display:none"></div>
-    <p class="lnh-note">Joueurs en rouge + étiquette POOL : ils font partie du pool. Touche un match pour replier ou déplier ses buts et ses gardiens.</p>
   </div>
 
 </div>
@@ -2851,6 +2851,8 @@ function lnhToggleGame(btn) {
   if (btn && btn.parentElement) btn.parentElement.classList.toggle('open');
 }
 
+let lnhLabelHier = '';
+let lnhLabelCeSoir = '';
 function showLnhSection(which) {
   const hier = document.getElementById('lnhHier');
   const ceSoir = document.getElementById('lnhCeSoir');
@@ -2860,6 +2862,9 @@ function showLnhSection(which) {
   if (ceSoir) ceSoir.style.display = which === 'ce-soir' ? 'block' : 'none';
   if (bHier) bHier.classList.toggle('active', which === 'hier');
   if (bCeSoir) bCeSoir.classList.toggle('active', which === 'ce-soir');
+  const dEl = document.getElementById('lnhDate');
+  const lab = which === 'hier' ? lnhLabelHier : lnhLabelCeSoir;
+  if (dEl && lab) dEl.textContent = lab;
 }
 
 function renderLnh() {
@@ -2872,10 +2877,12 @@ function renderLnh() {
   const t = data.tonight || {};
   const yGames = y.games || [];
   const tGames = t.games || [];
-  hierEl.innerHTML = '<div class="lnh-sec-head"><h2>Hier soir</h2><span>' + lnhEsc(y.label || '') + ' · ' + yGames.length + ' matchs</span></div>' +
-    (yGames.length ? yGames.map(gm => lnhGameCard(gm, teamInfo)).join('') : '<p class="lnh-empty">Aucun match hier soir.</p>');
-  ceSoirEl.innerHTML = '<div class="lnh-sec-head"><h2>Ce soir</h2><span>' + lnhEsc(t.label || '') + ' · ' + tGames.length + ' matchs</span></div>' +
-    (tGames.length ? tGames.map(gm => lnhTonightRow(gm)).join('') : '<p class="lnh-empty">Aucun match ce soir.</p>');
+  hierEl.innerHTML = (yGames.length ? yGames.map(gm => lnhGameCard(gm, teamInfo)).join('') : '<p class="lnh-empty">Aucun match hier soir.</p>');
+  ceSoirEl.innerHTML = (tGames.length ? tGames.map(gm => lnhTonightRow(gm)).join('') : '<p class="lnh-empty">Aucun match ce soir.</p>');
+  lnhLabelHier = (y.label || '') + ' · ' + yGames.length + ' matchs';
+  lnhLabelCeSoir = (t.label || '') + ' · ' + tGames.length + ' matchs';
+  const dEl = document.getElementById('lnhDate');
+  if (dEl) dEl.textContent = (document.getElementById('btnLnhCeSoir') && document.getElementById('btnLnhCeSoir').classList.contains('active')) ? lnhLabelCeSoir : lnhLabelHier;
 }
 
 async function loadLnhGames() {
